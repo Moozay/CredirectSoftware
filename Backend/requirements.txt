@@ -1,0 +1,10 @@
+#pip install --no-cache-dir -r  requirements.txt
+
+fastapi
+uvicorn
+beanie
+python-decouple
+email-validator
+python-jose[cryptography] 
+passlib[bcrypt]
+python-multipart

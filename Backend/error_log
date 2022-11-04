@@ -1,0 +1,2126 @@
+[2022-10-26 09:40:36 +0000] [35953] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f50a777f910>
+  on_reload: <function OnReload.on_reload at 0x7f50a777fa30>
+  when_ready: <function WhenReady.when_ready at 0x7f50a777fb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f50a777fc70>
+  post_fork: <function Postfork.post_fork at 0x7f50a777fd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f50a777feb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f50a7798040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f50a7798160>
+  pre_exec: <function PreExec.pre_exec at 0x7f50a7798280>
+  pre_request: <function PreRequest.pre_request at 0x7f50a77983a0>
+  post_request: <function PostRequest.post_request at 0x7f50a7798430>
+  child_exit: <function ChildExit.child_exit at 0x7f50a7798550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f50a7798670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f50a7798790>
+  on_exit: <function OnExit.on_exit at 0x7f50a77988b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 09:40:36 +0000] [35953] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 09:40:36 +0000] [35953] [DEBUG] Arbiter booted
+[2022-10-26 09:40:36 +0000] [35953] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (35953)
+[2022-10-26 09:40:36 +0000] [35953] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 09:40:36 +0000] [35959] [INFO] Booting worker with pid: 35959
+[2022-10-26 09:40:36 +0000] [35960] [INFO] Booting worker with pid: 35960
+[2022-10-26 09:40:36 +0000] [35962] [INFO] Booting worker with pid: 35962
+[2022-10-26 09:40:36 +0000] [35953] [DEBUG] 3 workers
+[2022-10-26 09:40:37 +0000] [35962] [INFO] Started server process [35962]
+[2022-10-26 09:40:37 +0000] [35962] [INFO] Waiting for application startup.
+[2022-10-26 09:40:37 +0000] [35960] [INFO] Started server process [35960]
+[2022-10-26 09:40:37 +0000] [35960] [INFO] Waiting for application startup.
+[2022-10-26 09:40:37 +0000] [35959] [INFO] Started server process [35959]
+[2022-10-26 09:40:37 +0000] [35959] [INFO] Waiting for application startup.
+[2022-10-26 09:40:39 +0000] [35960] [INFO] Application startup complete.
+[2022-10-26 09:40:39 +0000] [35962] [INFO] Application startup complete.
+[2022-10-26 09:40:39 +0000] [35959] [INFO] Application startup complete.
+[2022-10-26 09:48:09 +0000] [35953] [INFO] Handling signal: term
+[2022-10-26 09:48:09 +0000] [35959] [INFO] Shutting down
+[2022-10-26 09:48:09 +0000] [35960] [INFO] Shutting down
+[2022-10-26 09:48:09 +0000] [35962] [INFO] Shutting down
+[2022-10-26 09:48:09 +0000] [35959] [INFO] Waiting for application shutdown.
+[2022-10-26 09:48:09 +0000] [35959] [INFO] Application shutdown complete.
+[2022-10-26 09:48:09 +0000] [35960] [INFO] Waiting for application shutdown.
+[2022-10-26 09:48:09 +0000] [35959] [INFO] Finished server process [35959]
+[2022-10-26 09:48:09 +0000] [35960] [INFO] Application shutdown complete.
+[2022-10-26 09:48:09 +0000] [35960] [INFO] Finished server process [35960]
+[2022-10-26 09:48:09 +0000] [35959] [INFO] Worker exiting (pid: 35959)
+[2022-10-26 09:48:09 +0000] [35962] [INFO] Waiting for application shutdown.
+[2022-10-26 09:48:09 +0000] [35962] [INFO] Application shutdown complete.
+[2022-10-26 09:48:09 +0000] [35962] [INFO] Finished server process [35962]
+[2022-10-26 09:48:09 +0000] [35960] [INFO] Worker exiting (pid: 35960)
+[2022-10-26 09:48:09 +0000] [35962] [INFO] Worker exiting (pid: 35962)
+[2022-10-26 09:48:10 +0000] [35953] [INFO] Shutting down: Master
+[2022-10-26 09:48:10 +0000] [36452] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f16b09a7910>
+  on_reload: <function OnReload.on_reload at 0x7f16b09a7a30>
+  when_ready: <function WhenReady.when_ready at 0x7f16b09a7b50>
+  pre_fork: <function Prefork.pre_fork at 0x7f16b09a7c70>
+  post_fork: <function Postfork.post_fork at 0x7f16b09a7d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f16b09a7eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f16b09c0040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f16b09c0160>
+  pre_exec: <function PreExec.pre_exec at 0x7f16b09c0280>
+  pre_request: <function PreRequest.pre_request at 0x7f16b09c03a0>
+  post_request: <function PostRequest.post_request at 0x7f16b09c0430>
+  child_exit: <function ChildExit.child_exit at 0x7f16b09c0550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f16b09c0670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f16b09c0790>
+  on_exit: <function OnExit.on_exit at 0x7f16b09c08b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 09:48:10 +0000] [36452] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 09:48:10 +0000] [36452] [DEBUG] Arbiter booted
+[2022-10-26 09:48:10 +0000] [36452] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (36452)
+[2022-10-26 09:48:10 +0000] [36452] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 09:48:10 +0000] [36459] [INFO] Booting worker with pid: 36459
+[2022-10-26 09:48:10 +0000] [36461] [INFO] Booting worker with pid: 36461
+[2022-10-26 09:48:10 +0000] [36462] [INFO] Booting worker with pid: 36462
+[2022-10-26 09:48:10 +0000] [36452] [DEBUG] 3 workers
+[2022-10-26 09:48:11 +0000] [36461] [INFO] Started server process [36461]
+[2022-10-26 09:48:11 +0000] [36461] [INFO] Waiting for application startup.
+[2022-10-26 09:48:11 +0000] [36459] [INFO] Started server process [36459]
+[2022-10-26 09:48:11 +0000] [36459] [INFO] Waiting for application startup.
+[2022-10-26 09:48:11 +0000] [36462] [INFO] Started server process [36462]
+[2022-10-26 09:48:11 +0000] [36462] [INFO] Waiting for application startup.
+[2022-10-26 09:48:13 +0000] [36462] [INFO] Application startup complete.
+[2022-10-26 09:48:13 +0000] [36459] [INFO] Application startup complete.
+[2022-10-26 09:48:13 +0000] [36461] [INFO] Application startup complete.
+[2022-10-26 10:47:39 +0000] [36452] [INFO] Handling signal: term
+[2022-10-26 10:47:40 +0000] [36461] [INFO] Shutting down
+[2022-10-26 10:47:40 +0000] [36462] [INFO] Shutting down
+[2022-10-26 10:47:40 +0000] [36459] [INFO] Shutting down
+[2022-10-26 10:47:40 +0000] [36462] [INFO] Waiting for application shutdown.
+[2022-10-26 10:47:40 +0000] [36459] [INFO] Waiting for application shutdown.
+[2022-10-26 10:47:40 +0000] [36461] [INFO] Waiting for application shutdown.
+[2022-10-26 10:47:40 +0000] [36459] [INFO] Application shutdown complete.
+[2022-10-26 10:47:40 +0000] [36459] [INFO] Finished server process [36459]
+[2022-10-26 10:47:40 +0000] [36462] [INFO] Application shutdown complete.
+[2022-10-26 10:47:40 +0000] [36461] [INFO] Application shutdown complete.
+[2022-10-26 10:47:40 +0000] [36461] [INFO] Finished server process [36461]
+[2022-10-26 10:47:40 +0000] [36462] [INFO] Finished server process [36462]
+[2022-10-26 10:47:40 +0000] [36462] [INFO] Worker exiting (pid: 36462)
+[2022-10-26 10:47:40 +0000] [36461] [INFO] Worker exiting (pid: 36461)
+[2022-10-26 10:47:40 +0000] [36459] [INFO] Worker exiting (pid: 36459)
+[2022-10-26 10:47:41 +0000] [36452] [INFO] Shutting down: Master
+[2022-10-26 10:47:42 +0000] [40089] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fbd8a293910>
+  on_reload: <function OnReload.on_reload at 0x7fbd8a293a30>
+  when_ready: <function WhenReady.when_ready at 0x7fbd8a293b50>
+  pre_fork: <function Prefork.pre_fork at 0x7fbd8a293c70>
+  post_fork: <function Postfork.post_fork at 0x7fbd8a293d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fbd8a293eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7fbd8a2ac040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fbd8a2ac160>
+  pre_exec: <function PreExec.pre_exec at 0x7fbd8a2ac280>
+  pre_request: <function PreRequest.pre_request at 0x7fbd8a2ac3a0>
+  post_request: <function PostRequest.post_request at 0x7fbd8a2ac430>
+  child_exit: <function ChildExit.child_exit at 0x7fbd8a2ac550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fbd8a2ac670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fbd8a2ac790>
+  on_exit: <function OnExit.on_exit at 0x7fbd8a2ac8b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 10:47:42 +0000] [40089] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:47:42 +0000] [40089] [DEBUG] Arbiter booted
+[2022-10-26 10:47:42 +0000] [40089] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (40089)
+[2022-10-26 10:47:42 +0000] [40089] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 10:47:42 +0000] [40091] [INFO] Booting worker with pid: 40091
+[2022-10-26 10:47:42 +0000] [40092] [INFO] Booting worker with pid: 40092
+[2022-10-26 10:47:42 +0000] [40094] [INFO] Booting worker with pid: 40094
+[2022-10-26 10:47:42 +0000] [40089] [DEBUG] 3 workers
+[2022-10-26 10:47:43 +0000] [40091] [INFO] Started server process [40091]
+[2022-10-26 10:47:43 +0000] [40091] [INFO] Waiting for application startup.
+[2022-10-26 10:47:43 +0000] [40094] [INFO] Started server process [40094]
+[2022-10-26 10:47:43 +0000] [40094] [INFO] Waiting for application startup.
+[2022-10-26 10:47:43 +0000] [40092] [INFO] Started server process [40092]
+[2022-10-26 10:47:43 +0000] [40092] [INFO] Waiting for application startup.
+[2022-10-26 10:47:45 +0000] [40091] [INFO] Application startup complete.
+[2022-10-26 10:47:45 +0000] [40094] [INFO] Application startup complete.
+[2022-10-26 10:47:45 +0000] [40092] [INFO] Application startup complete.
+[2022-10-26 10:52:39 +0000] [40089] [INFO] Handling signal: term
+[2022-10-26 10:52:39 +0000] [40094] [INFO] Shutting down
+[2022-10-26 10:52:39 +0000] [40091] [INFO] Shutting down
+[2022-10-26 10:52:39 +0000] [40092] [INFO] Shutting down
+[2022-10-26 10:52:40 +0000] [40094] [INFO] Waiting for application shutdown.
+[2022-10-26 10:52:40 +0000] [40094] [INFO] Application shutdown complete.
+[2022-10-26 10:52:40 +0000] [40094] [INFO] Finished server process [40094]
+[2022-10-26 10:52:40 +0000] [40091] [INFO] Waiting for application shutdown.
+[2022-10-26 10:52:40 +0000] [40091] [INFO] Application shutdown complete.
+[2022-10-26 10:52:40 +0000] [40091] [INFO] Finished server process [40091]
+[2022-10-26 10:52:40 +0000] [40094] [INFO] Worker exiting (pid: 40094)
+[2022-10-26 10:52:40 +0000] [40091] [INFO] Worker exiting (pid: 40091)
+[2022-10-26 10:52:40 +0000] [40092] [INFO] Waiting for application shutdown.
+[2022-10-26 10:52:40 +0000] [40092] [INFO] Application shutdown complete.
+[2022-10-26 10:52:40 +0000] [40092] [INFO] Finished server process [40092]
+[2022-10-26 10:52:40 +0000] [40092] [INFO] Worker exiting (pid: 40092)
+[2022-10-26 10:52:40 +0000] [40089] [INFO] Shutting down: Master
+[2022-10-26 10:52:41 +0000] [40206] [DEBUG] Current configuration:
+  config: gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fde498e7910>
+  on_reload: <function OnReload.on_reload at 0x7fde498e7a30>
+  when_ready: <function WhenReady.when_ready at 0x7fde498e7b50>
+  pre_fork: <function Prefork.pre_fork at 0x7fde498e7c70>
+  post_fork: <function Postfork.post_fork at 0x7fde498e7d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fde498e7eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7fde49900040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fde49900160>
+  pre_exec: <function PreExec.pre_exec at 0x7fde49900280>
+  pre_request: <function PreRequest.pre_request at 0x7fde499003a0>
+  post_request: <function PostRequest.post_request at 0x7fde49900430>
+  child_exit: <function ChildExit.child_exit at 0x7fde49900550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fde49900670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fde49900790>
+  on_exit: <function OnExit.on_exit at 0x7fde499008b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 10:52:41 +0000] [40206] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:52:41 +0000] [40206] [DEBUG] Arbiter booted
+[2022-10-26 10:52:41 +0000] [40206] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (40206)
+[2022-10-26 10:52:41 +0000] [40206] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 10:52:41 +0000] [40211] [INFO] Booting worker with pid: 40211
+[2022-10-26 10:52:41 +0000] [40212] [INFO] Booting worker with pid: 40212
+[2022-10-26 10:52:41 +0000] [40213] [INFO] Booting worker with pid: 40213
+[2022-10-26 10:52:41 +0000] [40206] [DEBUG] 3 workers
+[2022-10-26 10:52:41 +0000] [40211] [INFO] Started server process [40211]
+[2022-10-26 10:52:41 +0000] [40211] [INFO] Waiting for application startup.
+[2022-10-26 10:52:41 +0000] [40212] [INFO] Started server process [40212]
+[2022-10-26 10:52:41 +0000] [40212] [INFO] Waiting for application startup.
+[2022-10-26 10:52:42 +0000] [40213] [INFO] Started server process [40213]
+[2022-10-26 10:52:42 +0000] [40213] [INFO] Waiting for application startup.
+[2022-10-26 10:52:43 +0000] [40211] [INFO] Application startup complete.
+[2022-10-26 10:52:43 +0000] [40212] [INFO] Application startup complete.
+[2022-10-26 10:52:43 +0000] [40213] [INFO] Application startup complete.
+[2022-10-26 10:53:04 +0000] [40206] [INFO] Handling signal: term
+[2022-10-26 10:53:05 +0000] [40212] [INFO] Shutting down
+[2022-10-26 10:53:05 +0000] [40211] [INFO] Shutting down
+[2022-10-26 10:53:05 +0000] [40213] [INFO] Shutting down
+[2022-10-26 10:53:05 +0000] [40212] [INFO] Waiting for application shutdown.
+[2022-10-26 10:53:05 +0000] [40212] [INFO] Application shutdown complete.
+[2022-10-26 10:53:05 +0000] [40212] [INFO] Finished server process [40212]
+[2022-10-26 10:53:05 +0000] [40211] [INFO] Waiting for application shutdown.
+[2022-10-26 10:53:05 +0000] [40212] [INFO] Worker exiting (pid: 40212)
+[2022-10-26 10:53:05 +0000] [40211] [INFO] Application shutdown complete.
+[2022-10-26 10:53:05 +0000] [40211] [INFO] Finished server process [40211]
+[2022-10-26 10:53:05 +0000] [40211] [INFO] Worker exiting (pid: 40211)
+[2022-10-26 10:53:05 +0000] [40213] [INFO] Waiting for application shutdown.
+[2022-10-26 10:53:05 +0000] [40213] [INFO] Application shutdown complete.
+[2022-10-26 10:53:05 +0000] [40213] [INFO] Finished server process [40213]
+[2022-10-26 10:53:05 +0000] [40213] [INFO] Worker exiting (pid: 40213)
+[2022-10-26 10:53:05 +0000] [40206] [INFO] Shutting down: Master
+[2022-10-26 10:56:09 +0000] [40367] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fd78ae8f910>
+  on_reload: <function OnReload.on_reload at 0x7fd78ae8fa30>
+  when_ready: <function WhenReady.when_ready at 0x7fd78ae8fb50>
+  pre_fork: <function Prefork.pre_fork at 0x7fd78ae8fc70>
+  post_fork: <function Postfork.post_fork at 0x7fd78ae8fd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fd78ae8feb0>
+  worker_int: <function WorkerInt.worker_int at 0x7fd78aeb0040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fd78aeb0160>
+  pre_exec: <function PreExec.pre_exec at 0x7fd78aeb0280>
+  pre_request: <function PreRequest.pre_request at 0x7fd78aeb03a0>
+  post_request: <function PostRequest.post_request at 0x7fd78aeb0430>
+  child_exit: <function ChildExit.child_exit at 0x7fd78aeb0550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fd78aeb0670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fd78aeb0790>
+  on_exit: <function OnExit.on_exit at 0x7fd78aeb08b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 10:56:09 +0000] [40367] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:56:09 +0000] [40367] [DEBUG] Arbiter booted
+[2022-10-26 10:56:09 +0000] [40367] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (40367)
+[2022-10-26 10:56:09 +0000] [40367] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 10:56:09 +0000] [40370] [INFO] Booting worker with pid: 40370
+[2022-10-26 10:56:09 +0000] [40376] [INFO] Booting worker with pid: 40376
+[2022-10-26 10:56:10 +0000] [40377] [INFO] Booting worker with pid: 40377
+[2022-10-26 10:56:10 +0000] [40367] [DEBUG] 3 workers
+[2022-10-26 10:56:10 +0000] [40370] [INFO] Started server process [40370]
+[2022-10-26 10:56:10 +0000] [40370] [INFO] Waiting for application startup.
+[2022-10-26 10:56:10 +0000] [40377] [INFO] Started server process [40377]
+[2022-10-26 10:56:10 +0000] [40377] [INFO] Waiting for application startup.
+[2022-10-26 10:56:10 +0000] [40376] [INFO] Started server process [40376]
+[2022-10-26 10:56:10 +0000] [40376] [INFO] Waiting for application startup.
+[2022-10-26 10:56:12 +0000] [40370] [INFO] Application startup complete.
+[2022-10-26 10:56:12 +0000] [40377] [INFO] Application startup complete.
+[2022-10-26 10:56:12 +0000] [40376] [INFO] Application startup complete.
+[2022-10-26 11:13:59 +0000] [40367] [CRITICAL] WORKER TIMEOUT (pid:40370)
+[2022-10-26 11:13:59 +0000] [40367] [CRITICAL] WORKER TIMEOUT (pid:40376)
+[2022-10-26 11:13:59 +0000] [40367] [WARNING] Worker with pid 40376 was terminated due to signal 6
+[2022-10-26 11:13:59 +0000] [40367] [WARNING] Worker with pid 40370 was terminated due to signal 9
+[2022-10-26 11:13:59 +0000] [40874] [INFO] Booting worker with pid: 40874
+[2022-10-26 11:13:59 +0000] [40875] [INFO] Booting worker with pid: 40875
+[2022-10-26 11:14:00 +0000] [40875] [INFO] Started server process [40875]
+[2022-10-26 11:14:00 +0000] [40874] [INFO] Started server process [40874]
+[2022-10-26 11:14:00 +0000] [40875] [INFO] Waiting for application startup.
+[2022-10-26 11:14:00 +0000] [40874] [INFO] Waiting for application startup.
+[2022-10-26 11:14:02 +0000] [40875] [INFO] Application startup complete.
+[2022-10-26 11:14:02 +0000] [40874] [INFO] Application startup complete.
+[2022-10-26 11:16:35 +0000] [40367] [INFO] Handling signal: term
+[2022-10-26 11:16:35 +0000] [40875] [INFO] Shutting down
+[2022-10-26 11:16:35 +0000] [40874] [INFO] Shutting down
+[2022-10-26 11:16:35 +0000] [40377] [INFO] Shutting down
+[2022-10-26 11:16:35 +0000] [40875] [INFO] Waiting for application shutdown.
+[2022-10-26 11:16:35 +0000] [40874] [INFO] Waiting for application shutdown.
+[2022-10-26 11:16:35 +0000] [40875] [INFO] Application shutdown complete.
+[2022-10-26 11:16:35 +0000] [40875] [INFO] Finished server process [40875]
+[2022-10-26 11:16:35 +0000] [40874] [INFO] Application shutdown complete.
+[2022-10-26 11:16:35 +0000] [40875] [INFO] Worker exiting (pid: 40875)
+[2022-10-26 11:16:35 +0000] [40874] [INFO] Finished server process [40874]
+[2022-10-26 11:16:35 +0000] [40874] [INFO] Worker exiting (pid: 40874)
+[2022-10-26 11:16:35 +0000] [40377] [INFO] Waiting for application shutdown.
+[2022-10-26 11:16:35 +0000] [40377] [INFO] Application shutdown complete.
+[2022-10-26 11:16:35 +0000] [40377] [INFO] Finished server process [40377]
+[2022-10-26 11:16:35 +0000] [40377] [INFO] Worker exiting (pid: 40377)
+[2022-10-26 11:16:36 +0000] [40367] [INFO] Shutting down: Master
+[2022-10-26 11:17:22 +0000] [41058] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f89bf27b910>
+  on_reload: <function OnReload.on_reload at 0x7f89bf27ba30>
+  when_ready: <function WhenReady.when_ready at 0x7f89bf27bb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f89bf27bc70>
+  post_fork: <function Postfork.post_fork at 0x7f89bf27bd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f89bf27beb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f89bf29c040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f89bf29c160>
+  pre_exec: <function PreExec.pre_exec at 0x7f89bf29c280>
+  pre_request: <function PreRequest.pre_request at 0x7f89bf29c3a0>
+  post_request: <function PostRequest.post_request at 0x7f89bf29c430>
+  child_exit: <function ChildExit.child_exit at 0x7f89bf29c550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f89bf29c670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f89bf29c790>
+  on_exit: <function OnExit.on_exit at 0x7f89bf29c8b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 11:17:22 +0000] [41058] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 11:17:22 +0000] [41058] [DEBUG] Arbiter booted
+[2022-10-26 11:17:22 +0000] [41058] [INFO] Listening at: unix:/home/moozay/Documents/CredirectSoftware/Backend/gunicorn.sock (41058)
+[2022-10-26 11:17:22 +0000] [41058] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 11:17:22 +0000] [41062] [INFO] Booting worker with pid: 41062
+[2022-10-26 11:17:22 +0000] [41063] [INFO] Booting worker with pid: 41063
+[2022-10-26 11:17:22 +0000] [41064] [INFO] Booting worker with pid: 41064
+[2022-10-26 11:17:22 +0000] [41058] [DEBUG] 3 workers
+[2022-10-26 11:17:23 +0000] [41062] [INFO] Started server process [41062]
+[2022-10-26 11:17:23 +0000] [41062] [INFO] Waiting for application startup.
+[2022-10-26 11:17:23 +0000] [41063] [INFO] Started server process [41063]
+[2022-10-26 11:17:23 +0000] [41063] [INFO] Waiting for application startup.
+[2022-10-26 11:17:23 +0000] [41064] [INFO] Started server process [41064]
+[2022-10-26 11:17:23 +0000] [41064] [INFO] Waiting for application startup.
+[2022-10-26 11:17:25 +0000] [41063] [INFO] Application startup complete.
+[2022-10-26 11:17:25 +0000] [41062] [INFO] Application startup complete.
+[2022-10-26 11:17:25 +0000] [41064] [INFO] Application startup complete.
+[2022-10-26 11:27:55 +0000] [41062] [INFO] Shutting down
+[2022-10-26 11:27:55 +0000] [41058] [INFO] Handling signal: term
+[2022-10-26 11:27:55 +0000] [41064] [INFO] Shutting down
+[2022-10-26 11:27:55 +0000] [41063] [INFO] Shutting down
+[2022-10-26 11:27:55 +0000] [41062] [INFO] Waiting for application shutdown.
+[2022-10-26 11:27:55 +0000] [41062] [INFO] Application shutdown complete.
+[2022-10-26 11:27:55 +0000] [41062] [INFO] Finished server process [41062]
+[2022-10-26 11:27:55 +0000] [41062] [INFO] Worker exiting (pid: 41062)
+[2022-10-26 11:27:55 +0000] [41064] [INFO] Waiting for application shutdown.
+[2022-10-26 11:27:55 +0000] [41064] [INFO] Application shutdown complete.
+[2022-10-26 11:27:55 +0000] [41064] [INFO] Finished server process [41064]
+[2022-10-26 11:27:55 +0000] [41064] [INFO] Worker exiting (pid: 41064)
+[2022-10-26 11:27:55 +0000] [41063] [INFO] Waiting for application shutdown.
+[2022-10-26 11:27:55 +0000] [41063] [INFO] Application shutdown complete.
+[2022-10-26 11:27:55 +0000] [41063] [INFO] Finished server process [41063]
+[2022-10-26 11:27:55 +0000] [41063] [INFO] Worker exiting (pid: 41063)
+[2022-10-26 11:27:56 +0000] [41058] [INFO] Shutting down: Master
+[2022-10-26 11:27:59 +0000] [41354] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f15b1faf910>
+  on_reload: <function OnReload.on_reload at 0x7f15b1fafa30>
+  when_ready: <function WhenReady.when_ready at 0x7f15b1fafb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f15b1fafc70>
+  post_fork: <function Postfork.post_fork at 0x7f15b1fafd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f15b1fafeb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f15b1fd0040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f15b1fd0160>
+  pre_exec: <function PreExec.pre_exec at 0x7f15b1fd0280>
+  pre_request: <function PreRequest.pre_request at 0x7f15b1fd03a0>
+  post_request: <function PostRequest.post_request at 0x7f15b1fd0430>
+  child_exit: <function ChildExit.child_exit at 0x7f15b1fd0550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f15b1fd0670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f15b1fd0790>
+  on_exit: <function OnExit.on_exit at 0x7f15b1fd08b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 11:27:59 +0000] [41354] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 11:27:59 +0000] [41354] [DEBUG] Arbiter booted
+[2022-10-26 11:27:59 +0000] [41354] [INFO] Listening at: http://0.0.0.0:8000 (41354)
+[2022-10-26 11:27:59 +0000] [41354] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 11:27:59 +0000] [41358] [INFO] Booting worker with pid: 41358
+[2022-10-26 11:27:59 +0000] [41359] [INFO] Booting worker with pid: 41359
+[2022-10-26 11:28:00 +0000] [41360] [INFO] Booting worker with pid: 41360
+[2022-10-26 11:28:00 +0000] [41354] [DEBUG] 3 workers
+[2022-10-26 11:28:00 +0000] [41359] [INFO] Started server process [41359]
+[2022-10-26 11:28:00 +0000] [41359] [INFO] Waiting for application startup.
+[2022-10-26 11:28:01 +0000] [41358] [INFO] Started server process [41358]
+[2022-10-26 11:28:01 +0000] [41358] [INFO] Waiting for application startup.
+[2022-10-26 11:28:01 +0000] [41360] [INFO] Started server process [41360]
+[2022-10-26 11:28:01 +0000] [41360] [INFO] Waiting for application startup.
+[2022-10-26 11:28:02 +0000] [41359] [INFO] Application startup complete.
+[2022-10-26 11:28:02 +0000] [41360] [INFO] Application startup complete.
+[2022-10-26 11:28:02 +0000] [41358] [INFO] Application startup complete.
+[2022-10-26 15:32:34 +0000] [41354] [CRITICAL] WORKER TIMEOUT (pid:41358)
+[2022-10-26 15:32:41 +0000] [41354] [WARNING] Worker with pid 41358 was terminated due to signal 6
+[2022-10-26 15:32:42 +0000] [52785] [INFO] Booting worker with pid: 52785
+[2022-10-26 15:32:51 +0000] [52785] [INFO] Started server process [52785]
+[2022-10-26 15:32:51 +0000] [52785] [INFO] Waiting for application startup.
+[2022-10-26 15:32:53 +0000] [52785] [INFO] Application startup complete.
+[2022-10-26 18:51:36 +0000] [41354] [CRITICAL] WORKER TIMEOUT (pid:41359)
+[2022-10-26 18:51:37 +0000] [41354] [WARNING] Worker with pid 41359 was terminated due to signal 6
+[2022-10-26 18:51:37 +0000] [53865] [INFO] Booting worker with pid: 53865
+[2022-10-26 18:51:39 +0000] [53865] [INFO] Started server process [53865]
+[2022-10-26 18:51:39 +0000] [53865] [INFO] Waiting for application startup.
+[2022-10-26 18:51:41 +0000] [53865] [INFO] Application startup complete.
+[2022-10-26 18:56:56 +0000] [41354] [INFO] Handling signal: term
+[2022-10-26 18:56:56 +0000] [52785] [INFO] Shutting down
+[2022-10-26 18:56:56 +0000] [41360] [INFO] Shutting down
+[2022-10-26 18:56:56 +0000] [53865] [INFO] Shutting down
+[2022-10-26 18:56:56 +0000] [52785] [INFO] Waiting for application shutdown.
+[2022-10-26 18:56:56 +0000] [41360] [INFO] Waiting for application shutdown.
+[2022-10-26 18:56:56 +0000] [52785] [INFO] Application shutdown complete.
+[2022-10-26 18:56:56 +0000] [52785] [INFO] Finished server process [52785]
+[2022-10-26 18:56:56 +0000] [41360] [INFO] Application shutdown complete.
+[2022-10-26 18:56:56 +0000] [41360] [INFO] Finished server process [41360]
+[2022-10-26 18:56:56 +0000] [52785] [INFO] Worker exiting (pid: 52785)
+[2022-10-26 18:56:56 +0000] [41360] [INFO] Worker exiting (pid: 41360)
+[2022-10-26 18:56:56 +0000] [53865] [INFO] Waiting for application shutdown.
+[2022-10-26 18:56:56 +0000] [53865] [INFO] Application shutdown complete.
+[2022-10-26 18:56:56 +0000] [53865] [INFO] Finished server process [53865]
+[2022-10-26 18:56:56 +0000] [53865] [INFO] Worker exiting (pid: 53865)
+[2022-10-26 18:56:58 +0000] [41354] [INFO] Shutting down: Master
+[2022-10-26 18:56:58 +0000] [54010] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f671a72b910>
+  on_reload: <function OnReload.on_reload at 0x7f671a72ba30>
+  when_ready: <function WhenReady.when_ready at 0x7f671a72bb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f671a72bc70>
+  post_fork: <function Postfork.post_fork at 0x7f671a72bd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f671a72beb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f671a74c040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f671a74c160>
+  pre_exec: <function PreExec.pre_exec at 0x7f671a74c280>
+  pre_request: <function PreRequest.pre_request at 0x7f671a74c3a0>
+  post_request: <function PostRequest.post_request at 0x7f671a74c430>
+  child_exit: <function ChildExit.child_exit at 0x7f671a74c550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f671a74c670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f671a74c790>
+  on_exit: <function OnExit.on_exit at 0x7f671a74c8b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 18:56:58 +0000] [54010] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 18:56:58 +0000] [54010] [DEBUG] Arbiter booted
+[2022-10-26 18:56:58 +0000] [54010] [INFO] Listening at: http://0.0.0.0:8000 (54010)
+[2022-10-26 18:56:58 +0000] [54010] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 18:56:58 +0000] [54020] [INFO] Booting worker with pid: 54020
+[2022-10-26 18:56:58 +0000] [54021] [INFO] Booting worker with pid: 54021
+[2022-10-26 18:56:59 +0000] [54022] [INFO] Booting worker with pid: 54022
+[2022-10-26 18:56:59 +0000] [54010] [DEBUG] 3 workers
+[2022-10-26 18:56:59 +0000] [54020] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/app.py", line 6, in <module>
+    from app.core.config import settings
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/core/config.py", line 25, in <module>
+    settings = Settings()
+  File "pydantic/env_settings.py", line 39, in pydantic.env_settings.BaseSettings.__init__
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Settings
+BACKEND_CORS_ORIGINS -> 1
+  invalid or missing URL scheme (type=value_error.url.scheme)
+[2022-10-26 18:56:59 +0000] [54020] [INFO] Worker exiting (pid: 54020)
+[2022-10-26 18:56:59 +0000] [54010] [WARNING] Worker with pid 54021 was terminated due to signal 15
+[2022-10-26 18:56:59 +0000] [54010] [WARNING] Worker with pid 54022 was terminated due to signal 15
+[2022-10-26 18:56:59 +0000] [54010] [INFO] Shutting down: Master
+[2022-10-26 18:56:59 +0000] [54010] [INFO] Reason: Worker failed to boot.
+[2022-10-26 18:57:05 +0000] [54035] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f772ee73910>
+  on_reload: <function OnReload.on_reload at 0x7f772ee73a30>
+  when_ready: <function WhenReady.when_ready at 0x7f772ee73b50>
+  pre_fork: <function Prefork.pre_fork at 0x7f772ee73c70>
+  post_fork: <function Postfork.post_fork at 0x7f772ee73d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f772ee73eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f772ee94040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f772ee94160>
+  pre_exec: <function PreExec.pre_exec at 0x7f772ee94280>
+  pre_request: <function PreRequest.pre_request at 0x7f772ee943a0>
+  post_request: <function PostRequest.post_request at 0x7f772ee94430>
+  child_exit: <function ChildExit.child_exit at 0x7f772ee94550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f772ee94670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f772ee94790>
+  on_exit: <function OnExit.on_exit at 0x7f772ee948b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 18:57:05 +0000] [54035] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 18:57:05 +0000] [54035] [DEBUG] Arbiter booted
+[2022-10-26 18:57:05 +0000] [54035] [INFO] Listening at: http://0.0.0.0:8000 (54035)
+[2022-10-26 18:57:05 +0000] [54035] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 18:57:05 +0000] [54039] [INFO] Booting worker with pid: 54039
+[2022-10-26 18:57:05 +0000] [54040] [INFO] Booting worker with pid: 54040
+[2022-10-26 18:57:05 +0000] [54041] [INFO] Booting worker with pid: 54041
+[2022-10-26 18:57:05 +0000] [54035] [DEBUG] 3 workers
+[2022-10-26 18:57:05 +0000] [54039] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/app.py", line 6, in <module>
+    from app.core.config import settings
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/core/config.py", line 25, in <module>
+    settings = Settings()
+  File "pydantic/env_settings.py", line 39, in pydantic.env_settings.BaseSettings.__init__
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Settings
+BACKEND_CORS_ORIGINS -> 1
+  invalid or missing URL scheme (type=value_error.url.scheme)
+[2022-10-26 18:57:05 +0000] [54039] [INFO] Worker exiting (pid: 54039)
+[2022-10-26 18:57:05 +0000] [54035] [WARNING] Worker with pid 54040 was terminated due to signal 15
+[2022-10-26 18:57:05 +0000] [54035] [WARNING] Worker with pid 54041 was terminated due to signal 15
+[2022-10-26 18:57:05 +0000] [54035] [INFO] Shutting down: Master
+[2022-10-26 18:57:05 +0000] [54035] [INFO] Reason: Worker failed to boot.
+[2022-10-26 18:58:01 +0000] [54061] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f4e9ab8f910>
+  on_reload: <function OnReload.on_reload at 0x7f4e9ab8fa30>
+  when_ready: <function WhenReady.when_ready at 0x7f4e9ab8fb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f4e9ab8fc70>
+  post_fork: <function Postfork.post_fork at 0x7f4e9ab8fd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f4e9ab8feb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f4e9abb0040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f4e9abb0160>
+  pre_exec: <function PreExec.pre_exec at 0x7f4e9abb0280>
+  pre_request: <function PreRequest.pre_request at 0x7f4e9abb03a0>
+  post_request: <function PostRequest.post_request at 0x7f4e9abb0430>
+  child_exit: <function ChildExit.child_exit at 0x7f4e9abb0550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f4e9abb0670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f4e9abb0790>
+  on_exit: <function OnExit.on_exit at 0x7f4e9abb08b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 18:58:01 +0000] [54061] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 18:58:01 +0000] [54061] [DEBUG] Arbiter booted
+[2022-10-26 18:58:01 +0000] [54061] [INFO] Listening at: http://0.0.0.0:8000 (54061)
+[2022-10-26 18:58:01 +0000] [54061] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 18:58:01 +0000] [54065] [INFO] Booting worker with pid: 54065
+[2022-10-26 18:58:01 +0000] [54066] [INFO] Booting worker with pid: 54066
+[2022-10-26 18:58:01 +0000] [54067] [INFO] Booting worker with pid: 54067
+[2022-10-26 18:58:01 +0000] [54061] [DEBUG] 3 workers
+[2022-10-26 18:58:02 +0000] [54065] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/app.py", line 6, in <module>
+    from app.core.config import settings
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/core/config.py", line 25, in <module>
+    settings = Settings()
+  File "pydantic/env_settings.py", line 39, in pydantic.env_settings.BaseSettings.__init__
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Settings
+BACKEND_CORS_ORIGINS -> 1
+  invalid or missing URL scheme (type=value_error.url.scheme)
+[2022-10-26 18:58:02 +0000] [54065] [INFO] Worker exiting (pid: 54065)
+[2022-10-26 18:58:02 +0000] [54066] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/workers.py", line 66, in init_process
+    super(UvicornWorker, self).init_process()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/moozay/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/app.py", line 6, in <module>
+    from app.core.config import settings
+  File "/home/moozay/Documents/CredirectSoftware/Backend/app/core/config.py", line 25, in <module>
+    settings = Settings()
+  File "pydantic/env_settings.py", line 39, in pydantic.env_settings.BaseSettings.__init__
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Settings
+BACKEND_CORS_ORIGINS -> 1
+  invalid or missing URL scheme (type=value_error.url.scheme)
+[2022-10-26 18:58:02 +0000] [54066] [INFO] Worker exiting (pid: 54066)
+[2022-10-26 18:58:02 +0000] [54061] [WARNING] Worker with pid 54067 was terminated due to signal 15
+[2022-10-26 18:58:02 +0000] [54061] [WARNING] Worker with pid 54066 was terminated due to signal 15
+[2022-10-26 18:58:02 +0000] [54061] [INFO] Shutting down: Master
+[2022-10-26 18:58:02 +0000] [54061] [INFO] Reason: Worker failed to boot.
+[2022-10-26 19:29:51 +0000] [54403] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f8ce22c7910>
+  on_reload: <function OnReload.on_reload at 0x7f8ce22c7a30>
+  when_ready: <function WhenReady.when_ready at 0x7f8ce22c7b50>
+  pre_fork: <function Prefork.pre_fork at 0x7f8ce22c7c70>
+  post_fork: <function Postfork.post_fork at 0x7f8ce22c7d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f8ce22c7eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f8ce22e8040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f8ce22e8160>
+  pre_exec: <function PreExec.pre_exec at 0x7f8ce22e8280>
+  pre_request: <function PreRequest.pre_request at 0x7f8ce22e83a0>
+  post_request: <function PostRequest.post_request at 0x7f8ce22e8430>
+  child_exit: <function ChildExit.child_exit at 0x7f8ce22e8550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f8ce22e8670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f8ce22e8790>
+  on_exit: <function OnExit.on_exit at 0x7f8ce22e88b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 19:29:51 +0000] [54403] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 19:29:51 +0000] [54403] [DEBUG] Arbiter booted
+[2022-10-26 19:29:51 +0000] [54403] [INFO] Listening at: http://0.0.0.0:8000 (54403)
+[2022-10-26 19:29:51 +0000] [54403] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 19:29:51 +0000] [54407] [INFO] Booting worker with pid: 54407
+[2022-10-26 19:29:51 +0000] [54408] [INFO] Booting worker with pid: 54408
+[2022-10-26 19:29:52 +0000] [54409] [INFO] Booting worker with pid: 54409
+[2022-10-26 19:29:52 +0000] [54403] [DEBUG] 3 workers
+[2022-10-26 19:29:55 +0000] [54407] [INFO] Started server process [54407]
+[2022-10-26 19:29:55 +0000] [54407] [INFO] Waiting for application startup.
+[2022-10-26 19:29:55 +0000] [54409] [INFO] Started server process [54409]
+[2022-10-26 19:29:55 +0000] [54409] [INFO] Waiting for application startup.
+[2022-10-26 19:29:55 +0000] [54408] [INFO] Started server process [54408]
+[2022-10-26 19:29:55 +0000] [54408] [INFO] Waiting for application startup.
+[2022-10-26 19:29:58 +0000] [54409] [INFO] Application startup complete.
+[2022-10-26 19:29:58 +0000] [54407] [INFO] Application startup complete.
+[2022-10-26 19:29:58 +0000] [54408] [INFO] Application startup complete.
+[2022-10-26 19:32:34 +0000] [54403] [INFO] Handling signal: term
+[2022-10-26 19:32:34 +0000] [54408] [INFO] Shutting down
+[2022-10-26 19:32:34 +0000] [54407] [INFO] Shutting down
+[2022-10-26 19:32:34 +0000] [54409] [INFO] Shutting down
+[2022-10-26 19:32:34 +0000] [54408] [INFO] Waiting for application shutdown.
+[2022-10-26 19:32:34 +0000] [54408] [INFO] Application shutdown complete.
+[2022-10-26 19:32:34 +0000] [54408] [INFO] Finished server process [54408]
+[2022-10-26 19:32:34 +0000] [54408] [INFO] Worker exiting (pid: 54408)
+[2022-10-26 19:32:34 +0000] [54407] [INFO] Waiting for application shutdown.
+[2022-10-26 19:32:34 +0000] [54407] [INFO] Application shutdown complete.
+[2022-10-26 19:32:34 +0000] [54407] [INFO] Finished server process [54407]
+[2022-10-26 19:32:34 +0000] [54407] [INFO] Worker exiting (pid: 54407)
+[2022-10-26 19:32:35 +0000] [54409] [INFO] Waiting for application shutdown.
+[2022-10-26 19:32:35 +0000] [54409] [INFO] Application shutdown complete.
+[2022-10-26 19:32:35 +0000] [54409] [INFO] Finished server process [54409]
+[2022-10-26 19:32:35 +0000] [54409] [INFO] Worker exiting (pid: 54409)
+[2022-10-26 19:32:35 +0000] [54403] [INFO] Shutting down: Master
+[2022-10-26 19:32:50 +0000] [54553] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f8376133910>
+  on_reload: <function OnReload.on_reload at 0x7f8376133a30>
+  when_ready: <function WhenReady.when_ready at 0x7f8376133b50>
+  pre_fork: <function Prefork.pre_fork at 0x7f8376133c70>
+  post_fork: <function Postfork.post_fork at 0x7f8376133d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f8376133eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f8376154040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f8376154160>
+  pre_exec: <function PreExec.pre_exec at 0x7f8376154280>
+  pre_request: <function PreRequest.pre_request at 0x7f83761543a0>
+  post_request: <function PostRequest.post_request at 0x7f8376154430>
+  child_exit: <function ChildExit.child_exit at 0x7f8376154550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f8376154670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f8376154790>
+  on_exit: <function OnExit.on_exit at 0x7f83761548b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-26 19:32:50 +0000] [54553] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 19:32:50 +0000] [54553] [DEBUG] Arbiter booted
+[2022-10-26 19:32:50 +0000] [54553] [INFO] Listening at: http://0.0.0.0:8000 (54553)
+[2022-10-26 19:32:50 +0000] [54553] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-26 19:32:50 +0000] [54555] [INFO] Booting worker with pid: 54555
+[2022-10-26 19:32:50 +0000] [54556] [INFO] Booting worker with pid: 54556
+[2022-10-26 19:32:50 +0000] [54557] [INFO] Booting worker with pid: 54557
+[2022-10-26 19:32:50 +0000] [54553] [DEBUG] 3 workers
+[2022-10-26 19:32:51 +0000] [54555] [INFO] Started server process [54555]
+[2022-10-26 19:32:51 +0000] [54555] [INFO] Waiting for application startup.
+[2022-10-26 19:32:51 +0000] [54556] [INFO] Started server process [54556]
+[2022-10-26 19:32:51 +0000] [54556] [INFO] Waiting for application startup.
+[2022-10-26 19:32:51 +0000] [54557] [INFO] Started server process [54557]
+[2022-10-26 19:32:51 +0000] [54557] [INFO] Waiting for application startup.
+[2022-10-26 19:33:07 +0000] [54556] [INFO] Application startup complete.
+[2022-10-26 19:33:07 +0000] [54557] [INFO] Application startup complete.
+[2022-10-26 19:33:15 +0000] [54555] [INFO] Application startup complete.
+[2022-10-27 08:19:34 +0000] [54553] [CRITICAL] WORKER TIMEOUT (pid:54555)
+[2022-10-27 08:19:36 +0000] [54553] [WARNING] Worker with pid 54555 was terminated due to signal 6
+[2022-10-27 08:19:36 +0000] [55622] [INFO] Booting worker with pid: 55622
+[2022-10-27 08:19:39 +0000] [55622] [INFO] Started server process [55622]
+[2022-10-27 08:19:39 +0000] [55622] [INFO] Waiting for application startup.
+[2022-10-27 08:19:42 +0000] [55622] [INFO] Application startup complete.
+[2022-10-27 12:57:58 +0000] [55622] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:57:58 +0000] [54557] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:57:58 +0000] [54556] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:58:06 +0000] [54556] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:58:07 +0000] [55622] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:58:08 +0000] [55622] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:58:29 +0000] [55622] [WARNING] Invalid HTTP request received.
+[2022-10-27 12:58:29 +0000] [54556] [WARNING] Invalid HTTP request received.
+[2022-10-27 13:05:02 +0000] [54557] [WARNING] Invalid HTTP request received.
+[2022-10-27 13:05:02 +0000] [54556] [WARNING] Invalid HTTP request received.
+[2022-10-27 13:14:00 +0000] [54557] [INFO] Shutting down
+[2022-10-27 13:14:00 +0000] [55622] [INFO] Shutting down
+[2022-10-27 13:14:00 +0000] [54556] [INFO] Shutting down
+[2022-10-27 13:14:00 +0000] [54553] [INFO] Handling signal: term
+[2022-10-27 13:14:00 +0000] [54557] [INFO] Waiting for application shutdown.
+[2022-10-27 13:14:00 +0000] [55622] [INFO] Waiting for application shutdown.
+[2022-10-27 13:14:00 +0000] [55622] [INFO] Application shutdown complete.
+[2022-10-27 13:14:00 +0000] [55622] [INFO] Finished server process [55622]
+[2022-10-27 13:14:00 +0000] [54557] [INFO] Application shutdown complete.
+[2022-10-27 13:14:00 +0000] [54556] [INFO] Waiting for application shutdown.
+[2022-10-27 13:14:00 +0000] [54557] [INFO] Finished server process [54557]
+[2022-10-27 13:14:00 +0000] [54556] [INFO] Application shutdown complete.
+[2022-10-27 13:14:00 +0000] [55622] [INFO] Worker exiting (pid: 55622)
+[2022-10-27 13:14:00 +0000] [54556] [INFO] Finished server process [54556]
+[2022-10-27 13:14:00 +0000] [54557] [INFO] Worker exiting (pid: 54557)
+[2022-10-27 13:14:00 +0000] [54556] [INFO] Worker exiting (pid: 54556)
+[2022-10-27 13:14:03 +0000] [54553] [INFO] Shutting down: Master
+[2022-10-28 11:47:08 +0000] [63873] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f1ce36db910>
+  on_reload: <function OnReload.on_reload at 0x7f1ce36dba30>
+  when_ready: <function WhenReady.when_ready at 0x7f1ce36dbb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f1ce36dbc70>
+  post_fork: <function Postfork.post_fork at 0x7f1ce36dbd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f1ce36dbeb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f1ce36fc040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f1ce36fc160>
+  pre_exec: <function PreExec.pre_exec at 0x7f1ce36fc280>
+  pre_request: <function PreRequest.pre_request at 0x7f1ce36fc3a0>
+  post_request: <function PostRequest.post_request at 0x7f1ce36fc430>
+  child_exit: <function ChildExit.child_exit at 0x7f1ce36fc550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f1ce36fc670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f1ce36fc790>
+  on_exit: <function OnExit.on_exit at 0x7f1ce36fc8b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-28 11:47:08 +0000] [63873] [INFO] Starting gunicorn 20.1.0
+[2022-10-28 11:47:08 +0000] [63873] [DEBUG] Arbiter booted
+[2022-10-28 11:47:08 +0000] [63873] [INFO] Listening at: http://0.0.0.0:8000 (63873)
+[2022-10-28 11:47:08 +0000] [63873] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-28 11:47:08 +0000] [63877] [INFO] Booting worker with pid: 63877
+[2022-10-28 11:47:09 +0000] [63879] [INFO] Booting worker with pid: 63879
+[2022-10-28 11:47:09 +0000] [63880] [INFO] Booting worker with pid: 63880
+[2022-10-28 11:47:09 +0000] [63873] [DEBUG] 3 workers
+[2022-10-28 11:47:10 +0000] [63879] [INFO] Started server process [63879]
+[2022-10-28 11:47:10 +0000] [63879] [INFO] Waiting for application startup.
+[2022-10-28 11:47:10 +0000] [63880] [INFO] Started server process [63880]
+[2022-10-28 11:47:10 +0000] [63880] [INFO] Waiting for application startup.
+[2022-10-28 11:47:10 +0000] [63877] [INFO] Started server process [63877]
+[2022-10-28 11:47:10 +0000] [63877] [INFO] Waiting for application startup.
+[2022-10-28 11:47:12 +0000] [63877] [INFO] Application startup complete.
+[2022-10-28 11:47:12 +0000] [63879] [INFO] Application startup complete.
+[2022-10-28 11:47:12 +0000] [63880] [INFO] Application startup complete.
+[2022-10-28 11:55:10 +0000] [63877] [INFO] Shutting down
+[2022-10-28 11:55:10 +0000] [63879] [INFO] Shutting down
+[2022-10-28 11:55:10 +0000] [63880] [INFO] Shutting down
+[2022-10-28 11:55:10 +0000] [63873] [INFO] Handling signal: term
+[2022-10-28 11:55:10 +0000] [63879] [INFO] Waiting for application shutdown.
+[2022-10-28 11:55:10 +0000] [63879] [INFO] Application shutdown complete.
+[2022-10-28 11:55:10 +0000] [63879] [INFO] Finished server process [63879]
+[2022-10-28 11:55:10 +0000] [63877] [INFO] Waiting for application shutdown.
+[2022-10-28 11:55:10 +0000] [63880] [INFO] Waiting for application shutdown.
+[2022-10-28 11:55:10 +0000] [63880] [INFO] Application shutdown complete.
+[2022-10-28 11:55:10 +0000] [63877] [INFO] Application shutdown complete.
+[2022-10-28 11:55:10 +0000] [63880] [INFO] Finished server process [63880]
+[2022-10-28 11:55:10 +0000] [63877] [INFO] Finished server process [63877]
+[2022-10-28 11:55:10 +0000] [63879] [INFO] Worker exiting (pid: 63879)
+[2022-10-28 11:55:10 +0000] [63877] [INFO] Worker exiting (pid: 63877)
+[2022-10-28 11:55:10 +0000] [63880] [INFO] Worker exiting (pid: 63880)
+[2022-10-28 11:55:11 +0000] [63873] [INFO] Shutting down: Master
+[2022-10-28 11:55:15 +0000] [64687] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f82f61db910>
+  on_reload: <function OnReload.on_reload at 0x7f82f61dba30>
+  when_ready: <function WhenReady.when_ready at 0x7f82f61dbb50>
+  pre_fork: <function Prefork.pre_fork at 0x7f82f61dbc70>
+  post_fork: <function Postfork.post_fork at 0x7f82f61dbd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f82f61dbeb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f82f61fc040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f82f61fc160>
+  pre_exec: <function PreExec.pre_exec at 0x7f82f61fc280>
+  pre_request: <function PreRequest.pre_request at 0x7f82f61fc3a0>
+  post_request: <function PostRequest.post_request at 0x7f82f61fc430>
+  child_exit: <function ChildExit.child_exit at 0x7f82f61fc550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f82f61fc670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f82f61fc790>
+  on_exit: <function OnExit.on_exit at 0x7f82f61fc8b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-10-28 11:55:15 +0000] [64687] [INFO] Starting gunicorn 20.1.0
+[2022-10-28 11:55:15 +0000] [64687] [DEBUG] Arbiter booted
+[2022-10-28 11:55:15 +0000] [64687] [INFO] Listening at: http://0.0.0.0:8000 (64687)
+[2022-10-28 11:55:15 +0000] [64687] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-10-28 11:55:15 +0000] [64689] [INFO] Booting worker with pid: 64689
+[2022-10-28 11:55:15 +0000] [64690] [INFO] Booting worker with pid: 64690
+[2022-10-28 11:55:15 +0000] [64691] [INFO] Booting worker with pid: 64691
+[2022-10-28 11:55:15 +0000] [64687] [DEBUG] 3 workers
+[2022-10-28 11:55:16 +0000] [64689] [INFO] Started server process [64689]
+[2022-10-28 11:55:16 +0000] [64689] [INFO] Waiting for application startup.
+[2022-10-28 11:55:17 +0000] [64690] [INFO] Started server process [64690]
+[2022-10-28 11:55:17 +0000] [64690] [INFO] Waiting for application startup.
+[2022-10-28 11:55:17 +0000] [64691] [INFO] Started server process [64691]
+[2022-10-28 11:55:17 +0000] [64691] [INFO] Waiting for application startup.
+[2022-10-28 11:55:18 +0000] [64689] [INFO] Application startup complete.
+[2022-10-28 11:55:18 +0000] [64690] [INFO] Application startup complete.
+[2022-10-28 11:55:18 +0000] [64691] [INFO] Application startup complete.
+[2022-10-31 08:29:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64689)
+[2022-10-31 08:29:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64690)
+[2022-10-31 08:29:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64691)
+[2022-10-31 08:29:23 +0000] [64687] [WARNING] Worker with pid 64691 was terminated due to signal 9
+[2022-10-31 08:29:23 +0000] [64687] [WARNING] Worker with pid 64690 was terminated due to signal 9
+[2022-10-31 08:29:23 +0000] [64687] [WARNING] Worker with pid 64689 was terminated due to signal 9
+[2022-10-31 08:29:24 +0000] [64925] [INFO] Booting worker with pid: 64925
+[2022-10-31 08:29:24 +0000] [64941] [INFO] Booting worker with pid: 64941
+[2022-10-31 08:29:24 +0000] [64944] [INFO] Booting worker with pid: 64944
+[2022-10-31 08:29:28 +0000] [64944] [INFO] Started server process [64944]
+[2022-10-31 08:29:28 +0000] [64944] [INFO] Waiting for application startup.
+[2022-10-31 08:29:28 +0000] [64941] [INFO] Started server process [64941]
+[2022-10-31 08:29:28 +0000] [64941] [INFO] Waiting for application startup.
+[2022-10-31 08:29:28 +0000] [64925] [INFO] Started server process [64925]
+[2022-10-31 08:29:28 +0000] [64925] [INFO] Waiting for application startup.
+[2022-10-31 08:29:29 +0000] [64925] [INFO] Application startup complete.
+[2022-10-31 08:29:29 +0000] [64944] [INFO] Application startup complete.
+[2022-10-31 08:29:30 +0000] [64941] [INFO] Application startup complete.
+[2022-11-02 10:59:42 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64925)
+[2022-11-02 10:59:42 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64941)
+[2022-11-02 10:59:43 +0000] [64687] [WARNING] Worker with pid 64925 was terminated due to signal 6
+[2022-11-02 10:59:43 +0000] [64687] [WARNING] Worker with pid 64941 was terminated due to signal 9
+[2022-11-02 10:59:43 +0000] [66986] [INFO] Booting worker with pid: 66986
+[2022-11-02 10:59:43 +0000] [66987] [INFO] Booting worker with pid: 66987
+[2022-11-02 10:59:45 +0000] [66986] [INFO] Started server process [66986]
+[2022-11-02 10:59:45 +0000] [66986] [INFO] Waiting for application startup.
+[2022-11-02 10:59:45 +0000] [66987] [INFO] Started server process [66987]
+[2022-11-02 10:59:45 +0000] [66987] [INFO] Waiting for application startup.
+[2022-11-02 10:59:46 +0000] [66986] [INFO] Application startup complete.
+[2022-11-02 10:59:46 +0000] [66987] [INFO] Application startup complete.
+[2022-11-02 11:12:26 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:66987)
+[2022-11-02 11:12:26 +0000] [64687] [WARNING] Worker with pid 66987 was terminated due to signal 6
+[2022-11-02 11:12:26 +0000] [68306] [INFO] Booting worker with pid: 68306
+[2022-11-02 11:12:27 +0000] [68306] [INFO] Started server process [68306]
+[2022-11-02 11:12:27 +0000] [68306] [INFO] Waiting for application startup.
+[2022-11-02 11:12:28 +0000] [68306] [INFO] Application startup complete.
+[2022-11-02 12:02:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:64944)
+[2022-11-02 12:02:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:66986)
+[2022-11-02 12:02:22 +0000] [64687] [CRITICAL] WORKER TIMEOUT (pid:68306)
+[2022-11-02 12:02:22 +0000] [64687] [WARNING] Worker with pid 64944 was terminated due to signal 6
+[2022-11-02 12:02:22 +0000] [69189] [INFO] Booting worker with pid: 69189
+[2022-11-02 12:02:22 +0000] [64687] [WARNING] Worker with pid 66986 was terminated due to signal 9
+[2022-11-02 12:02:22 +0000] [64687] [WARNING] Worker with pid 68306 was terminated due to signal 9
+[2022-11-02 12:02:22 +0000] [64687] [DEBUG] 1 workers
+[2022-11-02 12:02:22 +0000] [69190] [INFO] Booting worker with pid: 69190
+[2022-11-02 12:02:22 +0000] [69191] [INFO] Booting worker with pid: 69191
+[2022-11-02 12:02:22 +0000] [64687] [DEBUG] 3 workers
+[2022-11-02 12:02:23 +0000] [69189] [INFO] Started server process [69189]
+[2022-11-02 12:02:23 +0000] [69189] [INFO] Waiting for application startup.
+[2022-11-02 12:02:23 +0000] [69190] [INFO] Started server process [69190]
+[2022-11-02 12:02:23 +0000] [69190] [INFO] Waiting for application startup.
+[2022-11-02 12:02:23 +0000] [69191] [INFO] Started server process [69191]
+[2022-11-02 12:02:23 +0000] [69191] [INFO] Waiting for application startup.
+[2022-11-02 12:02:24 +0000] [69191] [INFO] Application startup complete.
+[2022-11-02 12:02:25 +0000] [69189] [INFO] Application startup complete.
+[2022-11-02 12:02:25 +0000] [69190] [INFO] Application startup complete.
+[2022-11-02 14:21:36 +0000] [69189] [INFO] Shutting down
+[2022-11-02 14:21:36 +0000] [64687] [INFO] Handling signal: term
+[2022-11-02 14:21:36 +0000] [69190] [INFO] Shutting down
+[2022-11-02 14:21:36 +0000] [69191] [INFO] Shutting down
+[2022-11-02 14:21:36 +0000] [69189] [INFO] Waiting for application shutdown.
+[2022-11-02 14:21:36 +0000] [69190] [INFO] Waiting for application shutdown.
+[2022-11-02 14:21:36 +0000] [69191] [INFO] Waiting for application shutdown.
+[2022-11-02 14:21:36 +0000] [69191] [INFO] Application shutdown complete.
+[2022-11-02 14:21:36 +0000] [69189] [INFO] Application shutdown complete.
+[2022-11-02 14:21:36 +0000] [69190] [INFO] Application shutdown complete.
+[2022-11-02 14:21:36 +0000] [69191] [INFO] Finished server process [69191]
+[2022-11-02 14:21:36 +0000] [69189] [INFO] Finished server process [69189]
+[2022-11-02 14:21:36 +0000] [69190] [INFO] Finished server process [69190]
+[2022-11-02 14:21:36 +0000] [69191] [INFO] Worker exiting (pid: 69191)
+[2022-11-02 14:21:36 +0000] [69190] [INFO] Worker exiting (pid: 69190)
+[2022-11-02 14:21:36 +0000] [69189] [INFO] Worker exiting (pid: 69189)
+[2022-11-02 14:21:38 +0000] [64687] [INFO] Shutting down: Master
+[2022-11-02 14:21:52 +0000] [71453] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f26d3bf3910>
+  on_reload: <function OnReload.on_reload at 0x7f26d3bf3a30>
+  when_ready: <function WhenReady.when_ready at 0x7f26d3bf3b50>
+  pre_fork: <function Prefork.pre_fork at 0x7f26d3bf3c70>
+  post_fork: <function Postfork.post_fork at 0x7f26d3bf3d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f26d3bf3eb0>
+  worker_int: <function WorkerInt.worker_int at 0x7f26d3c14040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f26d3c14160>
+  pre_exec: <function PreExec.pre_exec at 0x7f26d3c14280>
+  pre_request: <function PreRequest.pre_request at 0x7f26d3c143a0>
+  post_request: <function PostRequest.post_request at 0x7f26d3c14430>
+  child_exit: <function ChildExit.child_exit at 0x7f26d3c14550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f26d3c14670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f26d3c14790>
+  on_exit: <function OnExit.on_exit at 0x7f26d3c148b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-02 14:21:52 +0000] [71453] [INFO] Starting gunicorn 20.1.0
+[2022-11-02 14:21:52 +0000] [71453] [DEBUG] Arbiter booted
+[2022-11-02 14:21:52 +0000] [71453] [INFO] Listening at: http://0.0.0.0:8000 (71453)
+[2022-11-02 14:21:52 +0000] [71453] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-02 14:21:52 +0000] [71455] [INFO] Booting worker with pid: 71455
+[2022-11-02 14:21:52 +0000] [71456] [INFO] Booting worker with pid: 71456
+[2022-11-02 14:21:52 +0000] [71457] [INFO] Booting worker with pid: 71457
+[2022-11-02 14:21:52 +0000] [71453] [DEBUG] 3 workers
+[2022-11-02 14:21:53 +0000] [71457] [INFO] Started server process [71457]
+[2022-11-02 14:21:53 +0000] [71457] [INFO] Waiting for application startup.
+[2022-11-02 14:21:53 +0000] [71455] [INFO] Started server process [71455]
+[2022-11-02 14:21:53 +0000] [71455] [INFO] Waiting for application startup.
+[2022-11-02 14:21:53 +0000] [71456] [INFO] Started server process [71456]
+[2022-11-02 14:21:53 +0000] [71456] [INFO] Waiting for application startup.
+[2022-11-02 14:21:54 +0000] [71455] [INFO] Application startup complete.
+[2022-11-02 14:21:54 +0000] [71457] [INFO] Application startup complete.
+[2022-11-02 14:21:54 +0000] [71456] [INFO] Application startup complete.
+[2022-11-02 14:23:25 +0000] [71453] [INFO] Handling signal: term
+[2022-11-02 14:23:25 +0000] [71456] [INFO] Shutting down
+[2022-11-02 14:23:25 +0000] [71457] [INFO] Shutting down
+[2022-11-02 14:23:25 +0000] [71455] [INFO] Shutting down
+[2022-11-02 14:23:25 +0000] [71457] [INFO] Waiting for application shutdown.
+[2022-11-02 14:23:25 +0000] [71455] [INFO] Waiting for application shutdown.
+[2022-11-02 14:23:25 +0000] [71457] [INFO] Application shutdown complete.
+[2022-11-02 14:23:25 +0000] [71455] [INFO] Application shutdown complete.
+[2022-11-02 14:23:25 +0000] [71457] [INFO] Finished server process [71457]
+[2022-11-02 14:23:25 +0000] [71455] [INFO] Finished server process [71455]
+[2022-11-02 14:23:25 +0000] [71456] [INFO] Waiting for application shutdown.
+[2022-11-02 14:23:25 +0000] [71456] [INFO] Application shutdown complete.
+[2022-11-02 14:23:25 +0000] [71456] [INFO] Finished server process [71456]
+[2022-11-02 14:23:25 +0000] [71455] [INFO] Worker exiting (pid: 71455)
+[2022-11-02 14:23:25 +0000] [71456] [INFO] Worker exiting (pid: 71456)
+[2022-11-02 14:23:25 +0000] [71457] [INFO] Worker exiting (pid: 71457)
+[2022-11-02 14:23:26 +0000] [71453] [INFO] Shutting down: Master
+[2022-11-02 14:23:30 +0000] [71685] [DEBUG] Current configuration:
+  config: /home/moozay/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 3
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/moozay/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/moozay/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/moozay/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fefcb47f910>
+  on_reload: <function OnReload.on_reload at 0x7fefcb47fa30>
+  when_ready: <function WhenReady.when_ready at 0x7fefcb47fb50>
+  pre_fork: <function Prefork.pre_fork at 0x7fefcb47fc70>
+  post_fork: <function Postfork.post_fork at 0x7fefcb47fd90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fefcb47feb0>
+  worker_int: <function WorkerInt.worker_int at 0x7fefcb4a0040>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fefcb4a0160>
+  pre_exec: <function PreExec.pre_exec at 0x7fefcb4a0280>
+  pre_request: <function PreRequest.pre_request at 0x7fefcb4a03a0>
+  post_request: <function PostRequest.post_request at 0x7fefcb4a0430>
+  child_exit: <function ChildExit.child_exit at 0x7fefcb4a0550>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fefcb4a0670>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fefcb4a0790>
+  on_exit: <function OnExit.on_exit at 0x7fefcb4a08b0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-02 14:23:30 +0000] [71685] [INFO] Starting gunicorn 20.1.0
+[2022-11-02 14:23:30 +0000] [71685] [DEBUG] Arbiter booted
+[2022-11-02 14:23:30 +0000] [71685] [INFO] Listening at: http://0.0.0.0:8000 (71685)
+[2022-11-02 14:23:30 +0000] [71685] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-02 14:23:30 +0000] [71687] [INFO] Booting worker with pid: 71687
+[2022-11-02 14:23:30 +0000] [71688] [INFO] Booting worker with pid: 71688
+[2022-11-02 14:23:30 +0000] [71689] [INFO] Booting worker with pid: 71689
+[2022-11-02 14:23:30 +0000] [71685] [DEBUG] 3 workers
+[2022-11-02 14:23:31 +0000] [71689] [INFO] Started server process [71689]
+[2022-11-02 14:23:31 +0000] [71689] [INFO] Waiting for application startup.
+[2022-11-02 14:23:32 +0000] [71688] [INFO] Started server process [71688]
+[2022-11-02 14:23:32 +0000] [71688] [INFO] Waiting for application startup.
+[2022-11-02 14:23:32 +0000] [71687] [INFO] Started server process [71687]
+[2022-11-02 14:23:32 +0000] [71687] [INFO] Waiting for application startup.
+[2022-11-02 14:23:33 +0000] [71687] [INFO] Application startup complete.
+[2022-11-02 14:23:33 +0000] [71689] [INFO] Application startup complete.
+[2022-11-02 14:23:33 +0000] [71688] [INFO] Application startup complete.
+[2022-11-02 22:50:41 +0000] [71685] [CRITICAL] WORKER TIMEOUT (pid:71687)
+[2022-11-02 22:50:41 +0000] [71685] [CRITICAL] WORKER TIMEOUT (pid:71688)
+[2022-11-02 22:50:41 +0000] [71685] [CRITICAL] WORKER TIMEOUT (pid:71689)
+[2022-11-02 22:50:41 +0000] [71685] [WARNING] Worker with pid 71689 was terminated due to signal 6
+[2022-11-02 22:50:41 +0000] [71685] [WARNING] Worker with pid 71688 was terminated due to signal 6
+[2022-11-02 22:50:41 +0000] [71685] [WARNING] Worker with pid 71687 was terminated due to signal 6
+[2022-11-02 22:50:41 +0000] [73014] [INFO] Booting worker with pid: 73014
+[2022-11-02 22:50:41 +0000] [73015] [INFO] Booting worker with pid: 73015
+[2022-11-02 22:50:41 +0000] [73016] [INFO] Booting worker with pid: 73016
+[2022-11-02 22:50:42 +0000] [73015] [INFO] Started server process [73015]
+[2022-11-02 22:50:42 +0000] [73015] [INFO] Waiting for application startup.
+[2022-11-02 22:50:42 +0000] [73016] [INFO] Started server process [73016]
+[2022-11-02 22:50:42 +0000] [73016] [INFO] Waiting for application startup.
+[2022-11-02 22:50:43 +0000] [73014] [INFO] Started server process [73014]
+[2022-11-02 22:50:43 +0000] [73014] [INFO] Waiting for application startup.
+[2022-11-02 22:50:55 +0000] [73015] [INFO] Application startup complete.
+[2022-11-02 22:50:55 +0000] [73014] [INFO] Application startup complete.
+[2022-11-02 22:50:55 +0000] [73016] [INFO] Application startup complete.
+[2022-11-03 08:51:40 +0000] [71685] [CRITICAL] WORKER TIMEOUT (pid:73014)
+[2022-11-03 08:51:40 +0000] [71685] [CRITICAL] WORKER TIMEOUT (pid:73016)
+[2022-11-03 08:51:41 +0000] [71685] [WARNING] Worker with pid 73014 was terminated due to signal 6
+[2022-11-03 08:51:41 +0000] [71685] [WARNING] Worker with pid 73016 was terminated due to signal 9
+[2022-11-03 08:51:41 +0000] [71685] [DEBUG] 2 workers
+[2022-11-03 08:51:41 +0000] [73754] [INFO] Booting worker with pid: 73754
+[2022-11-03 08:51:41 +0000] [73762] [INFO] Booting worker with pid: 73762
+[2022-11-03 08:51:41 +0000] [71685] [DEBUG] 3 workers
+[2022-11-03 08:51:45 +0000] [73754] [INFO] Started server process [73754]
+[2022-11-03 08:51:45 +0000] [73754] [INFO] Waiting for application startup.
+[2022-11-03 08:51:45 +0000] [73762] [INFO] Started server process [73762]
+[2022-11-03 08:51:45 +0000] [73762] [INFO] Waiting for application startup.
+[2022-11-03 08:51:46 +0000] [73762] [INFO] Application startup complete.
+[2022-11-03 08:51:47 +0000] [73754] [INFO] Application startup complete.
+[2022-11-03 08:53:49 +0000] [71685] [INFO] Handling signal: term
+[2022-11-03 08:53:49 +0000] [73762] [INFO] Shutting down
+[2022-11-03 08:53:49 +0000] [73754] [INFO] Shutting down
+[2022-11-03 08:53:50 +0000] [73015] [INFO] Shutting down
+[2022-11-03 08:53:50 +0000] [73762] [INFO] Waiting for application shutdown.
+[2022-11-03 08:53:50 +0000] [73762] [INFO] Application shutdown complete.
+[2022-11-03 08:53:50 +0000] [73762] [INFO] Finished server process [73762]
+[2022-11-03 08:53:50 +0000] [73762] [INFO] Worker exiting (pid: 73762)
+[2022-11-03 08:53:50 +0000] [73754] [INFO] Waiting for application shutdown.
+[2022-11-03 08:53:50 +0000] [73754] [INFO] Application shutdown complete.
+[2022-11-03 08:53:50 +0000] [73754] [INFO] Finished server process [73754]
+[2022-11-03 08:53:50 +0000] [73754] [INFO] Worker exiting (pid: 73754)
+[2022-11-03 08:53:50 +0000] [73015] [INFO] Waiting for application shutdown.
+[2022-11-03 08:53:50 +0000] [73015] [INFO] Application shutdown complete.
+[2022-11-03 08:53:50 +0000] [73015] [INFO] Finished server process [73015]
+[2022-11-03 08:53:50 +0000] [73015] [INFO] Worker exiting (pid: 73015)
+[2022-11-03 08:53:50 +0000] [71685] [INFO] Shutting down: Master
