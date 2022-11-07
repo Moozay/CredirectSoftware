@@ -20,8 +20,8 @@ worker_class = 'uvicorn.workers.UvicornWorker'
 
 loglevel = 'debug'
 
-accesslog = '/home/moozay/Documents/CredirectSoftware/Backend/access_log'
+accesslog = '/home/credirect/Documents/CredirectSoftware/Backend/access_log'
 
-errorlog =  '/home/moozay/Documents/CredirectSoftware/Backend/error_log'
+errorlog =  '/home/credirect/Documents/CredirectSoftware/Backend/error_log'
 
 

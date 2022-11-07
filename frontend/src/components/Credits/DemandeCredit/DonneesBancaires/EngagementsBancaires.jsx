@@ -68,9 +68,9 @@ const EngagementsBancaires = ({ handleDonneesBancairesChange }) => {
             name="nature_credit"
             defaultValue={donneesBancaires[section]["nature_credit"]}
             >
-            <option value="AWB">Choice 1</option>
-            <option value="BMCE">Choice 2</option>
-            <option value="BMCI">Choice 3</option>
+           <option value="immobilier">Immobilier</option>
+                    <option value="hypothecaire">Hypothécaire</option>
+                    <option value="consommation">Consommation</option>
           </Select>
         </FormControl>
         <FormControl  isRequired variant="floating">

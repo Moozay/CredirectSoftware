@@ -11,6 +11,7 @@ class Prospect(Document):
     prospect_id: UUID
     nom: str
     prenom: str
+    cin_sejour: str
     datenaissance: datetime
     lieunaissance: str
     nationalite: str
