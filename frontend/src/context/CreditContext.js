@@ -18,7 +18,7 @@ export const CreditProvider = (props) => {
     })
     
     const [ donneesBancaires, setDonneesBancaires ] = useState({
-        "engagements_bancaires":{},
+        "engagements_bancaires":[],
         "renseignements_bancaires":{}
     })
     const [ credit, setCredit ] = useState({

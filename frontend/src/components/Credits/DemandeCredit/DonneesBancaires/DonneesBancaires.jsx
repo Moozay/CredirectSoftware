@@ -26,6 +26,14 @@ const DonneesBanquaires = () => {
     console.log(donneesBancaires)
   }
 
+  const handleEngChange = (data) =>{
+    setDonneesBancaires({
+      ...donneesBancaires,
+      "engagements_bancaires":data,
+    })
+    console.log(donneesBancaires);
+  }
+
   return (
     <Flex
       flexDir={"column"}
@@ -55,18 +63,9 @@ const DonneesBanquaires = () => {
         <Heading as="h5" size="sm" my={3}>
           Engagements Bancaires
         </Heading>
-        <Button
-          leftIcon={<BiAddToQueue />}
-          color={"#ff7659"}
-          variant="outline"
-          size="sm"
-          border={"none"}
-        >
-          Add New
-        </Button>
       </Flex>
       <EngagementsBancaires 
-        handleDonneesBancairesChange={handleDonneesBancairesChange}
+        handleEngChange={handleEngChange}
         />
     </Flex>
   );
