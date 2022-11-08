@@ -12,34 +12,73 @@ import {
   InputRightAddon,
   Select,
   useColorMode,
+  Button
 } from '@chakra-ui/react'
+import { BiAddToQueue } from "react-icons/bi";
 import { CreditContext } from 'context/CreditContext'
 const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
   const [section, setSection] = useState("renseignements_bancaires")
+  const [inputField, setInputField] = useState([
+    {nom:"",prenom:"",banque:"",solde:"",cmc:""}
+  ])
+  const handleFormChange = (index, event) =>{
+    let data = [...inputField]
+    data[index][event.target.name] = event.target.value
+    setInputField(data)
+    //handleRenChange(inputField)
+    }
+
+  const addField = () =>{
+    let newField = {nom:"",prenom:"",banque:"",solde:"",cmc:""}
+    setInputField([...inputField,newField])
+    console.log(inputField);
+  }
+
+  const removeField = (index)=>{
+    let data = [...inputField]
+    data.splice(index,1)
+    setInputField(data)
+    //handleRenChange(inputField)
+    console.log("removed", index, data);
+  }
   const {colorMode} = useColorMode()
   return (
     <>
+    <Button
+          leftIcon={<BiAddToQueue />}
+          color={"#ff7659"}
+          variant="outline"
+          size="sm"
+          border={"none"}
+          onClick={addField}
+        >
+          Add New
+        </Button>
       <HStack direction='row' justifyContent={"space-between"} my={2}>
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Bénéficiare' p={1} w="99%" textAlign={"center"} />
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Banque' p={1} w="48%" textAlign={"center"} />
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Solde' p={1} w="48%" textAlign={"center"} />
-            <Code bgColor={colorMode=='light'?"#efefef":""} children='CMC' p={1} w="48%" textAlign={"center"} />            
+            <Code bgColor={colorMode=='light'?"#efefef":""} children='CMC' p={1} w="48%" textAlign={"center"} /> 
+            <Code bgColor={colorMode=='light'?"#efefef":""} children='Supprime' p={1} w="48%" textAlign={"center"} />            
         </HStack>
-        <HStack alignItems={"flex-start"} my={4}>
-        <FormControl  isRequired variant="floating" >
+        
+        {inputField.map((input, index)=>{
+          return (
+            <HStack alignItems={"flex-start"} my={4}>
+            <FormControl  isRequired variant="floating" >
                     <FormLabel fontSize={"sm"}
             fontWeight="normal"
             transform={donneesBancaires[section]["nom"] ? "scale(0.85) translateY(-35px)" : ""}
 >Nom</FormLabel>
                     <Input
-                    defaultValue={donneesBancaires[section]["nom"]}
+                    value={input.nom}
                       size="sm"
                       _placeholder={{ color: "gray.500" }}
                       type="text"
                       name="nom"
  
-            onChange={(e)=>handleDonneesBancairesChange(e,section)}
+                      onChange={(e)=>handleFormChange(index,e)}
 
                     />
 
@@ -50,10 +89,10 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                     fontWeight="normal"
                     transform={donneesBancaires[section]["prenom"] ? "scale(0.85) translateY(-35px)" : ""}>Prénom</FormLabel>
                     <Input
-                    defaultValue={donneesBancaires[section]["prenom"]}
+                    value={input.prenom}
                       size="sm"
                       name="prenom"
-                      onChange={(e)=>handleDonneesBancairesChange(e,section)}
+                      onChange={(e)=>handleFormChange(index,e)}
                       _placeholder={{ color: "gray.500" }} 
                       
           
@@ -67,8 +106,8 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                       placeholder='-Select-' 
                       size='sm'
                       name="banque"
-                      onChange={(e)=>handleDonneesBancairesChange(e,section)}
-                      defaultValue={donneesBancaires[section]["banque"]}
+                      onChange={(e)=>handleFormChange(index,e)}
+                      value={input.banque}
                       >
                         <option value="AWB">AWB</option>
                         <option value="BMCE">BMCE</option>
@@ -82,8 +121,8 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                         <Input 
 
                         name="solde"
-                        defaultValue={donneesBancaires[section]["solde"]}
-                        onChange={(e)=>handleDonneesBancairesChange(e,section)}
+                        value={input.solde}
+                        onChange={(e)=>handleFormChange(index,e)}
                         placeholder='#,###,###.##' />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
@@ -96,14 +135,17 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                         <Input 
                         name="cmc"
                         
-                        defaultValue={donneesBancaires[section]["cmc"]}
-                        onChange={(e)=>handleDonneesBancairesChange(e,section)}
+                        value={input.cmc}
+                        onChange={(e)=>handleFormChange(index,e)}
                         placeholder='#,###,###.##' />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
 
                   </FormControl>
         </HStack>
+          )
+        })}
+        
     </>
   )
 }
