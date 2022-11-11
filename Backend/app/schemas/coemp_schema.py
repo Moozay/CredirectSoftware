@@ -6,6 +6,7 @@ class CoempCreate(BaseModel):
     coemp_id: UUID
     nom : str = Field(..., description="Nom du Co-emprunteur")
     prenom : str = Field(..., description="Prenom du Co-emprunteur")
+    cin_sejour: str = Field(...,description="Id du Co-emprunteur")
     datenaissance : datetime 
     lieunaissance: str = Field(..., description="Lieu de naissance du Coemprunteur")
     nationalite: str = Field(..., description="Nationalite du Co-emprunteur")
@@ -15,12 +16,13 @@ class CoempCreate(BaseModel):
     profession: str = Field(..., min_length=1, max_length=50, description="prospect profession")
     telpro: str = Field(..., min_length=1, max_length=50, description="prospect professional phone ")
     datembauche: datetime
-    revenue: float 
+    revenue: str 
     prospect_id: UUID
 
 class CoempUpdate(BaseModel):
     nom : str 
-    prenom : str 
+    prenom : str
+    cin_sejour : str 
     datenaissance : datetime 
     lieunaissance: str 
     nationalite: str 
@@ -35,7 +37,8 @@ class CoempUpdate(BaseModel):
 class CoempOut(BaseModel):
     coemp_id: UUID
     nom : str 
-    prenom : str 
+    prenom : str
+    cin_sejour : str 
     datenaissance : datetime 
     lieunaissance: str 
     nationalite: str 
@@ -45,7 +48,7 @@ class CoempOut(BaseModel):
     profession: str 
     telpro: str 
     datembauche: datetime
-    revenue: float 
+    revenue: str 
     prospect_id: UUID
 
 

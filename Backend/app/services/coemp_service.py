@@ -12,6 +12,7 @@ class CoempService:
             coemp_id = coemp.coemp_id,
             nom = coemp.nom,
             prenom = coemp.prenom,
+            cin_sejour = coemp.cin_sejour,
             datenaissance = coemp.datenaissance,
             lieunaissance = coemp.lieunaissance,
             nationalite = coemp.nationalite,

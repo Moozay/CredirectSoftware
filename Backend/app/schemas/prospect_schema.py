@@ -13,6 +13,7 @@ class ProspectCreate(BaseModel):
     prospect_id: UUID
     nom: str = Field(..., min_length=1, max_length=50, description="prospect first name")
     prenom: str = Field(..., min_length=1, max_length=50, description="prospect last name")
+    cin_sejour: str = Field(...,min_length=1, max_length=50, description="prospect id")
     datenaissance: datetime = Field(...)
     lieunaissance: str = Field(..., min_length=1, max_length=50, description="prospect birth adress")
     nationalite: str = Field(..., min_length=1, max_length=50, description="prospect nationality")
@@ -22,17 +23,18 @@ class ProspectCreate(BaseModel):
     profession: str = Field(..., min_length=1, max_length=50, description="propect profession")
     telpro: str = Field(..., min_length=1, max_length=50, description="propect professional phone ")
     datembauche: datetime = Field(...)
-    revenue: float 
+    revenue: str 
     coemp_id: Optional[UUID] = Field(...)
     agent_id: UUID = Field(...)
     renseignements_bancaires: List = [] 
     engagements_bancaires: List = []
-    credits: List[BaseCredit]
+    credits: List[UUID]
 
 class ProspectUpdate(BaseModel):
     prospect_id: UUID
     nom: str 
-    prenom: str 
+    prenom: str
+    cin_sejour: str 
     datenaissance: datetime 
     lieunaissance: str 
     nationalite: str 
@@ -42,12 +44,13 @@ class ProspectUpdate(BaseModel):
     profession: str 
     telpro: str 
     datembauche: datetime
-    revenue: float
+    revenue: str
 
 class ProspectOut(BaseModel):
     prospect_id: UUID
     nom: str 
     prenom: str 
+    cin_sejour:str
     datenaissance: datetime 
     lieunaissance: str 
     nationalite: str 
@@ -57,11 +60,11 @@ class ProspectOut(BaseModel):
     profession: str 
     telpro: str 
     datembauche: datetime
-    revenue: float 
+    revenue: str 
     renseignements_bancaires: List = []
     engagements_bancaires: List = []
     coemp_id: Optional[UUID]
     agent_id: UUID   
-    credits: List[BaseCredit]
+    credits: List[UUID]
 
 

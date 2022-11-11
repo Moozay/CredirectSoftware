@@ -8,6 +8,7 @@ class Coemp(Document):
     coemp_id: UUID = Field(default_factory=uuid4)
     nom: str
     prenom: str
+    cin_sejour: str
     datenaissance: datetime
     lieunaissance: str
     nationalite: str

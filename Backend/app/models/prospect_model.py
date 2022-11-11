@@ -21,12 +21,12 @@ class Prospect(Document):
     profession : str
     telpro: str
     datembauche: datetime
-    revenue: float
+    revenue: str
     coemp_id: Optional[UUID] 
     agent_id: UUID 
     renseignements_bancaires: List = []
     engagements_bancaires: List = []
-    credits: List[BaseCredit] 
+    credits: List[UUID] 
     
     class Config:  
         use_enum_values = True

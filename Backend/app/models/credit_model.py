@@ -20,27 +20,28 @@ class StatusCredit(str, Enum):
     derogation_conditions = "Derogation Avec Conditions"
 
 class Credit(Document):
-    credit_id :  UUID 
-    type_credit: str
-    montant: float
-    duree_credit: int
-    frequence: str
-    mensualite: int
-    taux: int 
-    franchise: int
-    taux_endt: int
-    teg: int 
-    qot_financement: int
-    objet_credit: str
-    nature_bien: str
-    etat_bien: str
-    usage_bien: str
-    montant_acte: float
-    montant_venal: float
-    adresse_bien: dict
-    superficie: int
-    prospect_id: UUID  
+    credit_id: UUID
+    type_credit : str
+    montant : str
+    duree_credit : str
+    frequence : str
+    mensualite : str
+    taux : str
+    franchise : str
+    taux_endt : str
+    teg : str
+    qot_financement : str
+    objet_credit : str
+    nature_bien : str
+    etat_bien : str
+    usage_bien : str
+    montant_acte : str
+    montant_travaux: str
+    montant_venal : str
+    adresse_bien : dict
+    superficie : str
     statusCredit : StatusCredit = StatusCredit.encours
+    prospect_id = str
 
     class Config:  
         use_enum_values = True

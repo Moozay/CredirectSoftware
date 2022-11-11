@@ -14,6 +14,7 @@ class ProspectService:
             prospect_id = prospect.prospect_id,
             nom = prospect.nom,
             prenom = prospect.prenom,
+            cin_sejour = prospect.cin_sejour,
             datenaissance = prospect.datenaissance,
             lieunaissance = prospect.lieunaissance,
             nationalite = prospect.nationalite,

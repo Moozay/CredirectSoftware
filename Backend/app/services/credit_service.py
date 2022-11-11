@@ -31,6 +31,7 @@ class CreditService:
             etat_bien = credit.etat_bien,
             usage_bien = credit.usage_bien,
             montant_acte = credit.montant_acte,
+            montant_travaux = credit.montant_travaux,
             montant_venal = credit.montant_venal,
             adresse_bien = credit.adresse_bien,
             superficie = credit.superficie,

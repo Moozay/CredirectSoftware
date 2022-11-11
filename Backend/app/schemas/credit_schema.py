@@ -12,48 +12,51 @@ from beanie import Link
 class BaseCredit(BaseModel):
     credit_id: UUID
     type_credit : str
-    montant : float
-    duree_credit : int
+    montant : str
+    duree_credit : str
     frequence : str
-    mensualite : int
-    taux : int
-    franchise : int
-    taux_endt : int
-    teg : int
-    qot_financement : int
+    mensualite : str
+    taux : str
+    franchise : str
+    taux_endt : str
+    teg : str
+    qot_financement : str
     objet_credit : str
     nature_bien : str
     etat_bien : str
     usage_bien : str
-    montant_acte : float
-    montant_venal : float
+    montant_acte : str
+    montant_travaux: str
+    montant_venal : str
     adresse_bien : dict
-    superficie : int
+    superficie : str
     statusCredit : StatusCredit = StatusCredit.encours
+    prospect_id = str
 
 class CreditCreate(BaseModel):
     credit_id: UUID
     type_credit : str
-    montant : float
-    duree_credit : int
+    montant : str
+    duree_credit : str
     frequence : str
-    mensualite : int
-    taux : int
-    franchise : int
-    taux_endt : int
-    teg : int
-    qot_financement : int
+    mensualite : str
+    taux : str
+    franchise : str
+    taux_endt : str
+    teg : str
+    qot_financement : str
     objet_credit : str
     nature_bien : str
     etat_bien : str
     usage_bien : str
-    montant_acte : float
-    montant_venal : float
+    montant_acte : str
+    montant_venal : str
+    montant_travaux: str
     adresse_bien : dict
-    superficie : int
+    superficie : str
     statusCredit : StatusCredit = StatusCredit.encours
-    prospect_id: UUID
-
+    prospect_id = str
+    
 class CreditUpdate(BaseModel):
     type_credit : str
     montant : float
@@ -70,6 +73,7 @@ class CreditUpdate(BaseModel):
     etat_bien : str
     usage_bien : str
     montant_acte : float
+    montant_travaux: str
     montant_venal : float
     adresse_bien : dict
     superficie : int
@@ -78,23 +82,23 @@ class CreditUpdate(BaseModel):
 class CreditOut(BaseModel):
     credit_id: UUID
     type_credit : str
-    montant : float
-    duree_credit : int
+    montant : str
+    duree_credit : str
     frequence : str
-    mensualite : int
-    taux : int
-    franchise : int
-    taux_endt : int
-    teg : int
-    qot_financement : int
+    mensualite : str
+    taux : str
+    franchise : str
+    taux_endt : str
+    teg : str
+    qot_financement : str
     objet_credit : str
     nature_bien : str
     etat_bien : str
     usage_bien : str
-    montant_acte : float
-    montant_venal : float
+    montant_acte : str
+    montant_venal : str
     adresse_bien : dict
     superficie : int
-    prospect_id: UUID
     statusCredit : StatusCredit
+    prospect_id = str
 

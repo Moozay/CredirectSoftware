@@ -835,3 +835,2714 @@ pymongo.errors.ConfigurationError: All nameservers failed to answer the query _m
 [2022-11-07 11:52:54 +0100] [7125] [INFO] Application startup complete.
 [2022-11-07 11:52:54 +0100] [7122] [INFO] Application startup complete.
 [2022-11-07 11:52:54 +0100] [7123] [INFO] Application startup complete.
+[2022-11-11 12:48:40 +0100] [7120] [INFO] Handling signal: term
+[2022-11-11 12:48:40 +0100] [7122] [INFO] Shutting down
+[2022-11-11 12:48:40 +0100] [7125] [INFO] Shutting down
+[2022-11-11 12:48:40 +0100] [7121] [INFO] Shutting down
+[2022-11-11 12:48:40 +0100] [7123] [INFO] Shutting down
+[2022-11-11 12:48:40 +0100] [7124] [INFO] Shutting down
+[2022-11-11 12:48:40 +0100] [7122] [INFO] Waiting for application shutdown.
+[2022-11-11 12:48:40 +0100] [7122] [INFO] Application shutdown complete.
+[2022-11-11 12:48:40 +0100] [7122] [INFO] Finished server process [7122]
+[2022-11-11 12:48:40 +0100] [7122] [INFO] Worker exiting (pid: 7122)
+[2022-11-11 12:48:40 +0100] [7125] [INFO] Waiting for application shutdown.
+[2022-11-11 12:48:40 +0100] [7125] [INFO] Application shutdown complete.
+[2022-11-11 12:48:40 +0100] [7125] [INFO] Finished server process [7125]
+[2022-11-11 12:48:40 +0100] [7125] [INFO] Worker exiting (pid: 7125)
+[2022-11-11 12:48:40 +0100] [7121] [INFO] Waiting for application shutdown.
+[2022-11-11 12:48:40 +0100] [7121] [INFO] Application shutdown complete.
+[2022-11-11 12:48:40 +0100] [7121] [INFO] Finished server process [7121]
+[2022-11-11 12:48:40 +0100] [7121] [INFO] Worker exiting (pid: 7121)
+[2022-11-11 12:48:40 +0100] [7123] [INFO] Waiting for application shutdown.
+[2022-11-11 12:48:40 +0100] [7124] [INFO] Waiting for application shutdown.
+[2022-11-11 12:48:40 +0100] [7123] [INFO] Application shutdown complete.
+[2022-11-11 12:48:40 +0100] [7123] [INFO] Finished server process [7123]
+[2022-11-11 12:48:40 +0100] [7124] [INFO] Application shutdown complete.
+[2022-11-11 12:48:40 +0100] [7124] [INFO] Finished server process [7124]
+[2022-11-11 12:48:40 +0100] [7123] [INFO] Worker exiting (pid: 7123)
+[2022-11-11 12:48:40 +0100] [7124] [INFO] Worker exiting (pid: 7124)
+[2022-11-11 12:48:41 +0100] [7120] [INFO] Shutting down: Master
+[2022-11-11 12:48:54 +0100] [153984] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fa3940177f0>
+  on_reload: <function OnReload.on_reload at 0x7fa394017910>
+  when_ready: <function WhenReady.when_ready at 0x7fa394017a30>
+  pre_fork: <function Prefork.pre_fork at 0x7fa394017b50>
+  post_fork: <function Postfork.post_fork at 0x7fa394017c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fa394017d90>
+  worker_int: <function WorkerInt.worker_int at 0x7fa394017eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fa39403c040>
+  pre_exec: <function PreExec.pre_exec at 0x7fa39403c160>
+  pre_request: <function PreRequest.pre_request at 0x7fa39403c280>
+  post_request: <function PostRequest.post_request at 0x7fa39403c310>
+  child_exit: <function ChildExit.child_exit at 0x7fa39403c430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fa39403c550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fa39403c670>
+  on_exit: <function OnExit.on_exit at 0x7fa39403c790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 12:48:54 +0100] [153984] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 12:48:54 +0100] [153984] [DEBUG] Arbiter booted
+[2022-11-11 12:48:54 +0100] [153984] [INFO] Listening at: http://0.0.0.0:8000 (153984)
+[2022-11-11 12:48:54 +0100] [153984] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 12:48:54 +0100] [153985] [INFO] Booting worker with pid: 153985
+[2022-11-11 12:48:54 +0100] [153986] [INFO] Booting worker with pid: 153986
+[2022-11-11 12:48:54 +0100] [153987] [INFO] Booting worker with pid: 153987
+[2022-11-11 12:48:54 +0100] [153988] [INFO] Booting worker with pid: 153988
+[2022-11-11 12:48:54 +0100] [153989] [INFO] Booting worker with pid: 153989
+[2022-11-11 12:48:54 +0100] [153984] [DEBUG] 5 workers
+[2022-11-11 12:48:54 +0100] [153985] [INFO] Started server process [153985]
+[2022-11-11 12:48:54 +0100] [153985] [INFO] Waiting for application startup.
+[2022-11-11 12:48:54 +0100] [153987] [INFO] Started server process [153987]
+[2022-11-11 12:48:54 +0100] [153987] [INFO] Waiting for application startup.
+[2022-11-11 12:48:55 +0100] [153986] [INFO] Started server process [153986]
+[2022-11-11 12:48:55 +0100] [153986] [INFO] Waiting for application startup.
+[2022-11-11 12:48:55 +0100] [153988] [INFO] Started server process [153988]
+[2022-11-11 12:48:55 +0100] [153988] [INFO] Waiting for application startup.
+[2022-11-11 12:48:55 +0100] [153989] [INFO] Started server process [153989]
+[2022-11-11 12:48:55 +0100] [153989] [INFO] Waiting for application startup.
+[2022-11-11 12:48:56 +0100] [153987] [INFO] Application startup complete.
+[2022-11-11 12:48:56 +0100] [153985] [INFO] Application startup complete.
+[2022-11-11 12:48:56 +0100] [153986] [INFO] Application startup complete.
+[2022-11-11 12:48:56 +0100] [153988] [INFO] Application startup complete.
+[2022-11-11 12:48:56 +0100] [153989] [INFO] Application startup complete.
+[2022-11-11 12:54:03 +0100] [153986] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 1 validation error for CoempOut
+response -> cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 12:54:41 +0100] [153988] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 1 validation error for CoempOut
+response -> cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 12:57:47 +0100] [153986] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 1 validation error for CoempOut
+response -> cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:01:10 +0100] [153984] [INFO] Handling signal: term
+[2022-11-11 13:01:10 +0100] [153988] [INFO] Shutting down
+[2022-11-11 13:01:10 +0100] [153987] [INFO] Shutting down
+[2022-11-11 13:01:10 +0100] [153989] [INFO] Shutting down
+[2022-11-11 13:01:10 +0100] [153986] [INFO] Shutting down
+[2022-11-11 13:01:10 +0100] [153985] [INFO] Shutting down
+[2022-11-11 13:01:10 +0100] [153988] [INFO] Waiting for application shutdown.
+[2022-11-11 13:01:10 +0100] [153987] [INFO] Waiting for application shutdown.
+[2022-11-11 13:01:10 +0100] [153988] [INFO] Application shutdown complete.
+[2022-11-11 13:01:10 +0100] [153987] [INFO] Application shutdown complete.
+[2022-11-11 13:01:10 +0100] [153988] [INFO] Finished server process [153988]
+[2022-11-11 13:01:10 +0100] [153987] [INFO] Finished server process [153987]
+[2022-11-11 13:01:10 +0100] [153987] [INFO] Worker exiting (pid: 153987)
+[2022-11-11 13:01:10 +0100] [153988] [INFO] Worker exiting (pid: 153988)
+[2022-11-11 13:01:10 +0100] [153989] [INFO] Waiting for application shutdown.
+[2022-11-11 13:01:10 +0100] [153989] [INFO] Application shutdown complete.
+[2022-11-11 13:01:10 +0100] [153989] [INFO] Finished server process [153989]
+[2022-11-11 13:01:10 +0100] [153989] [INFO] Worker exiting (pid: 153989)
+[2022-11-11 13:01:10 +0100] [153986] [INFO] Waiting for application shutdown.
+[2022-11-11 13:01:10 +0100] [153986] [INFO] Application shutdown complete.
+[2022-11-11 13:01:10 +0100] [153986] [INFO] Finished server process [153986]
+[2022-11-11 13:01:10 +0100] [153986] [INFO] Worker exiting (pid: 153986)
+[2022-11-11 13:01:10 +0100] [153985] [INFO] Waiting for application shutdown.
+[2022-11-11 13:01:10 +0100] [153985] [INFO] Application shutdown complete.
+[2022-11-11 13:01:10 +0100] [153985] [INFO] Finished server process [153985]
+[2022-11-11 13:01:10 +0100] [153985] [INFO] Worker exiting (pid: 153985)
+[2022-11-11 13:01:11 +0100] [153984] [INFO] Shutting down: Master
+[2022-11-11 13:01:14 +0100] [154411] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7feefd3e37f0>
+  on_reload: <function OnReload.on_reload at 0x7feefd3e3910>
+  when_ready: <function WhenReady.when_ready at 0x7feefd3e3a30>
+  pre_fork: <function Prefork.pre_fork at 0x7feefd3e3b50>
+  post_fork: <function Postfork.post_fork at 0x7feefd3e3c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7feefd3e3d90>
+  worker_int: <function WorkerInt.worker_int at 0x7feefd3e3eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7feefd408040>
+  pre_exec: <function PreExec.pre_exec at 0x7feefd408160>
+  pre_request: <function PreRequest.pre_request at 0x7feefd408280>
+  post_request: <function PostRequest.post_request at 0x7feefd408310>
+  child_exit: <function ChildExit.child_exit at 0x7feefd408430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7feefd408550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7feefd408670>
+  on_exit: <function OnExit.on_exit at 0x7feefd408790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 13:01:14 +0100] [154411] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 13:01:14 +0100] [154411] [DEBUG] Arbiter booted
+[2022-11-11 13:01:14 +0100] [154411] [INFO] Listening at: http://0.0.0.0:8000 (154411)
+[2022-11-11 13:01:14 +0100] [154411] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 13:01:14 +0100] [154412] [INFO] Booting worker with pid: 154412
+[2022-11-11 13:01:14 +0100] [154413] [INFO] Booting worker with pid: 154413
+[2022-11-11 13:01:14 +0100] [154414] [INFO] Booting worker with pid: 154414
+[2022-11-11 13:01:14 +0100] [154415] [INFO] Booting worker with pid: 154415
+[2022-11-11 13:01:14 +0100] [154416] [INFO] Booting worker with pid: 154416
+[2022-11-11 13:01:14 +0100] [154411] [DEBUG] 5 workers
+[2022-11-11 13:01:15 +0100] [154414] [INFO] Started server process [154414]
+[2022-11-11 13:01:15 +0100] [154414] [INFO] Waiting for application startup.
+[2022-11-11 13:01:15 +0100] [154412] [INFO] Started server process [154412]
+[2022-11-11 13:01:15 +0100] [154412] [INFO] Waiting for application startup.
+[2022-11-11 13:01:15 +0100] [154413] [INFO] Started server process [154413]
+[2022-11-11 13:01:15 +0100] [154413] [INFO] Waiting for application startup.
+[2022-11-11 13:01:15 +0100] [154416] [INFO] Started server process [154416]
+[2022-11-11 13:01:15 +0100] [154416] [INFO] Waiting for application startup.
+[2022-11-11 13:01:15 +0100] [154415] [INFO] Started server process [154415]
+[2022-11-11 13:01:15 +0100] [154415] [INFO] Waiting for application startup.
+[2022-11-11 13:01:16 +0100] [154413] [INFO] Application startup complete.
+[2022-11-11 13:01:16 +0100] [154414] [INFO] Application startup complete.
+[2022-11-11 13:01:16 +0100] [154412] [INFO] Application startup complete.
+[2022-11-11 13:01:16 +0100] [154416] [INFO] Application startup complete.
+[2022-11-11 13:01:16 +0100] [154415] [INFO] Application startup complete.
+[2022-11-11 13:04:27 +0100] [154415] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:18:59 +0100] [154412] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:27:37 +0100] [154415] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:42:22 +0100] [154416] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:42:36 +0100] [154413] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:42:42 +0100] [154413] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:44:23 +0100] [154412] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:50:21 +0100] [154411] [INFO] Handling signal: term
+[2022-11-11 13:50:21 +0100] [154412] [INFO] Shutting down
+[2022-11-11 13:50:21 +0100] [154416] [INFO] Shutting down
+[2022-11-11 13:50:21 +0100] [154414] [INFO] Shutting down
+[2022-11-11 13:50:21 +0100] [154415] [INFO] Shutting down
+[2022-11-11 13:50:21 +0100] [154413] [INFO] Shutting down
+[2022-11-11 13:50:21 +0100] [154412] [INFO] Waiting for application shutdown.
+[2022-11-11 13:50:21 +0100] [154412] [INFO] Application shutdown complete.
+[2022-11-11 13:50:21 +0100] [154412] [INFO] Finished server process [154412]
+[2022-11-11 13:50:21 +0100] [154412] [INFO] Worker exiting (pid: 154412)
+[2022-11-11 13:50:21 +0100] [154416] [INFO] Waiting for application shutdown.
+[2022-11-11 13:50:21 +0100] [154416] [INFO] Application shutdown complete.
+[2022-11-11 13:50:21 +0100] [154416] [INFO] Finished server process [154416]
+[2022-11-11 13:50:21 +0100] [154416] [INFO] Worker exiting (pid: 154416)
+[2022-11-11 13:50:21 +0100] [154414] [INFO] Waiting for application shutdown.
+[2022-11-11 13:50:21 +0100] [154414] [INFO] Application shutdown complete.
+[2022-11-11 13:50:21 +0100] [154414] [INFO] Finished server process [154414]
+[2022-11-11 13:50:21 +0100] [154414] [INFO] Worker exiting (pid: 154414)
+[2022-11-11 13:50:21 +0100] [154415] [INFO] Waiting for application shutdown.
+[2022-11-11 13:50:21 +0100] [154415] [INFO] Application shutdown complete.
+[2022-11-11 13:50:21 +0100] [154415] [INFO] Finished server process [154415]
+[2022-11-11 13:50:21 +0100] [154413] [INFO] Waiting for application shutdown.
+[2022-11-11 13:50:21 +0100] [154413] [INFO] Application shutdown complete.
+[2022-11-11 13:50:21 +0100] [154413] [INFO] Finished server process [154413]
+[2022-11-11 13:50:21 +0100] [154415] [INFO] Worker exiting (pid: 154415)
+[2022-11-11 13:50:21 +0100] [154413] [INFO] Worker exiting (pid: 154413)
+[2022-11-11 13:50:22 +0100] [154411] [INFO] Shutting down: Master
+[2022-11-11 13:50:22 +0100] [156288] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f13bd64b7f0>
+  on_reload: <function OnReload.on_reload at 0x7f13bd64b910>
+  when_ready: <function WhenReady.when_ready at 0x7f13bd64ba30>
+  pre_fork: <function Prefork.pre_fork at 0x7f13bd64bb50>
+  post_fork: <function Postfork.post_fork at 0x7f13bd64bc70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f13bd64bd90>
+  worker_int: <function WorkerInt.worker_int at 0x7f13bd64beb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f13bd670040>
+  pre_exec: <function PreExec.pre_exec at 0x7f13bd670160>
+  pre_request: <function PreRequest.pre_request at 0x7f13bd670280>
+  post_request: <function PostRequest.post_request at 0x7f13bd670310>
+  child_exit: <function ChildExit.child_exit at 0x7f13bd670430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f13bd670550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f13bd670670>
+  on_exit: <function OnExit.on_exit at 0x7f13bd670790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 13:50:22 +0100] [156288] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 13:50:22 +0100] [156288] [DEBUG] Arbiter booted
+[2022-11-11 13:50:22 +0100] [156288] [INFO] Listening at: http://0.0.0.0:8000 (156288)
+[2022-11-11 13:50:22 +0100] [156288] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 13:50:22 +0100] [156289] [INFO] Booting worker with pid: 156289
+[2022-11-11 13:50:22 +0100] [156290] [INFO] Booting worker with pid: 156290
+[2022-11-11 13:50:22 +0100] [156291] [INFO] Booting worker with pid: 156291
+[2022-11-11 13:50:22 +0100] [156292] [INFO] Booting worker with pid: 156292
+[2022-11-11 13:50:22 +0100] [156293] [INFO] Booting worker with pid: 156293
+[2022-11-11 13:50:22 +0100] [156288] [DEBUG] 5 workers
+[2022-11-11 13:50:23 +0100] [156289] [INFO] Started server process [156289]
+[2022-11-11 13:50:23 +0100] [156289] [INFO] Waiting for application startup.
+[2022-11-11 13:50:23 +0100] [156290] [INFO] Started server process [156290]
+[2022-11-11 13:50:23 +0100] [156290] [INFO] Waiting for application startup.
+[2022-11-11 13:50:23 +0100] [156291] [INFO] Started server process [156291]
+[2022-11-11 13:50:23 +0100] [156291] [INFO] Waiting for application startup.
+[2022-11-11 13:50:23 +0100] [156292] [INFO] Started server process [156292]
+[2022-11-11 13:50:23 +0100] [156292] [INFO] Waiting for application startup.
+[2022-11-11 13:50:23 +0100] [156293] [INFO] Started server process [156293]
+[2022-11-11 13:50:23 +0100] [156293] [INFO] Waiting for application startup.
+[2022-11-11 13:50:24 +0100] [156289] [INFO] Application startup complete.
+[2022-11-11 13:50:24 +0100] [156290] [INFO] Application startup complete.
+[2022-11-11 13:50:24 +0100] [156292] [INFO] Application startup complete.
+[2022-11-11 13:50:24 +0100] [156291] [INFO] Application startup complete.
+[2022-11-11 13:50:24 +0100] [156293] [INFO] Application startup complete.
+[2022-11-11 13:51:43 +0100] [156288] [INFO] Handling signal: term
+[2022-11-11 13:51:43 +0100] [156293] [INFO] Shutting down
+[2022-11-11 13:51:43 +0100] [156289] [INFO] Shutting down
+[2022-11-11 13:51:43 +0100] [156290] [INFO] Shutting down
+[2022-11-11 13:51:43 +0100] [156292] [INFO] Shutting down
+[2022-11-11 13:51:43 +0100] [156291] [INFO] Shutting down
+[2022-11-11 13:51:43 +0100] [156293] [INFO] Waiting for application shutdown.
+[2022-11-11 13:51:43 +0100] [156293] [INFO] Application shutdown complete.
+[2022-11-11 13:51:43 +0100] [156293] [INFO] Finished server process [156293]
+[2022-11-11 13:51:43 +0100] [156293] [INFO] Worker exiting (pid: 156293)
+[2022-11-11 13:51:43 +0100] [156289] [INFO] Waiting for application shutdown.
+[2022-11-11 13:51:43 +0100] [156289] [INFO] Application shutdown complete.
+[2022-11-11 13:51:43 +0100] [156289] [INFO] Finished server process [156289]
+[2022-11-11 13:51:43 +0100] [156289] [INFO] Worker exiting (pid: 156289)
+[2022-11-11 13:51:43 +0100] [156290] [INFO] Waiting for application shutdown.
+[2022-11-11 13:51:43 +0100] [156290] [INFO] Application shutdown complete.
+[2022-11-11 13:51:43 +0100] [156290] [INFO] Finished server process [156290]
+[2022-11-11 13:51:43 +0100] [156290] [INFO] Worker exiting (pid: 156290)
+[2022-11-11 13:51:43 +0100] [156292] [INFO] Waiting for application shutdown.
+[2022-11-11 13:51:43 +0100] [156292] [INFO] Application shutdown complete.
+[2022-11-11 13:51:43 +0100] [156292] [INFO] Finished server process [156292]
+[2022-11-11 13:51:43 +0100] [156292] [INFO] Worker exiting (pid: 156292)
+[2022-11-11 13:51:43 +0100] [156291] [INFO] Waiting for application shutdown.
+[2022-11-11 13:51:43 +0100] [156291] [INFO] Application shutdown complete.
+[2022-11-11 13:51:43 +0100] [156291] [INFO] Finished server process [156291]
+[2022-11-11 13:51:43 +0100] [156291] [INFO] Worker exiting (pid: 156291)
+[2022-11-11 13:51:44 +0100] [156288] [INFO] Shutting down: Master
+[2022-11-11 13:51:44 +0100] [156436] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f66d48777f0>
+  on_reload: <function OnReload.on_reload at 0x7f66d4877910>
+  when_ready: <function WhenReady.when_ready at 0x7f66d4877a30>
+  pre_fork: <function Prefork.pre_fork at 0x7f66d4877b50>
+  post_fork: <function Postfork.post_fork at 0x7f66d4877c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f66d4877d90>
+  worker_int: <function WorkerInt.worker_int at 0x7f66d4877eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f66d489c040>
+  pre_exec: <function PreExec.pre_exec at 0x7f66d489c160>
+  pre_request: <function PreRequest.pre_request at 0x7f66d489c280>
+  post_request: <function PostRequest.post_request at 0x7f66d489c310>
+  child_exit: <function ChildExit.child_exit at 0x7f66d489c430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f66d489c550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f66d489c670>
+  on_exit: <function OnExit.on_exit at 0x7f66d489c790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 13:51:44 +0100] [156436] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 13:51:44 +0100] [156436] [DEBUG] Arbiter booted
+[2022-11-11 13:51:44 +0100] [156436] [INFO] Listening at: http://0.0.0.0:8000 (156436)
+[2022-11-11 13:51:44 +0100] [156436] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 13:51:44 +0100] [156438] [INFO] Booting worker with pid: 156438
+[2022-11-11 13:51:44 +0100] [156439] [INFO] Booting worker with pid: 156439
+[2022-11-11 13:51:44 +0100] [156440] [INFO] Booting worker with pid: 156440
+[2022-11-11 13:51:44 +0100] [156441] [INFO] Booting worker with pid: 156441
+[2022-11-11 13:51:44 +0100] [156442] [INFO] Booting worker with pid: 156442
+[2022-11-11 13:51:44 +0100] [156436] [DEBUG] 5 workers
+[2022-11-11 13:51:45 +0100] [156438] [INFO] Started server process [156438]
+[2022-11-11 13:51:45 +0100] [156438] [INFO] Waiting for application startup.
+[2022-11-11 13:51:45 +0100] [156439] [INFO] Started server process [156439]
+[2022-11-11 13:51:45 +0100] [156439] [INFO] Waiting for application startup.
+[2022-11-11 13:51:45 +0100] [156441] [INFO] Started server process [156441]
+[2022-11-11 13:51:45 +0100] [156441] [INFO] Waiting for application startup.
+[2022-11-11 13:51:45 +0100] [156440] [INFO] Started server process [156440]
+[2022-11-11 13:51:45 +0100] [156440] [INFO] Waiting for application startup.
+[2022-11-11 13:51:45 +0100] [156442] [INFO] Started server process [156442]
+[2022-11-11 13:51:45 +0100] [156442] [INFO] Waiting for application startup.
+[2022-11-11 13:51:46 +0100] [156439] [INFO] Application startup complete.
+[2022-11-11 13:51:46 +0100] [156441] [INFO] Application startup complete.
+[2022-11-11 13:51:46 +0100] [156438] [INFO] Application startup complete.
+[2022-11-11 13:51:46 +0100] [156442] [INFO] Application startup complete.
+[2022-11-11 13:51:46 +0100] [156440] [INFO] Application startup complete.
+[2022-11-11 13:53:07 +0100] [156442] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 13:53:30 +0100] [156442] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+[2022-11-11 13:54:05 +0100] [156440] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 13:54:58 +0100] [156442] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 13:56:28 +0100] [156442] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 13:57:02 +0100] [156438] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 13:58:20 +0100] [156436] [INFO] Handling signal: term
+[2022-11-11 13:58:20 +0100] [156440] [INFO] Shutting down
+[2022-11-11 13:58:20 +0100] [156438] [INFO] Shutting down
+[2022-11-11 13:58:20 +0100] [156441] [INFO] Shutting down
+[2022-11-11 13:58:20 +0100] [156439] [INFO] Shutting down
+[2022-11-11 13:58:20 +0100] [156442] [INFO] Shutting down
+[2022-11-11 13:58:20 +0100] [156440] [INFO] Waiting for application shutdown.
+[2022-11-11 13:58:20 +0100] [156440] [INFO] Application shutdown complete.
+[2022-11-11 13:58:20 +0100] [156440] [INFO] Finished server process [156440]
+[2022-11-11 13:58:20 +0100] [156440] [INFO] Worker exiting (pid: 156440)
+[2022-11-11 13:58:20 +0100] [156438] [INFO] Waiting for application shutdown.
+[2022-11-11 13:58:20 +0100] [156438] [INFO] Application shutdown complete.
+[2022-11-11 13:58:20 +0100] [156438] [INFO] Finished server process [156438]
+[2022-11-11 13:58:20 +0100] [156438] [INFO] Worker exiting (pid: 156438)
+[2022-11-11 13:58:20 +0100] [156441] [INFO] Waiting for application shutdown.
+[2022-11-11 13:58:20 +0100] [156441] [INFO] Application shutdown complete.
+[2022-11-11 13:58:20 +0100] [156441] [INFO] Finished server process [156441]
+[2022-11-11 13:58:20 +0100] [156441] [INFO] Worker exiting (pid: 156441)
+[2022-11-11 13:58:20 +0100] [156439] [INFO] Waiting for application shutdown.
+[2022-11-11 13:58:20 +0100] [156439] [INFO] Application shutdown complete.
+[2022-11-11 13:58:20 +0100] [156439] [INFO] Finished server process [156439]
+[2022-11-11 13:58:20 +0100] [156439] [INFO] Worker exiting (pid: 156439)
+[2022-11-11 13:58:20 +0100] [156442] [INFO] Waiting for application shutdown.
+[2022-11-11 13:58:20 +0100] [156442] [INFO] Application shutdown complete.
+[2022-11-11 13:58:20 +0100] [156442] [INFO] Finished server process [156442]
+[2022-11-11 13:58:20 +0100] [156442] [INFO] Worker exiting (pid: 156442)
+[2022-11-11 13:58:21 +0100] [156436] [INFO] Shutting down: Master
+[2022-11-11 13:58:21 +0100] [156837] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f0a1713f7f0>
+  on_reload: <function OnReload.on_reload at 0x7f0a1713f910>
+  when_ready: <function WhenReady.when_ready at 0x7f0a1713fa30>
+  pre_fork: <function Prefork.pre_fork at 0x7f0a1713fb50>
+  post_fork: <function Postfork.post_fork at 0x7f0a1713fc70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f0a1713fd90>
+  worker_int: <function WorkerInt.worker_int at 0x7f0a1713feb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f0a17164040>
+  pre_exec: <function PreExec.pre_exec at 0x7f0a17164160>
+  pre_request: <function PreRequest.pre_request at 0x7f0a17164280>
+  post_request: <function PostRequest.post_request at 0x7f0a17164310>
+  child_exit: <function ChildExit.child_exit at 0x7f0a17164430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f0a17164550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f0a17164670>
+  on_exit: <function OnExit.on_exit at 0x7f0a17164790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 13:58:21 +0100] [156837] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 13:58:21 +0100] [156837] [DEBUG] Arbiter booted
+[2022-11-11 13:58:21 +0100] [156837] [INFO] Listening at: http://0.0.0.0:8000 (156837)
+[2022-11-11 13:58:21 +0100] [156837] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 13:58:21 +0100] [156839] [INFO] Booting worker with pid: 156839
+[2022-11-11 13:58:21 +0100] [156840] [INFO] Booting worker with pid: 156840
+[2022-11-11 13:58:21 +0100] [156841] [INFO] Booting worker with pid: 156841
+[2022-11-11 13:58:21 +0100] [156842] [INFO] Booting worker with pid: 156842
+[2022-11-11 13:58:21 +0100] [156843] [INFO] Booting worker with pid: 156843
+[2022-11-11 13:58:21 +0100] [156837] [DEBUG] 5 workers
+[2022-11-11 13:58:21 +0100] [156840] [INFO] Started server process [156840]
+[2022-11-11 13:58:21 +0100] [156840] [INFO] Waiting for application startup.
+[2022-11-11 13:58:22 +0100] [156839] [INFO] Started server process [156839]
+[2022-11-11 13:58:22 +0100] [156839] [INFO] Waiting for application startup.
+[2022-11-11 13:58:22 +0100] [156841] [INFO] Started server process [156841]
+[2022-11-11 13:58:22 +0100] [156841] [INFO] Waiting for application startup.
+[2022-11-11 13:58:22 +0100] [156842] [INFO] Started server process [156842]
+[2022-11-11 13:58:22 +0100] [156842] [INFO] Waiting for application startup.
+[2022-11-11 13:58:22 +0100] [156843] [INFO] Started server process [156843]
+[2022-11-11 13:58:22 +0100] [156843] [INFO] Waiting for application startup.
+[2022-11-11 13:58:23 +0100] [156839] [INFO] Application startup complete.
+[2022-11-11 13:58:23 +0100] [156841] [INFO] Application startup complete.
+[2022-11-11 13:58:23 +0100] [156842] [INFO] Application startup complete.
+[2022-11-11 13:58:23 +0100] [156840] [INFO] Application startup complete.
+[2022-11-11 13:58:23 +0100] [156843] [INFO] Application startup complete.
+[2022-11-11 13:58:23 +0100] [156841] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 34, in create_credit
+    montant_travaux = credit.montant_travaux,
+AttributeError: 'CreditCreate' object has no attribute 'montant_travaux'
+[2022-11-11 14:01:38 +0100] [156837] [INFO] Handling signal: term
+[2022-11-11 14:01:38 +0100] [156841] [INFO] Shutting down
+[2022-11-11 14:01:38 +0100] [156840] [INFO] Shutting down
+[2022-11-11 14:01:38 +0100] [156843] [INFO] Shutting down
+[2022-11-11 14:01:38 +0100] [156842] [INFO] Shutting down
+[2022-11-11 14:01:38 +0100] [156839] [INFO] Shutting down
+[2022-11-11 14:01:38 +0100] [156841] [INFO] Waiting for application shutdown.
+[2022-11-11 14:01:38 +0100] [156840] [INFO] Waiting for application shutdown.
+[2022-11-11 14:01:38 +0100] [156843] [INFO] Waiting for application shutdown.
+[2022-11-11 14:01:38 +0100] [156841] [INFO] Application shutdown complete.
+[2022-11-11 14:01:38 +0100] [156840] [INFO] Application shutdown complete.
+[2022-11-11 14:01:38 +0100] [156843] [INFO] Application shutdown complete.
+[2022-11-11 14:01:38 +0100] [156841] [INFO] Finished server process [156841]
+[2022-11-11 14:01:38 +0100] [156840] [INFO] Finished server process [156840]
+[2022-11-11 14:01:38 +0100] [156843] [INFO] Finished server process [156843]
+[2022-11-11 14:01:38 +0100] [156840] [INFO] Worker exiting (pid: 156840)
+[2022-11-11 14:01:38 +0100] [156841] [INFO] Worker exiting (pid: 156841)
+[2022-11-11 14:01:38 +0100] [156843] [INFO] Worker exiting (pid: 156843)
+[2022-11-11 14:01:38 +0100] [156842] [INFO] Waiting for application shutdown.
+[2022-11-11 14:01:38 +0100] [156842] [INFO] Application shutdown complete.
+[2022-11-11 14:01:38 +0100] [156842] [INFO] Finished server process [156842]
+[2022-11-11 14:01:38 +0100] [156842] [INFO] Worker exiting (pid: 156842)
+[2022-11-11 14:01:38 +0100] [156839] [INFO] Waiting for application shutdown.
+[2022-11-11 14:01:38 +0100] [156839] [INFO] Application shutdown complete.
+[2022-11-11 14:01:38 +0100] [156839] [INFO] Finished server process [156839]
+[2022-11-11 14:01:38 +0100] [156839] [INFO] Worker exiting (pid: 156839)
+[2022-11-11 14:01:38 +0100] [156837] [INFO] Shutting down: Master
+[2022-11-11 14:01:39 +0100] [157071] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fdc63c537f0>
+  on_reload: <function OnReload.on_reload at 0x7fdc63c53910>
+  when_ready: <function WhenReady.when_ready at 0x7fdc63c53a30>
+  pre_fork: <function Prefork.pre_fork at 0x7fdc63c53b50>
+  post_fork: <function Postfork.post_fork at 0x7fdc63c53c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fdc63c53d90>
+  worker_int: <function WorkerInt.worker_int at 0x7fdc63c53eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fdc63c78040>
+  pre_exec: <function PreExec.pre_exec at 0x7fdc63c78160>
+  pre_request: <function PreRequest.pre_request at 0x7fdc63c78280>
+  post_request: <function PostRequest.post_request at 0x7fdc63c78310>
+  child_exit: <function ChildExit.child_exit at 0x7fdc63c78430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fdc63c78550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fdc63c78670>
+  on_exit: <function OnExit.on_exit at 0x7fdc63c78790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:01:39 +0100] [157071] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:01:39 +0100] [157071] [DEBUG] Arbiter booted
+[2022-11-11 14:01:39 +0100] [157071] [INFO] Listening at: http://0.0.0.0:8000 (157071)
+[2022-11-11 14:01:39 +0100] [157071] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:01:39 +0100] [157073] [INFO] Booting worker with pid: 157073
+[2022-11-11 14:01:39 +0100] [157074] [INFO] Booting worker with pid: 157074
+[2022-11-11 14:01:39 +0100] [157075] [INFO] Booting worker with pid: 157075
+[2022-11-11 14:01:39 +0100] [157076] [INFO] Booting worker with pid: 157076
+[2022-11-11 14:01:39 +0100] [157077] [INFO] Booting worker with pid: 157077
+[2022-11-11 14:01:39 +0100] [157071] [DEBUG] 5 workers
+[2022-11-11 14:01:39 +0100] [157076] [INFO] Started server process [157076]
+[2022-11-11 14:01:39 +0100] [157076] [INFO] Waiting for application startup.
+[2022-11-11 14:01:39 +0100] [157074] [INFO] Started server process [157074]
+[2022-11-11 14:01:39 +0100] [157074] [INFO] Waiting for application startup.
+[2022-11-11 14:01:39 +0100] [157075] [INFO] Started server process [157075]
+[2022-11-11 14:01:39 +0100] [157075] [INFO] Waiting for application startup.
+[2022-11-11 14:01:39 +0100] [157077] [INFO] Started server process [157077]
+[2022-11-11 14:01:39 +0100] [157077] [INFO] Waiting for application startup.
+[2022-11-11 14:01:39 +0100] [157073] [INFO] Started server process [157073]
+[2022-11-11 14:01:39 +0100] [157073] [INFO] Waiting for application startup.
+[2022-11-11 14:01:41 +0100] [157075] [INFO] Application startup complete.
+[2022-11-11 14:01:41 +0100] [157076] [INFO] Application startup complete.
+[2022-11-11 14:01:41 +0100] [157077] [INFO] Application startup complete.
+[2022-11-11 14:01:41 +0100] [157074] [INFO] Application startup complete.
+[2022-11-11 14:01:41 +0100] [157073] [INFO] Application startup complete.
+[2022-11-11 14:01:41 +0100] [157077] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 39, in create_credit
+    prospect_id = credit.prospect_id
+AttributeError: 'CreditCreate' object has no attribute 'prospect_id'
+[2022-11-11 14:03:08 +0100] [157074] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 39, in create_credit
+    prospect_id = credit.prospect_id
+AttributeError: 'CreditCreate' object has no attribute 'prospect_id'
+[2022-11-11 14:06:18 +0100] [157076] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/credit.py", line 18, in create_credit
+    return await CreditService.create_credit(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/credit_service.py", line 39, in create_credit
+    )
+AttributeError: 'CreditCreate' object has no attribute 'prospect_id'
+[2022-11-11 14:06:29 +0100] [157071] [INFO] Handling signal: term
+[2022-11-11 14:06:29 +0100] [157075] [INFO] Shutting down
+[2022-11-11 14:06:29 +0100] [157076] [INFO] Shutting down
+[2022-11-11 14:06:29 +0100] [157077] [INFO] Shutting down
+[2022-11-11 14:06:29 +0100] [157073] [INFO] Shutting down
+[2022-11-11 14:06:29 +0100] [157074] [INFO] Shutting down
+[2022-11-11 14:06:29 +0100] [157075] [INFO] Waiting for application shutdown.
+[2022-11-11 14:06:29 +0100] [157076] [INFO] Waiting for application shutdown.
+[2022-11-11 14:06:29 +0100] [157075] [INFO] Application shutdown complete.
+[2022-11-11 14:06:29 +0100] [157075] [INFO] Finished server process [157075]
+[2022-11-11 14:06:29 +0100] [157076] [INFO] Application shutdown complete.
+[2022-11-11 14:06:29 +0100] [157076] [INFO] Finished server process [157076]
+[2022-11-11 14:06:29 +0100] [157075] [INFO] Worker exiting (pid: 157075)
+[2022-11-11 14:06:29 +0100] [157076] [INFO] Worker exiting (pid: 157076)
+[2022-11-11 14:06:29 +0100] [157077] [INFO] Waiting for application shutdown.
+[2022-11-11 14:06:29 +0100] [157073] [INFO] Waiting for application shutdown.
+[2022-11-11 14:06:29 +0100] [157077] [INFO] Application shutdown complete.
+[2022-11-11 14:06:29 +0100] [157073] [INFO] Application shutdown complete.
+[2022-11-11 14:06:29 +0100] [157077] [INFO] Finished server process [157077]
+[2022-11-11 14:06:29 +0100] [157073] [INFO] Finished server process [157073]
+[2022-11-11 14:06:29 +0100] [157077] [INFO] Worker exiting (pid: 157077)
+[2022-11-11 14:06:29 +0100] [157073] [INFO] Worker exiting (pid: 157073)
+[2022-11-11 14:06:29 +0100] [157074] [INFO] Waiting for application shutdown.
+[2022-11-11 14:06:29 +0100] [157074] [INFO] Application shutdown complete.
+[2022-11-11 14:06:29 +0100] [157074] [INFO] Finished server process [157074]
+[2022-11-11 14:06:29 +0100] [157074] [INFO] Worker exiting (pid: 157074)
+[2022-11-11 14:06:30 +0100] [157071] [INFO] Shutting down: Master
+[2022-11-11 14:06:30 +0100] [157385] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f52cff7f7f0>
+  on_reload: <function OnReload.on_reload at 0x7f52cff7f910>
+  when_ready: <function WhenReady.when_ready at 0x7f52cff7fa30>
+  pre_fork: <function Prefork.pre_fork at 0x7f52cff7fb50>
+  post_fork: <function Postfork.post_fork at 0x7f52cff7fc70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f52cff7fd90>
+  worker_int: <function WorkerInt.worker_int at 0x7f52cff7feb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f52cffa4040>
+  pre_exec: <function PreExec.pre_exec at 0x7f52cffa4160>
+  pre_request: <function PreRequest.pre_request at 0x7f52cffa4280>
+  post_request: <function PostRequest.post_request at 0x7f52cffa4310>
+  child_exit: <function ChildExit.child_exit at 0x7f52cffa4430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f52cffa4550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f52cffa4670>
+  on_exit: <function OnExit.on_exit at 0x7f52cffa4790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:06:30 +0100] [157385] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:06:30 +0100] [157385] [DEBUG] Arbiter booted
+[2022-11-11 14:06:30 +0100] [157385] [INFO] Listening at: http://0.0.0.0:8000 (157385)
+[2022-11-11 14:06:30 +0100] [157385] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:06:30 +0100] [157386] [INFO] Booting worker with pid: 157386
+[2022-11-11 14:06:30 +0100] [157387] [INFO] Booting worker with pid: 157387
+[2022-11-11 14:06:30 +0100] [157388] [INFO] Booting worker with pid: 157388
+[2022-11-11 14:06:30 +0100] [157389] [INFO] Booting worker with pid: 157389
+[2022-11-11 14:06:30 +0100] [157390] [INFO] Booting worker with pid: 157390
+[2022-11-11 14:06:30 +0100] [157385] [DEBUG] 5 workers
+[2022-11-11 14:06:31 +0100] [157386] [INFO] Started server process [157386]
+[2022-11-11 14:06:31 +0100] [157386] [INFO] Waiting for application startup.
+[2022-11-11 14:06:31 +0100] [157389] [INFO] Started server process [157389]
+[2022-11-11 14:06:31 +0100] [157389] [INFO] Waiting for application startup.
+[2022-11-11 14:06:31 +0100] [157387] [INFO] Started server process [157387]
+[2022-11-11 14:06:31 +0100] [157387] [INFO] Waiting for application startup.
+[2022-11-11 14:06:31 +0100] [157388] [INFO] Started server process [157388]
+[2022-11-11 14:06:31 +0100] [157388] [INFO] Waiting for application startup.
+[2022-11-11 14:06:31 +0100] [157390] [INFO] Started server process [157390]
+[2022-11-11 14:06:31 +0100] [157390] [INFO] Waiting for application startup.
+[2022-11-11 14:06:33 +0100] [157387] [INFO] Application startup complete.
+[2022-11-11 14:06:33 +0100] [157390] [INFO] Application startup complete.
+[2022-11-11 14:06:33 +0100] [157389] [INFO] Application startup complete.
+[2022-11-11 14:06:33 +0100] [157386] [INFO] Application startup complete.
+[2022-11-11 14:06:33 +0100] [157388] [INFO] Application startup complete.
+[2022-11-11 14:06:33 +0100] [157387] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 5 validation errors for CreditOut
+response -> montant
+  value is not a valid float (type=type_error.float)
+response -> mensualite
+  value is not a valid integer (type=type_error.integer)
+response -> montant_acte
+  value is not a valid float (type=type_error.float)
+response -> montant_venal
+  value is not a valid float (type=type_error.float)
+response -> prospect_id
+  field required (type=value_error.missing)
+[2022-11-11 14:08:10 +0100] [157389] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 5 validation errors for CreditOut
+response -> montant
+  value is not a valid float (type=type_error.float)
+response -> mensualite
+  value is not a valid integer (type=type_error.integer)
+response -> montant_acte
+  value is not a valid float (type=type_error.float)
+response -> montant_venal
+  value is not a valid float (type=type_error.float)
+response -> prospect_id
+  field required (type=value_error.missing)
+[2022-11-11 14:10:34 +0100] [157389] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 253, in app
+    content = await serialize_response(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 139, in serialize_response
+    raise ValidationError(errors, field.type_)
+pydantic.error_wrappers.ValidationError: 5 validation errors for CreditOut
+response -> montant
+  value is not a valid float (type=type_error.float)
+response -> mensualite
+  value is not a valid integer (type=type_error.integer)
+response -> montant_acte
+  value is not a valid float (type=type_error.float)
+response -> montant_venal
+  value is not a valid float (type=type_error.float)
+response -> prospect_id
+  field required (type=value_error.missing)
+[2022-11-11 14:10:45 +0100] [157385] [INFO] Handling signal: term
+[2022-11-11 14:10:45 +0100] [157390] [INFO] Shutting down
+[2022-11-11 14:10:45 +0100] [157387] [INFO] Shutting down
+[2022-11-11 14:10:45 +0100] [157388] [INFO] Shutting down
+[2022-11-11 14:10:45 +0100] [157389] [INFO] Shutting down
+[2022-11-11 14:10:45 +0100] [157386] [INFO] Shutting down
+[2022-11-11 14:10:45 +0100] [157390] [INFO] Waiting for application shutdown.
+[2022-11-11 14:10:45 +0100] [157390] [INFO] Application shutdown complete.
+[2022-11-11 14:10:45 +0100] [157390] [INFO] Finished server process [157390]
+[2022-11-11 14:10:45 +0100] [157390] [INFO] Worker exiting (pid: 157390)
+[2022-11-11 14:10:45 +0100] [157387] [INFO] Waiting for application shutdown.
+[2022-11-11 14:10:45 +0100] [157387] [INFO] Application shutdown complete.
+[2022-11-11 14:10:45 +0100] [157387] [INFO] Finished server process [157387]
+[2022-11-11 14:10:45 +0100] [157387] [INFO] Worker exiting (pid: 157387)
+[2022-11-11 14:10:45 +0100] [157389] [INFO] Waiting for application shutdown.
+[2022-11-11 14:10:45 +0100] [157388] [INFO] Waiting for application shutdown.
+[2022-11-11 14:10:45 +0100] [157389] [INFO] Application shutdown complete.
+[2022-11-11 14:10:45 +0100] [157388] [INFO] Application shutdown complete.
+[2022-11-11 14:10:45 +0100] [157389] [INFO] Finished server process [157389]
+[2022-11-11 14:10:45 +0100] [157388] [INFO] Finished server process [157388]
+[2022-11-11 14:10:45 +0100] [157388] [INFO] Worker exiting (pid: 157388)
+[2022-11-11 14:10:45 +0100] [157389] [INFO] Worker exiting (pid: 157389)
+[2022-11-11 14:10:45 +0100] [157386] [INFO] Waiting for application shutdown.
+[2022-11-11 14:10:45 +0100] [157386] [INFO] Application shutdown complete.
+[2022-11-11 14:10:45 +0100] [157386] [INFO] Finished server process [157386]
+[2022-11-11 14:10:45 +0100] [157386] [INFO] Worker exiting (pid: 157386)
+[2022-11-11 14:10:46 +0100] [157385] [INFO] Shutting down: Master
+[2022-11-11 14:10:46 +0100] [157599] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fedf72837f0>
+  on_reload: <function OnReload.on_reload at 0x7fedf7283910>
+  when_ready: <function WhenReady.when_ready at 0x7fedf7283a30>
+  pre_fork: <function Prefork.pre_fork at 0x7fedf7283b50>
+  post_fork: <function Postfork.post_fork at 0x7fedf7283c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fedf7283d90>
+  worker_int: <function WorkerInt.worker_int at 0x7fedf7283eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fedf72a8040>
+  pre_exec: <function PreExec.pre_exec at 0x7fedf72a8160>
+  pre_request: <function PreRequest.pre_request at 0x7fedf72a8280>
+  post_request: <function PostRequest.post_request at 0x7fedf72a8310>
+  child_exit: <function ChildExit.child_exit at 0x7fedf72a8430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fedf72a8550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fedf72a8670>
+  on_exit: <function OnExit.on_exit at 0x7fedf72a8790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:10:46 +0100] [157599] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:10:46 +0100] [157599] [DEBUG] Arbiter booted
+[2022-11-11 14:10:46 +0100] [157599] [INFO] Listening at: http://0.0.0.0:8000 (157599)
+[2022-11-11 14:10:46 +0100] [157599] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:10:46 +0100] [157602] [INFO] Booting worker with pid: 157602
+[2022-11-11 14:10:46 +0100] [157603] [INFO] Booting worker with pid: 157603
+[2022-11-11 14:10:46 +0100] [157604] [INFO] Booting worker with pid: 157604
+[2022-11-11 14:10:46 +0100] [157605] [INFO] Booting worker with pid: 157605
+[2022-11-11 14:10:46 +0100] [157606] [INFO] Booting worker with pid: 157606
+[2022-11-11 14:10:46 +0100] [157599] [DEBUG] 5 workers
+[2022-11-11 14:10:47 +0100] [157602] [INFO] Started server process [157602]
+[2022-11-11 14:10:47 +0100] [157602] [INFO] Waiting for application startup.
+[2022-11-11 14:10:47 +0100] [157604] [INFO] Started server process [157604]
+[2022-11-11 14:10:47 +0100] [157604] [INFO] Waiting for application startup.
+[2022-11-11 14:10:47 +0100] [157603] [INFO] Started server process [157603]
+[2022-11-11 14:10:47 +0100] [157603] [INFO] Waiting for application startup.
+[2022-11-11 14:10:47 +0100] [157605] [INFO] Started server process [157605]
+[2022-11-11 14:10:47 +0100] [157605] [INFO] Waiting for application startup.
+[2022-11-11 14:10:47 +0100] [157606] [INFO] Started server process [157606]
+[2022-11-11 14:10:47 +0100] [157606] [INFO] Waiting for application startup.
+[2022-11-11 14:10:48 +0100] [157604] [INFO] Application startup complete.
+[2022-11-11 14:10:48 +0100] [157602] [INFO] Application startup complete.
+[2022-11-11 14:10:48 +0100] [157605] [INFO] Application startup complete.
+[2022-11-11 14:10:48 +0100] [157606] [INFO] Application startup complete.
+[2022-11-11 14:10:48 +0100] [157603] [INFO] Application startup complete.
+[2022-11-11 14:21:19 +0100] [157606] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 33, in get_prospects
+    return await ProspectService.get_prospects()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 59, in get_prospects
+    return await Prospect.find_all().to_list()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in to_list
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/queries/cursor.py", line 80, in <listcomp>
+    [parse_obj(projection, i) for i in motor_list],
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/utils/parsing.py", line 36, in parse_obj
+    return model.parse_obj(data)
+  File "pydantic/main.py", line 526, in pydantic.main.BaseModel.parse_obj
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 2 validation errors for Prospect
+cin_sejour
+  field required (type=value_error.missing)
+credits -> 0 -> montant_travaux
+  field required (type=value_error.missing)
+[2022-11-11 14:37:52 +0100] [157599] [INFO] Handling signal: term
+[2022-11-11 14:37:52 +0100] [157602] [INFO] Shutting down
+[2022-11-11 14:37:52 +0100] [157603] [INFO] Shutting down
+[2022-11-11 14:37:52 +0100] [157605] [INFO] Shutting down
+[2022-11-11 14:37:52 +0100] [157604] [INFO] Shutting down
+[2022-11-11 14:37:52 +0100] [157606] [INFO] Shutting down
+[2022-11-11 14:37:53 +0100] [157602] [INFO] Waiting for application shutdown.
+[2022-11-11 14:37:53 +0100] [157602] [INFO] Application shutdown complete.
+[2022-11-11 14:37:53 +0100] [157602] [INFO] Finished server process [157602]
+[2022-11-11 14:37:53 +0100] [157605] [INFO] Waiting for application shutdown.
+[2022-11-11 14:37:53 +0100] [157603] [INFO] Waiting for application shutdown.
+[2022-11-11 14:37:53 +0100] [157602] [INFO] Worker exiting (pid: 157602)
+[2022-11-11 14:37:53 +0100] [157605] [INFO] Application shutdown complete.
+[2022-11-11 14:37:53 +0100] [157603] [INFO] Application shutdown complete.
+[2022-11-11 14:37:53 +0100] [157605] [INFO] Finished server process [157605]
+[2022-11-11 14:37:53 +0100] [157603] [INFO] Finished server process [157603]
+[2022-11-11 14:37:53 +0100] [157605] [INFO] Worker exiting (pid: 157605)
+[2022-11-11 14:37:53 +0100] [157603] [INFO] Worker exiting (pid: 157603)
+[2022-11-11 14:37:53 +0100] [157604] [INFO] Waiting for application shutdown.
+[2022-11-11 14:37:53 +0100] [157604] [INFO] Application shutdown complete.
+[2022-11-11 14:37:53 +0100] [157604] [INFO] Finished server process [157604]
+[2022-11-11 14:37:53 +0100] [157604] [INFO] Worker exiting (pid: 157604)
+[2022-11-11 14:37:53 +0100] [157606] [INFO] Waiting for application shutdown.
+[2022-11-11 14:37:53 +0100] [157606] [INFO] Application shutdown complete.
+[2022-11-11 14:37:53 +0100] [157606] [INFO] Finished server process [157606]
+[2022-11-11 14:37:53 +0100] [157606] [INFO] Worker exiting (pid: 157606)
+[2022-11-11 14:37:53 +0100] [157599] [INFO] Shutting down: Master
+[2022-11-11 14:37:53 +0100] [159499] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fbc159c77f0>
+  on_reload: <function OnReload.on_reload at 0x7fbc159c7910>
+  when_ready: <function WhenReady.when_ready at 0x7fbc159c7a30>
+  pre_fork: <function Prefork.pre_fork at 0x7fbc159c7b50>
+  post_fork: <function Postfork.post_fork at 0x7fbc159c7c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fbc159c7d90>
+  worker_int: <function WorkerInt.worker_int at 0x7fbc159c7eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fbc159ec040>
+  pre_exec: <function PreExec.pre_exec at 0x7fbc159ec160>
+  pre_request: <function PreRequest.pre_request at 0x7fbc159ec280>
+  post_request: <function PostRequest.post_request at 0x7fbc159ec310>
+  child_exit: <function ChildExit.child_exit at 0x7fbc159ec430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fbc159ec550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fbc159ec670>
+  on_exit: <function OnExit.on_exit at 0x7fbc159ec790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:37:53 +0100] [159499] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:37:53 +0100] [159499] [DEBUG] Arbiter booted
+[2022-11-11 14:37:53 +0100] [159499] [INFO] Listening at: http://0.0.0.0:8000 (159499)
+[2022-11-11 14:37:53 +0100] [159499] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:37:53 +0100] [159502] [INFO] Booting worker with pid: 159502
+[2022-11-11 14:37:53 +0100] [159503] [INFO] Booting worker with pid: 159503
+[2022-11-11 14:37:53 +0100] [159504] [INFO] Booting worker with pid: 159504
+[2022-11-11 14:37:53 +0100] [159505] [INFO] Booting worker with pid: 159505
+[2022-11-11 14:37:53 +0100] [159506] [INFO] Booting worker with pid: 159506
+[2022-11-11 14:37:53 +0100] [159499] [DEBUG] 5 workers
+[2022-11-11 14:37:54 +0100] [159502] [INFO] Started server process [159502]
+[2022-11-11 14:37:54 +0100] [159502] [INFO] Waiting for application startup.
+[2022-11-11 14:37:54 +0100] [159504] [INFO] Started server process [159504]
+[2022-11-11 14:37:54 +0100] [159504] [INFO] Waiting for application startup.
+[2022-11-11 14:37:54 +0100] [159503] [INFO] Started server process [159503]
+[2022-11-11 14:37:54 +0100] [159503] [INFO] Waiting for application startup.
+[2022-11-11 14:37:54 +0100] [159506] [INFO] Started server process [159506]
+[2022-11-11 14:37:54 +0100] [159506] [INFO] Waiting for application startup.
+[2022-11-11 14:37:54 +0100] [159505] [INFO] Started server process [159505]
+[2022-11-11 14:37:54 +0100] [159505] [INFO] Waiting for application startup.
+[2022-11-11 14:37:56 +0100] [159506] [INFO] Application startup complete.
+[2022-11-11 14:37:56 +0100] [159504] [INFO] Application startup complete.
+[2022-11-11 14:37:56 +0100] [159502] [INFO] Application startup complete.
+[2022-11-11 14:37:56 +0100] [159503] [INFO] Application startup complete.
+[2022-11-11 14:37:56 +0100] [159505] [INFO] Application startup complete.
+[2022-11-11 14:39:27 +0100] [159502] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 16, in create_prospect
+    return await ProspectService.create_prospect(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 17, in create_prospect
+    cin_sejour = propect.cin_sejour,
+NameError: name 'propect' is not defined
+[2022-11-11 14:42:50 +0100] [159499] [INFO] Handling signal: term
+[2022-11-11 14:42:50 +0100] [159503] [INFO] Shutting down
+[2022-11-11 14:42:50 +0100] [159505] [INFO] Shutting down
+[2022-11-11 14:42:50 +0100] [159506] [INFO] Shutting down
+[2022-11-11 14:42:50 +0100] [159502] [INFO] Shutting down
+[2022-11-11 14:42:50 +0100] [159504] [INFO] Shutting down
+[2022-11-11 14:42:50 +0100] [159503] [INFO] Waiting for application shutdown.
+[2022-11-11 14:42:50 +0100] [159503] [INFO] Application shutdown complete.
+[2022-11-11 14:42:50 +0100] [159503] [INFO] Finished server process [159503]
+[2022-11-11 14:42:50 +0100] [159503] [INFO] Worker exiting (pid: 159503)
+[2022-11-11 14:42:50 +0100] [159505] [INFO] Waiting for application shutdown.
+[2022-11-11 14:42:50 +0100] [159505] [INFO] Application shutdown complete.
+[2022-11-11 14:42:50 +0100] [159505] [INFO] Finished server process [159505]
+[2022-11-11 14:42:50 +0100] [159505] [INFO] Worker exiting (pid: 159505)
+[2022-11-11 14:42:50 +0100] [159506] [INFO] Waiting for application shutdown.
+[2022-11-11 14:42:50 +0100] [159506] [INFO] Application shutdown complete.
+[2022-11-11 14:42:50 +0100] [159506] [INFO] Finished server process [159506]
+[2022-11-11 14:42:50 +0100] [159506] [INFO] Worker exiting (pid: 159506)
+[2022-11-11 14:42:50 +0100] [159502] [INFO] Waiting for application shutdown.
+[2022-11-11 14:42:50 +0100] [159502] [INFO] Application shutdown complete.
+[2022-11-11 14:42:50 +0100] [159504] [INFO] Waiting for application shutdown.
+[2022-11-11 14:42:50 +0100] [159502] [INFO] Finished server process [159502]
+[2022-11-11 14:42:50 +0100] [159504] [INFO] Application shutdown complete.
+[2022-11-11 14:42:50 +0100] [159504] [INFO] Finished server process [159504]
+[2022-11-11 14:42:50 +0100] [159502] [INFO] Worker exiting (pid: 159502)
+[2022-11-11 14:42:50 +0100] [159504] [INFO] Worker exiting (pid: 159504)
+[2022-11-11 14:42:50 +0100] [159499] [INFO] Shutting down: Master
+[2022-11-11 14:42:50 +0100] [159800] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f617a3d37f0>
+  on_reload: <function OnReload.on_reload at 0x7f617a3d3910>
+  when_ready: <function WhenReady.when_ready at 0x7f617a3d3a30>
+  pre_fork: <function Prefork.pre_fork at 0x7f617a3d3b50>
+  post_fork: <function Postfork.post_fork at 0x7f617a3d3c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f617a3d3d90>
+  worker_int: <function WorkerInt.worker_int at 0x7f617a3d3eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f617a3f8040>
+  pre_exec: <function PreExec.pre_exec at 0x7f617a3f8160>
+  pre_request: <function PreRequest.pre_request at 0x7f617a3f8280>
+  post_request: <function PostRequest.post_request at 0x7f617a3f8310>
+  child_exit: <function ChildExit.child_exit at 0x7f617a3f8430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f617a3f8550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f617a3f8670>
+  on_exit: <function OnExit.on_exit at 0x7f617a3f8790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:42:50 +0100] [159800] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:42:50 +0100] [159800] [DEBUG] Arbiter booted
+[2022-11-11 14:42:50 +0100] [159800] [INFO] Listening at: http://0.0.0.0:8000 (159800)
+[2022-11-11 14:42:50 +0100] [159800] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:42:50 +0100] [159803] [INFO] Booting worker with pid: 159803
+[2022-11-11 14:42:51 +0100] [159804] [INFO] Booting worker with pid: 159804
+[2022-11-11 14:42:51 +0100] [159805] [INFO] Booting worker with pid: 159805
+[2022-11-11 14:42:51 +0100] [159806] [INFO] Booting worker with pid: 159806
+[2022-11-11 14:42:51 +0100] [159807] [INFO] Booting worker with pid: 159807
+[2022-11-11 14:42:51 +0100] [159800] [DEBUG] 5 workers
+[2022-11-11 14:42:51 +0100] [159803] [INFO] Started server process [159803]
+[2022-11-11 14:42:51 +0100] [159803] [INFO] Waiting for application startup.
+[2022-11-11 14:42:51 +0100] [159805] [INFO] Started server process [159805]
+[2022-11-11 14:42:51 +0100] [159805] [INFO] Waiting for application startup.
+[2022-11-11 14:42:51 +0100] [159804] [INFO] Started server process [159804]
+[2022-11-11 14:42:51 +0100] [159804] [INFO] Waiting for application startup.
+[2022-11-11 14:42:51 +0100] [159806] [INFO] Started server process [159806]
+[2022-11-11 14:42:51 +0100] [159806] [INFO] Waiting for application startup.
+[2022-11-11 14:42:51 +0100] [159807] [INFO] Started server process [159807]
+[2022-11-11 14:42:51 +0100] [159807] [INFO] Waiting for application startup.
+[2022-11-11 14:42:53 +0100] [159805] [INFO] Application startup complete.
+[2022-11-11 14:42:53 +0100] [159803] [INFO] Application startup complete.
+[2022-11-11 14:42:53 +0100] [159804] [INFO] Application startup complete.
+[2022-11-11 14:42:53 +0100] [159807] [INFO] Application startup complete.
+[2022-11-11 14:42:53 +0100] [159806] [INFO] Application startup complete.
+[2022-11-11 14:42:58 +0100] [159804] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 16, in create_prospect
+    return await ProspectService.create_prospect(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 13, in create_prospect
+    prospect_in = Prospect(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+credits -> 0
+  value is not a valid dict (type=type_error.dict)
+[2022-11-11 14:44:20 +0100] [159800] [INFO] Handling signal: term
+[2022-11-11 14:44:20 +0100] [159804] [INFO] Shutting down
+[2022-11-11 14:44:20 +0100] [159807] [INFO] Shutting down
+[2022-11-11 14:44:20 +0100] [159803] [INFO] Shutting down
+[2022-11-11 14:44:20 +0100] [159805] [INFO] Shutting down
+[2022-11-11 14:44:20 +0100] [159806] [INFO] Shutting down
+[2022-11-11 14:44:20 +0100] [159804] [INFO] Waiting for application shutdown.
+[2022-11-11 14:44:20 +0100] [159804] [INFO] Application shutdown complete.
+[2022-11-11 14:44:20 +0100] [159804] [INFO] Finished server process [159804]
+[2022-11-11 14:44:20 +0100] [159804] [INFO] Worker exiting (pid: 159804)
+[2022-11-11 14:44:20 +0100] [159807] [INFO] Waiting for application shutdown.
+[2022-11-11 14:44:20 +0100] [159807] [INFO] Application shutdown complete.
+[2022-11-11 14:44:20 +0100] [159807] [INFO] Finished server process [159807]
+[2022-11-11 14:44:20 +0100] [159807] [INFO] Worker exiting (pid: 159807)
+[2022-11-11 14:44:20 +0100] [159803] [INFO] Waiting for application shutdown.
+[2022-11-11 14:44:20 +0100] [159803] [INFO] Application shutdown complete.
+[2022-11-11 14:44:20 +0100] [159803] [INFO] Finished server process [159803]
+[2022-11-11 14:44:20 +0100] [159803] [INFO] Worker exiting (pid: 159803)
+[2022-11-11 14:44:20 +0100] [159805] [INFO] Waiting for application shutdown.
+[2022-11-11 14:44:20 +0100] [159805] [INFO] Application shutdown complete.
+[2022-11-11 14:44:20 +0100] [159805] [INFO] Finished server process [159805]
+[2022-11-11 14:44:20 +0100] [159805] [INFO] Worker exiting (pid: 159805)
+[2022-11-11 14:44:20 +0100] [159806] [INFO] Waiting for application shutdown.
+[2022-11-11 14:44:20 +0100] [159806] [INFO] Application shutdown complete.
+[2022-11-11 14:44:20 +0100] [159806] [INFO] Finished server process [159806]
+[2022-11-11 14:44:20 +0100] [159806] [INFO] Worker exiting (pid: 159806)
+[2022-11-11 14:44:21 +0100] [159800] [INFO] Shutting down: Master
+[2022-11-11 14:44:21 +0100] [159935] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f0e3e7c37f0>
+  on_reload: <function OnReload.on_reload at 0x7f0e3e7c3910>
+  when_ready: <function WhenReady.when_ready at 0x7f0e3e7c3a30>
+  pre_fork: <function Prefork.pre_fork at 0x7f0e3e7c3b50>
+  post_fork: <function Postfork.post_fork at 0x7f0e3e7c3c70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f0e3e7c3d90>
+  worker_int: <function WorkerInt.worker_int at 0x7f0e3e7c3eb0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f0e3e7e8040>
+  pre_exec: <function PreExec.pre_exec at 0x7f0e3e7e8160>
+  pre_request: <function PreRequest.pre_request at 0x7f0e3e7e8280>
+  post_request: <function PostRequest.post_request at 0x7f0e3e7e8310>
+  child_exit: <function ChildExit.child_exit at 0x7f0e3e7e8430>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f0e3e7e8550>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f0e3e7e8670>
+  on_exit: <function OnExit.on_exit at 0x7f0e3e7e8790>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-11 14:44:21 +0100] [159935] [INFO] Starting gunicorn 20.1.0
+[2022-11-11 14:44:21 +0100] [159935] [DEBUG] Arbiter booted
+[2022-11-11 14:44:21 +0100] [159935] [INFO] Listening at: http://0.0.0.0:8000 (159935)
+[2022-11-11 14:44:21 +0100] [159935] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-11 14:44:21 +0100] [159938] [INFO] Booting worker with pid: 159938
+[2022-11-11 14:44:21 +0100] [159939] [INFO] Booting worker with pid: 159939
+[2022-11-11 14:44:21 +0100] [159940] [INFO] Booting worker with pid: 159940
+[2022-11-11 14:44:21 +0100] [159941] [INFO] Booting worker with pid: 159941
+[2022-11-11 14:44:21 +0100] [159942] [INFO] Booting worker with pid: 159942
+[2022-11-11 14:44:21 +0100] [159935] [DEBUG] 5 workers
+[2022-11-11 14:44:22 +0100] [159938] [INFO] Started server process [159938]
+[2022-11-11 14:44:22 +0100] [159938] [INFO] Waiting for application startup.
+[2022-11-11 14:44:22 +0100] [159939] [INFO] Started server process [159939]
+[2022-11-11 14:44:22 +0100] [159939] [INFO] Waiting for application startup.
+[2022-11-11 14:44:22 +0100] [159940] [INFO] Started server process [159940]
+[2022-11-11 14:44:22 +0100] [159940] [INFO] Waiting for application startup.
+[2022-11-11 14:44:22 +0100] [159941] [INFO] Started server process [159941]
+[2022-11-11 14:44:22 +0100] [159941] [INFO] Waiting for application startup.
+[2022-11-11 14:44:22 +0100] [159942] [INFO] Started server process [159942]
+[2022-11-11 14:44:22 +0100] [159942] [INFO] Waiting for application startup.
+[2022-11-11 14:44:23 +0100] [159942] [INFO] Application startup complete.
+[2022-11-11 14:44:23 +0100] [159940] [INFO] Application startup complete.
+[2022-11-11 14:44:23 +0100] [159938] [INFO] Application startup complete.
+[2022-11-11 14:44:23 +0100] [159939] [INFO] Application startup complete.
+[2022-11-11 14:44:23 +0100] [159941] [INFO] Application startup complete.
