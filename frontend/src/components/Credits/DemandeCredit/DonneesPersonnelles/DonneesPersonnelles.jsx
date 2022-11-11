@@ -27,17 +27,13 @@ const DonneesPersonnelles = () => {
 
     const handleDonnesPersonnellesChange = (event,section) => {
       
-      const adresse = ["adresse1","adresse2","ville","code_postal","pays"]
       var fieldName = event.target.getAttribute("name")
       
       var fieldValue = event.target.value
       
       const newFormDonneesPersonelles = { ...donneesPersonelles }
-      if(adresse.includes(fieldName)){
-        newFormDonneesPersonelles[section]["adresse"][fieldName] = fieldValue
-      }else{
         newFormDonneesPersonelles[section][fieldName] = fieldValue
-      }
+
       
 
       setDonneesPersonelles(newFormDonneesPersonelles)

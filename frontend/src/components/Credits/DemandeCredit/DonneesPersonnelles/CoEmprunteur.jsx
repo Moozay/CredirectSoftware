@@ -100,24 +100,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} isRequired variant="floating">
-            <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
-              transform={datenaissance["co_emprunteur_date"] ? "scale(0.85) translateY(-35px)" : ""}
-            >
-              Date de naissance
-            </FormLabel>
-            <InputGroup>
-              <DatePicker
-                id="customDatePicker"
-                selected={datenaissance["co_emprunteur_date"]}
-                onChange={handleDateNaissanceChange}
-                name="datenaissance"
-              />
-              <InputRightElement children={<AiOutlineCalendar />} pb={2} />
-            </InputGroup>
-          </FormControl>
+         
           <FormControl my={3} isRequired variant="floating">
             <FormLabel
               fontSize={"sm"}
@@ -139,8 +122,6 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-        </HStack>
-        <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired>
             <FormLabel
               fontSize={"sm"}
@@ -160,24 +141,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
-            <FormLabel fontSize={"sm"}fontWeight="normal"
-              transform={
-                donneesPersonelles[section]["situation"] ? "scale(0.85) translateY(-35px)" : ""
-              }>Situation Familiale</FormLabel>
-            <Select 
-              size="sm" 
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
-              name="situation"
-              defaultValue={donneesPersonelles[section]["situation"]}
-              >
-              <option ></option>
-              <option value="Célibataire" key="Célibataire">Célibataire</option>
-              <option value="Marié(e)" key="Marié(e)">Marié(e)</option>
-            </Select>
-          </FormControl>
         </HStack>
-
         <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired>
             <FormLabel
@@ -197,7 +161,26 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               type="text"
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
+          </FormControl>  <FormControl my={3} variant="floating" isRequired>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["telpro"] ? "scale(0.85) translateY(-35px)" : ""
+              }
+            >
+              Téléphone Professionnel
+            </FormLabel>
+            <Input
+              name="telpro"
+              size="sm"
+              defaultValue={donneesPersonelles[section]["telpro"]}
+              _placeholder={{ color: "gray.500" }}
+              type="text"
+              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+            />
           </FormControl>
+
         </HStack>
         <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired>
@@ -220,24 +203,22 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
             />
           </FormControl>
           <FormControl my={3} variant="floating" isRequired>
-            <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
+            <FormLabel fontSize={"sm"}fontWeight="normal"
               transform={
-                donneesPersonelles[section]["telpro"] ? "scale(0.85) translateY(-35px)" : ""
-              }
-            >
-              Téléphone Professionnel
-            </FormLabel>
-            <Input
-              name="telpro"
-              size="sm"
-              defaultValue={donneesPersonelles[section]["telpro"]}
-              _placeholder={{ color: "gray.500" }}
-              type="text"
+                donneesPersonelles[section]["situation"] ? "scale(0.85) translateY(-35px)" : ""
+              }>Situation Familiale</FormLabel>
+            <Select 
+              size="sm" 
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
-            />
+              name="situation"
+              defaultValue={donneesPersonelles[section]["situation"]}
+              >
+              <option ></option>
+              <option value="Célibataire" key="Célibataire">Célibataire</option>
+              <option value="Marié(e)" key="Marié(e)">Marié(e)</option>
+            </Select>
           </FormControl>
+        
         </HStack>
         <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired>
@@ -286,77 +267,76 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["adresse"]["adresse1"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["cin_sejour"] ? "scale(0.85) translateY(-35px)" : ""
               }
             >
-              Adresse 1
+              N. Cin/Sejour
             </FormLabel>
             <Input
               size="sm"
               _placeholder={{ color: "gray.500" }}
               type="text"
-              defaultValue={donneesPersonelles[section]["adresse"]["adresse1"]}
-              name="adresse1"
+              defaultValue={donneesPersonelles[section]["cin_sejour"]}
+              name="cin_sejour"
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} isRequired variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
-              transform={
-                donneesPersonelles[section]["adresse"]["adresse2"] ? "scale(0.85) translateY(-35px)" : ""
-              }
+              transform={datenaissance["co_emprunteur_date"] ? "scale(0.85) translateY(-35px)" : ""}
             >
-              Adresse 2
+              Date de naissance
             </FormLabel>
-            <Input
-              size="sm"
-              _placeholder={{ color: "gray.500" }}
-              type="text"
-              name="adresse2"
-              defaultValue={donneesPersonelles[section]["adresse"]["adresse2"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
-            />
+            <InputGroup>
+              <DatePicker
+                id="customDatePicker"
+                selected={datenaissance["co_emprunteur_date"]}
+                onChange={handleDateNaissanceChange}
+                name="datenaissance"
+                dateFormat="dd/MM/yy"
+              />
+              <InputRightElement children={<AiOutlineCalendar />} pb={2} />
+            </InputGroup>
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
+        <FormControl my={3} variant="floating" isRequired>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["adresse"] ? "scale(0.85) translateY(-35px)" : ""
+              }
+            >
+              Adresse
+            </FormLabel>
+            <Input
+              size="sm"
+              _placeholder={{ color: "gray.500" }}
+              type="text"
+              name="adresse"
+              defaultValue={donneesPersonelles[section]["adresse"]}
+              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+            />
+          </FormControl>
           <FormControl my={3} variant="floating" isRequired>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["adresse"]["ville"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["ville"] ? "scale(0.85) translateY(-35px)" : ""
               }
             >
-              Ville
+              Ville de residence
             </FormLabel>
             <Input
               size="sm"
               _placeholder={{ color: "gray.500" }}
               type="text"
               name="ville"
-              defaultValue={donneesPersonelles[section]["adresse"]["ville"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
-            />
-          </FormControl>
-
-          <FormControl my={3} variant="floating" isRequired>
-            <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
-              transform={
-                donneesPersonelles[section]["adresse"]["code_postal"] ? "scale(0.85) translateY(-35px)" : ""
-              }
-            >
-              Code Postal
-            </FormLabel>
-            <Input
-              size="sm"
-              _placeholder={{ color: "gray.500" }}
-              type="text"
-              name="code_postal"
-              defaultValue={donneesPersonelles[section]["adresse"]["code_postal"]}
+              defaultValue={donneesPersonelles[section]["ville"]}
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
@@ -365,7 +345,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
           <FormControl my={3} variant="floating" isRequired>
             <FormLabel fontSize={"sm"} fontWeight="normal"
               transform={
-                donneesPersonelles[section]["adresse"]["pays"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["pays"] ? "scale(0.85) translateY(-35px)" : ""
               }>Pays</FormLabel>
             <Select  
             size='sm' 
@@ -373,7 +353,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
             onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             icon={<AiFillCaretDown/>}
             w="100%"
-            defaultValue={donneesPersonelles[section]["adresse"]["pays"]}
+            defaultValue={donneesPersonelles[section]["pays"]}
             >
                 <option></option>
                 {
@@ -381,7 +361,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
                         
                     return  (
                         
-                        <option value={country.label} css={{"width":"100%"}} >{country.label}</option>
+                        <option key={country.label} value={country.label} css={{"width":"100%"}} >{country.label}</option>
                      )
                     })
                 }

@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import {AiFillCaretDown} from 'react-icons/ai'
 import countryList from "react-select-country-list";
+import CurrencyFormat from 'react-currency-format';
 import { CreditContext } from 'context/CreditContext'
 import { useColorMode } from "@chakra-ui/color-mode";
 const ObjetCredit = ({handleCreditDataChange}) => {
@@ -25,7 +26,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
     
     const newFormCredit = { ...credit }
 
-    newFormCredit["adresse_bien"][fieldName] = fieldValue
+    newFormCredit[fieldName] = fieldValue
 
     setCredit(newFormCredit)
     
@@ -129,11 +130,31 @@ const ObjetCredit = ({handleCreditDataChange}) => {
         
         <HStack alignItems={"flex-start"} mb="5">
         <FormControl id="Nom" isRequired variant="floatingDown" >
+                 <FormLabel fontSize={"sm"} fontWeight="normal"
+              transform={
+                credit["montant_travaux"] ? "scale(0.85) translateY(29px)" : ""
+              }>Montant Travaux</FormLabel>
+                   
+                    <InputGroup size='sm' >
+                        <CurrencyFormat 
+                        name="montant_travaux"
+                        onChange={handleCreditDataChange}
+                        value={credit.montant_travaux}
+                        customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true} 
+                        />
+                        <InputRightAddon children='د.م' />
+                    </InputGroup>
+                  </FormControl>
+        <FormControl id="Nom" isRequired variant="floatingDown" >
         <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                credit["adresse_bien"]["adresse"] ? "scale(0.85) translateY(29px)" : ""
+                credit["adresse"] ? "scale(0.85) translateY(29px)" : ""
               }
             >
               Adresse
@@ -142,7 +163,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               size="sm"
               name="adresse"
               _placeholder={{ color: "gray.500" }}
-              defaultValue={credit["adresse_bien"]["adresse"]}
+              defaultValue={credit["adresse"]}
               onChange={handleAdresseBien}
               type="text"
             />
@@ -152,7 +173,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                credit["adresse_bien"]["ville"] ? "scale(0.85) translateY(29px)" : ""
+                credit["ville"] ? "scale(0.85) translateY(29px)" : ""
               }
             >
               Ville
@@ -161,26 +182,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               size="sm"
               name="ville"
               _placeholder={{ color: "gray.500" }}
-              defaultValue={credit["adresse_bien"]["ville"]}
-              onChange={handleAdresseBien}
-              type="text"
-            />
-                  </FormControl>
-                 <FormControl id="Nom" isRequired variant="floatingDown">
-                 <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
-              transform={
-                credit["adresse_bien"]["code_postal"] ? "scale(0.85) translateY(29px)" : ""
-              }
-            >
-              Code Postal
-            </FormLabel>
-            <Input
-              size="sm"
-              name="code_postal"
-              _placeholder={{ color: "gray.500" }}
-              defaultValue={credit["adresse_bien"]["code_postal"]}
+              defaultValue={credit["ville"]}
               onChange={handleAdresseBien}
               type="text"
             />
@@ -188,7 +190,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
                   <FormControl id="Nom" isRequired variant="floatingDown" >
                   <FormLabel fontSize={"sm"} fontWeight="normal"
               transform={
-                credit["adresse_bien"]["pays"] ? "scale(0.85) translateY(29px)" : ""
+                credit["pays"] ? "scale(0.85) translateY(29px)" : ""
               }>Pays</FormLabel>
             <Select  
             size='sm' 
@@ -196,7 +198,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
             onChange={handleAdresseBien}
             icon={<AiFillCaretDown/>}
             w="100%"
-            defaultValue={credit["adresse_bien"]["pays"]}
+            defaultValue={credit["pays"]}
             >
                 <option></option>
                 {
@@ -236,10 +238,15 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               }>Montant valeur à l'acte</FormLabel>
                    
                     <InputGroup size='sm' >
-                        <Input 
+                        <CurrencyFormat 
                         name="montant_acte"
+                        customInput={Input}
                         onChange={handleCreditDataChange}
-                        defaultValue={credit["montant_acte"]}
+                        value={credit["montant_acte"]}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true} 
                         />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
@@ -250,9 +257,14 @@ const ObjetCredit = ({handleCreditDataChange}) => {
                 credit["montant_venal"] ? "scale(0.85) translateY(29px)" : ""
               }>Montant valeur vénale</FormLabel>
                     <InputGroup size='sm'>
-                        <Input name="montant_venal"
+                        <CurrencyFormat name="montant_venal"
                         onChange={handleCreditDataChange}
-                        defaultValue={credit["montant_venal"]} />
+                        value={credit["montant_venal"]}
+                        customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true}  />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
                   </FormControl>

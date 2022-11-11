@@ -11,6 +11,7 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { CreditContext } from "context/CreditContext";
+import CurrencyFormat from "react-currency-format";
 import { useContext } from "react";
 const CaracteristicsCredit = ({handleCreditDataChange}) => {
   const {credit, SetCredit} = useContext(CreditContext)
@@ -25,9 +26,14 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
                 credit["montant"] ? "scale(0.85) translateY(29px)" : ""
               }>Montant</FormLabel>
           <InputGroup size="sm">
-            <Input name="montant"
+            <CurrencyFormat name="montant"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["montant"]} />
+                  value={credit["montant"]}
+                  customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true}  />
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
@@ -68,9 +74,15 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
                 credit["mensualite"] ? "scale(0.85) translateY(29px)" : ""
               }>Mensualité TTC</FormLabel>
           <InputGroup size="sm">
-            <Input name="mensualite"
+            <CurrencyFormat name="mensualite"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["mensualite"]} />
+                  value={credit["mensualite"]}
+                  customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true}
+                       displayType='input'  />
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>

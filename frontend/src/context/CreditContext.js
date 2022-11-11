@@ -10,19 +10,26 @@ export const CreditProvider = (props) => {
     const [donneesPersonelles, setDonneesPersonelles] = useState({
         "emprunteur":{
             "hasCoEmprunteur":false,
-            "adresse":{}
         },
-        "co_emprunteur":{
-            "adresse":{}
-        }
+        "co_emprunteur":{}
     })
     
     const [ donneesBancaires, setDonneesBancaires ] = useState({
-        "engagements_bancaires":[],
-        "renseignements_bancaires":{}
+        "engagements_bancaires":[{
+            nom: "",
+            prenom: "",
+            nature_credit: "",
+            organisme: "",
+            echeance: "",
+            encours: "",
+            duree: "",
+            rat: ""
+    
+          }],
+        "renseignements_bancaires":[{nom:"",prenom:"",banque:"",solde:"",cmc:""}]
     })
     const [ credit, setCredit ] = useState({
-        "adresse_bien": {}
+       
     })
 
     // Additions variable forms

@@ -37,15 +37,16 @@ const DemandeCredit = () => {
 
   const getUserId = async () => {
     const response = await axiosInstance.get("/users/me")
-    
     return response.data.user_id
   }
   const handleCreateProspect = async (data) => {
+    console.log(data);
       const response = await axiosInstance.post("prospects/create",data)
       return response.data
+      
   }
   const handleCreateCoemp = async (data) => {
-
+    await axiosInstance.post("coemps/create",data)
   }
 
   const handleCreateCredit = async (data) => {
@@ -61,44 +62,62 @@ const DemandeCredit = () => {
     event.preventDefault()
     const prospect_id =  uuidv4();
     const credit_id = uuidv4()
-    const agent_id = await getUserId()
+    const agent_id = await getUserId() 
 
     // Create Prospect record 
-    const prospect = {...donneesPersonelles.emprunteur}
-    Object.entries(donneesBancaires).map(([k, v]) => {
+    const prospect = {...donneesPersonelles.emprunteur,...donneesBancaires}
+    /* Object.entries(donneesBancaires).map(([k, v]) => {
       prospect[k] = [v]
-    })
+    }) */
     const coemp_id = prospect["hasCoEmprunteur"] == "true" ? uuidv4() : null
-    
+    //create Coemp record
     if(coemp_id != null){
       const coemp_in = donneesPersonelles.co_emprunteur
       coemp_in["coemp_id"] = coemp_id
       coemp_in["prospect_id"] = prospect_id
-      await axiosInstance.post("coemps/create",coemp_in)
+      coemp_in["adresse"] = {
+        "adresse1" : donneesPersonelles.co_emprunteur.adresse,
+        "ville": donneesPersonelles.co_emprunteur.ville,
+        "pays" : donneesPersonelles.co_emprunteur.pays
+      }
+      //handleCreateCoemp(coemp_in)
     }
     const creditCreate = {...credit}
     creditCreate["credit_id"] = credit_id
-
+    
+    //fill prospect records
     prospect["prospect_id"] = prospect_id
     prospect["coemp_id"] = coemp_id
     prospect["agent_id"] = agent_id
-    prospect["credits"] = [creditCreate]
+    prospect["credits"] = [credit_id]
+    prospect["adresse"] = {
+      "adresse1" : donneesPersonelles.emprunteur.adresse,
+      "ville": donneesPersonelles.emprunteur.ville,
+      "pays" : donneesPersonelles.emprunteur.pays
+    }
  
     // Create Credit Record
     creditCreate["prospect_id"] = prospect_id
-    
-
-    // Create DemandeCredit Record
+    creditCreate["adresse_bien"] = {
+      "adresse1" : credit.adresse,
+      "ville": credit.ville,
+      "pays" : credit.pays
+    }
+    //handleCreateCredit(creditCreate)
+   /*  // Create DemandeCredit Record
     const demandeCredit = {}
     demandeCredit["prospect"] = prospect
-    demandeCredit["credit"] = creditCreate
+    demandeCredit["credit"] = creditCreate */
+
 
     // fill donnees bancaires
     // const coemp = {...donneesPersonelles.co_emprunteur}
     // const credit = {...credit}
 
+    
+    handleCreateProspect(prospect)
    
-    await handleCreateDemandeCredit(demandeCredit)
+    //await handleCreateDemandeCredit(demandeCredit)
     toast({
       title: `Demande Created successfully`,
       status: "success",

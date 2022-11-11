@@ -11,7 +11,6 @@ import { CreditContext } from 'context/CreditContext'
 
 const DonneesBanquaires = () => {
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
-
   const handleDonneesBancairesChange = (event,section) => {
       event.preventDefault()
       
@@ -27,9 +26,17 @@ const DonneesBanquaires = () => {
   }
 
   const handleEngChange = (data) =>{
+    let newFormDonnesBancaires = {...donneesBancaires,
+      "engagements_bancaires":data,}
+    newFormDonnesBancaires = 
+    setDonneesBancaires(newFormDonnesBancaires)
+    console.log(Object.entries(donneesBancaires));
+  }
+
+  const handleRenChange = (data) =>{
     setDonneesBancaires({
       ...donneesBancaires,
-      "engagements_bancaires":data,
+      "renseignements_bancaires":data,
     })
     console.log(donneesBancaires);
   }
@@ -44,19 +51,10 @@ const DonneesBanquaires = () => {
         <Heading as="h5" size="sm" my={3}>
           Renseignements Bancaires
         </Heading>
-        <Button
-          leftIcon={<BiAddToQueue />}
-          color={"#ff7659"}
-          variant="outline"
-          size="sm"
-          border={"none"}
-        >
-          Add New
-        </Button>
       </Flex>
 
       <RenseignementsBancaires 
-        handleDonneesBancairesChange={handleDonneesBancairesChange}
+        handleRenChange={handleRenChange}
         />
 
       <Flex justifyContent="space-between" alignItems={"center"}>

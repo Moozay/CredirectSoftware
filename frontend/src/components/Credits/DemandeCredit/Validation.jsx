@@ -9,7 +9,8 @@ const Validation = () => {
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext);
   const { credit, setCredit } = useContext(CreditContext);
   const {colorMode} = useColorMode()
-
+  console.log(Object.entries(donneesBancaires.engagements_bancaires));
+ 
   useEffect(() => {
     
   }, [donneesBancaires, credit, donneesPersonelles]);
@@ -158,39 +159,60 @@ const Validation = () => {
           }}
         >
           {Object.entries(donneesBancaires).map(([k, v]) => {
-            return typeof v === "object" ? (
-              <Flex flexDir="column">
-                <Heading fontSize={"13px"} fontWeight="semibold" w="50%" m="1">
-                  {Keys[k]} :{" "}
-                </Heading>
-                {Object.entries(v).map(([kk, vv]) => {
-                  return (
-                    <Flex flexDir="row" ml="5">
-                      <Heading
-                        fontSize={"13px"}
-                        fontWeight="semibold"
-                        w="50%"
-                        m="1"
-                      >
-                        {Keys[kk]} :{" "}
-                      </Heading>
-                      <Text fontSize="sm" mx="2">
-                        {vv}
-                      </Text>
-                    </Flex>
-                  );
-                })}
-              </Flex>
-            ) : (
-              <Flex flexDir="column">
-                <Heading fontSize={"13px"} fontWeight="semibold" w="50%" m="1">
-                  {Keys[k]} :{" "}
-                </Heading>
-                <Text fontSize="sm" mx="2">
-                  {v}
-                </Text>
-              </Flex>
-            );
+              return typeof v === "object" ? (
+                <Flex flexDir="column">
+                  <Heading fontSize={"13px"} fontWeight="semibold" w="50%" m="1">
+                    {Keys[k]} :{" "}
+                  </Heading>
+                  {Object.entries(v).map(([kk, vv]) => {
+                      return typeof vv === "object" ? (
+                        <Flex flexDir="column" ml="5"  paddingBottom="20px">
+                          {Object.entries(vv).map(([kkk, vvv]) => { 
+                            return (
+                              <Flex flexDir="row" ml="5">
+                                <Heading
+                                  fontSize={"13px"}
+                                  fontWeight="semibold"
+                                  w="50%"
+                                  m="1"
+                                >
+                                  {Keys[kkk]} :{" "}
+                                </Heading>
+                                <Text fontSize="sm" mx="2">
+                                  {vvv}
+                                </Text>
+                              </Flex>
+                            )
+                          })}
+                            
+                        </Flex>
+                        ) : (
+                            <Flex flexDir="row" ml="5">
+                              <Heading
+                                fontSize={"13px"}
+                                fontWeight="semibold"
+                                w="50%"
+                                m="1"
+                              >
+                                {Keys[kk]} :{" "}
+                              </Heading>
+                              <Text fontSize="sm" mx="4">
+                                {vv}
+                              </Text>
+                            </Flex>
+                            )
+                  })}
+                </Flex>
+              ) : (
+                <Flex flexDir="column">
+                  <Heading fontSize={"13px"} fontWeight="semibold" w="50%" m="1">
+                    {Keys[k]} :{" "}
+                  </Heading>
+                  <Text fontSize="sm" mx="3">
+                    {v}
+                  </Text>
+                </Flex>
+                );
           })}
         </Flex>
       </Flex>

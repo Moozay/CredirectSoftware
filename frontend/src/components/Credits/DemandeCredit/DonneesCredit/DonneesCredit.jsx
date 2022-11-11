@@ -25,13 +25,14 @@ const DonneesCredit = () => {
       
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
+    var newFormCredit
     
-    const newFormCredit = { ...credit }
-
+    newFormCredit = { ...credit }
     newFormCredit[fieldName] = fieldValue
-
     setCredit(newFormCredit)
     console.log(credit)
+    
+    
   }
 useEffect(()=>{
   console.log(credit)
@@ -53,7 +54,9 @@ useEffect(()=>{
                 </Select>
             </FormControl>
         </HStack>
-        <Flex justifyContent="space-between" alignItems={"center"} px="2"mb="2" bgColor={colorMode=='light'?"#efefef":""} w="100%">
+     {credit.type_credit == "consommation" || "hypothecaire" && 
+      <>
+       <Flex justifyContent="space-between" alignItems={"center"} px="2"mb="2" bgColor={colorMode=='light'?"#efefef":""} w="100%">
         <Heading as="h5" size="sm" >
             Objet du Crédit
         </Heading>
@@ -70,6 +73,8 @@ useEffect(()=>{
       <ObjetCredit 
         handleCreditDataChange={handleCreditDataChange}
         />
+      </>
+     }
       <Flex justifyContent="space-between" alignItems={"center"}>
         <Heading as="h5" size="sm" p="2"mb="2" bgColor={colorMode=='light'?"#efefef":""} w="100%">
                 Caractéristiques Du Crédit

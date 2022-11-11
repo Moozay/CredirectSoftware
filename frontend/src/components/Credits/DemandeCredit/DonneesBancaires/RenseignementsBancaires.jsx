@@ -15,31 +15,29 @@ import {
   Button
 } from '@chakra-ui/react'
 import { BiAddToQueue } from "react-icons/bi";
+import CurrencyFormat from 'react-currency-format';
+import { DeleteIcon } from "@chakra-ui/icons";
 import { CreditContext } from 'context/CreditContext'
-const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
+const RenseignementsBancaires = ({handleRenChange}) => {
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
   const [section, setSection] = useState("renseignements_bancaires")
-  const [inputField, setInputField] = useState([
-    {nom:"",prenom:"",banque:"",solde:"",cmc:""}
-  ])
+  let ren_data = donneesBancaires.renrenseignements_bancaires
   const handleFormChange = (index, event) =>{
-    let data = [...inputField]
+    let data = [...donneesBancaires.renseignements_bancaires]
     data[index][event.target.name] = event.target.value
-    setInputField(data)
-    //handleRenChange(inputField)
+    handleRenChange(data)
+    console.log(ren_data);
     }
 
   const addField = () =>{
     let newField = {nom:"",prenom:"",banque:"",solde:"",cmc:""}
-    setInputField([...inputField,newField])
-    console.log(inputField);
+    handleRenChange([...donneesBancaires.renseignements_bancaires,newField])
   }
 
   const removeField = (index)=>{
-    let data = [...inputField]
+    let data = [...donneesBancaires.renseignements_bancaires]
     data.splice(index,1)
-    setInputField(data)
-    //handleRenChange(inputField)
+    handleRenChange(data)
     console.log("removed", index, data);
   }
   const {colorMode} = useColorMode()
@@ -63,13 +61,13 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Supprime' p={1} w="48%" textAlign={"center"} />            
         </HStack>
         
-        {inputField.map((input, index)=>{
+        {donneesBancaires.renseignements_bancaires.map((input, index)=>{
           return (
             <HStack alignItems={"flex-start"} my={4}>
             <FormControl  isRequired variant="floating" >
                     <FormLabel fontSize={"sm"}
             fontWeight="normal"
-            transform={donneesBancaires[section]["nom"] ? "scale(0.85) translateY(-35px)" : ""}
+            transform={input.nom? "scale(0.85) translateY(-35px)" : ""}
 >Nom</FormLabel>
                     <Input
                     value={input.nom}
@@ -87,7 +85,7 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                     <FormLabel 
                     fontSize={"sm"}
                     fontWeight="normal"
-                    transform={donneesBancaires[section]["prenom"] ? "scale(0.85) translateY(-35px)" : ""}>Prénom</FormLabel>
+                    transform={input.prenom? "scale(0.85) translateY(-35px)" : ""}>Prénom</FormLabel>
                     <Input
                     value={input.prenom}
                       size="sm"
@@ -118,12 +116,16 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                   </FormControl>
                  <FormControl  isRequired >
                     <InputGroup size='sm'>
-                        <Input 
-
+                        <CurrencyFormat 
+                        customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true}
                         name="solde"
                         value={input.solde}
                         onChange={(e)=>handleFormChange(index,e)}
-                        placeholder='#,###,###.##' />
+                        placeholder='# ### ###.##' />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
 
@@ -132,16 +134,31 @@ const RenseignementsBancaires = ({handleDonneesBancairesChange}) => {
                     
                     <InputGroup size='sm'>
                         
-                        <Input 
+                    <CurrencyFormat 
+                        customInput={Input}
+                        decimalSeparator=","
+                        thousandSeparator=" "
+                        decimalScale={2}
+                        fixedDecimalScale={true} 
                         name="cmc"
                         
                         value={input.cmc}
                         onChange={(e)=>handleFormChange(index,e)}
-                        placeholder='#,###,###.##' />
+                        placeholder='# ### ###.##' />
                         <InputRightAddon children='د.م' />
                     </InputGroup>
 
                   </FormControl>
+                  <FormControl>
+        <Button
+          leftIcon={<DeleteIcon />}
+          color={"#ff7659"}
+          variant="outline"
+          size="sm"
+          border={"none"}
+          onClick={() => removeField(index)}
+        >Supprime</Button>
+        </FormControl>
         </HStack>
           )
         })}
