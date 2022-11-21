@@ -28,6 +28,8 @@ import Clients from 'components/Clients/Clients'
 import Client from 'components/Clients/Client/Client'
 import Panel from 'components/Panel'
 import Demandes from 'components/Demandes/Demandes'
+import Demande from 'components/Demandes/Demande/Demande'
+import AuthRoute from 'components/Auth/AuthRoute'
 
 const App = () => {
   return (
@@ -56,14 +58,32 @@ const App = () => {
               
               <Route path="dashboard" element={<Authenticated><Dashboard/></Authenticated>}>
                   <Route path="metrics" exact element={<Authenticated><Panel/></Authenticated>}/>
-                  <Route path="users" element={<Authenticated><Users/></Authenticated>}/>
+                  <Route element={<AuthRoute allowedRoles={["Manager","Admin"]}/>}>
+                    <Route path="users" element={<Authenticated><Users/></Authenticated>}/>
+                  </Route>
                   <Route path="profile" element={<Authenticated><Profile/></Authenticated>}/>
-                  <Route path="clients" exact element={<Authenticated><Clients/></Authenticated>}/>
-                  <Route path="client" exact element={<Authenticated><Client/></Authenticated>}/>
-                  <Route path="prospects" exact element={<Authenticated><Prospects/></Authenticated>}/>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
+                    <Route path="clients" exact element={<Authenticated><Clients/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager"]}/>}>
+                    <Route path="client" exact element={<Authenticated><Client/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Admin","Manager"]}/>}>
+                  < Route path="prospects" exact element={<Authenticated><Prospects/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Admin","Manager"]}/>}>
                   <Route path="prospect" exact element={<Authenticated><Prospect/></Authenticated>}/>
-                  <Route path="demandeCredit" exact element={<Authenticated><DemandeCredit/></Authenticated>}/>
-                  <Route path="demandes" exact element={<Authenticated><Demandes/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
+                    <Route path="demandeCredit" exact element={<Authenticated><DemandeCredit/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
+                    <Route path="demandes" exact element={<Authenticated><Demandes/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
+                    <Route path="demandes" exact element={<Authenticated><Demande/></Authenticated>}/>
+                  </Route>
+                 
               </Route>
 
               <Route path="auth" element={<Auth />}>

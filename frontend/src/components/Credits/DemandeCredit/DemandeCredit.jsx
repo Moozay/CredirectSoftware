@@ -17,6 +17,9 @@ const DemandeCredit = () => {
   const { donneesPersonelles, setdonneesPersonelles } = useContext(CreditContext)
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
   const { credit, setCredit } = useContext(CreditContext)
+  var createdCredit
+  var createdProspect
+
   const toast = useToast()
   const navigate = useNavigate()
     const location = useLocation()
@@ -40,8 +43,8 @@ const DemandeCredit = () => {
     return response.data.user_id
   }
   const handleCreateProspect = async (data) => {
-    console.log(data);
       const response = await axiosInstance.post("prospects/create",data)
+      createdProspect = response.data
       return response.data
       
   }
@@ -50,7 +53,9 @@ const DemandeCredit = () => {
   }
 
   const handleCreateCredit = async (data) => {
+    console.log(data.prospect_id);
     const response = await axiosInstance.post("credits/create",data)
+    createdCredit = response.data
     return response.data
   }
 
@@ -80,7 +85,7 @@ const DemandeCredit = () => {
         "ville": donneesPersonelles.co_emprunteur.ville,
         "pays" : donneesPersonelles.co_emprunteur.pays
       }
-      //handleCreateCoemp(coemp_in)
+      handleCreateCoemp(coemp_in)
     }
     const creditCreate = {...credit}
     creditCreate["credit_id"] = credit_id
@@ -97,13 +102,13 @@ const DemandeCredit = () => {
     }
  
     // Create Credit Record
-    creditCreate["prospect_id"] = prospect_id
+    creditCreate["prospect_id"] = prospect.prospect_id
     creditCreate["adresse_bien"] = {
       "adresse1" : credit.adresse,
       "ville": credit.ville,
       "pays" : credit.pays
     }
-    //handleCreateCredit(creditCreate)
+    handleCreateCredit(creditCreate)
    /*  // Create DemandeCredit Record
     const demandeCredit = {}
     demandeCredit["prospect"] = prospect

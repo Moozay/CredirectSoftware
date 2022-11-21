@@ -24,7 +24,7 @@ import {
 } from "@chakra-ui/react";
 import { UserProvider } from 'context/UserContext';
 import { ProspectProvider } from 'context/ProspectsContext';
-
+import { DemandeProvider } from 'context/DemandeContext';
 const Dashboard = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
@@ -35,7 +35,8 @@ const Dashboard = () => {
   return (
     <UserProvider>
       <ProspectProvider>
-      <CreditProvider>
+        <DemandeProvider>
+        <CreditProvider>
     <Flex 
           h="100vh" 
           flexDir="row" 
@@ -91,6 +92,7 @@ const Dashboard = () => {
              
           </Flex>
           </CreditProvider>
+        </DemandeProvider>
           </ProspectProvider>
           </UserProvider>
       

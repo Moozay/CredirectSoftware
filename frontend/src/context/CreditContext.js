@@ -42,6 +42,18 @@ export const CreditProvider = (props) => {
         "co_emprunteur_date":null
     })
 
+
+    const resetForm = () =>{
+        setDonneesPersonelles({
+            "emprunteur":{
+                "hasCoEmprunteur":false,
+            },
+            "co_emprunteur":{}
+        })
+
+        
+    }
+
     useEffect(() => {
         
     },[])

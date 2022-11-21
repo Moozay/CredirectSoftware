@@ -191,7 +191,7 @@ const Sidebar = (props) => {
             <Flex>
               <Avatar
                 size="sm"
-                src={`http://localhost:8000/static/${ user.avatar }`}
+                src={`http://192.168.11.200:8000/static/${ user.avatar }`}
                 display={navSize == "small" ? "none" : "flex"}
               />
               <Flex

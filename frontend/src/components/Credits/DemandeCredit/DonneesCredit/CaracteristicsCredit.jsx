@@ -45,7 +45,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="duree_credit"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["duree_credit"]} />
+                  value={credit["duree_credit"]} />
                   <InputRightAddon children="mois" />
           </InputGroup>
         </FormControl>
@@ -56,7 +56,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
               }>Fréquence de remboursement</FormLabel>
           <Select placeholder="" size="sm"name="frequence"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["frequence"]} >
+                  value={credit["frequence"]} >
             <option></option>
             <option value="mensuelle">Mensuelle</option>
             <option value="trimestrielle">Trimestrielle</option>
@@ -94,7 +94,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="taux"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["taux"]} />
+                  value={credit["taux"]} />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
@@ -107,7 +107,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="franchise"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["franchise"]} />
+                  value={credit["franchise"]} />
                   <InputRightAddon children="mois" />
           </InputGroup>
         </FormControl>
@@ -121,7 +121,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="taux_endt"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["taux_endt"]} />
+                  value={credit["taux_endt"]} />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
@@ -133,7 +133,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="teg"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["teg"]} />
+                  value={credit["teg"]} />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
@@ -145,7 +145,7 @@ const CaracteristicsCredit = ({handleCreditDataChange}) => {
           <InputGroup size="sm">
             <Input name="qot_financement"
                   onChange={handleCreditDataChange}
-                  defaultValue={credit["qot_financement"]}/>
+                  value={credit["qot_financement"]}/>
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>

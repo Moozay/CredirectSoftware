@@ -22,15 +22,29 @@ const DonneesCredit = () => {
 
   const handleCreditDataChange = (event)=>{
     event.preventDefault()
-      
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
     var newFormCredit
-    
-    newFormCredit = { ...credit }
+    if (fieldValue == "consommation") {
+      newFormCredit = {montant:"",
+                      duree_credit:"",
+                      frequence:"",
+                      mensualite:"",
+                      taux:"",
+                      franchise:"",
+                      taux_endt:"",
+                      teg:"",
+                      qot_financement:""}
     newFormCredit[fieldName] = fieldValue
     setCredit(newFormCredit)
     console.log(credit)
+    }
+    else{
+      newFormCredit = { ...credit }
+    newFormCredit[fieldName] = fieldValue
+    setCredit(newFormCredit)
+    console.log(credit)
+    }
     
     
   }
