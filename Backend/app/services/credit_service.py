@@ -1,14 +1,20 @@
 
 from app.models.credit_model import StatusCredit
 from app.models.prospect_model import Prospect
+from app.services.prospect_service import ProspectService
 from app.schemas.demande_credit_schema import DemandeCreditCreate
 from app.schemas.prospect_schema import ProspectOut, ProspectCreate
 from app.schemas.credit_schema import CreditCreate , CreditUpdate, CreditOut
 from uuid import UUID, uuid4
 from typing import List, Optional
-from app.models.credit_model import Credit 
+from fastapi import Request
+from fastapi.responses import FileResponse
+from app.models.credit_model import Credit
+from fastapi.templating import Jinja2Templates
 from app.models.demande_credit_model import DemandeCredit
 import pymongo
+import os
+import pdfkit
 
 
 class CreditService:
@@ -35,27 +41,72 @@ class CreditService:
             montant_venal = credit.montant_venal,
             adresse_bien = credit.adresse_bien,
             superficie = credit.superficie,
+            prospect_id = credit.prospect_id,
             statusCredit = credit.statusCredit,
-            prospect_id = credit.prospect_id
         )
         await credit_in.save()
         return credit_in
 
     @staticmethod
     async def update_credit(id: UUID, data: CreditUpdate) -> Credit:
-        pass
+        credit = await Credit.find_one(Credit.credit_id == id)
+        if not Credit:
+            raise pymongo.errors.OperationFailure("Credit not found")
+        
+        await credit.update({"$set": data.dict(exclude_unset=True)})
+        return credit
+    
+    @staticmethod
+    async def get_dc(request: Request,credit_id: UUID):
+        templates = Jinja2Templates(directory="app/static")
+        context = {'request':request, 'name':'AHMED MUSA' }
+        credit = await CreditService.get_credit_by_id(credit_id)
+        prospect = await ProspectService.get_prospect_by_id(credit.prospect_id)
+        context = {**context,'credit':credit, 'prospect':prospect}
+        return templates.TemplateResponse("dc.html", context)
+    
+    @staticmethod
+    async def create_dc(credit_id:UUID):
+        filelocation = "app/temp/" + str(credit_id) + '.pdf'
+        config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+        html_url = "192.168.11.200:8000/api/v1/credits/demandecredit/2b3fabc3-4d68-4439-bf3b-3b49b58540b4"
+        pdfkit.from_url(html_url,output_path=filelocation,configuration=config)
+
+    @staticmethod
+    async def download_dc(request: Request,credit_id: UUID):
+        parentPath = os.path.dirname(__file__)
+        path = "/../temp/"
+        filePath = parentPath + path +str(credit_id) + '.pdf'
+        st_abs = os.path.join(parentPath,filePath)
+        if not (os.path.isfile(st_abs)):
+            try:
+                await CreditService.create_dc(credit_id)
+            except OSError:
+                return FileNotFoundError
+        filename = os.path.basename(st_abs)
+        headers = {'content-Dispostion':f'attachment; filename="{filename}"'}
+        return FileResponse(st_abs,headers=headers,media_type='application/pdf')
+
 
     @staticmethod
     async def delete_credit(id: UUID):
-        pass
+        credit = await Credit.find_one(Credit.credit_id == id)
+        if not credit:
+            raise pymongo.errors.OperationFailure("Credit not Found")
+
+        await credit.delete()
+        return {
+            "message" : "Credit deleted successfully"
+        }
 
     @staticmethod
-    async def get_credits() -> List[Credit]:
-        pass
+    async def get_credits() -> List[CreditOut]:
+        return await Credit.find_all().to_list()
 
     @staticmethod
-    async def get_credit_by_id(id: UUID) -> Optional[Credit]:
-        pass
+    async def get_credit_by_id(id: UUID) -> Optional[CreditOut]:
+        credit = await Credit.find_one(Credit.credit_id == id)
+        return credit
     
     @staticmethod
     async def demande_credit(data : DemandeCreditCreate):

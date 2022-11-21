@@ -40,8 +40,8 @@ class Credit(Document):
     montant_venal : str
     adresse_bien : dict
     superficie : str
+    prospect_id : UUID
     statusCredit : StatusCredit = StatusCredit.encours
-    prospect_id = str
 
     class Config:  
         use_enum_values = True

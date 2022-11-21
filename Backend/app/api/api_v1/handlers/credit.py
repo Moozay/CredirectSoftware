@@ -7,7 +7,8 @@ from app.schemas.prospect_schema import ProspectOut
 from app.models.demande_credit_model import DemandeCredit
 from app.schemas.credit_schema import CreditOut, CreditUpdate, CreditCreate
 import pymongo
-from fastapi import APIRouter
+from fastapi import APIRouter,Request
+from fastapi.responses import HTMLResponse
 from typing import List
 
 credit_router = APIRouter()
@@ -30,14 +31,25 @@ async def demande_credit(data : DemandeCreditCreate):
 async def update_credit(credit: CreditUpdate):
     pass
 
-@credit_router.get('/single/${credit_id}', summary="Get single credit by id", response_model=CreditOut)
+@credit_router.get('/single/{credit_id}', summary="Get single credit by id", response_model=CreditOut)
 async def get_credit(credit_id: UUID):
-    pass
+    return await CreditService.get_credit_by_id(credit_id)
+
+
+@credit_router.get('/demandecredit/{credit_id}', summary="Get dc form credit by id", response_class=HTMLResponse)
+async def get_dc(request: Request,credit_id: UUID):
+    return await CreditService.get_dc(request,credit_id)
+
+
+@credit_router.get('/download/{credit_id}', summary="Get dc form credit by id", response_class=HTMLResponse)
+async def get_dc(request: Request,credit_id: UUID):
+    return await CreditService.download_dc(request,credit_id)
+
 
 @credit_router.get('/all', summary="get all credits", response_model=List[CreditOut])
 async def get_credits():
-    pass
+    return await CreditService.get_credits()
 
 @credit_router.delete('/{credit_id}', summary="delete credit by id")
 async def delete_credit(credit_id: UUID): 
-    pass
+    return await CreditService.delete_credit(credit_id)

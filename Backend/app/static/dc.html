@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static',path='/styledc.css')}}" media="all" />
+    <title>CREDIRECT.MA</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static',path='/favicon.png')}}"/>
+  </head>
+ 
+  <body>
+      <div class="columns">
+        <div class="column">
+          <div class="logo">
+            <img src="{{ url_for('static',path='/credirect.png')}}"alt="logo" />
+          </div>
+          <div class="pr-name">
+            <p>{{prospect.nom}} {{prospect.prenom}}</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="letterhead">DEMANDE DE CREDIT</div>
+        </div>
+        <div class="column">
+          <div class="agent-addr">
+            <table>
+              <tr>
+                <th>Initiateur:</th>
+                <td>SALMA</td>
+              </tr>
+              <tr>
+                <th>Telephone:</th>
+                <td>+212 5 20 16 00 17</td>
+              </tr>
+              <tr>
+                <th>Date:</th>
+                <td>11/08/2022</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <div class="columns">
+        <div class="column-2">
+          <div class="credit-type">CREDIT IMMOBILIER</div>
+        </div>
+        <div class="column-2">
+          <div class="mail-msg">
+            Merci d'envoyer l'accord du crédit sur la boite mail suivante
+          </div>
+        </div>
+        <div class="column-2">
+          <div class="mail-contact">contact@credirect.ma</div>
+        </div>
+      </div>
+    </div>
+    <div class="prospect-info">
+      <div class="table-head">TYPE INTERVENANT ===> Emprunteur Principal</div>
+      <table class="pos_fixed1" border="1">
+        <tr>
+          <th>Nom et prenom</th>
+          <td>{{prospect.nom}} {{prospect.prenom}}</td>
+        </tr>
+        <tr>
+          <th>Date de naissance</th>
+          <td>{{prospect.datenaissance}}</td>
+        </tr>
+        <tr>
+          <th>Nationalité</th>
+          <td>{{prospect.nationalite}}</td>
+        </tr>
+        <tr>
+          <th>Adresse</th>
+          <td>{{prospect.adresse.adresse1}}</td>
+        </tr>
+        <tr>
+          <th>Profession</th>
+          <td>{{prospect.profession}}</td>
+        </tr>
+        <tr>
+          <th>Date d'embauche</th>
+          <td>{{prospect.datembauche}}</td>
+        </tr>
+        <tr>
+          <th>N CIN/Sejour</th>
+          <td>{{prospect.cin_sejour}}</td>
+        </tr>
+      </table>
+      <table class="pos_fixed2" border="1">
+        <tr>
+          <th>Lieu de naissance</th>
+          <td>{{prospect.lieunaissance}}</td>
+        </tr>
+        <tr>
+          <th>Ville de residence</th>
+          <td>{{prospect.adresse.ville}}</td>
+        </tr>
+        <tr>
+          <th>Situation Familliale</th>
+          <td>{{prospect.situation}}</td>
+        </tr>
+        <tr>
+          <th>Telephone / Telephone Pro</th>
+          <td>{{prospect.telephone}} / {{prospect.telpro}}</td>
+        </tr>
+        <tr>
+          <th>R.S. Employeur</th>
+          <td>MALAK IMPORT EXPORT</td>
+        </tr>
+        <tr>
+          <th>Resultat Net/Salaire</th>
+          <td>{{prospect.revenue}}</td>
+        </tr>
+        <tr>
+          <th>Part de Participation</th>
+          <td>100.00%</td>
+        </tr>
+      </table>
+    </div>
+    <div class="banque-info">
+      <div class="table-head">RENSEIGNEMENTS BANCAIRES</div>
+      <table border="1">
+        <tr>
+          <th>Nom Ou Raison Sociale</th>
+          <th>Banque</th>
+          <th>Solde</th>
+          <th>Cmc</th>
+        </tr>
+        <tr>
+          <td>RACHID HAMRAOUI</td>
+          <td>AWB</td>
+          <td>12700,00</td>
+          <td>0,00</td>
+        </tr>
+      </table>
+    </div>
+    <div class="odc">
+      <div class="table-head">OBJET DE CREDIT</div>
+      <div class="odc-table">
+        <table class="pos_fixed1" width="31%" border="1">
+          <tr>
+            <th>Objet de credit</th>
+            <td>{{credit.objet_credit}}</td>
+          </tr>
+          <tr>
+            <th>Nature du bien</th>
+            <td>{{credit.nature_bien}}</td>
+          </tr>
+          <tr>
+            <th>Montant valeur de l'acte</th>
+            <td>{{credit.montant_acte}}</td>
+          </tr>
+          <tr>
+            <th>Montant valeur venale</th>
+            <td>{{credit.montant_venal}}</td>
+          </tr>
+          <tr>
+            <th>Titr foncier</th>
+            <td>239177/12</td>
+          </tr>
+        </table>
+        <table class="pos_fixed2" width="68%" border="1">
+          <tr>
+            <th>Usage du bien</th>
+            <td>{{credit.usage_bien}}</td>
+          </tr>
+          <tr>
+            <th>Etat du bien</th>
+            <td>{{credit.etat_bien}}</td>
+          </tr>
+          <tr>
+            <th>Mnt Travaux</th>
+            <td>{{credit.montant_travaux}}</td>
+          </tr>
+          <tr>
+            <th>Adr. du bien</th>
+            <td>
+              {{credit.adresse_bien.adresse1}}
+            </td>
+          </tr>
+          <tr>
+            <th>Superficie en m</th>
+            <td>{{credit.superficie}} m</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="eng-ban">
+      <div class="table-head">ENGAGEMENTS BANCAIRES</div>
+      <table border="1">
+        <tr>
+          <th>Beneficiare</th>
+          <th>Nature credit</th>
+          <th>Organisme</th>
+          <th>Echeance</th>
+          <th>Encours</th>
+          <th>Duree</th>
+          <th>RAT</th>
+        </tr>
+        <tr>
+          <td>RACHID HAMRAOUI</td>
+          <td>CREDIT CONSO</td>
+          <td>VIVALIS</td>
+          <td>11832,00</td>
+          <td>0,00</td>
+          <td>0</td>
+          <td>NON</td>
+        </tr>
+        <tr>
+          <td>RACHID HAMRAOUI</td>
+          <td>CREDIT CONSO</td>
+          <td>AWB</td>
+          <td>11331,00</td>
+          <td>0,00</td>
+          <td>0</td>
+          <td>NON</td>
+        </tr>
+      </table>
+    </div>
+    <div class="cdc">
+      <div class="table-head">CARACTERISTIQUES DU CREDIT</div>
+      <div class="cdc-head">RACHID HAMRAOUI</div>
+      <table class="pos_fixed1" border="1">
+        <tr>
+          <th>Montant</th>
+          <td>{{credit.montant}}</td>
+        </tr>
+        <tr>
+          <th>Mens. TTC + Ass</th>
+          <td>{{credit.mensualite}}</td>
+        </tr>
+        <tr>
+          <th>Tx d'endet. projet</th>
+          <td>{{credit.taux_endt}}</td>
+        </tr>
+      </table>
+      <table class="pos_fixed2" border="1">
+        <tr>
+          <th>Durée</th>
+          <td>{{credit.duree}}</td>
+        </tr>
+        <tr>
+          <th>Taux souhaité</th>
+          <td>{{credit.taux}}</td>
+        </tr>
+        <tr>
+          <th>TEG</th>
+          <td>{{credit.teg}}</td>
+        </tr>
+      </table>
+      <table class="pos_fixed3" border="1">
+        <tr>
+          <th>Frèq.Remboursement</th>
+          <td>{{credit.frequence}}</td>
+        </tr>
+        <tr>
+          <th>Durée de franchise</th>
+          <td>{{credit.franchise}}</td>
+        </tr>
+        <tr>
+          <th>Quotitèfinacement</th>
+          <td>{{credit.qot_financement}} %</td>
+        </tr>
+      </table>
+    </div>
+    <div class="gar" >
+      <table>
+        <tr>
+          <th>GARANTIES</th>
+        </tr>
+        <tr>
+          <td>
+            *** HYPOTHEQUE EN 1ER RANG *** ENGAGEMENT DE DOMICILIATION DES
+            REVENUS
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="caf-v">
+      <table class="pos-left">
+        <tr>
+          <th>Commentaires liés au Financement</th>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+      <table class="pos-right">
+        <tr>
+          <th>visa</th>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script type="text/javascript">
+      window.print();
+  </script>
+</html>

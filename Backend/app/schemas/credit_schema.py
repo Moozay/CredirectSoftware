@@ -31,7 +31,7 @@ class BaseCredit(BaseModel):
     adresse_bien : dict
     superficie : str
     statusCredit : StatusCredit = StatusCredit.encours
-    prospect_id = str
+    prospect_id = UUID
 
 class CreditCreate(BaseModel):
     credit_id: UUID
@@ -54,8 +54,9 @@ class CreditCreate(BaseModel):
     montant_travaux: str
     adresse_bien : dict
     superficie : str
+    prospect_id : UUID
     statusCredit : StatusCredit = StatusCredit.encours
-    prospect_id = str
+
     
 class CreditUpdate(BaseModel):
     type_credit : str
@@ -100,5 +101,5 @@ class CreditOut(BaseModel):
     adresse_bien : dict
     superficie : int
     statusCredit : StatusCredit
-    prospect_id = str
+    prospect_id : UUID
 
