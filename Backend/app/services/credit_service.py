@@ -4,7 +4,7 @@ from app.models.prospect_model import Prospect
 from app.services.prospect_service import ProspectService
 from app.schemas.demande_credit_schema import DemandeCreditCreate
 from app.schemas.prospect_schema import ProspectOut, ProspectCreate
-from app.schemas.credit_schema import CreditCreate , CreditUpdate, CreditOut
+from app.schemas.credit_schema import CreditCreate , CreditUpdate, CreditOut,CreditDisplay
 from uuid import UUID, uuid4
 from typing import List, Optional
 from fastapi import Request
@@ -100,8 +100,35 @@ class CreditService:
         }
 
     @staticmethod
-    async def get_credits() -> List[CreditOut]:
-        return await Credit.find_all().to_list()
+    async def get_credits() -> List[CreditDisplay]:
+        credits_obj = await Credit.find_all().aggregate([{
+            "$lookup":{
+                "from":"prospects",
+                "localField": "prospect_id",
+                "foreignField": "prospect_id",
+                "as": "prospectInfo"
+            }
+        },
+        {
+            "$unwind": {
+                "path": "$prospectInfo"
+            }
+        },
+        {
+            "$project":{
+                "credit_id":1,
+                "prospect_id":1,
+                "type_credit":1,
+                "prospectInfo":{
+                    "nom":1,
+                    "prenom":1
+                },
+                "montant":1,
+                "statusCredit":1
+            }
+        }]).to_list()
+    
+        return credits_obj
 
     @staticmethod
     async def get_credit_by_id(id: UUID) -> Optional[CreditOut]:

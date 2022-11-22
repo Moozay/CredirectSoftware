@@ -138,7 +138,6 @@ const DemandeCredit = () => {
       name: "Emprunteur & Co-Emprunteur",
       content: <DonneesPersonnelles />,
       validator: EmprunteurValidator,
-      
     },
     {
       label: "Données Bancaires",
@@ -153,7 +152,7 @@ const DemandeCredit = () => {
       
     },
     {
-      label: "Preview & Validation",
+      label: "Résumé",
       name: "Validation",
       content: <>Text </>
     }

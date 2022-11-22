@@ -58,7 +58,7 @@ const RenseignementsBancaires = ({handleRenChange}) => {
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Banque' p={1} w="48%" textAlign={"center"} />
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Solde' p={1} w="48%" textAlign={"center"} />
             <Code bgColor={colorMode=='light'?"#efefef":""} children='CMC' p={1} w="48%" textAlign={"center"} /> 
-            <Code bgColor={colorMode=='light'?"#efefef":""} children='Supprime' p={1} w="48%" textAlign={"center"} />            
+            <Code bgColor={colorMode=='light'?"#efefef":""} children='Action' p={1} w="48%" textAlign={"center"} />            
         </HStack>
         
         {donneesBancaires.renseignements_bancaires.map((input, index)=>{
@@ -106,6 +106,8 @@ const RenseignementsBancaires = ({handleRenChange}) => {
                       name="banque"
                       onChange={(e)=>handleFormChange(index,e)}
                       value={input.banque}
+                      textAlign="center"
+
                       >
                         <option value="AWB">AWB</option>
                         <option value="BMCE">BMCE</option>
@@ -155,6 +157,7 @@ const RenseignementsBancaires = ({handleRenChange}) => {
           color={"#ff7659"}
           variant="outline"
           size="sm"
+          alignContent={"center"}
           border={"none"}
           onClick={() => removeField(index)}
         >Supprime</Button>

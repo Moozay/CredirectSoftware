@@ -5,7 +5,7 @@ from app.schemas.demande_credit_schema import DemandeCreditOut
 from app.services.credit_service import CreditService
 from app.schemas.prospect_schema import ProspectOut
 from app.models.demande_credit_model import DemandeCredit
-from app.schemas.credit_schema import CreditOut, CreditUpdate, CreditCreate
+from app.schemas.credit_schema import CreditOut, CreditUpdate, CreditCreate,CreditDisplay
 import pymongo
 from fastapi import APIRouter,Request
 from fastapi.responses import HTMLResponse
@@ -46,7 +46,7 @@ async def get_dc(request: Request,credit_id: UUID):
     return await CreditService.download_dc(request,credit_id)
 
 
-@credit_router.get('/all', summary="get all credits", response_model=List[CreditOut])
+@credit_router.get('/all', summary="get all credits", response_model=List[CreditDisplay])
 async def get_credits():
     return await CreditService.get_credits()
 

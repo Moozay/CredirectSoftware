@@ -21,7 +21,6 @@ export const DemandeProvider = (props) => {
         }
         initialize()
         isMounted.current = true
-        console.log('hello');
     },[demandes, reload])
     
     return (

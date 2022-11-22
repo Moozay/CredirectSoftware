@@ -24,8 +24,8 @@ import { FaUserEdit } from 'react-icons/fa';
 import { AiOutlineUserAdd,AiOutlineDelete,AiOutlineFolderView } from 'react-icons/ai'
 import { MdOutlineManageAccounts } from 'react-icons/md'
 import { HiViewList } from 'react-icons/hi'
-import EditableRow from 'components/Tables/EditableRow';
-import ReadOnlyRow from 'components/Tables/ReadOnlyRow';
+import EditableRow from 'components/Tables/EditableRowUsers';
+import ReadOnlyRow from 'components/Tables/ReadOnlyRowUsers';
 import Prospect  from './Prospect/Prospect' 
 import axiosInstance from 'services/axios';
 import { ProspectContext } from 'context/ProspectsContext';
@@ -147,7 +147,7 @@ const Prospects = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Type de Crédit
+                    Nombre de Crédit
                     </Th>
                     <Th
                         textAlign="center"
@@ -226,7 +226,7 @@ const Prospects = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {credit["type_credit"]}
+                            {prospect["credits"].length}
                           </Td>
                           <Td
                             textAlign="center"

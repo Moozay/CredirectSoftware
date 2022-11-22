@@ -103,3 +103,11 @@ class CreditOut(BaseModel):
     statusCredit : StatusCredit
     prospect_id : UUID
 
+class CreditDisplay(BaseModel):
+    credit_id: UUID
+    type_credit : str
+    montant : str
+    statusCredit : StatusCredit
+    prospect_id : UUID
+    prospectInfo: dict
+

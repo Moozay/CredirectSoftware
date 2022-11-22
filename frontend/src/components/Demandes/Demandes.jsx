@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment, useContext } from 'react'
 import {
+    Select,
     Table,
     Thead,
     Tbody,
@@ -19,19 +20,19 @@ import {
     useDisclosure,
  
   } from "@chakra-ui/react";
-import { FaUserEdit } from 'react-icons/fa';
+import { FaRegEdit, FaUserEdit } from 'react-icons/fa';
 import { IoDownloadSharp } from 'react-icons/io5';
 
 
 import { AiOutlineUserAdd,AiOutlineDelete,AiOutlineFolderView } from 'react-icons/ai'
-import { MdOutlineManageAccounts } from 'react-icons/md'
+import { MdEditNote, MdOutlineFilterAlt, MdOutlineRuleFolder } from 'react-icons/md'
 import { HiViewList } from 'react-icons/hi'
-import EditableRow from 'components/Tables/EditableRow';
-import ReadOnlyRow from 'components/Tables/ReadOnlyRow';
 import Demande from './Demande/Demande'; 
 import axiosInstance from 'services/axios';
 import { DemandeContext } from 'context/DemandeContext';
 import { saveAs } from 'file-saver';
+import NavItem from 'components/Sidebar/NavItem';
+import { useMemo } from 'react';
 
 const Demandes = () => {
   const { demandes, setDemandes } = useContext(DemandeContext)
@@ -39,6 +40,7 @@ const Demandes = () => {
   const { reload, setReload } = useContext(DemandeContext)
   const [ showModal, setShowModal ] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedCategory, setSelectedCategory] = useState()
   const toast = useToast()
 
   const handleClick = (demandeData) => {
@@ -46,6 +48,16 @@ const Demandes = () => {
     onOpen()
   }
 
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value)
+  }
+  const getFilteredList = () =>{
+    if (!selectedCategory) {
+      return demandes
+    }
+    return demandes.filter((credit) => credit.statusCredit == selectedCategory)
+  }
+  const filteredList = useMemo(getFilteredList, [selectedCategory, demandes])
   const handleDownload = async (event, id) => {
     event.preventDefault()
     const response = await axiosInstance.get(`/credits/download/${id}`, {
@@ -95,11 +107,34 @@ const Demandes = () => {
         />
     <HStack mx={2} justifyContent="space-between">
         <Tag size={"lg"} key={"lg"}  colorSchema='blue' >
-            <TagLeftIcon as={MdOutlineManageAccounts} />
+            <TagLeftIcon as={MdOutlineRuleFolder} />
             <TagLabel>Listes des Demandes</TagLabel>
         </Tag>
+        <Tag size={"lg"} key={"lg"}  colorSchema='blue' >
+            <TagLeftIcon as={MdOutlineFilterAlt} />
+            <Select 
+                      size='sm'
+                      name="catergory-list"
+                      textAlign="center"
+                      defaultValue=""
+                      onChange={handleCategoryChange}
+                      >
+                        <option value="">Tout</option>
+                        <option value="En cours">En cours</option>
+                        <option value="Autorisation">Autorisation</option>
+                        <option value="Refus">Refus</option>
+                        <option value="Accord">Accord</option>
+                        <option value="Ajournement">Ajournement</option>
+                        <option value="Retour en Charge">Retour en Charge</option>
+                        <option value="Autorisation Avec Conditions">Autorisation Avec Conditions</option>
+                        <option value="Acceptation Avec Conditions">Acceptation Avec Conditions</option>
+                        <option value="Derogation Avec Conditions">Derogation Avec Conditions</option>
+
+                    </Select>
+        </Tag>
     </HStack>
-    {demandes.length > 0 ? (
+
+    {filteredList.length > 0 ? (
     
     <TableContainer
           m={2}
@@ -122,7 +157,7 @@ const Demandes = () => {
           }}
         >
           <form >
-            <Table size="lg" variant='striped'  >
+            <Table size="lg"   >
               <Thead>
                 <Tr>
                 <Th
@@ -133,7 +168,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Id Credit
+                    Nom
                     </Th>
                     <Th
                         textAlign="center"
@@ -143,7 +178,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Type de credit
+                    Prenom
                     </Th>
                     <Th
                         textAlign="center"
@@ -153,7 +188,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Montant
+                    Type de Credit
                     </Th>
                     <Th
                         textAlign="center"
@@ -163,7 +198,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Duree
+                    Montant Credit
                     </Th>
                     <Th
                         textAlign="center"
@@ -173,17 +208,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
-                    Mensualite
-                    </Th>
-                    <Th
-                        textAlign="center"
-                        style={{
-                          padding: 3,
-                          overflowWrap: "break-word",
-                          whiteSpace: "pre-wrap",
-                        }}
-                    >
-                    Id Prospect
+                    Status demande
                     </Th>
                     <Th
                         textAlign="center"
@@ -198,7 +223,7 @@ const Demandes = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {demandes.map((demande) => {
+                {filteredList.map((demande) => {
                   return (
                         <Tr >
                           <Td
@@ -209,7 +234,7 @@ const Demandes = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {demande["credit_id"]}
+                            {demande.prospectInfo.nom}
                           </Td>
                           <Td
                             textAlign="center"
@@ -219,7 +244,7 @@ const Demandes = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {demande["type_credit"]}
+                            {demande.prospectInfo.prenom}
                           </Td>
                           <Td
                             textAlign="center"
@@ -229,7 +254,7 @@ const Demandes = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {demande["montant"]}
+                            {demande.type_credit}
                           </Td>
                           <Td
                             textAlign="center"
@@ -239,7 +264,7 @@ const Demandes = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {demande["duree_credit"]}
+                            {demande.montant}
                           </Td>
                           <Td
                             textAlign="center"
@@ -249,17 +274,7 @@ const Demandes = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {demande["mensualite"]}
-                          </Td>
-                          <Td
-                            textAlign="center"
-                            style={{
-                              padding: 1,
-                              overflowWrap: "break-word",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                            {demande["prospect_id"]}
+                            {demande.statusCredit}
                           </Td>
                           
                           <Td
@@ -276,7 +291,7 @@ const Demandes = () => {
                           aria-label="Call Sage"
                           fontSize="15px"
                           size="xs"
-                          icon={<FaUserEdit />}
+                          icon={<FaRegEdit />}
                         /> 
                         <IconButton
                           variant="outline"

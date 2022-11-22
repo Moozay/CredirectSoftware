@@ -19,8 +19,8 @@ import {
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import { MdOutlineManageAccounts } from 'react-icons/md'
 
-import EditableRow from 'components/Tables/EditableRow';
-import ReadOnlyRow from 'components/Tables/ReadOnlyRow';
+import EditableRow from 'components/Tables/EditableRowUsers';
+import ReadOnlyRow from 'components/Tables/ReadOnlyRowUsers';
 
 import axiosInstance from 'services/axios';
 import AddUser from 'components/Modals/Users/AddUser';

@@ -3,6 +3,8 @@ import React, { useContext, useState } from "react";
 import { BiAddToQueue } from "react-icons/bi";
 
 import {
+  Radio,
+  Stack,
   Flex,
   HStack,
   FormLabel,
@@ -14,6 +16,7 @@ import {
   Select,
   useColorMode,
   Button,
+  RadioGroup,
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import CurrencyFormat from "react-currency-format";
@@ -35,10 +38,17 @@ const EngagementsBancaires = ({ handleEngChange }) => {
   ]);
 
   const handleFormChange = (index, event) => {
+    console.log(event);
     let data = [...donneesBancaires.engagements_bancaires];
     data[index][event.target.name] = event.target.value;
     handleEngChange(data);
   };
+
+  const handleRadioChange = (index, event) => {
+    let data = [...donneesBancaires.engagements_bancaires];
+    data[index]["rat"] = event;
+    handleEngChange(data);
+  }
 
   const addField = () => {
     let newField = {
@@ -120,12 +130,12 @@ const EngagementsBancaires = ({ handleEngChange }) => {
           bgColor={colorMode == "light" ? "#efefef" : ""}
           children="RAT"
           p={1}
-          w="48%"
+          w="50%"
           textAlign={"center"}
         />
         <Code
           bgColor={colorMode == "light" ? "#efefef" : ""}
-          children="Supprime"
+          children="Action"
           p={1}
           w="48%"
           textAlign={"center"}
@@ -181,6 +191,8 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 onChange={(e) => handleFormChange(index, e)}
                 name="nature_credit"
                 value={input.nature_credit}
+                textAlign="center"
+
               >
                 <option value="immobilier">Immobilier</option>
                 <option value="hypothecaire">Hypothécaire</option>
@@ -239,17 +251,20 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 type="text"
               />
             </FormControl>
-            <FormControl isRequired variant="floating">
-              <Input
+            <FormControl isRequired  my={3}>
+            <Select
+                placeholder="-Select-"
+                size="sm"
                 onChange={(e) => handleFormChange(index, e)}
                 name="rat"
-                size="sm"
                 value={input.rat}
-                _placeholder={{ color: "gray.500" }}
-                type="text"
-              />
+                textAlign="center"
+              >
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
+              </Select>
             </FormControl>
-            <FormControl>
+            <FormControl variant="floating">
               <Button
                 leftIcon={<DeleteIcon />}
                 color={"#ff7659"}

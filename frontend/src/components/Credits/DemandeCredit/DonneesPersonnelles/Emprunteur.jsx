@@ -137,6 +137,7 @@ const Emprunteur = ({
               Lieu de naissance
             </FormLabel>
             <Input
+            required
               name="lieunaissance"
               size="sm"
               _placeholder={{ color: "gray.500" }}
@@ -258,6 +259,9 @@ const Emprunteur = ({
                 selected={datembauche["emprunteur_date"]}
                 onChange={handleDateEmbauche}
                 name="datembauche"
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
