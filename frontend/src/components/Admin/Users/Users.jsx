@@ -120,7 +120,8 @@ const Users = () => {
 
     // Cancel Function
     const handleCancel = () => {
-
+      setEditUserId(null)
+      setEditUserForm({})
     }
     const initialize = async () => {
         const response = await axiosInstance.get("/users/all")
@@ -142,14 +143,13 @@ const Users = () => {
   return (
     <>
     <HStack mx={2} justifyContent="space-between">
-        <Tag size={"lg"} key={"lg"}  colorSchema='blue' >
+        <Tag size={"lg"} key={"lg"} >
             <TagLeftIcon as={MdOutlineManageAccounts} />
             <TagLabel>Manage Users</TagLabel>
         </Tag>
         
         <Button
             variant="outline"
-            colorSchema='blue'
             aria-label="Call Sage"
             fontSize="14px"
             m={2}
@@ -249,7 +249,7 @@ const Users = () => {
               </Thead>
               <Tbody>
                 {users.map((user) => (
-                    <Fragment>
+                    <Fragment key={user.user_id}>
                         {editUserId === user.user_id ? (
                             <EditableRow
                               editUserForm={editUserForm}

@@ -16,7 +16,7 @@ const DonneesBanquaires = () => {
       
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
-    
+    console.log(Number(fieldValue));
     const newFormDonnesBancaires = { ...donneesBancaires }
 
     newFormDonnesBancaires[section][fieldName] = fieldValue
@@ -30,7 +30,7 @@ const DonneesBanquaires = () => {
       "engagements_bancaires":data,}
     newFormDonnesBancaires = 
     setDonneesBancaires(newFormDonnesBancaires)
-    console.log(Object.entries(donneesBancaires));
+    console.log((donneesBancaires));
   }
 
   const handleRenChange = (data) =>{

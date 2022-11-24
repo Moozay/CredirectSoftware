@@ -23,7 +23,7 @@ import CurrencyFormat from "react-currency-format";
 import { CreditContext } from "context/CreditContext";
 import Index from "components/Index";
 const EngagementsBancaires = ({ handleEngChange }) => {
-  const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext);
+  const { donneesBancaires, setDonneesBancaires, credit, setCredit, donneesPersonelles, setDonneesPersonelles } = useContext(CreditContext);
   const [section, setSection] = useState("engagements_bancaires");
   const [inputField, setInputField] = useState([
     {
@@ -37,18 +37,32 @@ const EngagementsBancaires = ({ handleEngChange }) => {
     },
   ]);
 
+  const changeStringToFloat = (str) =>{
+    const str1 = str.replaceAll(" ","")
+    const str2 = str1.replaceAll(",",".")
+    return parseFloat(str2,10)
+  }
+
   const handleFormChange = (index, event) => {
-    console.log(event);
     let data = [...donneesBancaires.engagements_bancaires];
     data[index][event.target.name] = event.target.value;
     handleEngChange(data);
+    if (event.target.name == "echeance" || event.target.name == "rat") {
+      var engBan = donneesBancaires.engagements_bancaires
+    var sum = 0
+    for (let index = 0; index < engBan.length; index++) {
+      if (engBan[index].rat == "Non") {
+        sum = sum + changeStringToFloat(engBan[index].echeance)
+      }
+      var revenue = donneesPersonelles.emprunteur.revenue
+      var teg = (sum/revenue)*100
+      const newFormCredit = {...credit}
+      newFormCredit.teg = teg.toFixed(2)
+      setCredit(newFormCredit)
+    }
+    }
   };
 
-  const handleRadioChange = (index, event) => {
-    let data = [...donneesBancaires.engagements_bancaires];
-    data[index]["rat"] = event;
-    handleEngChange(data);
-  }
 
   const addField = () => {
     let newField = {

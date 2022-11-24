@@ -15,7 +15,7 @@ const DonneesPersonnelles = () => {
     const [tabIndex, setTabIndex] = useState(0)
     const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
     const [hasCoEmprunteur, setHasCoEmprunteur] = useState(donneesPersonelles["emprunteur"]["hasCoEmprunteur"])
-
+    const {} = useContext(CreditContext)
 
     const handleTabsChange = (index) => {
         if(tabIndex == 0){
@@ -33,8 +33,6 @@ const DonneesPersonnelles = () => {
       
       const newFormDonneesPersonelles = { ...donneesPersonelles }
         newFormDonneesPersonelles[section][fieldName] = fieldValue
-
-      
 
       setDonneesPersonelles(newFormDonneesPersonelles)
     }

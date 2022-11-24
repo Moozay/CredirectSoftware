@@ -21,10 +21,12 @@ import { CreditContext } from 'context/CreditContext'
 const RenseignementsBancaires = ({handleRenChange}) => {
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
   const [section, setSection] = useState("renseignements_bancaires")
-  let ren_data = donneesBancaires.renrenseignements_bancaires
+  let ren_data = donneesBancaires.renseignements_bancaires
   const handleFormChange = (index, event) =>{
     let data = [...donneesBancaires.renseignements_bancaires]
     data[index][event.target.name] = event.target.value
+    
+
     handleRenChange(data)
     console.log(ren_data);
     }

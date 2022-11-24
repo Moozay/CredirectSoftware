@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./stepper.css";
-import { Flex, Box,Text , TagLabel,Heading, Divider, IconButton, AlertTitle, useColorMode } from "@chakra-ui/react";
+import { Flex, Box,Text , TagLabel,Heading, Divider, IconButton, AlertTitle, useColorMode,Button } from "@chakra-ui/react";
 import { SiSnowflake } from "react-icons/si";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { AiOutlineFileDone } from "react-icons/ai";
@@ -191,7 +191,7 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
               // colorScheme={currentStep > steps.length -1 ? "green" : "blue"}
               icon={
                 currentStep > steps.length - 1 ? (
-                  <AiOutlineFileDone size={"20px"} />
+                  <Button m={2} size="md" variant="unstyled" >Soumettre</Button>
                 ) : (
                   <AiFillCaretRight />
                 )

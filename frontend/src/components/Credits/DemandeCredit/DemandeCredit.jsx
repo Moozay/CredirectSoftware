@@ -192,7 +192,7 @@ const DemandeCredit = () => {
             handleClick={handleClick}
             displayStep={displayStep}
             handleSubmit={handleSubmit}
-          />
+          ></Stepper>
   )
 }
 

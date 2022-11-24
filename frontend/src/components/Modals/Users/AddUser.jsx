@@ -64,23 +64,33 @@ const AddUser = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(newUser)
-        try {
-            const response = axiosInstance.post("/users/create", newUser)
-            toast({
-                title: `User Created successfully`,
-                status: "success",
-                isClosable: true,
-                duration: 1500
-              })
-              props.setShowModal(false)
-              
-              const newUsers = {...props.users, newUser}
-              props.setLoaded(false)
-              
-              
-        } catch (error) {
-            console.log(error)
-        }
+            axiosInstance.post("/users/create", newUser)
+                .then(Response =>{
+                    toast({
+                        title: `User Created successfully`,
+                        status: "success",
+                        isClosable: true,
+                        duration: 1500
+                      })
+                      props.setShowModal(false)
+                      
+                      const newUsers = {...props.users, newUser}
+                      props.setLoaded(false)
+                      
+                })
+                .catch(error =>{
+                    toast({
+                        title: "User not created",
+                        description: error.response.data.detail,
+                        status: "error",
+                        isClosable: true,
+                        duration: 1500
+                      })
+                      props.setShowModal(false)
+                      
+                      const newUsers = {...props.users, newUser}
+                      props.setLoaded(false)
+                })
     }
     const handleGeneratePassword = () => {
         var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";

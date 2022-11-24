@@ -59,25 +59,27 @@ class CreditCreate(BaseModel):
 
     
 class CreditUpdate(BaseModel):
-    type_credit : str
-    montant : float
-    duree_credit : int
-    frequence : str
-    mensualite : int
-    taux : int
-    franchise : int
-    taux_endt : int
-    teg : int
-    qot_financement : int
-    objet_credit : str
-    nature_bien : str
-    etat_bien : str
-    usage_bien : str
-    montant_acte : float
-    montant_travaux: str
-    montant_venal : float
-    adresse_bien : dict
-    superficie : int
+    credit_id : UUID
+    statusCredit : StatusCredit
+    """  type_credit : str
+    montant : Optional[str]
+    duree_credit : Optional[str]
+    frequence : Optional[str]
+    mensualite : Optional[str]
+    taux : Optional[str]
+    franchise : Optional[str]
+    taux_endt : Optional[str]
+    teg : Optional[str]
+    qot_financement : Optional[str]
+    objet_credit : Optional[str]
+    nature_bien : Optional[str]
+    etat_bien : Optional[str]
+    usage_bien : Optional[str]
+    montant_acte : Optional[str]
+    montant_travaux: Optional[str]
+    montant_venal : Optional[float]
+    adresse_bien : Optional[dict]
+    superficie : Optional[str] """
 
 
 class CreditOut(BaseModel):

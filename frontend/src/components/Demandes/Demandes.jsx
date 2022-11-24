@@ -28,6 +28,8 @@ import { AiOutlineUserAdd,AiOutlineDelete,AiOutlineFolderView } from 'react-icon
 import { MdEditNote, MdOutlineFilterAlt, MdOutlineRuleFolder } from 'react-icons/md'
 import { HiViewList } from 'react-icons/hi'
 import Demande from './Demande/Demande'; 
+import EditableColumn from 'components/Tables/EditableColumn';
+import ReadOnlyColumn from 'components/Tables/ReadOnlyColumn';
 import axiosInstance from 'services/axios';
 import { DemandeContext } from 'context/DemandeContext';
 import { saveAs } from 'file-saver';
@@ -36,6 +38,19 @@ import { useMemo } from 'react';
 
 const Demandes = () => {
   const { demandes, setDemandes } = useContext(DemandeContext)
+  const [editCreditForm, setEditCreditForm] = useState({})
+  const [editCreditId, setEditCreditId] = useState(null)
+  const status = [
+    "En cours",
+    "Autorisation",
+    "Refus",
+    "Accord",
+    "Ajournement",
+    "Retour en Charge",
+    "Autorisation Avec Conditions",
+    "Acceptation Avec Conditions",
+    "Derogation Avec Conditions"
+  ]
   const [demande, setDemande] = useState([])
   const { reload, setReload } = useContext(DemandeContext)
   const [ showModal, setShowModal ] = useState(false)
@@ -48,6 +63,8 @@ const Demandes = () => {
     onOpen()
   }
 
+
+
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value)
   }
@@ -58,6 +75,7 @@ const Demandes = () => {
     return demandes.filter((credit) => credit.statusCredit == selectedCategory)
   }
   const filteredList = useMemo(getFilteredList, [selectedCategory, demandes])
+
   const handleDownload = async (event, id) => {
     event.preventDefault()
     const response = await axiosInstance.get(`/credits/download/${id}`, {
@@ -80,6 +98,67 @@ const Demandes = () => {
       isClosable: true,
       duration: 1500
     })
+  }
+
+  //credit update
+
+  const hanldeEditClick = (event, credit) =>{
+    event.preventDefault()
+    setEditCreditId(credit.credit_id)
+    const formValues = {
+      "credit_id" : credit.credit_id,
+      "statusCredit": credit.statusCredit
+    }
+    setEditCreditForm(formValues)
+  }
+
+  const handleEditCreditChange = (event) =>{
+    const newFormCredit = {...editCreditForm}
+    newFormCredit["statusCredit"] = event.target.value
+    setEditCreditForm(newFormCredit)
+  }
+
+  const handleEditFormSubmit = async (event) =>{
+    event.preventDefault()
+    const editedCredit = editCreditForm
+    const newDemandes = [...demandes]
+    const index = demandes.findIndex((credit)=> credit.credit_id == editCreditId)
+    newDemandes[index].statusCredit = editedCredit.statusCredit
+
+    const updateStatus = storeCredit(editedCredit)
+    if (updateStatus === "true") {
+      setDemandes(newDemandes)
+    }
+   setEditCreditId(null)
+
+  }
+
+  const storeCredit = async (editedCredit) =>{
+    var status = "false"
+    axiosInstance.post("/credits/update", editedCredit)
+    .then(response=>{
+      toast({
+        title: `Crédit mis à jour avec succès`,
+        status: "success",
+        isClosable: true,
+        duration: 1500
+      })
+      status = "true"
+    })
+    .catch(error=>{
+      toast({
+        title: "Échec de la mise à jour du crédit, vérifiez les informations et réessayez",
+        status: "error",
+        isClosable: true,
+        duration: 1500
+      }) 
+    })
+    return status
+  }
+
+  const handleCancel = () =>{
+    setEditCreditId(null)
+    setEditCreditForm({})
   }
 
   const handleDelete = async (event, id) => {
@@ -110,7 +189,7 @@ const Demandes = () => {
             <TagLeftIcon as={MdOutlineRuleFolder} />
             <TagLabel>Listes des Demandes</TagLabel>
         </Tag>
-        <Tag size={"lg"} key={"lg"}  colorSchema='blue' >
+        <Tag size={"lg"} colorSchema='blue' >
             <TagLeftIcon as={MdOutlineFilterAlt} />
             <Select 
                       size='sm'
@@ -225,7 +304,7 @@ const Demandes = () => {
               <Tbody>
                 {filteredList.map((demande) => {
                   return (
-                        <Tr >
+                        <Tr key={demande.credit_id}>
                           <Td
                             textAlign="center"
                             style={{
@@ -266,70 +345,22 @@ const Demandes = () => {
                           >
                             {demande.montant}
                           </Td>
-                          <Td
-                            textAlign="center"
-                            style={{
-                              padding: 1,
-                              overflowWrap: "break-word",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                            {demande.statusCredit}
-                          </Td>
-                          
-                          <Td
-                            textAlign="center"
-                            style={{
-                              padding: 2,
-                              overflowWrap: "break-word",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                          <IconButton
-                          variant="outline"
-                          color="green.400"
-                          aria-label="Call Sage"
-                          fontSize="15px"
-                          size="xs"
-                          icon={<FaRegEdit />}
-                        /> 
-                        <IconButton
-                          variant="outline"
-                          color="blue.400"
-                          aria-label="Call Sage"
-                          fontSize="15px"
-                          
-                          size="xs"
-                          m={2}
-                          icon={<HiViewList />}
-                          onClick={()=>handleClick(demande)}
-                        />
-
-                        <IconButton
-                          variant="outline"
-                          color="blue.400"
-                          aria-label="Call Sage"
-                          fontSize="15px"
-                          
-                          size="xs"
-                          
-                          icon={<IoDownloadSharp />}
-                          onClick={(e)=>{handleDownload(e,demande["credit_id"])}}
-                        /> 
-
-                        <IconButton
-                          variant="outline"
-                          color="red.400"
-                          aria-label="Call Sage"
-                          fontSize="15px"
-                          m={2}
-                          size="xs"
-                          onClick={(e)=>{handleDelete(e,demande["prospect_id"])}}
-                          icon={<AiOutlineDelete />}
-                        /> 
-                        
-                          </Td>
-                          
+                          {editCreditId == demande.credit_id ? (
+                            <EditableColumn
+                            editCreditForm={editCreditForm}
+                            handleEditCreditChange={handleEditCreditChange}
+                            handleEditFormSubmit={handleEditFormSubmit}
+                            handleCancel={handleCancel}
+                            status={status}
+                            />
+                          ) : (
+                            <ReadOnlyColumn
+                            demande={demande}
+                            handleEditClick={hanldeEditClick}
+                            handleDelete={handleDelete}
+                            handleDownload={handleDownload}
+                            />
+                          )}
                       </Tr>
                       
                     )

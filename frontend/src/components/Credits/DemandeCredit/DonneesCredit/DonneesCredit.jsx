@@ -15,13 +15,14 @@ import { CreditContext } from 'context/CreditContext';
 import ObjetCredit from './ObjetCredit'
 import CaracteristicsCredit from './CaracteristicsCredit'
 import { useColorMode } from '@chakra-ui/react';
+import { m } from 'framer-motion';
 const DonneesCredit = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const {credit, setCredit} = useContext(CreditContext)
+  const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
 
   const handleCreditDataChange = (event)=>{
-    event.preventDefault()
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
     var newFormCredit
@@ -45,8 +46,78 @@ const DonneesCredit = () => {
     setCredit(newFormCredit)
     console.log(credit)
     }
+    if (fieldName == "taux" || fieldName == "montant"|| fieldName == "duree_credit") {
+    newFormCredit = { ...credit }
+    newFormCredit[fieldName] = fieldValue
+      calculateMensualite(newFormCredit)
+     }
+    if (fieldName == "montant" || fieldName == "montant_acte") {
+      newFormCredit = { ...credit }
+      newFormCredit[fieldName] = fieldValue
+      var qot = calculateQot(newFormCredit)
+      newFormCredit.qot_financement = qot
+      setCredit(newFormCredit)
+    console.log(credit)
+    }
+  }
+
+  const changeStringToFloat = (str) =>{
+    const str1 = str.replaceAll(" ","")
+    const str2 = str1.replaceAll(",",".")
+    return parseFloat(str2,10)
+  }
+
+  const calculateQot = (newFormCredit) =>{
+    var montant = newFormCredit.montant
+    var montant_acte = newFormCredit.montant_acte
+    var qot = 0
+    if (montant !== undefined && montant_acte !== undefined) {
+      var montant = changeStringToFloat(newFormCredit.montant)
+    var montant_acte = changeStringToFloat(newFormCredit.montant_acte)
+      qot = (montant/montant_acte)*100
+
+    }
+    if (isNaN(qot)) {
+      qot = 0
+      console.log("invalid");
+     }
+
+    return qot.toFixed(2)
+  }
+
+  const calculateMensualite = (newFormCredit) =>{
+    var montant = newFormCredit.montant
+    var duree = newFormCredit.duree_credit
+    var taux = newFormCredit.taux
+    if ( montant !== undefined && duree !== undefined && taux !== undefined) {
+     montant = changeStringToFloat(newFormCredit.montant)
+     duree = changeStringToFloat(newFormCredit.duree_credit)
+     taux = changeStringToFloat(newFormCredit.taux)
+     
+     var mensualite = (montant*(taux*1.1)/1200)/(1-(1+(taux*1.1)/1200)^duree)
+     newFormCredit.mensualite = mensualite.toFixed(2)
+     var revenue = donneesPersonelles.emprunteur.revenue
+     var taux_endt = calculateTauxEndt(mensualite, revenue)
+     newFormCredit.taux_endt = taux_endt 
+     if (isNaN(mensualite)) {
+      newFormCredit.mensualite = "0"
+      newFormCredit.taux_endt = "0.00"
+      console.log("invalid");
+     }
+    }
+    setCredit(newFormCredit)
+    console.log(credit)
     
-    
+  }
+
+  const calculateTauxEndt = (mensualite, revenue) =>{
+    var mensualite = mensualite
+    var revenue = revenue
+    var taux_endt = (mensualite/revenue)*100
+    if (isNaN(taux_endt)) {
+      taux_endt = 0
+    }
+    return taux_endt.toFixed(2)
   }
 useEffect(()=>{
   console.log(credit)

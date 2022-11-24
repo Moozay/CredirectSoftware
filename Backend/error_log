@@ -10467,3 +10467,279 @@ AttributeError: 'AggregationQuery' object has no attribute 'items'
 [2022-11-21 14:52:29 +0100] [479706] [INFO] Application startup complete.
 [2022-11-21 14:52:29 +0100] [479707] [INFO] Application startup complete.
 [2022-11-21 14:52:29 +0100] [479703] [INFO] Application startup complete.
+[2022-11-23 11:39:29 +0100] [479700] [INFO] Handling signal: term
+[2022-11-23 11:39:29 +0100] [479705] [INFO] Shutting down
+[2022-11-23 11:39:29 +0100] [479703] [INFO] Shutting down
+[2022-11-23 11:39:29 +0100] [479704] [INFO] Shutting down
+[2022-11-23 11:39:29 +0100] [479707] [INFO] Shutting down
+[2022-11-23 11:39:29 +0100] [479706] [INFO] Shutting down
+[2022-11-23 11:39:29 +0100] [479705] [INFO] Waiting for application shutdown.
+[2022-11-23 11:39:29 +0100] [479705] [INFO] Application shutdown complete.
+[2022-11-23 11:39:29 +0100] [479705] [INFO] Finished server process [479705]
+[2022-11-23 11:39:29 +0100] [479705] [INFO] Worker exiting (pid: 479705)
+[2022-11-23 11:39:29 +0100] [479703] [INFO] Waiting for application shutdown.
+[2022-11-23 11:39:29 +0100] [479703] [INFO] Application shutdown complete.
+[2022-11-23 11:39:29 +0100] [479703] [INFO] Finished server process [479703]
+[2022-11-23 11:39:29 +0100] [479703] [INFO] Worker exiting (pid: 479703)
+[2022-11-23 11:39:29 +0100] [479704] [INFO] Waiting for application shutdown.
+[2022-11-23 11:39:29 +0100] [479704] [INFO] Application shutdown complete.
+[2022-11-23 11:39:29 +0100] [479704] [INFO] Finished server process [479704]
+[2022-11-23 11:39:29 +0100] [479704] [INFO] Worker exiting (pid: 479704)
+[2022-11-23 11:39:29 +0100] [479707] [INFO] Waiting for application shutdown.
+[2022-11-23 11:39:29 +0100] [479707] [INFO] Application shutdown complete.
+[2022-11-23 11:39:29 +0100] [479707] [INFO] Finished server process [479707]
+[2022-11-23 11:39:29 +0100] [479707] [INFO] Worker exiting (pid: 479707)
+[2022-11-23 11:39:29 +0100] [479706] [INFO] Waiting for application shutdown.
+[2022-11-23 11:39:29 +0100] [479706] [INFO] Application shutdown complete.
+[2022-11-23 11:39:29 +0100] [479706] [INFO] Finished server process [479706]
+[2022-11-23 11:39:29 +0100] [479706] [INFO] Worker exiting (pid: 479706)
+[2022-11-23 11:39:29 +0100] [479700] [INFO] Shutting down: Master
+[2022-11-23 11:39:29 +0100] [514024] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fd7fa8bfbe0>
+  on_reload: <function OnReload.on_reload at 0x7fd7fa8bfd00>
+  when_ready: <function WhenReady.when_ready at 0x7fd7fa8bfe20>
+  pre_fork: <function Prefork.pre_fork at 0x7fd7fa8bff40>
+  post_fork: <function Postfork.post_fork at 0x7fd7fa8e40d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fd7fa8e41f0>
+  worker_int: <function WorkerInt.worker_int at 0x7fd7fa8e4310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fd7fa8e4430>
+  pre_exec: <function PreExec.pre_exec at 0x7fd7fa8e4550>
+  pre_request: <function PreRequest.pre_request at 0x7fd7fa8e4670>
+  post_request: <function PostRequest.post_request at 0x7fd7fa8e4700>
+  child_exit: <function ChildExit.child_exit at 0x7fd7fa8e4820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fd7fa8e4940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fd7fa8e4a60>
+  on_exit: <function OnExit.on_exit at 0x7fd7fa8e4b80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-23 11:39:29 +0100] [514024] [INFO] Starting gunicorn 20.1.0
+[2022-11-23 11:39:29 +0100] [514024] [DEBUG] Arbiter booted
+[2022-11-23 11:39:29 +0100] [514024] [INFO] Listening at: http://0.0.0.0:8000 (514024)
+[2022-11-23 11:39:29 +0100] [514024] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-23 11:39:29 +0100] [514026] [INFO] Booting worker with pid: 514026
+[2022-11-23 11:39:29 +0100] [514027] [INFO] Booting worker with pid: 514027
+[2022-11-23 11:39:30 +0100] [514028] [INFO] Booting worker with pid: 514028
+[2022-11-23 11:39:30 +0100] [514029] [INFO] Booting worker with pid: 514029
+[2022-11-23 11:39:30 +0100] [514030] [INFO] Booting worker with pid: 514030
+[2022-11-23 11:39:30 +0100] [514024] [DEBUG] 5 workers
+[2022-11-23 11:39:30 +0100] [514026] [INFO] Started server process [514026]
+[2022-11-23 11:39:30 +0100] [514026] [INFO] Waiting for application startup.
+[2022-11-23 11:39:30 +0100] [514027] [INFO] Started server process [514027]
+[2022-11-23 11:39:30 +0100] [514027] [INFO] Waiting for application startup.
+[2022-11-23 11:39:30 +0100] [514028] [INFO] Started server process [514028]
+[2022-11-23 11:39:30 +0100] [514028] [INFO] Waiting for application startup.
+[2022-11-23 11:39:30 +0100] [514029] [INFO] Started server process [514029]
+[2022-11-23 11:39:30 +0100] [514029] [INFO] Waiting for application startup.
+[2022-11-23 11:39:30 +0100] [514030] [INFO] Started server process [514030]
+[2022-11-23 11:39:30 +0100] [514030] [INFO] Waiting for application startup.
+[2022-11-23 11:39:32 +0100] [514027] [INFO] Application startup complete.
+[2022-11-23 11:39:32 +0100] [514026] [INFO] Application startup complete.
+[2022-11-23 11:39:32 +0100] [514029] [INFO] Application startup complete.
+[2022-11-23 11:39:32 +0100] [514028] [INFO] Application startup complete.
+[2022-11-23 11:39:32 +0100] [514030] [INFO] Application startup complete.
+[2022-11-23 14:31:03 +0100] [514024] [INFO] Handling signal: term
+[2022-11-23 14:31:03 +0100] [514030] [INFO] Shutting down
+[2022-11-23 14:31:03 +0100] [514027] [INFO] Shutting down
+[2022-11-23 14:31:03 +0100] [514029] [INFO] Shutting down
+[2022-11-23 14:31:03 +0100] [514028] [INFO] Shutting down
+[2022-11-23 14:31:03 +0100] [514026] [INFO] Shutting down
+[2022-11-23 14:31:03 +0100] [514030] [INFO] Waiting for application shutdown.
+[2022-11-23 14:31:03 +0100] [514030] [INFO] Application shutdown complete.
+[2022-11-23 14:31:03 +0100] [514030] [INFO] Finished server process [514030]
+[2022-11-23 14:31:03 +0100] [514030] [INFO] Worker exiting (pid: 514030)
+[2022-11-23 14:31:03 +0100] [514027] [INFO] Waiting for application shutdown.
+[2022-11-23 14:31:03 +0100] [514027] [INFO] Application shutdown complete.
+[2022-11-23 14:31:03 +0100] [514027] [INFO] Finished server process [514027]
+[2022-11-23 14:31:03 +0100] [514027] [INFO] Worker exiting (pid: 514027)
+[2022-11-23 14:31:03 +0100] [514029] [INFO] Waiting for application shutdown.
+[2022-11-23 14:31:03 +0100] [514029] [INFO] Application shutdown complete.
+[2022-11-23 14:31:03 +0100] [514029] [INFO] Finished server process [514029]
+[2022-11-23 14:31:03 +0100] [514029] [INFO] Worker exiting (pid: 514029)
+[2022-11-23 14:31:03 +0100] [514028] [INFO] Waiting for application shutdown.
+[2022-11-23 14:31:03 +0100] [514028] [INFO] Application shutdown complete.
+[2022-11-23 14:31:03 +0100] [514028] [INFO] Finished server process [514028]
+[2022-11-23 14:31:03 +0100] [514028] [INFO] Worker exiting (pid: 514028)
+[2022-11-23 14:31:03 +0100] [514026] [INFO] Waiting for application shutdown.
+[2022-11-23 14:31:03 +0100] [514026] [INFO] Application shutdown complete.
+[2022-11-23 14:31:03 +0100] [514026] [INFO] Finished server process [514026]
+[2022-11-23 14:31:03 +0100] [514026] [INFO] Worker exiting (pid: 514026)
+[2022-11-23 14:31:04 +0100] [514024] [INFO] Shutting down: Master
+[2022-11-23 14:31:04 +0100] [517606] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f8506393be0>
+  on_reload: <function OnReload.on_reload at 0x7f8506393d00>
+  when_ready: <function WhenReady.when_ready at 0x7f8506393e20>
+  pre_fork: <function Prefork.pre_fork at 0x7f8506393f40>
+  post_fork: <function Postfork.post_fork at 0x7f85063b80d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f85063b81f0>
+  worker_int: <function WorkerInt.worker_int at 0x7f85063b8310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f85063b8430>
+  pre_exec: <function PreExec.pre_exec at 0x7f85063b8550>
+  pre_request: <function PreRequest.pre_request at 0x7f85063b8670>
+  post_request: <function PostRequest.post_request at 0x7f85063b8700>
+  child_exit: <function ChildExit.child_exit at 0x7f85063b8820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f85063b8940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f85063b8a60>
+  on_exit: <function OnExit.on_exit at 0x7f85063b8b80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-11-23 14:31:04 +0100] [517606] [INFO] Starting gunicorn 20.1.0
+[2022-11-23 14:31:04 +0100] [517606] [DEBUG] Arbiter booted
+[2022-11-23 14:31:04 +0100] [517606] [INFO] Listening at: http://0.0.0.0:8000 (517606)
+[2022-11-23 14:31:04 +0100] [517606] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-11-23 14:31:04 +0100] [517608] [INFO] Booting worker with pid: 517608
+[2022-11-23 14:31:04 +0100] [517609] [INFO] Booting worker with pid: 517609
+[2022-11-23 14:31:04 +0100] [517610] [INFO] Booting worker with pid: 517610
+[2022-11-23 14:31:04 +0100] [517611] [INFO] Booting worker with pid: 517611
+[2022-11-23 14:31:05 +0100] [517612] [INFO] Booting worker with pid: 517612
+[2022-11-23 14:31:05 +0100] [517606] [DEBUG] 5 workers
+[2022-11-23 14:31:05 +0100] [517608] [INFO] Started server process [517608]
+[2022-11-23 14:31:05 +0100] [517608] [INFO] Waiting for application startup.
+[2022-11-23 14:31:05 +0100] [517609] [INFO] Started server process [517609]
+[2022-11-23 14:31:05 +0100] [517609] [INFO] Waiting for application startup.
+[2022-11-23 14:31:05 +0100] [517610] [INFO] Started server process [517610]
+[2022-11-23 14:31:05 +0100] [517610] [INFO] Waiting for application startup.
+[2022-11-23 14:31:05 +0100] [517612] [INFO] Started server process [517612]
+[2022-11-23 14:31:05 +0100] [517612] [INFO] Waiting for application startup.
+[2022-11-23 14:31:05 +0100] [517611] [INFO] Started server process [517611]
+[2022-11-23 14:31:05 +0100] [517611] [INFO] Waiting for application startup.
+[2022-11-23 14:31:06 +0100] [517608] [INFO] Application startup complete.
+[2022-11-23 14:31:07 +0100] [517611] [INFO] Application startup complete.
+[2022-11-23 14:31:07 +0100] [517609] [INFO] Application startup complete.
+[2022-11-23 14:31:07 +0100] [517610] [INFO] Application startup complete.
+[2022-11-23 14:31:07 +0100] [517612] [INFO] Application startup complete.

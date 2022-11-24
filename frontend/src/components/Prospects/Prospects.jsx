@@ -177,7 +177,7 @@ const Prospects = () => {
                     prospect["credits"].map((credit)=>{
                       
                       return (
-                        <Tr >
+                        <Tr key={prospect.prospect_id} >
                           <Td
                             textAlign="center"
                             style={{
