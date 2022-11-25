@@ -21,42 +21,62 @@ const DonneesCredit = () => {
 
   const {credit, setCredit} = useContext(CreditContext)
   const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
-
   const handleCreditDataChange = (event)=>{
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
     var newFormCredit
+    switch (fieldName) {
+      case "montant":
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        var qot = calculateQot(newFormCredit)
+        newFormCredit.qot_financement = qot
+        calculateMensualite(newFormCredit)
+        setCredit(newFormCredit)
+        break;
+      case "taux":
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        calculateMensualite(newFormCredit)
+        break;
+      case "taux":
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        calculateMensualite(newFormCredit)
+        break;
+      case "duree_credit":
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        calculateMensualite(newFormCredit)
+        break;
+      case "montant_acte":
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        var qot = calculateQot(newFormCredit)
+        newFormCredit.qot_financement = qot
+        setCredit(newFormCredit)
+        console.log(credit)
+        break;
+      default:
+        newFormCredit = { ...credit }
+        newFormCredit[fieldName] = fieldValue
+        setCredit(newFormCredit)
+        console.log(credit)
+        break;
+    }
     if (fieldValue == "consommation") {
-      newFormCredit = {montant:"",
-                      duree_credit:"",
-                      frequence:"",
-                      mensualite:"",
-                      taux:"",
-                      franchise:"",
-                      taux_endt:"",
-                      teg:"",
-                      qot_financement:""}
+      newFormCredit = {
+        montant:"",
+        duree_credit:"",
+        frequence:"",
+        mensualite:"0",
+        taux:"",
+        duree_franchise:"",
+        taux_endt:"",
+        teg:"",
+        qot_financement:""}
     newFormCredit[fieldName] = fieldValue
     setCredit(newFormCredit)
-    console.log(credit)
-    }
-    else{
-      newFormCredit = { ...credit }
-    newFormCredit[fieldName] = fieldValue
-    setCredit(newFormCredit)
-    console.log(credit)
-    }
-    if (fieldName == "taux" || fieldName == "montant"|| fieldName == "duree_credit") {
-    newFormCredit = { ...credit }
-    newFormCredit[fieldName] = fieldValue
-      calculateMensualite(newFormCredit)
-     }
-    if (fieldName == "montant" || fieldName == "montant_acte") {
-      newFormCredit = { ...credit }
-      newFormCredit[fieldName] = fieldValue
-      var qot = calculateQot(newFormCredit)
-      newFormCredit.qot_financement = qot
-      setCredit(newFormCredit)
     console.log(credit)
     }
   }
@@ -73,9 +93,8 @@ const DonneesCredit = () => {
     var qot = 0
     if (montant !== undefined && montant_acte !== undefined) {
       var montant = changeStringToFloat(newFormCredit.montant)
-    var montant_acte = changeStringToFloat(newFormCredit.montant_acte)
+      var montant_acte = changeStringToFloat(newFormCredit.montant_acte)
       qot = (montant/montant_acte)*100
-
     }
     if (isNaN(qot)) {
       qot = 0
@@ -93,13 +112,15 @@ const DonneesCredit = () => {
      montant = changeStringToFloat(newFormCredit.montant)
      duree = changeStringToFloat(newFormCredit.duree_credit)
      taux = changeStringToFloat(newFormCredit.taux)
-     
-     var mensualite = (montant*(taux*1.1)/1200)/(1-(1+(taux*1.1)/1200)^duree)
+     var numerator = montant*((taux*1.1)/1200)
+     var denumerator = 1-(1+(taux*1.1/1200))**(-duree)
+     console.log(numerator, denumerator);
+     var mensualite = numerator / denumerator
      newFormCredit.mensualite = mensualite.toFixed(2)
      var revenue = donneesPersonelles.emprunteur.revenue
      var taux_endt = calculateTauxEndt(mensualite, revenue)
      newFormCredit.taux_endt = taux_endt 
-     if (isNaN(mensualite)) {
+     if (isNaN(mensualite) || isNaN(duree)) {
       newFormCredit.mensualite = "0"
       newFormCredit.taux_endt = "0.00"
       console.log("invalid");

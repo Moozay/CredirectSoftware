@@ -41,7 +41,7 @@ export  const Keys = {
     "frequence": "Fréquence",
     "mensualite": "Mensualité",
     "taux":"Taux",
-    "duree_franchise":"Durée de Franchise",
+    "franchise":"Durée de Franchise",
     "taux_endt": "Taux d'endetement",
     "teg":"TEG",
     "qot_financement":"Quotité financement",

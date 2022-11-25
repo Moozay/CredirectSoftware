@@ -205,6 +205,7 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
               name="qot_financement"
               onChange={handleCreditDataChange}
               value={credit["qot_financement"]}
+              isDisabled
             />
             <InputRightAddon children="%" />
           </InputGroup>
