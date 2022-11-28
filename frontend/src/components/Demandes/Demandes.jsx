@@ -58,7 +58,8 @@ const Demandes = () => {
   const [selectedCategory, setSelectedCategory] = useState()
   const toast = useToast()
 
-  const handleClick = (demandeData) => {
+  const handleClick = (event,demandeData) => {
+    event.preventDefault()
     setDemande(demandeData)
     onOpen()
   }
@@ -358,6 +359,7 @@ const Demandes = () => {
                             demande={demande}
                             handleEditClick={hanldeEditClick}
                             handleDelete={handleDelete}
+                            handleClick={handleClick}
                             handleDownload={handleDownload}
                             />
                           )}

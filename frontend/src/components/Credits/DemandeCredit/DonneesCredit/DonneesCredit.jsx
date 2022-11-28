@@ -65,16 +65,17 @@ const DonneesCredit = () => {
         break;
     }
     if (fieldValue == "consommation") {
-      newFormCredit = {
-        montant:"",
-        duree_credit:"",
-        frequence:"",
-        mensualite:"0",
-        taux:"",
-        duree_franchise:"",
-        taux_endt:"",
-        teg:"",
-        qot_financement:""}
+      newFormCredit = (({
+        montant,
+        duree_credit,
+        frequence,
+        taux,
+        mensualite,
+        franchise,
+        taux_endt,
+        teg
+      }) =>({montant,duree_credit,frequence,taux,mensualite,franchise,taux_endt,teg}))(credit)
+    newFormCredit.qot_financement = '0.00'
     newFormCredit[fieldName] = fieldValue
     setCredit(newFormCredit)
     console.log(credit)
@@ -160,7 +161,7 @@ useEffect(()=>{
                 </Select>
             </FormControl>
         </HStack>
-     {credit.type_credit == "consommation" || "hypothecaire" && 
+     {(credit.type_credit == "immobilier" || credit.type_credit == "hypothecaire") && 
       <>
        <Flex justifyContent="space-between" alignItems={"center"} px="2"mb="2" bgColor={colorMode=='light'?"#efefef":""} w="100%">
         <Heading as="h5" size="sm" >

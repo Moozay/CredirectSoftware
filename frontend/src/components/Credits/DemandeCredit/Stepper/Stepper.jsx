@@ -160,7 +160,10 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
           }}
         >
           <StepperContext.Provider value={{}}>
-            {displayStep(currentStep)}
+            <form onSubmit={ ( currentStep > steps.length - 1 ) 
+                ? handleSubmit
+                : () => handleClick("next")
+              }>{displayStep(currentStep)}</form>
           </StepperContext.Provider>
         </Flex>
 
@@ -204,7 +207,7 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
                 : () => handleClick("next")
               }
               rounded={currentStep > steps.length - 1 ? "20%" : "50%" }
-              
+              type='submit'
               size="md"
               
             />

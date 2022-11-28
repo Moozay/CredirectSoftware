@@ -72,7 +72,7 @@ const Dashboard = () => {
                   {location.pathname.split("/").slice(1).map((path)=>{
                     {path = path.charAt(0).toUpperCase() + path.slice(1)}
                     return (
-                      <BreadcrumbItem>
+                      <BreadcrumbItem key={path}>
                         <Text>{path}</Text>
                       </BreadcrumbItem>
                     )

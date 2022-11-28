@@ -25,7 +25,7 @@ const DemandeCredit = () => {
     const location = useLocation()
 
   const EmprunteurValidator = () => {
-
+    
   }
   const CoEmprunteurValidator = () => {
 

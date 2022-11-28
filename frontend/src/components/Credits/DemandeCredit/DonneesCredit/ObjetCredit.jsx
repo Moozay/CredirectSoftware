@@ -31,6 +31,14 @@ const ObjetCredit = ({handleCreditDataChange}) => {
     setCredit(newFormCredit)
     
   }
+
+  const Garanties = [
+    "Nantissement_sur_le_fonds_de_commerce",
+    "Hypotheque_en_1er_rang_sur_le_TF_objet_du_credit",
+    "Caution_personnelle_et_solidaire",
+    "Domiciliation_de_salaire",
+    "Engagement_de_domiciliation_des_revenus"
+  ]
   return (
     <>
       {/* <HStack direction='row' justifyContent={"space-between"}>
@@ -206,7 +214,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
                         
                     return  (
                         
-                        <option value={country.label} css={{"width":"100%"}} >{country.label}</option>
+                        <option key={country.label} value={country.label} css={{"width":"100%"}} >{country.label}</option>
                      )
                     })
                 }
@@ -282,6 +290,39 @@ const ObjetCredit = ({handleCreditDataChange}) => {
                         />
                         <InputRightAddon children='m²' />
                     </InputGroup>
+                  </FormControl>
+                  <FormControl id="Nom" isRequired variant="floatingDown" >
+                 <FormLabel fontSize={"sm"} fontWeight="normal"
+              transform={
+                credit["titre_foncier"] ? "scale(0.85) translateY(29px)" : ""
+              }>Titre Froncier</FormLabel>
+                    <InputGroup size='sm'>
+                        <Input 
+                        name="titre_foncier"
+                        onChange={handleCreditDataChange}
+                        defaultValue={credit["titre_foncier"]}
+                        
+                        />
+                        
+                    </InputGroup>
+                  </FormControl>
+      </HStack>
+      <HStack alignItems={"flex-start"} mb="5">
+      <FormControl id="Nom" isRequired variant="floatingDown" w="25%">
+                 <FormLabel fontSize={"sm"} fontWeight="normal"
+              transform={
+                credit["garanties"] ? "scale(0.85) translateY(29px)" : ""
+              }>Garanties</FormLabel>
+                    <Select 
+                    name="garanties"
+                    onChange={handleCreditDataChange}
+                    defaultValue={credit["garanties"]}
+                    placeholder='' size='sm'>
+                      <option></option>
+                      {Garanties.map((garanties,index) =>
+                        <option value={garanties} key={index}>{garanties}</option>
+                      )}
+                    </Select>
                   </FormControl>
       </HStack>
     </>

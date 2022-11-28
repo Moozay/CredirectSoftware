@@ -49,5 +49,7 @@ export  const Keys = {
     "renseignements_bancaires":"Renseignement Bancaires",
     "emprunteur":"Emprunteur",
     "co_emprunteur":"Co-Emprunteur",
-    "hasCoEmprunteur":"Has Co-Emprunteur"
+    "hasCoEmprunteur":"Has Co-Emprunteur",
+    "garanties" : "Garanties",
+    "titre_foncier" : "Titre Foncier"
 }   

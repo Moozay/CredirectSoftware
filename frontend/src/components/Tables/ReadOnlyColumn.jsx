@@ -78,7 +78,7 @@ const ReadOnlyColumn = ({
     fontSize="15px"
     m={2}
     size="xs"
-    onClick={(event)=>handleDelete(event,demande)}
+    onClick={(event)=>handleDelete(event,demande.credit_id)}
     icon={<AiOutlineDelete />}
 /> 
 
