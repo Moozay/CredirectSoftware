@@ -11,6 +11,10 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
   const stepRef = useRef();
   const {colorMode} = useColorMode()
 
+  const submitFormData = (e) =>{
+    e.preventDefault()
+    currentStep > steps.length - 1 ? handleSubmit(e) : handleClick("next")
+  }
   const updateStep = (stepNumber, steps) => {
     const newSteps = [...steps];
 
@@ -123,7 +127,8 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
 
   return (
     <>
-      <Flex
+    <form onSubmit={submitFormData}>
+    <Flex
         flexDir={"column"}
         borderRadius={"15px"}
         h={"91vh"}
@@ -160,10 +165,7 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
           }}
         >
           <StepperContext.Provider value={{}}>
-            <form onSubmit={ ( currentStep > steps.length - 1 ) 
-                ? handleSubmit
-                : () => handleClick("next")
-              }>{displayStep(currentStep)}</form>
+            {displayStep(currentStep)}
           </StepperContext.Provider>
         </Flex>
 
@@ -202,18 +204,14 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
               
               bgColor={colorMode=="light"?"#ffad5c":"#07041d"}
               variant={"outline"}
-              onClick={ ( currentStep > steps.length - 1 ) 
-                ? handleSubmit
-                : () => handleClick("next")
-              }
               rounded={currentStep > steps.length - 1 ? "20%" : "50%" }
               type='submit'
               size="md"
-              
             />
           </Flex>
         </Flex>
       </Flex>
+    </form>
     </>
   );
 };

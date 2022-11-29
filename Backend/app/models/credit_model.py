@@ -41,6 +41,9 @@ class Credit(Document):
     adresse_bien : dict
     superficie : str
     prospect_id : UUID
+    titre_foncier : str
+    garanties : str
+    commentaires : str
     statusCredit : StatusCredit = StatusCredit.encours
 
     class Config:  

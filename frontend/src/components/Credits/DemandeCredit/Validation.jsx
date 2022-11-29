@@ -30,7 +30,7 @@ const Validation = () => {
         borderColor={"gray.300"}
         borderRadius="3px"
         bgColor={colorMode == "light" ? "#fff5ef" : "#1a294554"}
-        w="100%"
+        w="33%"
       >
         <Heading
           boxShadow="0 4px 12px 0 rgba(0, 0, 0, 5%)"
@@ -130,7 +130,7 @@ const Validation = () => {
         borderColor={"gray.300"}
         borderRadius="3px"
         bgColor={colorMode == "light" ? "#fff5ef" : "#1a294554"}
-        w="100%"
+        w="33%"
       >
         <Heading
           boxShadow="0 4px 12px 0 rgba(0, 0, 0, 5%)"
@@ -224,7 +224,7 @@ const Validation = () => {
         borderColor={"gray.300"}
         borderRadius="3px"
         bgColor={colorMode == "light" ? "#fff5ef" : "#1a294554"}
-        w="100%"
+        w="33%"
       >
         <Heading
           boxShadow="0 4px 12px 0 rgba(0, 0, 0, 5%)"
@@ -248,6 +248,7 @@ const Validation = () => {
               width: "6px",
             },
             "&::-webkit-scrollbar-thumb": {
+              height: "1px",
               background: "black",
               borderRadius: "24px",
             },

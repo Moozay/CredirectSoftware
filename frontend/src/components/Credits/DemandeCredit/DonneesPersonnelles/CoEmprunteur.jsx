@@ -59,7 +59,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
     <Flex flexDir={"row"} justifyContent="space-between">
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack w="100%" my={4}>
-          <FormControl isRequired variant="floating" my={3}>
+          <FormControl  variant="floating" my={3}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -78,7 +78,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               type="text"
             />
           </FormControl>
-          <FormControl my={3} isRequired variant="floating">
+          <FormControl my={3}  variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -101,7 +101,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
         </HStack>
         <HStack my={4} w="100%">
          
-          <FormControl my={3} isRequired variant="floating">
+          <FormControl my={3}  variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -122,7 +122,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -143,7 +143,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -161,7 +161,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               type="text"
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
-          </FormControl>  <FormControl my={3} variant="floating" isRequired>
+          </FormControl>  <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -183,7 +183,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
 
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -202,7 +202,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel fontSize={"sm"}fontWeight="normal"
               transform={
                 donneesPersonelles[section]["situation"] ? "scale(0.85) translateY(-35px)" : ""
@@ -221,7 +221,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
         
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -239,7 +239,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -262,7 +262,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
       </VStack>
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -281,7 +281,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} isRequired variant="floating">
+          <FormControl my={3}  variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -302,7 +302,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-        <FormControl my={3} variant="floating" isRequired>
+        <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -321,7 +321,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
           </FormControl>
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -342,7 +342,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange }) => {
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating" >
             <FormLabel fontSize={"sm"} fontWeight="normal"
               transform={
                 donneesPersonelles[section]["pays"] ? "scale(0.85) translateY(-35px)" : ""

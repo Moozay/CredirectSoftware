@@ -42,7 +42,10 @@ class CreditService:
             adresse_bien = credit.adresse_bien,
             superficie = credit.superficie,
             prospect_id = credit.prospect_id,
+            titre_foncier = credit.titre_foncier,
+            garanties = credit.garanties,
             statusCredit = credit.statusCredit,
+            commentaires=credit.commentaires,
         )
         await credit_in.save()
         return credit_in
@@ -69,7 +72,7 @@ class CreditService:
     async def create_dc(credit_id:UUID):
         filelocation = "app/temp/" + str(credit_id) + '.pdf'
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
-        html_url = "192.168.11.200:8000/api/v1/credits/demandecredit/2b3fabc3-4d68-4439-bf3b-3b49b58540b4"
+        html_url = "192.168.11.200:8000/api/v1/credits/demandecredit/"+ str(credit_id)
         pdfkit.from_url(html_url,output_path=filelocation,configuration=config)
 
     @staticmethod
@@ -117,6 +120,7 @@ class CreditService:
         {
             "$project":{
                 "credit_id":1,
+                "commentaires":1,
                 "prospect_id":1,
                 "type_credit":1,
                 "prospectInfo":{

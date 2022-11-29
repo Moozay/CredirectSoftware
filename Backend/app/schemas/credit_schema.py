@@ -32,6 +32,10 @@ class BaseCredit(BaseModel):
     superficie : str
     statusCredit : StatusCredit = StatusCredit.encours
     prospect_id = UUID
+    titre_foncier : str
+    garanties : str
+    commentaires : str
+
 
 class CreditCreate(BaseModel):
     credit_id: UUID
@@ -55,7 +59,11 @@ class CreditCreate(BaseModel):
     adresse_bien : dict
     superficie : str
     prospect_id : UUID
+    titre_foncier : str
+    garanties : str
     statusCredit : StatusCredit = StatusCredit.encours
+    commentaires : str
+
 
     
 class CreditUpdate(BaseModel):
@@ -104,6 +112,10 @@ class CreditOut(BaseModel):
     superficie : int
     statusCredit : StatusCredit
     prospect_id : UUID
+    titre_foncier : str
+    garanties : str
+    commentaires : str
+
 
 class CreditDisplay(BaseModel):
     credit_id: UUID
@@ -112,4 +124,6 @@ class CreditDisplay(BaseModel):
     statusCredit : StatusCredit
     prospect_id : UUID
     prospectInfo: dict
+    commentaires : str
+
 

@@ -9,6 +9,7 @@ import {
   InputRightAddon,
   Input,
   Select,
+  Textarea,
 } from "@chakra-ui/react";
 import { CreditContext } from "context/CreditContext";
 import CurrencyFormat from "react-currency-format";
@@ -209,6 +210,18 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
             />
             <InputRightAddon children="%" />
           </InputGroup>
+        </FormControl>
+      </HStack>
+      <HStack justifyContent={"space-between"} w="100%" pt={4}>
+        <FormControl isRequired mt={2}>
+        <FormLabel
+            fontSize={"sm"}
+            fontWeight="normal">
+            Commentaires
+          </FormLabel>
+          <Textarea w="33%" h="10%" name="commentaires" value={credit.commentaires} onChange={handleCreditDataChange}>
+
+          </Textarea>
         </FormControl>
       </HStack>
     </VStack>

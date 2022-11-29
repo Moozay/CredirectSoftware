@@ -42,6 +42,7 @@ const Demandes = () => {
   const [editCreditId, setEditCreditId] = useState(null)
   const status = [
     "En cours",
+    "Envoie Bank",
     "Autorisation",
     "Refus",
     "Accord",
@@ -199,17 +200,14 @@ const Demandes = () => {
                       defaultValue=""
                       onChange={handleCategoryChange}
                       >
-                        <option value="">Tout</option>
-                        <option value="En cours">En cours</option>
-                        <option value="Autorisation">Autorisation</option>
-                        <option value="Refus">Refus</option>
-                        <option value="Accord">Accord</option>
-                        <option value="Ajournement">Ajournement</option>
-                        <option value="Retour en Charge">Retour en Charge</option>
-                        <option value="Autorisation Avec Conditions">Autorisation Avec Conditions</option>
-                        <option value="Acceptation Avec Conditions">Acceptation Avec Conditions</option>
-                        <option value="Derogation Avec Conditions">Derogation Avec Conditions</option>
+                         <option value=""  key={"tout"} >Tout</option>
 
+                       {
+                        status.map( status => {
+                          
+                          return  <option value={status}  key={status} >{status}</option>
+                        })
+                        }
                     </Select>
         </Tag>
     </HStack>

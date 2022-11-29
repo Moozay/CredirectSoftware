@@ -126,12 +126,15 @@
           <th>Solde</th>
           <th>Cmc</th>
         </tr>
+      </tr>
+      {% for ren_ban in prospect.renseignements_bancaires %}
         <tr>
-          <td>RACHID HAMRAOUI</td>
-          <td>AWB</td>
-          <td>12700,00</td>
-          <td>0,00</td>
+          <td>{{ren_ban.nom}} {{ren_ban.prenom}}</td>
+          <td>{{ren_ban.banque}}</td>
+          <td>{{ren_ban.solde}}</td>
+          <td>{{ren_ban.cmc}}</td>
         </tr>
+        {% endfor %}
       </table>
     </div>
     <div class="odc">
@@ -156,7 +159,7 @@
           </tr>
           <tr>
             <th>Titr foncier</th>
-            <td>239177/12</td>
+            <td>{{credit.titre_foncier}}</td>
           </tr>
         </table>
         <table class="pos_fixed2" width="68%" border="1">
@@ -197,24 +200,17 @@
           <th>Duree</th>
           <th>RAT</th>
         </tr>
+      {% for eng_ban in prospect.engagements_bancaires %}
         <tr>
-          <td>RACHID HAMRAOUI</td>
-          <td>CREDIT CONSO</td>
-          <td>VIVALIS</td>
-          <td>11832,00</td>
-          <td>0,00</td>
-          <td>0</td>
-          <td>NON</td>
+          <td>{{eng_ban.nom}}  {{eng_ban.prenom}}</td>
+          <td>{{eng_ban.nature_credit}}</td>
+          <td>{{eng_ban.organisme}}</td>
+          <td>{{eng_ban.echeance}}</td>
+          <td>{{eng_ban.encours}}</td>
+          <td>{{eng_ban.duree}}</td>
+          <td>{{eng_ban.rat}}</td>
         </tr>
-        <tr>
-          <td>RACHID HAMRAOUI</td>
-          <td>CREDIT CONSO</td>
-          <td>AWB</td>
-          <td>11331,00</td>
-          <td>0,00</td>
-          <td>0</td>
-          <td>NON</td>
-        </tr>
+        {% endfor %}
       </table>
     </div>
     <div class="cdc">
@@ -237,7 +233,7 @@
       <table class="pos_fixed2" border="1">
         <tr>
           <th>Durée</th>
-          <td>{{credit.duree}}</td>
+          <td>{{credit.duree_credit}}</td>
         </tr>
         <tr>
           <th>Taux souhaité</th>
@@ -270,8 +266,7 @@
         </tr>
         <tr>
           <td>
-            *** HYPOTHEQUE EN 1ER RANG *** ENGAGEMENT DE DOMICILIATION DES
-            REVENUS
+            *** {{credit.garanties}} ***
           </td>
         </tr>
       </table>

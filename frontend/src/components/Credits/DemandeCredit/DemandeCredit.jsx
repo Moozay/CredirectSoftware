@@ -25,7 +25,7 @@ const DemandeCredit = () => {
     const location = useLocation()
 
   const EmprunteurValidator = () => {
-    
+
   }
   const CoEmprunteurValidator = () => {
 
@@ -152,7 +152,7 @@ const DemandeCredit = () => {
       
     },
     {
-      label: "Résumé",
+      label: "résumé",
       name: "Validation",
       content: <>Text </>
     }
@@ -192,7 +192,7 @@ const DemandeCredit = () => {
             handleClick={handleClick}
             displayStep={displayStep}
             handleSubmit={handleSubmit}
-          ></Stepper>
+          />
   )
 }
 

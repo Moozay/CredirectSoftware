@@ -51,5 +51,6 @@ export  const Keys = {
     "co_emprunteur":"Co-Emprunteur",
     "hasCoEmprunteur":"Has Co-Emprunteur",
     "garanties" : "Garanties",
-    "titre_foncier" : "Titre Foncier"
+    "titre_foncier" : "Titre Foncier",
+    "commentaires": "Commentaires"
 }   
