@@ -245,7 +245,7 @@ const Emprunteur = ({
          
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired>
+          <FormControl my={3} variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -262,6 +262,7 @@ const Emprunteur = ({
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"
+                required
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
@@ -325,6 +326,7 @@ const Emprunteur = ({
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"
+                required
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>

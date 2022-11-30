@@ -10,7 +10,7 @@ const AuthRoute = ({ allowedRoles })=>{
     return user==null?(<Navigate to="/auth/login"/>) : allowedRoles.find((role) => user.role.includes(role))?(
         <Outlet/>
     ) : (
-        <Navigate to="/dashboard/metrics"  replace/>
+        <Navigate to="/dashboard/demandeCredit"  replace/>
     )
 }
 

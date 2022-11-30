@@ -129,7 +129,8 @@ const DemandeCredit = () => {
       isClosable: true,
       duration: 1500
     })
-    navigate('/dashboard/metrics', {replace: true, state: { from: location }})
+    navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})
+    window.location.reload(false)
   }
 
   const steps = [

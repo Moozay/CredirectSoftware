@@ -10,52 +10,38 @@
   </head>
  
   <body>
-      <div class="columns">
         <div class="column">
           <div class="logo">
             <img src="{{ url_for('static',path='/credirect.png')}}"alt="logo" />
           </div>
-          <div class="pr-name">
-            <p>{{prospect.nom}} {{prospect.prenom}}</p>
+        </div>
+        <div class="columns">
+          <div class="column-2">
+            <div class="letterhead">DEMANDE DE CREDIT</div>
           </div>
-        </div>
-        <div class="column">
-          <div class="letterhead">DEMANDE DE CREDIT</div>
-        </div>
-        <div class="column">
-          <div class="agent-addr">
-            <table>
-              <tr>
-                <th>Initiateur:</th>
-                <td>SALMA</td>
-              </tr>
-              <tr>
-                <th>Telephone:</th>
-                <td>+212 5 20 16 00 17</td>
-              </tr>
-              <tr>
-                <th>Date:</th>
-                <td>11/08/2022</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      <div class="columns">
-        <div class="column-2">
-          <div class="credit-type">CREDIT IMMOBILIER</div>
-        </div>
-        <div class="column-2">
-          <div class="mail-msg">
-            Merci d'envoyer l'accord du crédit sur la boite mail suivante
-          </div>
-        </div>
-        <div class="column-2">
-          <div class="mail-contact">contact@credirect.ma</div>
-        </div>
-      </div>
+            <div class="agent-addr">
+              <table>
+                <tr>
+                  <th>Initiateur:</th>
+                  <td>SALMA</td>
+                </tr>
+                <tr>
+                  <th>Telephone:</th>
+                  <td>+212 5 20 16 00 17</td>
+                </tr>
+                <tr>
+                  <th>Date:</th>
+                  <td>11/08/2022</td>
+                </tr>
+                <tr>
+                  <th>Adresse mail:</th>
+                  <td>contact@credirect.ma</td>
+                </tr>
+              </table>
+            </div>
     </div>
     <div class="prospect-info">
-      <div class="table-head">TYPE INTERVENANT ===> Emprunteur Principal</div>
+      <div class="table-head">EMPRUNTEUR</div>
       <table class="pos_fixed1" border="1">
         <tr>
           <th>Nom et prenom</th>
@@ -137,57 +123,6 @@
         {% endfor %}
       </table>
     </div>
-    <div class="odc">
-      <div class="table-head">OBJET DE CREDIT</div>
-      <div class="odc-table">
-        <table class="pos_fixed1" width="31%" border="1">
-          <tr>
-            <th>Objet de credit</th>
-            <td>{{credit.objet_credit}}</td>
-          </tr>
-          <tr>
-            <th>Nature du bien</th>
-            <td>{{credit.nature_bien}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur de l'acte</th>
-            <td>{{credit.montant_acte}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur venale</th>
-            <td>{{credit.montant_venal}}</td>
-          </tr>
-          <tr>
-            <th>Titr foncier</th>
-            <td>{{credit.titre_foncier}}</td>
-          </tr>
-        </table>
-        <table class="pos_fixed2" width="68%" border="1">
-          <tr>
-            <th>Usage du bien</th>
-            <td>{{credit.usage_bien}}</td>
-          </tr>
-          <tr>
-            <th>Etat du bien</th>
-            <td>{{credit.etat_bien}}</td>
-          </tr>
-          <tr>
-            <th>Mnt Travaux</th>
-            <td>{{credit.montant_travaux}}</td>
-          </tr>
-          <tr>
-            <th>Adr. du bien</th>
-            <td>
-              {{credit.adresse_bien.adresse1}}
-            </td>
-          </tr>
-          <tr>
-            <th>Superficie en m</th>
-            <td>{{credit.superficie}} m</td>
-          </tr>
-        </table>
-      </div>
-    </div>
     <div class="eng-ban">
       <div class="table-head">ENGAGEMENTS BANCAIRES</div>
       <table border="1">
@@ -213,9 +148,70 @@
         {% endfor %}
       </table>
     </div>
+    {% if(credit.type_credit != 'consommation')%}
+    <div class="odc">
+      <div class="table-head">OBJET DE CREDIT</div>
+      <div class="odc-table">
+        <table class="pos_fixed1" width="50%" border="1">
+          <tr>
+            <th>Objet de credit</th>
+            <td>{{credit.objet_credit}}</td>
+          </tr>
+          <tr>
+            <th>Nature du bien</th>
+            <td>{{credit.nature_bien}}</td>
+          </tr>
+          <tr>
+            <th>Usage du bien</th>
+            <td>{{credit.usage_bien}}</td>
+          </tr>
+          <tr>
+            <th>Etat du bien</th>
+            <td>{{credit.etat_bien}}</td>
+          </tr>
+          <tr>
+            <th>Superficie en m</th>
+            <td>{{credit.superficie}} m</td>
+          </tr>
+          <tr>
+            <th>Adr. du bien</th>
+            <td>
+              {{credit.adresse_bien.adresse1}}
+            </td>
+          </tr>
+        </table>
+        <table class="pos_fixed2" width="50%" border="1">
+          <tr>
+            <th>Ville</th>
+            <td>{{credit.adresse_bien.ville}}</td>
+          </tr>
+          <tr>
+            <th>Montant valeur venale</th>
+            <td>{{credit.montant_venal}}</td>
+          </tr>
+          <tr>
+            <th>Montant valeur a l'acte</th>
+            <td>{{credit.montant_acte}}</td>
+          </tr>
+          <tr>
+            <th>Titr foncier</th>
+            <td>{{credit.titre_foncier}}</td>
+          </tr>
+          <tr>
+            <th>Mnt Travaux</th>
+            <td>{{credit.montant_travaux}}</td>
+          </tr>
+          <tr>
+            <th>Garanties</th>
+            <td>{{credit.garanties}}</td>
+          </tr>
+         
+        </table>
+      </div>
+    </div>
+    {%endif%}
     <div class="cdc">
       <div class="table-head">CARACTERISTIQUES DU CREDIT</div>
-      <div class="cdc-head">RACHID HAMRAOUI</div>
       <table class="pos_fixed1" border="1">
         <tr>
           <th>Montant</th>
@@ -259,22 +255,10 @@
         </tr>
       </table>
     </div>
-    <div class="gar" >
-      <table>
-        <tr>
-          <th>GARANTIES</th>
-        </tr>
-        <tr>
-          <td>
-            *** {{credit.garanties}} ***
-          </td>
-        </tr>
-      </table>
-    </div>
     <div class="caf-v">
       <table class="pos-left">
         <tr>
-          <th>Commentaires liés au Financement</th>
+          <th>Commentaires</th>
         </tr>
         <tr>
           <td></td>
@@ -289,8 +273,8 @@
         </tr>
       </table>
     </div>
+    <div class="footer">
+      <p>CREDIRECT.MA 73 Bd. Anfa, 5 ETG angle 1 rue Clos de Provence Casablanca - Maroc</p>
+    </div>
   </body>
-  <script type="text/javascript">
-      window.print();
-  </script>
 </html>

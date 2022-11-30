@@ -21,19 +21,19 @@ class BaseCredit(BaseModel):
     taux_endt : str
     teg : str
     qot_financement : str
-    objet_credit : str
-    nature_bien : str
-    etat_bien : str
-    usage_bien : str
-    montant_acte : str
-    montant_travaux: str
-    montant_venal : str
-    adresse_bien : dict
-    superficie : str
+    objet_credit : Optional[str]
+    nature_bien : Optional[str]
+    etat_bien : Optional[str]
+    usage_bien : Optional[str]
+    montant_acte : Optional[str]
+    montant_travaux: Optional[str]
+    montant_venal : Optional[str]
+    adresse_bien : Optional[dict]
+    superficie : Optional[str]
     statusCredit : StatusCredit = StatusCredit.encours
     prospect_id = UUID
-    titre_foncier : str
-    garanties : str
+    titre_foncier : Optional[str]
+    garanties : Optional[str]
     commentaires : str
 
 
@@ -49,18 +49,18 @@ class CreditCreate(BaseModel):
     taux_endt : str
     teg : str
     qot_financement : str
-    objet_credit : str
-    nature_bien : str
-    etat_bien : str
-    usage_bien : str
-    montant_acte : str
-    montant_venal : str
-    montant_travaux: str
-    adresse_bien : dict
-    superficie : str
+    objet_credit : Optional[str]
+    nature_bien : Optional[str]
+    etat_bien : Optional[str]
+    usage_bien : Optional[str]
+    montant_acte : Optional[str]
+    montant_venal : Optional[str]
+    montant_travaux: Optional[str]
+    adresse_bien : Optional[dict]
+    superficie : Optional[str]
     prospect_id : UUID
-    titre_foncier : str
-    garanties : str
+    titre_foncier : Optional[str]
+    garanties : Optional[str]
     statusCredit : StatusCredit = StatusCredit.encours
     commentaires : str
 
@@ -102,18 +102,18 @@ class CreditOut(BaseModel):
     taux_endt : str
     teg : str
     qot_financement : str
-    objet_credit : str
-    nature_bien : str
-    etat_bien : str
-    usage_bien : str
-    montant_acte : str
-    montant_venal : str
-    adresse_bien : dict
-    superficie : int
+    objet_credit : Optional[str]
+    nature_bien : Optional[str]
+    etat_bien : Optional[str]
+    usage_bien : Optional[str]
+    montant_acte : Optional[str]
+    montant_venal : Optional[str]
+    adresse_bien : Optional[dict]
+    superficie : Optional[str]
     statusCredit : StatusCredit
     prospect_id : UUID
-    titre_foncier : str
-    garanties : str
+    titre_foncier : Optional[str]
+    garanties : Optional[str]
     commentaires : str
 
 

@@ -16,7 +16,7 @@ import ObjetCredit from './ObjetCredit'
 import CaracteristicsCredit from './CaracteristicsCredit'
 import { useColorMode } from '@chakra-ui/react';
 import { m } from 'framer-motion';
-const DonneesCredit = () => {
+const DonneesCredit = (handlelick) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const {credit, setCredit} = useContext(CreditContext)
@@ -65,16 +65,16 @@ const DonneesCredit = () => {
         break;
     }
     if (fieldValue == "consommation") {
-      newFormCredit = (({
-        montant,
-        duree_credit,
-        frequence,
-        taux,
-        mensualite,
-        franchise,
-        taux_endt,
-        teg
-      }) =>({montant,duree_credit,frequence,taux,mensualite,franchise,taux_endt,teg}))(credit)
+      newFormCredit = {
+        montant : credit.montant,
+        duree_credit : credit.duree_credit,
+        frequence : credit.frequence,
+        taux : credit.taux,
+        mensualite : credit.mensualite,
+        franchise:credit.franchise,
+        taux_endt : credit.taux_endt,
+        teg : credit.teg
+      }
     newFormCredit.qot_financement = '0.00'
     newFormCredit[fieldName] = fieldValue
     setCredit(newFormCredit)

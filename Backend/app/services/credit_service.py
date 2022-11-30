@@ -72,8 +72,11 @@ class CreditService:
     async def create_dc(credit_id:UUID):
         filelocation = "app/temp/" + str(credit_id) + '.pdf'
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+        options = {
+            '--footer-center' : 'hello'
+        }
         html_url = "192.168.11.200:8000/api/v1/credits/demandecredit/"+ str(credit_id)
-        pdfkit.from_url(html_url,output_path=filelocation,configuration=config)
+        pdfkit.from_url(html_url,output_path=filelocation,options=options,configuration=config)
 
     @staticmethod
     async def download_dc(request: Request,credit_id: UUID):

@@ -12,7 +12,7 @@ const PublicRoute = (props) => {
 
     useEffect(()=>{
         if(auth.isAuthenticated){
-            navigate('/dashboard/metrics', {replace: true, state: { from: location }})
+            navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})
         }else{
             setIsVerified(true)
         }
