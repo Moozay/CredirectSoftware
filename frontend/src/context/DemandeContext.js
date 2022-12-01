@@ -6,29 +6,29 @@ export const DemandeContext = createContext([])
 export const DemandeProvider = (props) => {
     /* eslint sort-keys: 0 */   
     const [ demandes, setDemandes ] = useState([])
-    const [ reload, setReload ] = useState(true)
+    const [ reloadDemandes, setReloadDemandes ] = useState(true)
     const isMounted = useRef(false)
 
     useEffect(() => {
-        if(reload){
+        if(reloadDemandes){
             isMounted.current = false
         }
         if( isMounted.current == true) return
         const initialize = async () => {
             const response = await axiosInstance.get("/credits/all")
             setDemandes(response.data)
-            setReload(false)
+            setReloadDemandes(false)
         }
         initialize()
         isMounted.current = true
-    },[demandes, reload])
+    },[demandes, reloadDemandes])
     
     return (
         <DemandeContext.Provider value={{
             demandes,
             setDemandes,
-            reload,
-            setReload
+            reloadDemandes,
+            setReloadDemandes
             }}>
             {props.children}
         </DemandeContext.Provider>

@@ -82,7 +82,7 @@ const Emprunteur = ({
     <Flex flexDir={"row"} justifyContent="space-between">
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack w="100%" my={4}>
-          <FormControl isRequired variant="floating" my={3}>
+          <FormControl isRequired={true} variant="floating" my={3}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"

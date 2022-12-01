@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static',path='/styledc.css')}}" media="all" />
+    <link rel="stylesheet" href="{{ url_for('static',path='/styledc-consommation.css')}}" media="all" />
     <title>CREDIRECT.MA</title>
     <link rel="icon" type="image/png" href="{{ url_for('static',path='/favicon.png')}}"/>
   </head>
@@ -147,66 +147,6 @@
         </tr>
         {% endfor %}
       </table>
-    </div>
-    <div class="odc">
-      <div class="table-head">OBJET DE CREDIT</div>
-      <div class="odc-table">
-        <table class="pos_fixed1" width="50%" border="1">
-          <tr>
-            <th>Objet de credit</th>
-            <td>{{credit.objet_credit}}</td>
-          </tr>
-          <tr>
-            <th>Nature du bien</th>
-            <td>{{credit.nature_bien}}</td>
-          </tr>
-          <tr>
-            <th>Usage du bien</th>
-            <td>{{credit.usage_bien}}</td>
-          </tr>
-          <tr>
-            <th>Etat du bien</th>
-            <td>{{credit.etat_bien}}</td>
-          </tr>
-          <tr>
-            <th>Superficie en m</th>
-            <td>{{credit.superficie}} m</td>
-          </tr>
-          <tr>
-            <th>Adr. du bien</th>
-            <td>
-              {{credit.adresse_bien.adresse1}}
-            </td>
-          </tr>
-        </table>
-        <table class="pos_fixed2" width="50%" border="1">
-          <tr>
-            <th>Ville</th>
-            <td>{{credit.adresse_bien.ville}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur venale</th>
-            <td>{{credit.montant_venal}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur a l'acte</th>
-            <td>{{credit.montant_acte}}</td>
-          </tr>
-          <tr>
-            <th>Titr foncier</th>
-            <td>{{credit.titre_foncier}}</td>
-          </tr>
-          <tr>
-            <th>Mnt Travaux</th>
-            <td>{{credit.montant_travaux}}</td>
-          </tr>
-          <tr>
-            <th>Garanties</th>
-            <td>{{credit.garanties}}</td>
-          </tr>
-         
-        </table>
-      </div>
     </div>
     <div class="cdc">
       <div class="table-head">CARACTERISTIQUES DU CREDIT</div>

@@ -66,15 +66,28 @@ class CreditService:
         credit = await CreditService.get_credit_by_id(credit_id)
         prospect = await ProspectService.get_prospect_by_id(credit.prospect_id)
         context = {**context,'credit':credit, 'prospect':prospect}
-        return templates.TemplateResponse("dc.html", context)
+        html_file = "dc.html"
+        if credit.type_credit == "consommation":
+            html_file = "dc-consommation.html"
+        return templates.TemplateResponse(html_file, context)
     
     @staticmethod
     async def create_dc(credit_id:UUID):
         filelocation = "app/temp/" + str(credit_id) + '.pdf'
-        config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+        config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
         options = {
-            '--footer-center' : 'hello'
-        }
+                'page-size': 'Letter',
+                'margin-top': '0.5in',
+                'margin-right': '0.1in',
+                'margin-bottom': '0.5in',
+                'margin-left': '0.1in',
+                'encoding': "UTF-8",
+                'footer-center' : 'CREDIRECT.MA 73 Bd. Anfa, 5 ETG angle 1 rue Clos de Provence Casablanca - Maroc',
+                'footer-font-size':'7',
+                'footer-font-name' : 'Georgia',
+                'footer-right': '[page] of [topage]',
+                'no-outline': None
+                    }
         html_url = "192.168.11.200:8000/api/v1/credits/demandecredit/"+ str(credit_id)
         pdfkit.from_url(html_url,output_path=filelocation,options=options,configuration=config)
 

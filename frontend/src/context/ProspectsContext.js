@@ -6,30 +6,30 @@ export const ProspectContext = createContext([])
 export const ProspectProvider = (props) => {
     /* eslint sort-keys: 0 */   
     const [ prospects, setProspects ] = useState([])
-    const [ reload, setReload ] = useState(true)
+    const [ reloadProspects, setReloadProspects ] = useState(true)
     const isMounted = useRef(false)
 
     useEffect(() => {
-        if(reload){
+        if(reloadProspects){
             isMounted.current = false
         }
         if( isMounted.current == true) return
         const initialize = async () => {
             const response = await axiosInstance.get("/prospects/all")
             setProspects(response.data)
-            setReload(false)
+            setReloadProspects(false)
         }
         initialize()
         isMounted.current = true
-        
-    },[prospects, reload])
+        console.log("api reloaded")
+    },[prospects, reloadProspects])
     
     return (
         <ProspectContext.Provider value={{
             prospects,
             setProspects,
-            reload,
-            setReload
+            reloadProspects,
+            setReloadProspects
             }}>
             {props.children}
         </ProspectContext.Provider>

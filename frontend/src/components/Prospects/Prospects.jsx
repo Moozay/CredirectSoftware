@@ -17,6 +17,7 @@ import {
     Td,
     IconButton,
     useDisclosure,
+    Code
  
   } from "@chakra-ui/react";
 import { FaUserEdit } from 'react-icons/fa';
@@ -34,7 +35,7 @@ import { ProspectContext } from 'context/ProspectsContext';
 const Prospects = () => {
   const { prospects, setProspects } = useContext(ProspectContext)
   const [prospect, setProspect] = useState([])
-  const { reload, setReload } = useContext(ProspectContext)
+  const { setReloadProspects } = useContext(ProspectContext)
   const [ showModal, setShowModal ] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast()
@@ -47,7 +48,7 @@ const Prospects = () => {
   const handleDelete = async (event, id) => {
     event.preventDefault()
     const response = await axiosInstance.delete(`/prospects/${id}`)
-    setReload(true)
+    setReloadProspects(true)
     toast({
       title: `${response.data.message}`,
       status: "success",
@@ -294,9 +295,7 @@ const Prospects = () => {
         </TableContainer>
       ) : (
         <Stack>
-          <Skeleton height="20px" />
-          <Skeleton height="20px" />
-          <Skeleton height="20px" />
+          <Code mt={2}>Aucun Enregistrement Trouvé</Code>
         </Stack>
       )}
       

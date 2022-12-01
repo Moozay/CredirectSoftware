@@ -6,10 +6,12 @@ import DonneesCredit from './DonneesCredit/DonneesCredit'
 import DonneesBanquaires from './DonneesBancaires/DonneesBancaires'
 import Validation from './Validation'
 import { CreditContext } from 'context/CreditContext'
+import { DemandeContext } from 'context/DemandeContext'
 import {v4 as uuidv4} from 'uuid';
 import axiosInstance from 'services/axios'
 import { useToast } from '@chakra-ui/react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { ProspectContext } from 'context/ProspectsContext'
 const DemandeCredit = () => {
 
   const [ currentStep, setCurrentStep ] = useState(1)
@@ -17,8 +19,11 @@ const DemandeCredit = () => {
   const { donneesPersonelles, setdonneesPersonelles } = useContext(CreditContext)
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
   const { credit, setCredit } = useContext(CreditContext)
+  const { resetForm } = useContext(CreditContext)
+  const { setReloadDemandes } = useContext(DemandeContext)
+  const { setReloadProspects } = useContext(ProspectContext)
   var createdCredit
-  var createdProspect
+  var createdProspect = false
 
   const toast = useToast()
   const navigate = useNavigate()
@@ -124,13 +129,17 @@ const DemandeCredit = () => {
    
     //await handleCreateDemandeCredit(demandeCredit)
     toast({
-      title: `Demande Created successfully`,
+      title: `Demande créée avec succès`,
       status: "success",
       isClosable: true,
       duration: 1500
     })
-    navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})
-    window.location.reload(false)
+    setReloadDemandes(true)
+    setReloadProspects(true)
+    setCurrentStep(1)
+    resetForm()
+    //navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})
+    //window.location.reload(false)
   }
 
   const steps = [

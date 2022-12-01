@@ -65,7 +65,7 @@ const RenseignementsBancaires = ({handleRenChange}) => {
         
         {donneesBancaires.renseignements_bancaires.map((input, index)=>{
           return (
-            <HStack alignItems={"flex-start"} my={4}>
+            <HStack alignItems={"flex-start"} my={4} key={index}>
             <FormControl  isRequired variant="floating" >
                     <FormLabel fontSize={"sm"}
             fontWeight="normal"

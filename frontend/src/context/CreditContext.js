@@ -50,7 +50,29 @@ export const CreditProvider = (props) => {
             },
             "co_emprunteur":{}
         })
-
+        setDonneesBancaires({
+            "engagements_bancaires":[{
+                nom: "",
+                prenom: "",
+                nature_credit: "",
+                organisme: "",
+                echeance: "",
+                encours: "",
+                duree: "",
+                rat: ""
+        
+              }],
+            "renseignements_bancaires":[{nom:"",prenom:"",banque:"",solde:"",cmc:""}]
+        })
+        setCredit({})
+        setDateNaissance({
+            "emprunteur_date":null,
+            "co_emprunteur_date":null
+        })
+        setDatembauche({
+                "emprunteur_date":null,
+                "co_emprunteur_date":null
+            })
         
     }
 
@@ -71,7 +93,8 @@ export const CreditProvider = (props) => {
             datenaissance, 
             setDateNaissance,
             datembauche, 
-            setDatembauche
+            setDatembauche,
+            resetForm
             }}>
             {props.children}
         </CreditContext.Provider>

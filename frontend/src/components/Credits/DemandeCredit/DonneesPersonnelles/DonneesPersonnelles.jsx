@@ -13,10 +13,8 @@ import {
 
 const DonneesPersonnelles = () => {
     const [tabIndex, setTabIndex] = useState(0)
-    const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
+    const {donneesPersonelles, setDonneesPersonelles, resetForm} = useContext(CreditContext)
     const [hasCoEmprunteur, setHasCoEmprunteur] = useState(donneesPersonelles["emprunteur"]["hasCoEmprunteur"])
-    const {} = useContext(CreditContext)
-
     const handleTabsChange = (index) => {
         if(tabIndex == 0){
           setTabIndex(1)
@@ -57,7 +55,9 @@ const DonneesPersonnelles = () => {
             />
           </TabPanel>
           <TabPanel >
-            <CoEmprunteur handleDonnesPersonnellesChange={handleDonnesPersonnellesChange} />
+            <CoEmprunteur 
+            handleDonnesPersonnellesChange={handleDonnesPersonnellesChange}
+            hasCoEmprunteur={hasCoEmprunteur == 'true' ? true : false} />
           </TabPanel>
         </TabPanels>
       </Tabs>

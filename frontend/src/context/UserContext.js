@@ -13,7 +13,6 @@ export const UserProvider = (props) => {
         const initialize = async () => {
             const response = await axiosInstance.get("/users/me")
             setUser(response.data)
-            
         }
         initialize()
         isMounted.current = true
