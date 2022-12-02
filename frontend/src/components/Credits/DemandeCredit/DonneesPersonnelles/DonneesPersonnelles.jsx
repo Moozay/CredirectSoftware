@@ -11,8 +11,7 @@ import {
     TabPanel
   } from "@chakra-ui/react";
 
-const DonneesPersonnelles = () => {
-    const [tabIndex, setTabIndex] = useState(0)
+const DonneesPersonnelles = ({tabIndex, setTabIndex}) => {
     const {donneesPersonelles, setDonneesPersonelles, resetForm} = useContext(CreditContext)
     const [hasCoEmprunteur, setHasCoEmprunteur] = useState(donneesPersonelles["emprunteur"]["hasCoEmprunteur"])
     const handleTabsChange = (index) => {

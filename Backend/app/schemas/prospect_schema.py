@@ -21,7 +21,7 @@ class ProspectCreate(BaseModel):
     telephone: str = Field(..., min_length=1, max_length=50, description="prospect phone")
     situation: str = Field(..., min_length=1, max_length=50, description="prospect situation")
     profession: str = Field(..., min_length=1, max_length=50, description="propect profession")
-    telpro: str = Field(..., min_length=1, max_length=50, description="propect professional phone ")
+    rs_employeur: str = Field(..., min_length=1, max_length=50, description="propect professional phone ")
     datembauche: datetime = Field(...)
     revenue: str 
     coemp_id: Optional[UUID] = Field(...)
@@ -42,7 +42,7 @@ class ProspectUpdate(BaseModel):
     telephone: str 
     situation: str 
     profession: str 
-    telpro: str 
+    rs_employeur: str 
     datembauche: datetime
     revenue: str
 
@@ -58,7 +58,7 @@ class ProspectOut(BaseModel):
     telephone: str 
     situation: str 
     profession: str 
-    telpro: str 
+    rs_employeur: str 
     datembauche: datetime
     revenue: str 
     renseignements_bancaires: List = []

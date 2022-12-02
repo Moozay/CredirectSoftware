@@ -22,7 +22,7 @@ class ProspectService:
             telephone = prospect.telephone,
             situation = prospect.situation,
             profession = prospect.profession,
-            telpro = prospect.telpro,
+            rs_employeur = prospect.rs_employeur,
             datembauche = prospect.datembauche,
             revenue = prospect.revenue,
             coemp_id = prospect.coemp_id,

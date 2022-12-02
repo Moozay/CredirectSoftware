@@ -16,7 +16,7 @@ class Coemp(Document):
     telephone: str
     situation: str
     profession : str
-    telpro: str
+    rs_employeur: str
     datembauche: datetime
     revenue: float
     prospect_id: UUID

@@ -20,7 +20,7 @@ class CoempService:
             telephone = coemp.telephone,
             situation = coemp.situation,
             profession = coemp.profession,
-            telpro = coemp.telpro,
+            rs_employeur = coemp.rs_employeur,
             datembauche = coemp.datembauche,
             revenue = coemp.revenue,
             prospect_id = coemp.prospect_id

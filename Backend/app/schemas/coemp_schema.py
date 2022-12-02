@@ -14,7 +14,7 @@ class CoempCreate(BaseModel):
     telephone: str = Field(..., min_length=1, max_length=50, description="prospect phone")
     situation: str = Field(..., min_length=1, max_length=50, description="prospect situation")
     profession: str = Field(..., min_length=1, max_length=50, description="prospect profession")
-    telpro: str = Field(..., min_length=1, max_length=50, description="prospect professional phone ")
+    rs_employeur: str = Field(..., min_length=1, max_length=50, description="prospect professional phone ")
     datembauche: datetime
     revenue: str 
     prospect_id: UUID

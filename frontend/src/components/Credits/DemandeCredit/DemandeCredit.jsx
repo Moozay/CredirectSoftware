@@ -15,6 +15,7 @@ import { ProspectContext } from 'context/ProspectsContext'
 const DemandeCredit = () => {
 
   const [ currentStep, setCurrentStep ] = useState(1)
+  const [tabIndex, setTabIndex] = useState(0)
   const { DemandeCredit, setDemandeCredit } = useContext(CreditContext)
   const { donneesPersonelles, setdonneesPersonelles } = useContext(CreditContext)
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
@@ -182,7 +183,7 @@ const DemandeCredit = () => {
   const displayStep = (step) =>{
     switch(step){
       case 1:
-        return <DonneesPersonnelles/>
+        return <DonneesPersonnelles tabIndex={tabIndex} setTabIndex={setTabIndex}/>
       case 2:
         return <DonneesBanquaires/>
       case 3:
@@ -202,6 +203,8 @@ const DemandeCredit = () => {
             handleClick={handleClick}
             displayStep={displayStep}
             handleSubmit={handleSubmit}
+            tabIndex={tabIndex} 
+            setTabIndex={setTabIndex}
           />
   )
 }

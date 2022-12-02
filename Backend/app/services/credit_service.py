@@ -2,8 +2,10 @@
 from app.models.credit_model import StatusCredit
 from app.models.prospect_model import Prospect
 from app.services.prospect_service import ProspectService
+from app.services.user_service import UserService
 from app.schemas.demande_credit_schema import DemandeCreditCreate
 from app.schemas.prospect_schema import ProspectOut, ProspectCreate
+from datetime import date
 from app.schemas.credit_schema import CreditCreate , CreditUpdate, CreditOut,CreditDisplay
 from uuid import UUID, uuid4
 from typing import List, Optional
@@ -62,10 +64,11 @@ class CreditService:
     @staticmethod
     async def get_dc(request: Request,credit_id: UUID):
         templates = Jinja2Templates(directory="app/static")
-        context = {'request':request, 'name':'AHMED MUSA' }
+        context = {'request':request, 'date':date.today() }
         credit = await CreditService.get_credit_by_id(credit_id)
         prospect = await ProspectService.get_prospect_by_id(credit.prospect_id)
-        context = {**context,'credit':credit, 'prospect':prospect}
+        agent = await UserService.get_user_by_id(prospect.agent_id)
+        context = {**context,'credit':credit, 'prospect':prospect, 'agent': agent}
         html_file = "dc.html"
         if credit.type_credit == "consommation":
             html_file = "dc-consommation.html"

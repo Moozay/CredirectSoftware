@@ -23,15 +23,15 @@
               <table>
                 <tr>
                   <th>Initiateur:</th>
-                  <td>SALMA</td>
+                  <td>{{agent.user_name}}</td>
                 </tr>
                 <tr>
                   <th>Telephone:</th>
-                  <td>+212 5 20 16 00 17</td>
+                  <td>{{agent.phone}}</td>
                 </tr>
                 <tr>
                   <th>Date:</th>
-                  <td>11/08/2022</td>
+                  <td>{{date}}</td>
                 </tr>
                 <tr>
                   <th>Adresse mail:</th>
@@ -86,12 +86,12 @@
           <td>{{prospect.situation}}</td>
         </tr>
         <tr>
-          <th>Telephone / Telephone Pro</th>
-          <td>{{prospect.telephone}} / {{prospect.telpro}}</td>
+          <th>Telephone</th>
+          <td>{{prospect.telephone}}</td>
         </tr>
         <tr>
           <th>R.S. Employeur</th>
-          <td>MALAK IMPORT EXPORT</td>
+          <td>{{prospect.rs_employeur}}</td>
         </tr>
         <tr>
           <th>Resultat Net/Salaire</th>

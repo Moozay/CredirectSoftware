@@ -191,15 +191,15 @@ const Emprunteur = ({
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["telpro"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["rs_employeur"] ? "scale(0.85) translateY(-35px)" : ""
               }
             >
-              Téléphone Professionnel
+              R.S. Employeur
             </FormLabel>
             <Input
-              name="telpro"
+              name="rs_employeur"
               size="sm"
-              defaultValue={donneesPersonelles[section]["telpro"]}
+              defaultValue={donneesPersonelles[section]["rs_employeur"]}
               _placeholder={{ color: "gray.500" }}
               type="text"
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}

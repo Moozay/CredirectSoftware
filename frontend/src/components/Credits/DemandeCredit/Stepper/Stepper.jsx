@@ -11,8 +11,9 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
   const stepRef = useRef();
   const {colorMode} = useColorMode()
 
-  const submitFormData = (e) =>{
+  const validateFormData = (e) =>{
     e.preventDefault()
+    console.log(e);
     currentStep > steps.length - 1 ? handleSubmit(e) : handleClick("next")
   }
   const updateStep = (stepNumber, steps) => {
@@ -127,7 +128,7 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
 
   return (
     <>
-    <form onSubmit={submitFormData}>
+    <form onSubmit={validateFormData}>
     <Flex
         flexDir={"column"}
         borderRadius={"15px"}
