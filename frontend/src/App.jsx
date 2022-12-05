@@ -68,10 +68,10 @@ const App = () => {
                   <Route element={<AuthRoute allowedRoles={["Agent","Manager"]}/>}>
                     <Route path="client" exact element={<Authenticated><Client/></Authenticated>}/>
                   </Route>
-                  <Route element={<AuthRoute allowedRoles={["Admin","Manager"]}/>}>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Admin","Manager"]}/>}>
                   < Route path="prospects" exact element={<Authenticated><Prospects/></Authenticated>}/>
                   </Route>
-                  <Route element={<AuthRoute allowedRoles={["Admin","Manager"]}/>}>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Admin","Manager"]}/>}>
                   <Route path="prospect" exact element={<Authenticated><Prospect/></Authenticated>}/>
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>

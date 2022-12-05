@@ -1,11 +1,12 @@
-import { useEffect, useState, createContext, useRef } from 'react'
+import { useEffect, useState, createContext, useRef, useContext } from 'react'
 import axiosInstance from 'services/axios'
-
+import { UserContext } from './UserContext'
 export const ProspectContext = createContext([])
 
 export const ProspectProvider = (props) => {
     /* eslint sort-keys: 0 */   
     const [ prospects, setProspects ] = useState([])
+    const { user } = useContext(UserContext)
     const [ reloadProspects, setReloadProspects ] = useState(true)
     const isMounted = useRef(false)
 

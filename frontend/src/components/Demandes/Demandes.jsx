@@ -18,7 +18,13 @@ import {
   Td,
   IconButton,
   useDisclosure,
-  Code
+  Code,
+  Box,
+  Flex,
+  Spacer,
+  Input,
+  InputGroup,
+  InputLeftElement
 } from "@chakra-ui/react";
 import { FaRegEdit, FaUserEdit } from "react-icons/fa";
 import { IoDownloadSharp } from "react-icons/io5";
@@ -32,6 +38,7 @@ import {
   MdEditNote,
   MdOutlineFilterAlt,
   MdOutlineRuleFolder,
+  MdSearch,
 } from "react-icons/md";
 import { HiViewList } from "react-icons/hi";
 import Demande from "./Demande/Demande";
@@ -42,6 +49,7 @@ import { DemandeContext } from "context/DemandeContext";
 import { saveAs } from "file-saver";
 import NavItem from "components/Sidebar/NavItem";
 import { useMemo } from "react";
+import { list } from "postcss";
 
 const Demandes = () => {
   const { demandes, setDemandes } = useContext(DemandeContext);
@@ -64,6 +72,7 @@ const Demandes = () => {
   const [showModal, setShowModal] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedCategory, setSelectedCategory] = useState();
+  const [searchParams, setSearchParams] = useState("")
   const toast = useToast();
 
   const handleClick = (event, demandeData) => {
@@ -75,13 +84,39 @@ const Demandes = () => {
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
-  const getFilteredList = () => {
+
+  const handleSearchChange = (event) => {
+    setSearchParams(event.target.value);
+  };
+
+
+  const filterCategory = (demandes) =>{
     if (!selectedCategory) {
       return demandes;
     }
     return demandes.filter((credit) => credit.statusCredit == selectedCategory);
+  }
+
+  const filterName = (demandes) =>{
+    if (searchParams == "") {
+      return demandes
+    }
+    else{
+      return demandes.filter((credit) => {
+        var includeFname = credit.prospectInfo.prenom.toLowerCase().includes(searchParams.toLowerCase())
+        var includeLname = credit.prospectInfo.nom.toLowerCase().includes(searchParams.toLowerCase())
+
+      return (includeFname || includeLname)
+      })
+    }
+  }
+
+  const getFilteredList = () => {
+    var list = filterCategory(demandes)
+    list = filterName(list)
+    return list
   };
-  const filteredList = useMemo(getFilteredList, [selectedCategory, demandes]);
+  const filteredList = useMemo(getFilteredList, [selectedCategory, demandes,searchParams]);
 
   const handleDownload = async (event, id) => {
     event.preventDefault();
@@ -196,9 +231,19 @@ const Demandes = () => {
           <TagLeftIcon as={MdOutlineRuleFolder} />
           <TagLabel>Listes des Demandes</TagLabel>
         </Tag>
-        <Tag size={"lg"} colorSchema="blue">
-          <TagLeftIcon as={MdOutlineFilterAlt} />
+      </HStack>
+
+        <Flex m={3} >
+        <Box>
+          <InputGroup>
+            <InputLeftElement children={<MdSearch/>}/>
+            <Input size={"sm"} value={searchParams} onChange={handleSearchChange}/>
+          </InputGroup>
+         </Box>
+         <Spacer/>
+         <Box>
           <Select
+            icon={<MdOutlineFilterAlt/>}
             size="sm"
             name="catergory-list"
             textAlign="center"
@@ -217,8 +262,8 @@ const Demandes = () => {
               );
             })}
           </Select>
-        </Tag>
-      </HStack>
+         </Box>
+        </Flex>
 
       {filteredList.length > 0 ? (
         <TableContainer
@@ -293,6 +338,16 @@ const Demandes = () => {
                       whiteSpace: "pre-wrap",
                     }}
                   >
+                    Agent
+                  </Th>
+                  <Th
+                    textAlign="center"
+                    style={{
+                      padding: 3,
+                      overflowWrap: "break-word",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
                     Status demande
                   </Th>
                   <Th
@@ -350,6 +405,16 @@ const Demandes = () => {
                         }}
                       >
                         {demande.montant}
+                      </Td>
+                      <Td
+                        textAlign="center"
+                        style={{
+                          padding: 1,
+                          overflowWrap: "break-word",
+                          whiteSpace: "pre-wrap",
+                        }}
+                      >
+                        {demande.prospectInfo.agentInfo[0].user_name}
                       </Td>
                       {editCreditId == demande.credit_id ? (
                         <EditableColumn

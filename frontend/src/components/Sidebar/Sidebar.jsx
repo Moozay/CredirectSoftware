@@ -163,12 +163,12 @@ const Sidebar = (props) => {
                 title="Liste des Prospetcs"
                 path="prospects"
               />
-              <NavItem
+               {(user.role == 'Manager' || user.role == 'Admin') &&  <NavItem
                 navSize={navSize}
                 icon={FaUsersCog}
                 title="Manage Users"
                 path="users"
-              />
+              />}
           </Flex>
         </Flex>
         <Flex

@@ -1,4 +1,4 @@
-
+from datetime import date
 from app.models.credit_model import StatusCredit
 from app.models.prospect_model import Prospect
 from app.services.prospect_service import ProspectService
@@ -48,6 +48,7 @@ class CreditService:
             garanties = credit.garanties,
             statusCredit = credit.statusCredit,
             commentaires=credit.commentaires,
+            agent_id = credit.agent_id,
         )
         await credit_in.save()
         return credit_in
@@ -126,15 +127,22 @@ class CreditService:
         credits_obj = await Credit.find_all().aggregate([{
             "$lookup":{
                 "from":"prospects",
-                "localField": "prospect_id",
-                "foreignField": "prospect_id",
+                "let":  { "prospect_id" : "$prospect_id"},
+                "pipeline" : [
+                    {"$match": {"$expr":{"$eq":["$$prospect_id","$prospect_id"]}}},
+                    {"$lookup" : {
+
+                        "from":"users",
+                        "localField":"agent_id",
+                        "foreignField":"user_id",
+                        "as":"agentInfo"
+                    }}
+                ],
                 "as": "prospectInfo"
             }
         },
         {
-            "$unwind": {
-                "path": "$prospectInfo"
-            }
+            "$unwind": "$prospectInfo"
         },
         {
             "$project":{
@@ -144,10 +152,15 @@ class CreditService:
                 "type_credit":1,
                 "prospectInfo":{
                     "nom":1,
-                    "prenom":1
+                    "prenom":1,
+                    "agentInfo":{
+                    "user_name":1,
+                },
                 },
                 "montant":1,
-                "statusCredit":1
+                "statusCredit":1,
+                "date" : 1
+
             }
         }]).to_list()
     

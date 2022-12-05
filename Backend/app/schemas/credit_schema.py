@@ -35,6 +35,8 @@ class BaseCredit(BaseModel):
     titre_foncier : Optional[str]
     garanties : Optional[str]
     commentaires : str
+    agent_id: UUID
+
 
 
 class CreditCreate(BaseModel):
@@ -63,6 +65,8 @@ class CreditCreate(BaseModel):
     garanties : Optional[str]
     statusCredit : StatusCredit = StatusCredit.encours
     commentaires : str
+    agent_id: UUID
+
 
 
     
@@ -115,6 +119,7 @@ class CreditOut(BaseModel):
     titre_foncier : Optional[str]
     garanties : Optional[str]
     commentaires : str
+    agent_id: UUID
 
 
 class CreditDisplay(BaseModel):

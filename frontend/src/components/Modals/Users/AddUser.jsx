@@ -86,7 +86,6 @@ const AddUser = (props) => {
                         isClosable: true,
                         duration: 1500
                       })
-                      props.setShowModal(false)
                       
                       const newUsers = {...props.users, newUser}
                       props.setLoaded(false)
