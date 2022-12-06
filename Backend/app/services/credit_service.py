@@ -48,7 +48,6 @@ class CreditService:
             garanties = credit.garanties,
             statusCredit = credit.statusCredit,
             commentaires=credit.commentaires,
-            agent_id = credit.agent_id,
         )
         await credit_in.save()
         return credit_in
@@ -136,13 +135,16 @@ class CreditService:
                         "localField":"agent_id",
                         "foreignField":"user_id",
                         "as":"agentInfo"
-                    }}
+                    }},
                 ],
                 "as": "prospectInfo"
             }
         },
         {
             "$unwind": "$prospectInfo"
+        },
+        {
+            "$unwind": "$prospectInfo.agentInfo"
         },
         {
             "$project":{
@@ -155,11 +157,12 @@ class CreditService:
                     "prenom":1,
                     "agentInfo":{
                     "user_name":1,
+                    "email" : 1
                 },
                 },
                 "montant":1,
                 "statusCredit":1,
-                "date" : 1
+                "banque" : 1
 
             }
         }]).to_list()

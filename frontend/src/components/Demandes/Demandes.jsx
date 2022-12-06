@@ -67,6 +67,16 @@ const Demandes = () => {
     "Acceptation Avec Conditions",
     "Derogation Avec Conditions",
   ];
+
+  const banques = [
+    "SGMB",
+    "BP",
+    "CDM",
+    "BMCI",
+    "SOFAC",
+    "EQDOM",
+    "WAFASALAF"
+  ]
   const [demande, setDemande] = useState([]);
   const { setReloadDemandes } = useContext(DemandeContext);
   const [showModal, setShowModal] = useState(false);
@@ -103,10 +113,13 @@ const Demandes = () => {
     }
     else{
       return demandes.filter((credit) => {
-        var includeFname = credit.prospectInfo.prenom.toLowerCase().includes(searchParams.toLowerCase())
-        var includeLname = credit.prospectInfo.nom.toLowerCase().includes(searchParams.toLowerCase())
+        var name = credit.prospectInfo.prenom.toLowerCase() + " "+ credit.prospectInfo.nom.toLowerCase()
+        var nameInverted = credit.prospectInfo.nom.toLowerCase() + " "+ credit.prospectInfo.prenom.toLowerCase()
+        
+        var includeName = name.includes(searchParams.toLowerCase())
+        var includeNameInverted = nameInverted.includes(searchParams.toLowerCase())
 
-      return (includeFname || includeLname)
+      return (includeName || includeNameInverted)
       })
     }
   }
@@ -118,9 +131,9 @@ const Demandes = () => {
   };
   const filteredList = useMemo(getFilteredList, [selectedCategory, demandes,searchParams]);
 
-  const handleDownload = async (event, id) => {
+  const handleDownload = async (event, demande) => {
     event.preventDefault();
-    const response = await axiosInstance.get(`/credits/download/${id}`, {
+    const response = await axiosInstance.get(`/credits/download/${demande.credit_id}`, {
       params: {
         cacheBustTimestamp: Date.now(),
       },
@@ -129,10 +142,11 @@ const Demandes = () => {
         Accept: "application/ocet-stream",
       },
     });
+    const data = demande.prospectInfo.nom + "-" + demande.prospectInfo.prenom + "-" + demande.type_credit
     const blob = new Blob([response.data], { type: "application/pdf" });
     const link = document.createElement("a");
     link.href = window.URL.createObjectURL(blob);
-    link.download = id + ".pdf";
+    link.download = data + ".pdf";
     link.click();
     toast({
       title: `dossier de prêt téléchargé`,
@@ -150,13 +164,14 @@ const Demandes = () => {
     const formValues = {
       credit_id: credit.credit_id,
       statusCredit: credit.statusCredit,
+      banque : credit.banque
     };
     setEditCreditForm(formValues);
   };
 
-  const handleEditCreditChange = (event) => {
+  const handleEditCreditChange = (event,name) => {
     const newFormCredit = { ...editCreditForm };
-    newFormCredit["statusCredit"] = event.target.value;
+    newFormCredit[event.target.name] = event.target.value;
     setEditCreditForm(newFormCredit);
   };
 
@@ -168,6 +183,7 @@ const Demandes = () => {
       (credit) => credit.credit_id == editCreditId
     );
     newDemandes[index].statusCredit = editedCredit.statusCredit;
+    newDemandes[index].banque = editedCredit.banque
 
     const updateStatus = storeCredit(editedCredit);
     if (updateStatus === "true") {
@@ -237,7 +253,7 @@ const Demandes = () => {
         <Box>
           <InputGroup>
             <InputLeftElement children={<MdSearch/>}/>
-            <Input size={"sm"} value={searchParams} onChange={handleSearchChange}/>
+            <Input size={"sm"} placeholder="Chercher..." value={searchParams} onChange={handleSearchChange}/>
           </InputGroup>
          </Box>
          <Spacer/>
@@ -358,6 +374,16 @@ const Demandes = () => {
                       whiteSpace: "pre-wrap",
                     }}
                   >
+                    Banque
+                  </Th>
+                  <Th
+                    textAlign="center"
+                    style={{
+                      padding: 3,
+                      overflowWrap: "break-word",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
                     Actions
                   </Th>
                 </Tr>
@@ -414,7 +440,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                       >
-                        {demande.prospectInfo.agentInfo[0].user_name}
+                        {demande.prospectInfo.agentInfo.user_name}
                       </Td>
                       {editCreditId == demande.credit_id ? (
                         <EditableColumn
@@ -423,6 +449,7 @@ const Demandes = () => {
                           handleEditFormSubmit={handleEditFormSubmit}
                           handleCancel={handleCancel}
                           status={status}
+                          banques={banques}
                         />
                       ) : (
                         <ReadOnlyColumn

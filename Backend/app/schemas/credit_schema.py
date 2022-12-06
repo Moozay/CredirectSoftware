@@ -4,7 +4,7 @@
 from typing import Optional
 from pydantic import BaseModel, Field
 from uuid import UUID, uuid4
-from app.models.credit_model import StatusCredit
+from app.models.credit_model import StatusCredit, Banque
 
 
 from beanie import Link
@@ -35,7 +35,7 @@ class BaseCredit(BaseModel):
     titre_foncier : Optional[str]
     garanties : Optional[str]
     commentaires : str
-    agent_id: UUID
+    banque : Banque = Banque.pas_encore
 
 
 
@@ -65,7 +65,8 @@ class CreditCreate(BaseModel):
     garanties : Optional[str]
     statusCredit : StatusCredit = StatusCredit.encours
     commentaires : str
-    agent_id: UUID
+    banque : Banque = Banque.pas_encore
+
 
 
 
@@ -73,6 +74,8 @@ class CreditCreate(BaseModel):
 class CreditUpdate(BaseModel):
     credit_id : UUID
     statusCredit : StatusCredit
+    banque : Banque
+
     """  type_credit : str
     montant : Optional[str]
     duree_credit : Optional[str]
@@ -119,7 +122,8 @@ class CreditOut(BaseModel):
     titre_foncier : Optional[str]
     garanties : Optional[str]
     commentaires : str
-    agent_id: UUID
+    banque : Banque
+
 
 
 class CreditDisplay(BaseModel):
@@ -130,5 +134,6 @@ class CreditDisplay(BaseModel):
     prospect_id : UUID
     prospectInfo: dict
     commentaires : str
+    banque : Banque
 
 

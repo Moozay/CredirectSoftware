@@ -29,6 +29,16 @@ const ReadOnlyColumn = ({
         >
           {demande.statusCredit}
         </Td>
+        <Td
+          textAlign="center"
+          style={{
+            padding: 1,
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {demande.banque}
+        </Td>
         
 <Td
     textAlign="center"
@@ -68,7 +78,7 @@ const ReadOnlyColumn = ({
     size="xs"
     
     icon={<IoDownloadSharp />}
-    onClick={(event)=>handleDownload(event,demande.credit_id)}
+    onClick={(event)=>handleDownload(event,demande)}
 /> 
 
 <IconButton

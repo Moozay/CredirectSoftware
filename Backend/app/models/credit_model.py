@@ -19,6 +19,15 @@ class StatusCredit(str, Enum):
     acceptation_condition = "Acceptation Avec Conditions"
     derogation_conditions = "Derogation Avec Conditions"
 
+class Banque(str, Enum):
+    pas_encore = "-"
+    sgmb = "SGMB"
+    bp = "BP"
+    cdm = "CDM"
+    bmci = "BMCI"
+    sofac = "SOFAC"
+    eqdom = "EQDOM"
+    wafasalaf = "WAFASALAF"
 class Credit(Document):
     credit_id: UUID
     type_credit : str
@@ -44,6 +53,7 @@ class Credit(Document):
     titre_foncier : Optional[str]
     garanties : Optional[str]
     commentaires : str
+    banque : Banque = Banque.pas_encore
     statusCredit : StatusCredit = StatusCredit.encours
 
     class Config:  

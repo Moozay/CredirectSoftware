@@ -97,7 +97,7 @@ const Prospects = () => {
           }}
         >
           <form >
-            <Table size="lg" variant='striped'  >
+            <Table size="lg"  >
               <Thead>
                 <Tr>
                     <Th
@@ -153,17 +153,7 @@ const Prospects = () => {
                     <Th
                         textAlign="center"
                         style={{
-                          padding: 3,
-                          overflowWrap: "break-word",
-                          whiteSpace: "pre-wrap",
-                        }}
-                    >
-                    Montant
-                    </Th>
-                    <Th
-                        textAlign="center"
-                        style={{
-                          padding: 3,
+                          padding: 1,
                           overflowWrap: "break-word",
                           whiteSpace: "pre-wrap",
                         }}
@@ -229,17 +219,6 @@ const Prospects = () => {
                           >
                             {prospect["credits"].length}
                           </Td>
-                          <Td
-                            textAlign="center"
-                            style={{
-                              padding: 1,
-                              overflowWrap: "break-word",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                            {credit["montant"]}
-                          </Td>
-                          
                           <Td
                             textAlign="center"
                             style={{

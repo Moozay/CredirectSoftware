@@ -7,14 +7,16 @@ import {
   IconButton,
   Select,
   InputGroup,
-  InputLeftElement 
+  InputLeftElement, 
+  Box
 } from "@chakra-ui/react";
 
 // React icons
 import { 
   MdOutlineCancel, 
   MdAdminPanelSettings,
-  MdOutlineEmail
+  MdOutlineEmail,
+  MdOtherHouses
 } from 'react-icons/md'
 import {VscSymbolNamespace} from "react-icons/vsc"
 import {BsCheck} from 'react-icons/bs'
@@ -25,13 +27,13 @@ const EditableColumn = ({
   handleEditCreditChange,
   handleEditFormSubmit,
   handleCancel,
-  status
+  status,
+  banques
 }) => {
   
   return (
     <>
     <Td style={{ padding: 2 }} textAlign="center">
-       
        <Select  
          size='sm' 
          defaultValue={editCreditForm.statusCredit} 
@@ -43,6 +45,27 @@ const EditableColumn = ({
          status.map( status => {
            
            return  <option value={status}  key={status} >{status}</option>
+         })
+         }
+         
+       </Select>
+       
+     </Td>
+     <Td style={{ padding: 2 }} textAlign="center">
+       <Select  
+         size='sm' 
+        defaultValue={editCreditForm.banque} 
+         name="banque"
+         onChange={handleEditCreditChange}
+         icon={<MdOtherHouses/>}
+         >
+            <option value="-" key={"pas_encore"}>
+              -
+            </option>
+         {
+         banques.map( banque => {
+           
+           return  <option value={banque}  key={banque} >{banque}</option>
          })
          }
          
