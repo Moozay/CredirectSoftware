@@ -1,8 +1,8 @@
 from datetime import date
-from app.models.credit_model import StatusCredit
 from app.models.prospect_model import Prospect
 from app.services.prospect_service import ProspectService
 from app.services.user_service import UserService
+from app.services.coemp_service import CoempService
 from app.schemas.demande_credit_schema import DemandeCreditCreate
 from app.schemas.prospect_schema import ProspectOut, ProspectCreate
 from datetime import date
@@ -68,7 +68,11 @@ class CreditService:
         credit = await CreditService.get_credit_by_id(credit_id)
         prospect = await ProspectService.get_prospect_by_id(credit.prospect_id)
         agent = await UserService.get_user_by_id(prospect.agent_id)
-        context = {**context,'credit':credit, 'prospect':prospect, 'agent': agent}
+        if prospect.coemp_id is not None:
+            co_emprunteur = await CoempService.get_coemp_by_id(prospect.coemp_id)
+        else:
+            co_emprunteur = 0
+        context = {**context,'credit':credit, 'prospect':prospect, 'agent': agent, 'co_emprunteur':co_emprunteur}
         html_file = "dc.html"
         if credit.type_credit == "consommation":
             html_file = "dc-consommation.html"

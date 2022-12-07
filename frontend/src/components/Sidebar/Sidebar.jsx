@@ -163,7 +163,7 @@ const Sidebar = (props) => {
                 title="Liste des Prospetcs"
                 path="prospects"
               />
-               {(user.role == 'Manager' || user.role == 'Admin') &&  <NavItem
+               {(user.role == 'Admin') &&  <NavItem
                 navSize={navSize}
                 icon={FaUsersCog}
                 title="Manage Users"

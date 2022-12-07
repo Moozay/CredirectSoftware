@@ -34,6 +34,9 @@ body {
   margin-top: 1em;
   background-color: rgb(255, 119, 0);
 }
+table{
+  page-break-inside: avoid;
+}
 
 .agent-addr table td,
 table th {
@@ -78,6 +81,37 @@ table th {
 }
 
 .prospect-info table.pos_fixed2 {
+  float: right;
+  position: relative;
+}
+
+.co-prospect-info {
+  width: 100%;
+  margin-top: 19em;
+}
+
+.co-prospect-info table {
+  border-width: 1px;
+  border-style: solid;
+  border-collapse: collapse;
+  border-top: none;
+  color: #000000;
+  text-align: center;
+  width: 49%;
+  position: relative;
+}
+
+.co-prospect-info th {
+  text-align: left;
+  background-color: rgb(215, 211, 211);
+}
+
+.co-prospect-info table.pos_fixed1 {
+  float: left;
+  position: relative;
+}
+
+.co-prospect-info table.pos_fixed2 {
   float: right;
   position: relative;
 }
@@ -224,7 +258,8 @@ table th {
   top: 27.7cm !important;
 }
 
-page{
-  width: 21cm;
-  height: 29.7cm;
+@media print{
+  table{
+    page-break-inside: avoid;
+  }
 }

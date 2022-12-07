@@ -103,6 +103,71 @@
         </tr>
       </table>
     </div>
+    {% if prospect.coemp_id %}
+    <div class="co-prospect-info">
+      <div class="table-head">  CO-EMPRUNTEUR</div>
+      <table class="pos_fixed1" border="1">
+        <tr>
+          <th>Nom et prenom</th>
+          <td>{{co_emprunteur.nom}} {{co_emprunteur.prenom}}</td>
+        </tr>
+        <tr>
+          <th>Date de naissance</th>
+          <td>{{co_emprunteur.datenaissance}}</td>
+        </tr>
+        <tr>
+          <th>Nationalité</th>
+          <td>{{co_emprunteur.nationalite}}</td>
+        </tr>
+        <tr>
+          <th>Adresse</th>
+          <td>{{co_emprunteur.adresse.adresse1}}</td>
+        </tr>
+        <tr>
+          <th>Profession</th>
+          <td>{{co_emprunteur.profession}}</td>
+        </tr>
+        <tr>
+          <th>Date d'embauche</th>
+          <td>{{co_emprunteur.datembauche}}</td>
+        </tr>
+        <tr>
+          <th>N CIN/Sejour</th>
+          <td>{{co_emprunteur.cin_sejour}}</td>
+        </tr>
+      </table>
+      <table class="pos_fixed2" border="1">
+        <tr>
+          <th>Lieu de naissance</th>
+          <td>{{co_emprunteur.lieunaissance}}</td>
+        </tr>
+        <tr>
+          <th>Ville de residence</th>
+          <td>{{co_emprunteur.adresse.ville}}</td>
+        </tr>
+        <tr>
+          <th>Situation Familliale</th>
+          <td>{{co_emprunteur.situation}}</td>
+        </tr>
+        <tr>
+          <th>Telephone</th>
+          <td>{{co_emprunteur.telephone}}</td>
+        </tr>
+        <tr>
+          <th>R.S. Employeur</th>
+          <td>{{co_emprunteur.rs_employeur}}</td>
+        </tr>
+        <tr>
+          <th>Resultat Net/Salaire</th>
+          <td>{{co_emprunteur.revenue}}</td>
+        </tr>
+        <tr>
+          <th>Part de Participation</th>
+          <td>100.00%</td>
+        </tr>
+      </table>
+    </div>
+    {% endif %}
     <div class="banque-info">
       <div class="table-head">RENSEIGNEMENTS BANCAIRES</div>
       <table border="1">

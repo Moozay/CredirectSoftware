@@ -41,5 +41,6 @@ class CoempService:
         pass
 
     @staticmethod
-    async def get_coemp_by_id(id: UUID) -> Optional[Coemp]:
-        pass
+    async def get_coemp_by_id(id: UUID) -> Optional[CoempOut]:
+        coemp = await Coemp.find_one(Coemp.coemp_id == id)
+        return coemp
