@@ -217,6 +217,8 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               <option ></option>
               <option value="Célibataire" key="Célibataire">Célibataire</option>
               <option value="Marié(e)" key="Marié(e)">Marié(e)</option>
+              <option value="Veuf(ve)" key="Veuf(ve)">Veuf(e)</option>
+              <option value=" Divorcé(e)" key="Divorcé(e)">Divorcé(e)</option>
             </Select>
           </FormControl>
         
@@ -258,6 +260,30 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               defaultValue={donneesPersonelles[section]["revenue"]}
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
             />
+          </FormControl>
+        </HStack>
+        <HStack my={4} w="50%">
+        <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["participation"] ? "scale(0.85) translateY(-35px)" : ""
+              }
+            >
+              Part de participation
+            </FormLabel>
+            <InputGroup>
+            <Input
+              size="sm"
+              _placeholder={{ color: "gray.500" }}
+              type="number"
+              name="participation"
+              defaultValue={donneesPersonelles[section]["participation"]}
+              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+            />
+            <InputRightElement children="%" pb={2} />
+            </InputGroup>
           </FormControl>
         </HStack>
       </VStack>

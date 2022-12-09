@@ -42,6 +42,79 @@ export const CreditProvider = (props) => {
         "co_emprunteur_date":null
     })
 
+    const banqueList = [
+        "ATTIJARIWAFA BANK",
+        "AL BARID BANK", 
+        "ARAB BANK", 
+        "BANQUE POPULAIRE", 
+        "BANK OF AFRICA", 
+        "BMCI", 
+        "CDM", 
+        "CREDIT AGRICOLE", 
+        "CIH", 
+        "CFG", 
+        "SOGE", 
+        "CDG CAPITAL", 
+        "UMB", 
+        "BANK ASSAFA", 
+        "AL AKHDAR BANK", 
+        "BANK AL YOUSR", 
+        "BTI BANK", 
+        "UMNIA BANK", 
+        "BANK ARREDA", 
+        "DAR AL AMANE"
+    ]
+
+    const organismes = [
+        "WAFA IMMOBILIER", 
+        "ASSALAF AL-AKHDAR", 
+        "AXA CREDIT", 
+        "BMCI CREDIT CONSO", 
+        "DAR SALAF", 
+        "FINACRED", 
+        "RCI FINANCE", 
+        "SALAFIN", 
+        "TASLIF", 
+        "SOFAC", 
+        "FNAC", 
+        "EQDOM", 
+        "SONAC", 
+        "SOREC", 
+        "VIVALIS SALAF", 
+        "WAFASALAF", 
+        "BMCI LEASING", 
+        "MAROC LEASING", 
+        "CREDIT DU MAROC LEASING", 
+        "SOGELEASE MAROC", 
+        "MAGHREBAIL", 
+        "WAFABAIL", 
+        "AL AMANA", 
+        "AL KARAMA", 
+        "AIMC", 
+        "FONDEP", 
+        "TAWADA", 
+        "INMAA", 
+        "ATTIJARIWAFA BANK", 
+        "AL BARID BANK", 
+        "ARAB BANK", 
+        "BANQUE POPULAIRE", 
+        "BANK OF AFRICA", 
+        "BMCI", 
+        "CDM", 
+        "CREDIT AGRICOLE", 
+        "CIH", 
+        "CFG", 
+        "SOGE", 
+        "CDG CAPITAL", 
+        "UMB", 
+        "BANK ASSAFA", 
+        "AL AKHDAR BANK", 
+        "BANK AL YOUSR", 
+        "BTI BANK", 
+        "UMNIA BANK", 
+        "BANK ARREDA", 
+        "DAR AL AMANE"
+    ]
 
     const resetForm = () =>{
         setDonneesPersonelles({
@@ -94,7 +167,9 @@ export const CreditProvider = (props) => {
             setDateNaissance,
             datembauche, 
             setDatembauche,
-            resetForm
+            resetForm,
+            banqueList,
+            organismes
             }}>
             {props.children}
         </CreditContext.Provider>

@@ -30,7 +30,7 @@ class BaseCredit(BaseModel):
     montant_venal : Optional[str]
     adresse_bien : Optional[dict]
     superficie : Optional[str]
-    statusCredit : StatusCredit = StatusCredit.encours
+    statusCredit : StatusCredit = StatusCredit.en_montage
     prospect_id = UUID
     titre_foncier : Optional[str]
     garanties : Optional[str]
@@ -63,7 +63,7 @@ class CreditCreate(BaseModel):
     prospect_id : UUID
     titre_foncier : Optional[str]
     garanties : Optional[str]
-    statusCredit : StatusCredit = StatusCredit.encours
+    statusCredit : StatusCredit = StatusCredit.en_montage
     commentaires : str
     banque : Banque = Banque.pas_encore
 

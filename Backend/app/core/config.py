@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
         "http://localhost:3000",
         "http://192.168.11.200:3000",
-        "https://192.168.11.200:8443"
+        "http://192.168.11.200:3100"
     ]
     PROJECT_NAME: str = "CREDIRECT PROJECT"
     VERSION: str = "1.1"

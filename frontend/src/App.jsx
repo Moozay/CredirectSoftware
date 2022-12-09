@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Routings
-import { BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
+import { HashRouter as Router, Navigate, Route, Routes} from 'react-router-dom'
 import ProtectedRoutes from "ProtectedRoutes"
 
 // Pages & Components

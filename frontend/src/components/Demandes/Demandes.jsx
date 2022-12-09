@@ -56,16 +56,17 @@ const Demandes = () => {
   const [editCreditForm, setEditCreditForm] = useState({});
   const [editCreditId, setEditCreditId] = useState(null);
   const status = [
-    "En cours",
-    "Envoie Bank",
-    "Autorisation",
-    "Refus",
-    "Accord",
-    "Ajournement",
-    "Retour en Charge",
-    "Autorisation Avec Conditions",
-    "Acceptation Avec Conditions",
-    "Derogation Avec Conditions",
+    "Accordé",
+    "Accord Validé",
+    "Accordé sous réserve",
+    "Annulé",
+    "Contrats disponibles", 
+    "Débloqué", 
+    "En montage", 
+    "Envoi Banque",
+    "Informations complémentaires",  
+    "Refusé", 
+    "Retour à charge", 
   ];
 
   const banques = [

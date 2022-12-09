@@ -23,7 +23,7 @@ import CurrencyFormat from "react-currency-format";
 import { CreditContext } from "context/CreditContext";
 import Index from "components/Index";
 const EngagementsBancaires = ({ handleEngChange }) => {
-  const { donneesBancaires, setDonneesBancaires, credit, setCredit, donneesPersonelles, setDonneesPersonelles } = useContext(CreditContext);
+  const { donneesBancaires, organismes, credit, setCredit, donneesPersonelles, setDonneesPersonelles } = useContext(CreditContext);
   const [section, setSection] = useState("engagements_bancaires");
   const [inputField, setInputField] = useState([
     {
@@ -214,14 +214,18 @@ const EngagementsBancaires = ({ handleEngChange }) => {
               </Select>
             </FormControl>
             <FormControl isRequired variant="floating">
-              <Input
+            <Select
+                placeholder="-Select-"
+                size="sm"
                 onChange={(e) => handleFormChange(index, e)}
                 name="organisme"
-                size="sm"
-                _placeholder={{ color: "gray.500" }}
-                type="text"
                 value={input.organisme}
-              />
+                textAlign="center"
+              >
+                {organismes.map((organisme,index)=>
+                <option value={organisme} key={index}>{organisme}</option>
+                )}
+              </Select>
             </FormControl>
             <FormControl isRequired>
               <InputGroup size="sm">

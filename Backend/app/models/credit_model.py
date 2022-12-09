@@ -8,17 +8,17 @@ import datetime
 from enum import Enum
 
 class StatusCredit(str, Enum):
-    encours = "En cours"
-    envoie_bank = "Envoie Bank"
-    autorisation = "Autorisation"
-    refus = "Refus"
-    accord = "Accord"
-    ajournement = "Ajournement"
-    retour_charge = "Retour en Charge"
-    auto_condition = "Autorisation Avec Conditions"
-    acceptation_condition = "Acceptation Avec Conditions"
-    derogation_conditions = "Derogation Avec Conditions"
-
+    en_montage = "En montage", 
+    envoi_banque = "Envoi Banque", 
+    refuse = "Refusé", 
+    informations_complementaires = "Informations complémentaires", 
+    retour_a_charge = "Retour à charge", 
+    accorde = "Accordé", 
+    accorde_sous_reserve = "Accordé sous réserve", 
+    annule = "Annulé", 
+    accord_valide = "Accord Validé", 
+    contrat_disponibles = "Contrats disponibles", 
+    debloque = "Débloqué"
 class Banque(str, Enum):
     pas_encore = "-"
     sgmb = "SGMB"
@@ -54,7 +54,7 @@ class Credit(Document):
     garanties : Optional[str]
     commentaires : str
     banque : Banque = Banque.pas_encore
-    statusCredit : StatusCredit = StatusCredit.encours
+    statusCredit : StatusCredit = StatusCredit.en_montage
 
     class Config:  
         use_enum_values = True

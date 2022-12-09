@@ -53,5 +53,6 @@ export  const Keys = {
     "garanties" : "Garanties",
     "titre_foncier" : "Titre Foncier",
     "commentaires": "Commentaires",
-    "rs_employeur" : "R.S. Employeur"
+    "rs_employeur" : "R.S. Employeur",
+    "participation" : "Part de participation"
 }   

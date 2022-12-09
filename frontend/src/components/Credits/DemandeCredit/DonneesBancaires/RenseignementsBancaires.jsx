@@ -19,7 +19,7 @@ import CurrencyFormat from 'react-currency-format';
 import { DeleteIcon } from "@chakra-ui/icons";
 import { CreditContext } from 'context/CreditContext'
 const RenseignementsBancaires = ({handleRenChange}) => {
-  const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
+  const { donneesBancaires, banqueList } = useContext(CreditContext)
   const [section, setSection] = useState("renseignements_bancaires")
   let ren_data = donneesBancaires.renseignements_bancaires
   const handleFormChange = (index, event) =>{
@@ -111,11 +111,9 @@ const RenseignementsBancaires = ({handleRenChange}) => {
                       textAlign="center"
 
                       >
-                        <option value="AWB">AWB</option>
-                        <option value="BMCE">BMCE</option>
-                        <option value="BMCI">BMCI</option>
-                        <option value="CDM">CDM</option>
-                        <option value="PB">PB</option>
+                       {banqueList.map((banque,index)=>
+                        <option value={banque} key={index}>{banque}</option>
+                       )}
                     </Select>
                   </FormControl>
                  <FormControl  isRequired >
