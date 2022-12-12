@@ -25,4 +25,7 @@
 **/Backend/venv/*
 
 
+/Backend/access_log
+/Backend/error_log
+
 

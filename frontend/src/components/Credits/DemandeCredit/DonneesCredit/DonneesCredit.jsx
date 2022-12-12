@@ -20,7 +20,7 @@ const DonneesCredit = (handlelick) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const {credit, setCredit} = useContext(CreditContext)
-  const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
+  const {donneesPersonelles, changeStringToFloat, calculateTeg} = useContext(CreditContext)
   const handleCreditDataChange = (event)=>{
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
@@ -31,23 +31,20 @@ const DonneesCredit = (handlelick) => {
         newFormCredit[fieldName] = fieldValue
         var qot = calculateQot(newFormCredit)
         newFormCredit.qot_financement = qot
-        calculateMensualite(newFormCredit)
+        newFormCredit = calculateMensualite(newFormCredit)
         setCredit(newFormCredit)
         break;
       case "taux":
         newFormCredit = { ...credit }
         newFormCredit[fieldName] = fieldValue
-        calculateMensualite(newFormCredit)
-        break;
-      case "taux":
-        newFormCredit = { ...credit }
-        newFormCredit[fieldName] = fieldValue
-        calculateMensualite(newFormCredit)
+        newFormCredit =calculateMensualite(newFormCredit)
+        setCredit(newFormCredit)
         break;
       case "duree_credit":
         newFormCredit = { ...credit }
         newFormCredit[fieldName] = fieldValue
-        calculateMensualite(newFormCredit)
+        newFormCredit =calculateMensualite(newFormCredit)
+        setCredit(newFormCredit)
         break;
       case "montant_acte":
         newFormCredit = { ...credit }
@@ -82,11 +79,6 @@ const DonneesCredit = (handlelick) => {
     }
   }
 
-  const changeStringToFloat = (str) =>{
-    const str1 = str.replaceAll(" ","")
-    const str2 = str1.replaceAll(",",".")
-    return parseFloat(str2,10)
-  }
 
   const calculateQot = (newFormCredit) =>{
     var montant = newFormCredit.montant
@@ -120,6 +112,8 @@ const DonneesCredit = (handlelick) => {
      newFormCredit.mensualite = mensualite.toFixed(2)
      var revenue = donneesPersonelles.emprunteur.revenue
      var taux_endt = calculateTauxEndt(mensualite, revenue)
+     var teg = calculateTeg(newFormCredit)
+     newFormCredit.teg = teg
      newFormCredit.taux_endt = taux_endt 
      if (isNaN(mensualite) || isNaN(duree)) {
       newFormCredit.mensualite = "0"
@@ -127,9 +121,7 @@ const DonneesCredit = (handlelick) => {
       console.log("invalid");
      }
     }
-    setCredit(newFormCredit)
-    console.log(credit)
-    
+    return (newFormCredit)    
   }
 
   const calculateTauxEndt = (mensualite, revenue) =>{

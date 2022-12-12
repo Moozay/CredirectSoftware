@@ -29,8 +29,29 @@ export const CreditProvider = (props) => {
         "renseignements_bancaires":[{nom:"",prenom:"",banque:"",solde:"",cmc:""}]
     })
     const [ credit, setCredit ] = useState({
-       
+        mensualite:'0.00',
     })
+
+    const changeStringToFloat = (str) =>{
+        const str1 = str.replaceAll(" ","")
+        const str2 = str1.replaceAll(",",".")
+        return parseFloat(str2,10)
+      }
+
+    const calculateTeg = (newFormCredit) =>{
+    var engBan = donneesBancaires.engagements_bancaires
+    var sum = 0
+    for (let index = 0; index < engBan.length; index++) {
+      if (engBan[index].rat == "Non") {
+        sum = sum + changeStringToFloat(engBan[index].echeance)
+      }
+    }
+    sum = sum + changeStringToFloat(newFormCredit.mensualite)
+    var revenue = donneesPersonelles.emprunteur.revenue
+    var teg = (sum/revenue)*100
+    teg = teg.toFixed(2)
+    return teg
+    }
 
     // Additions variable forms
     const [datenaissance, setDateNaissance] = useState({
@@ -169,7 +190,9 @@ export const CreditProvider = (props) => {
             setDatembauche,
             resetForm,
             banqueList,
-            organismes
+            organismes,
+            changeStringToFloat,
+            calculateTeg
             }}>
             {props.children}
         </CreditContext.Provider>
