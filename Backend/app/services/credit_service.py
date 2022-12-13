@@ -119,8 +119,17 @@ class CreditService:
         credit = await Credit.find_one(Credit.credit_id == id)
         if not credit:
             raise pymongo.errors.OperationFailure("Credit not Found")
+        try:
+            prospect = await Prospect.find_one(Prospect.prospect_id == credit.prospect_id)
+            await prospect.update({
+                "$pull":{ "credits": credit.credit_id}
+            })
+            await credit.delete()
 
-        await credit.delete()
+        except:
+            return {
+                "message" : "Credit Not Deleted !"
+            }
         return {
             "message" : "Credit deleted successfully"
         }

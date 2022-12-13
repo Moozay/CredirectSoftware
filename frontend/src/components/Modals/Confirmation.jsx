@@ -11,17 +11,27 @@ import {
     ModalContent
   } from '@chakra-ui/react'
 
-const confirmation = ({showModal, setShowModal, header, content ,handleSubmit}) => {
+const confirmation = ({showConfirmation, setShowConfirmation, header, content, action,payLoad}) => {
     
     
     const handleClose = () => {
-        setShowModal(false)
+      setShowConfirmation({
+        ...showConfirmation,
+        show: false,
+        payLoad: {}
+      })
     }
+
+    const handleSubmit = (event,payLoad) => {
+      action(event, payLoad)
+      console.log(payLoad);
+      handleClose()
+  }
 
     return (
         <> 
         
-          <Modal closeOnEsc size="3xl" isCentered isOpen={showModal} onClose={handleClose}>
+          <Modal closeOnEsc size="3xl" isCentered isOpen={showConfirmation} onClose={handleClose}>
             <ModalOverlay bg='none'
                 backdropFilter='auto'
                 backdropInvert='20%'
@@ -37,8 +47,11 @@ const confirmation = ({showModal, setShowModal, header, content ,handleSubmit}) 
             
                     <ModalFooter>
                     
-                    <Button colorScheme='blue' mr={3}  onClick={handleSubmit} >
-                        Confirm Submit
+                    <Button colorScheme='blue' mr={3}  onClick={(event)=> handleSubmit(event,payLoad)} >
+                        Oui
+                    </Button>
+                    <Button colorScheme='blue' mr={3}  onClick={handleClose} >
+                        Non
                     </Button>
                     
                     </ModalFooter>

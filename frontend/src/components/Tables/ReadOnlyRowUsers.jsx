@@ -4,14 +4,13 @@ import { Tr, Td, Checkbox, IconButton } from "@chakra-ui/react";
 
 import { FaUserEdit } from 'react-icons/fa'
 import { AiOutlineDelete } from 'react-icons/ai'
- 
+import Confirmation from "components/Modals/Confirmation"; 
 
 const ReadOnlyRow = ({
   user,
   handleEditClick,
-  handleDelete,
+  handleDeleteClick,
 }) => {
-
   return (
     <Tr id={user.user_id} >
         <Td
@@ -96,7 +95,7 @@ const ReadOnlyRow = ({
         m={2}
         size="xs"
         icon={<AiOutlineDelete />}
-        onClick={(event) => handleDelete(event, user)}
+        onClick={() => handleDeleteClick(user)}
       /> 
         </Td>
     </Tr>

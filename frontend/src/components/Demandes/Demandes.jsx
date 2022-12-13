@@ -46,10 +46,8 @@ import EditableColumn from "components/Tables/EditableColumn";
 import ReadOnlyColumn from "components/Tables/ReadOnlyColumn";
 import axiosInstance from "services/axios";
 import { DemandeContext } from "context/DemandeContext";
-import { saveAs } from "file-saver";
-import NavItem from "components/Sidebar/NavItem";
 import { useMemo } from "react";
-import { list } from "postcss";
+import Confirmation from "components/Modals/Confirmation";
 
 const Demandes = () => {
   const { demandes, setDemandes } = useContext(DemandeContext);
@@ -159,7 +157,7 @@ const Demandes = () => {
 
   //credit update
 
-  const hanldeEditClick = (event, credit) => {
+  const handleEditClick = (event, credit) => {
     event.preventDefault();
     setEditCreditId(credit.credit_id);
     const formValues = {
@@ -222,10 +220,21 @@ const Demandes = () => {
     setEditCreditId(null);
     setEditCreditForm({});
   };
+  const [showConfirmation, setShowConfirmation] = useState({
+    show: false,
+    payLoad: {},
+  })
 
-  const handleDelete = async (event, id) => {
+  const handleDeleteClick = (demande) =>{
+    setShowConfirmation({
+      show: true,
+      payLoad: demande,
+    })
+  }
+
+  const handleDelete = async (event, demande) => {
     event.preventDefault();
-    const response = await axiosInstance.delete(`/credits/${id}`);
+    const response = await axiosInstance.delete(`/credits/${demande.credit_id}`);
     setReloadDemandes(true);
     toast({
       title: `${response.data.message}`,
@@ -249,7 +258,6 @@ const Demandes = () => {
           <TagLabel>Listes des Demandes</TagLabel>
         </Tag>
       </HStack>
-
         <Flex m={3} >
         <Box>
           <InputGroup>
@@ -281,6 +289,14 @@ const Demandes = () => {
           </Select>
          </Box>
         </Flex>
+        <Confirmation
+          header={`Supprimer demande: ${showConfirmation.payLoad.type_credit}`} 
+          content={"Voulez-vous effectuer cette opération ?"}
+          setShowConfirmation={setShowConfirmation}
+          showConfirmation={showConfirmation.show}
+          payLoad={showConfirmation.payLoad}
+          action={handleDelete}
+          />
 
       {filteredList.length > 0 ? (
         <TableContainer
@@ -455,8 +471,8 @@ const Demandes = () => {
                       ) : (
                         <ReadOnlyColumn
                           demande={demande}
-                          handleEditClick={hanldeEditClick}
-                          handleDelete={handleDelete}
+                          handleEditClick={handleEditClick}
+                          handleDeleteClick={handleDeleteClick}
                           handleClick={handleClick}
                           handleDownload={handleDownload}
                         />

@@ -24,6 +24,7 @@ import ReadOnlyRow from 'components/Tables/ReadOnlyRowUsers';
 
 import axiosInstance from 'services/axios';
 import AddUser from 'components/Modals/Users/AddUser';
+import Confirmation from 'components/Modals/Confirmation';
 
 const Users = () => {
     const [users, setUsers] = useState([])
@@ -96,9 +97,23 @@ const Users = () => {
     // Add Functions
     const handleAddClick = () => {
         setShowModal(true)
-    } 
+    }
+    
+    
 
     // Delete Functions
+  const [showConfirmation, setShowConfirmation] = useState({
+    show: false,
+    payLoad: {}
+  })
+
+  const handleDeleteClick = (user) =>{
+    setShowConfirmation({
+      show: true,
+      payLoad: user
+    })
+  }
+
     const handleDelete = async (event, user) => {
         event.preventDefault()
         console.log(user)
@@ -158,6 +173,14 @@ const Users = () => {
             onClick={handleAddClick}
         >Add New User</Button>
         <AddUser showModal={showModal} setShowModal={setShowModal} setLoaded={setLoaded}/>
+        <Confirmation 
+          header={`Supprimer utilisateur: ${showConfirmation.payLoad.user_name}`}
+          content={"Voulez-vous effectuer cette opération?"}
+          setShowConfirmation={setShowConfirmation}
+          showConfirmation={showConfirmation.show}
+          payLoad={showConfirmation.payLoad}
+          action={handleDelete}
+          />
     </HStack>
     {users.length > 0 ? (
     
@@ -262,7 +285,7 @@ const Users = () => {
                             <ReadOnlyRow
                               user={user}
                               handleEditClick={handleEditClick}
-                              handleDelete={handleDelete}
+                              handleDeleteClick={handleDeleteClick}
                             />
                         )}
                       </Fragment>

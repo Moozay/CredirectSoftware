@@ -160,7 +160,7 @@ const Sidebar = (props) => {
               <NavItem
                 navSize={navSize}
                 icon={FaUsers}
-                title="Liste des Prospetcs"
+                title="Liste des Prospects"
                 path="prospects"
               />
                {(user.role == 'Admin') &&  <NavItem

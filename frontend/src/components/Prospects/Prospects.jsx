@@ -30,7 +30,7 @@ import ReadOnlyRow from 'components/Tables/ReadOnlyRowUsers';
 import Prospect  from './Prospect/Prospect' 
 import axiosInstance from 'services/axios';
 import { ProspectContext } from 'context/ProspectsContext';
-
+import Confirmation from 'components/Modals/Confirmation';
 
 const Prospects = () => {
   const { prospects, setProspects } = useContext(ProspectContext)
@@ -45,9 +45,21 @@ const Prospects = () => {
     onOpen()
   }
 
-  const handleDelete = async (event, id) => {
+  const [showConfirmation, setShowConfirmation] = useState({
+    show: false,
+    payLoad: {}
+  })
+  const handleDeleteClick = (prospect) =>{
+    setShowConfirmation({
+      show: true,
+      payLoad: prospect
+    })
+  }
+
+
+  const handleDelete = async (event, prospect) => {
     event.preventDefault()
-    const response = await axiosInstance.delete(`/prospects/${id}`)
+    const response = await axiosInstance.delete(`/prospects/${prospect.prospect_id}`)
     setReloadProspects(true)
     toast({
       title: `${response.data.message}`,
@@ -74,6 +86,14 @@ const Prospects = () => {
             <TagLabel>Listes des Prospects</TagLabel>
         </Tag>
     </HStack>
+  <Confirmation
+      header={`Supprimer prospect: ${showConfirmation.payLoad.nom} ${showConfirmation.payLoad.prenom}`} 
+      content={"Voulez-vous effectuer cette opération ?"}
+      setShowConfirmation={setShowConfirmation}
+      showConfirmation={showConfirmation.show}
+      payLoad={showConfirmation.payLoad}
+      action={handleDelete}
+      />
     {prospects.length > 0 ? (
     
     <TableContainer
@@ -164,11 +184,8 @@ const Prospects = () => {
               </Thead>
               <Tbody>
                 {prospects.map((prospect) => {
-                  return (
-                    prospect["credits"].map((credit)=>{
-                      
                       return (
-                        <Tr key={prospect.prospect_id} >
+                         <Tr key={prospect.prospect_id} >
                           <Td
                             textAlign="center"
                             style={{
@@ -254,19 +271,13 @@ const Prospects = () => {
                           fontSize="15px"
                           m={2}
                           size="xs"
-                          onClick={(e)=>{handleDelete(e,prospect["prospect_id"])}}
+                          onClick={(e)=>{ handleDeleteClick(prospect)}}
                           icon={<AiOutlineDelete />}
                         /> 
                         
                           </Td>
-                          
-                      </Tr>
-                      
+                        </Tr>
                     )
-                    
-                   })
-                  )
-                  
                   })}
               </Tbody>
             </Table>
