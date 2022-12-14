@@ -1,9 +1,8 @@
-from http.client import HTTPException
 from urllib import response
 from uuid import UUID
 from app.schemas.prospect_schema import ProspectOut, ProspectUpdate, ProspectCreate
 import pymongo
-from fastapi import APIRouter
+from fastapi import APIRouter,status,HTTPException
 from typing import List
 from app.services.prospect_service import ProspectService
 
@@ -17,7 +16,7 @@ async def create_prospect(data: ProspectCreate):
     except pymongo.errors.DuplicateKeyError:
         raise HTTPException(
             status_code= status.HTTP_400_BAD_REQUEST,
-            detail="Prospect already exist"
+            detail="Le prospect existe déjà"
         )
 
 @prospect_router.post('/update', summary="Update Prospect by id", response_model=ProspectOut)

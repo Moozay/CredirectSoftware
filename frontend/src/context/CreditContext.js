@@ -10,8 +10,10 @@ export const CreditProvider = (props) => {
     const [donneesPersonelles, setDonneesPersonelles] = useState({
         "emprunteur":{
             "hasCoEmprunteur":false,
+
         },
-        "co_emprunteur":{}
+        "co_emprunteur":{
+        }
     })
     
     const [ donneesBancaires, setDonneesBancaires ] = useState({

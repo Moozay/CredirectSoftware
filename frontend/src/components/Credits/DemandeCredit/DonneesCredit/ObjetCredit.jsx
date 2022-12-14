@@ -15,22 +15,10 @@ import countryList from "react-select-country-list";
 import CurrencyFormat from 'react-currency-format';
 import { CreditContext } from 'context/CreditContext'
 import { useColorMode } from "@chakra-ui/color-mode";
-const ObjetCredit = ({handleCreditDataChange}) => {
+const ObjetCredit = ({handleCreditDataChange, handleAdresseChange}) => {
   const {credit, setCredit} = useContext(CreditContext)
   const options = useMemo(() => countryList().getData(), [])
   const { colorMode, toggleColorMode } = useColorMode();
-  const handleAdresseBien = (event) => {
-      event.preventDefault();
-    var fieldName = event.target.getAttribute("name")
-    var fieldValue = event.target.value
-    
-    const newFormCredit = { ...credit }
-
-    newFormCredit[fieldName] = fieldValue
-
-    setCredit(newFormCredit)
-    
-  }
 
   const Garanties = [
     "Nantissement_sur_le_fonds_de_commerce",
@@ -162,17 +150,17 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                credit["adresse"] ? "scale(0.85) translateY(29px)" : ""
+                credit.adresse_bien?.adresse1 ? "scale(0.85) translateY(29px)" : ""
               }
             >
               Adresse
             </FormLabel>
             <Input
               size="sm"
-              name="adresse"
+              name="adresse1"
               _placeholder={{ color: "gray.500" }}
-              defaultValue={credit["adresse"]}
-              onChange={handleAdresseBien}
+              defaultValue={credit.adresse_bien?.adresse1}
+              onChange={handleAdresseChange}
               type="text"
             />
                   </FormControl>
@@ -181,7 +169,7 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                credit["ville"] ? "scale(0.85) translateY(29px)" : ""
+                credit.adresse_bien?.ville ? "scale(0.85) translateY(29px)" : ""
               }
             >
               Ville
@@ -190,23 +178,23 @@ const ObjetCredit = ({handleCreditDataChange}) => {
               size="sm"
               name="ville"
               _placeholder={{ color: "gray.500" }}
-              defaultValue={credit["ville"]}
-              onChange={handleAdresseBien}
+              defaultValue={credit.adresse_bien?.ville}
+              onChange={handleAdresseChange}
               type="text"
             />
                   </FormControl>
                   <FormControl id="Nom" isRequired variant="floatingDown" >
                   <FormLabel fontSize={"sm"} fontWeight="normal"
               transform={
-                credit["pays"] ? "scale(0.85) translateY(29px)" : ""
+                credit.adresse_bien?.pays ? "scale(0.85) translateY(29px)" : ""
               }>Pays</FormLabel>
             <Select  
             size='sm' 
             name="pays"
-            onChange={handleAdresseBien}
+            onChange={handleAdresseChange}
             icon={<AiFillCaretDown/>}
             w="100%"
-            defaultValue={credit["pays"]}
+            defaultValue={credit.adresse_bien?.pays}
             >
                 <option></option>
                 {

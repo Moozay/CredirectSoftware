@@ -21,6 +21,17 @@ const DonneesCredit = (handlelick) => {
 
   const {credit, setCredit} = useContext(CreditContext)
   const {donneesPersonelles, changeStringToFloat, calculateTeg} = useContext(CreditContext)
+  
+  const handleAdresseChange = (event) =>{
+    var fieldName = event.target.getAttribute("name")
+    var fieldValue = event.target.value
+    var adresse = credit["adresse_bien"]
+    adresse = {...adresse, [fieldName]:fieldValue}
+    const newFormCredit = { ...credit }
+    newFormCredit["adresse_bien"] = adresse
+    setCredit(newFormCredit)
+  }  
+  
   const handleCreditDataChange = (event)=>{
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
@@ -70,7 +81,8 @@ const DonneesCredit = (handlelick) => {
         mensualite : credit.mensualite,
         franchise:credit.franchise,
         taux_endt : credit.taux_endt,
-        teg : credit.teg
+        teg : credit.teg,
+        commentaires: credit.commentaires
       }
     newFormCredit.qot_financement = '0.00'
     newFormCredit[fieldName] = fieldValue
@@ -171,6 +183,7 @@ useEffect(()=>{
       </Flex>
       <ObjetCredit 
         handleCreditDataChange={handleCreditDataChange}
+        handleAdresseChange={handleAdresseChange}
         />
       </>
      }

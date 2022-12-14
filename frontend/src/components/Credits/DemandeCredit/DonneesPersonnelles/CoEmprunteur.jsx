@@ -24,7 +24,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { AiOutlineCalendar } from "react-icons/ai";
 
-const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
+const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAdresseChange }) => {
   const options = useMemo(() => countryList().getData(), [])
   const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
   const {datenaissance, setDateNaissance} = useContext(CreditContext)
@@ -334,7 +334,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["adresse"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles.co_emprunteur.adresse?.adresse1 ? "scale(0.85) translateY(-35px)" : ""
               }
             >
               Adresse
@@ -343,9 +343,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               size="sm"
               _placeholder={{ color: "gray.500" }}
               type="text"
-              name="adresse"
-              defaultValue={donneesPersonelles[section]["adresse"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              name="adresse1"
+              defaultValue={donneesPersonelles.co_emprunteur.adresse?.adresse1}
+              onChange={(e)=>handleAdresseChange(e,section)}
             />
           </FormControl>
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
@@ -353,7 +353,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["ville"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles.co_emprunteur.adresse?.ville ? "scale(0.85) translateY(-35px)" : ""
               }
             >
               Ville de residence
@@ -363,8 +363,8 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
               _placeholder={{ color: "gray.500" }}
               type="text"
               name="ville"
-              defaultValue={donneesPersonelles[section]["ville"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              defaultValue={donneesPersonelles.co_emprunteur.adresse?.ville}
+              onChange={(e)=>handleAdresseChange(e,section)}
             />
           </FormControl>
         </HStack>
@@ -372,15 +372,15 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur }) => {
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel fontSize={"sm"} fontWeight="normal"
               transform={
-                donneesPersonelles[section]["pays"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles.co_emprunteur.adresse?.pays ? "scale(0.85) translateY(-35px)" : ""
               }>Pays</FormLabel>
             <Select  
             size='sm' 
             name="pays"
-            onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+            onChange={(e)=>handleAdresseChange(e,section)}
             icon={<AiFillCaretDown/>}
             w="100%"
-            value={donneesPersonelles[section]["pays"]}
+            value={donneesPersonelles.co_emprunteur.adresse?.pays}
             >
                 <option></option>
                 {

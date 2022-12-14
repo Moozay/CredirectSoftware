@@ -82,18 +82,15 @@ const DemandeCredit = () => {
     }) */
     const coemp_id = prospect["hasCoEmprunteur"] == "true" ? uuidv4() : null
     //create Coemp record
-    if(coemp_id != null){
+/*     if(coemp_id != null){
       const coemp_in = donneesPersonelles.co_emprunteur
       coemp_in["coemp_id"] = coemp_id
       coemp_in["prospect_id"] = prospect_id
-      coemp_in["adresse"] = {
-        "adresse1" : donneesPersonelles.co_emprunteur.adresse,
-        "ville": donneesPersonelles.co_emprunteur.ville,
-        "pays" : donneesPersonelles.co_emprunteur.pays
-      }
       handleCreateCoemp(coemp_in)
-    }
+    } */
+     // Create Credit Record
     const creditCreate = {...credit}
+    creditCreate["prospect_id"] = prospect_id
     creditCreate["credit_id"] = credit_id
     
     //fill prospect records
@@ -101,20 +98,7 @@ const DemandeCredit = () => {
     prospect["coemp_id"] = coemp_id
     prospect["agent_id"] = agent_id
     prospect["credits"] = [credit_id]
-    prospect["adresse"] = {
-      "adresse1" : donneesPersonelles.emprunteur.adresse,
-      "ville": donneesPersonelles.emprunteur.ville,
-      "pays" : donneesPersonelles.emprunteur.pays
-    }
- 
-    // Create Credit Record
-    creditCreate["prospect_id"] = prospect.prospect_id
-    creditCreate["adresse_bien"] = {
-      "adresse1" : credit.adresse,
-      "ville": credit.ville,
-      "pays" : credit.pays
-    }
-    handleCreateCredit(creditCreate)
+   
    /*  // Create DemandeCredit Record
     const demandeCredit = {}
     demandeCredit["prospect"] = prospect
@@ -125,18 +109,61 @@ const DemandeCredit = () => {
     // const coemp = {...donneesPersonelles.co_emprunteur}
     // const credit = {...credit}
 
-    
-    handleCreateProspect(prospect)
+    //posting data
+    //prospect
+    axiosInstance.post("prospects/create",prospect)
+    .then((response)=>{
+      toast({
+        title: `Prospect créée avec succès`,
+        status: "success",
+        isClosable: true,
+        duration: 1500
+      })
+      if(coemp_id != null){
+        const coemp_in = donneesPersonelles.co_emprunteur
+        coemp_in["coemp_id"] = coemp_id
+        coemp_in["prospect_id"] = prospect_id
+        axiosInstance.post("coemps/create",coemp_in)
+        .then((response)=>{
+          toast({
+            title: `Co_Emprunteur créée avec succès`,
+            status: "success",
+            isClosable: true,
+            duration: 1500
+          })
+        })
+        .catch((error)=>{
+          toast({
+            title: `Co_emprunteur créée avec succès`,
+            status: error,
+            isClosable: true,
+            duration: 1500
+          })
+        })
+      }
+      axiosInstance.post("credits/create",creditCreate)
+      .then((response)=>{
+        toast({
+          title: `Demande créée avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500
+        })
+      })
+    })
+    .catch((error)=>{
+      toast({
+        title: "Prospect not created",
+        description: error.response.data.detail,
+        status: "error",
+        isClosable: true,
+        duration: 1500
+      })
+    })
    
     //await handleCreateDemandeCredit(demandeCredit)
-    toast({
-      title: `Demande créée avec succès`,
-      status: "success",
-      isClosable: true,
-      duration: 1500
-    })
-    setReloadDemandes(true)
     setReloadProspects(true)
+    setReloadDemandes(true)
     setCurrentStep(1)
     resetForm()
     //navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})

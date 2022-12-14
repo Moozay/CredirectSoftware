@@ -1,8 +1,7 @@
-from http.client import HTTPException
 from uuid import UUID
 from app.schemas.coemp_schema import CoempOut, CoempUpdate, CoempCreate
-
-from fastapi import APIRouter
+import pymongo
+from fastapi import APIRouter,HTTPException,status
 from typing import List
 from app.services.coemp_service import CoempService
 

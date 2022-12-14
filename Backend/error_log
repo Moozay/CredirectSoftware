@@ -39503,3 +39503,789 @@ ValueError: [TypeError("'wrapper_descriptor' object is not iterable"), TypeError
 [2022-12-13 14:29:12 +0100] [189284] [INFO] Application startup complete.
 [2022-12-13 14:29:12 +0100] [189285] [INFO] Application startup complete.
 [2022-12-13 14:29:12 +0100] [189283] [INFO] Application startup complete.
+[2022-12-14 03:51:56 +0100] [782] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fed85f07be0>
+  on_reload: <function OnReload.on_reload at 0x7fed85f07d00>
+  when_ready: <function WhenReady.when_ready at 0x7fed85f07e20>
+  pre_fork: <function Prefork.pre_fork at 0x7fed85f07f40>
+  post_fork: <function Postfork.post_fork at 0x7fed85f2c0d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fed85f2c1f0>
+  worker_int: <function WorkerInt.worker_int at 0x7fed85f2c310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fed85f2c430>
+  pre_exec: <function PreExec.pre_exec at 0x7fed85f2c550>
+  pre_request: <function PreRequest.pre_request at 0x7fed85f2c670>
+  post_request: <function PostRequest.post_request at 0x7fed85f2c700>
+  child_exit: <function ChildExit.child_exit at 0x7fed85f2c820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fed85f2c940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fed85f2ca60>
+  on_exit: <function OnExit.on_exit at 0x7fed85f2cb80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-12-14 03:51:56 +0100] [782] [INFO] Starting gunicorn 20.1.0
+[2022-12-14 03:51:56 +0100] [782] [DEBUG] Arbiter booted
+[2022-12-14 03:51:56 +0100] [782] [INFO] Listening at: http://0.0.0.0:8000 (782)
+[2022-12-14 03:51:56 +0100] [782] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-12-14 03:51:57 +0100] [922] [INFO] Booting worker with pid: 922
+[2022-12-14 03:51:57 +0100] [923] [INFO] Booting worker with pid: 923
+[2022-12-14 03:51:57 +0100] [926] [INFO] Booting worker with pid: 926
+[2022-12-14 03:51:57 +0100] [928] [INFO] Booting worker with pid: 928
+[2022-12-14 03:51:57 +0100] [930] [INFO] Booting worker with pid: 930
+[2022-12-14 03:51:57 +0100] [782] [DEBUG] 5 workers
+[2022-12-14 03:52:04 +0100] [923] [INFO] Started server process [923]
+[2022-12-14 03:52:04 +0100] [922] [INFO] Started server process [922]
+[2022-12-14 03:52:04 +0100] [926] [INFO] Started server process [926]
+[2022-12-14 03:52:04 +0100] [923] [INFO] Waiting for application startup.
+[2022-12-14 03:52:04 +0100] [922] [INFO] Waiting for application startup.
+[2022-12-14 03:52:04 +0100] [926] [INFO] Waiting for application startup.
+[2022-12-14 03:52:04 +0100] [928] [INFO] Started server process [928]
+[2022-12-14 03:52:04 +0100] [928] [INFO] Waiting for application startup.
+[2022-12-14 03:52:04 +0100] [930] [INFO] Started server process [930]
+[2022-12-14 03:52:04 +0100] [930] [INFO] Waiting for application startup.
+[2022-12-14 03:52:05 +0100] [928] [ERROR] Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 89, in _resolve_uri
+    results = _resolve(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 43, in _resolve
+    return resolver.resolve(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1193, in resolve
+    return get_default_resolver().resolve(qname, rdtype, rdclass, tcp, source,
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1063, in resolve
+    (nameserver, port, tcp, backoff) = resolution.next_nameserver()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 646, in next_nameserver
+    raise NoNameservers(request=self.request, errors=self.errors)
+dns.resolver.NoNameservers: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 645, in lifespan
+    async with self.lifespan_context(app):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 540, in __aenter__
+    await self._router.startup()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 622, in startup
+    await handler()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/app.py", line 47, in app_init
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).credirectDB
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/motor/core.py", line 148, in __init__
+    delegate = self.__delegate_class__(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/mongo_client.py", line 736, in __init__
+    res = uri_parser.parse_uri(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/uri_parser.py", line 542, in parse_uri
+    nodes = dns_resolver.get_hosts()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 121, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 101, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 97, in _resolve_uri
+    raise ConfigurationError(str(exc))
+pymongo.errors.ConfigurationError: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+[2022-12-14 03:52:05 +0100] [923] [ERROR] Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 89, in _resolve_uri
+    results = _resolve(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 43, in _resolve
+    return resolver.resolve(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1193, in resolve
+    return get_default_resolver().resolve(qname, rdtype, rdclass, tcp, source,
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1063, in resolve
+    (nameserver, port, tcp, backoff) = resolution.next_nameserver()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 646, in next_nameserver
+    raise NoNameservers(request=self.request, errors=self.errors)
+dns.resolver.NoNameservers: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 645, in lifespan
+    async with self.lifespan_context(app):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 540, in __aenter__
+    await self._router.startup()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 622, in startup
+    await handler()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/app.py", line 47, in app_init
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).credirectDB
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/motor/core.py", line 148, in __init__
+    delegate = self.__delegate_class__(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/mongo_client.py", line 736, in __init__
+    res = uri_parser.parse_uri(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/uri_parser.py", line 542, in parse_uri
+    nodes = dns_resolver.get_hosts()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 121, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 101, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 97, in _resolve_uri
+    raise ConfigurationError(str(exc))
+pymongo.errors.ConfigurationError: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+[2022-12-14 03:52:05 +0100] [922] [ERROR] Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 89, in _resolve_uri
+    results = _resolve(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 43, in _resolve
+    return resolver.resolve(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1193, in resolve
+    return get_default_resolver().resolve(qname, rdtype, rdclass, tcp, source,
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1063, in resolve
+    (nameserver, port, tcp, backoff) = resolution.next_nameserver()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 646, in next_nameserver
+    raise NoNameservers(request=self.request, errors=self.errors)
+dns.resolver.NoNameservers: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 645, in lifespan
+    async with self.lifespan_context(app):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 540, in __aenter__
+    await self._router.startup()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 622, in startup
+    await handler()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/app.py", line 47, in app_init
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).credirectDB
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/motor/core.py", line 148, in __init__
+    delegate = self.__delegate_class__(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/mongo_client.py", line 736, in __init__
+    res = uri_parser.parse_uri(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/uri_parser.py", line 542, in parse_uri
+    nodes = dns_resolver.get_hosts()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 121, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 101, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 97, in _resolve_uri
+    raise ConfigurationError(str(exc))
+pymongo.errors.ConfigurationError: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+[2022-12-14 03:52:05 +0100] [926] [ERROR] Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 89, in _resolve_uri
+    results = _resolve(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 43, in _resolve
+    return resolver.resolve(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1193, in resolve
+    return get_default_resolver().resolve(qname, rdtype, rdclass, tcp, source,
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1063, in resolve
+    (nameserver, port, tcp, backoff) = resolution.next_nameserver()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 646, in next_nameserver
+    raise NoNameservers(request=self.request, errors=self.errors)
+dns.resolver.NoNameservers: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 645, in lifespan
+    async with self.lifespan_context(app):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 540, in __aenter__
+    await self._router.startup()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 622, in startup
+    await handler()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/app.py", line 47, in app_init
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).credirectDB
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/motor/core.py", line 148, in __init__
+    delegate = self.__delegate_class__(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/mongo_client.py", line 736, in __init__
+    res = uri_parser.parse_uri(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/uri_parser.py", line 542, in parse_uri
+    nodes = dns_resolver.get_hosts()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 121, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 101, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 97, in _resolve_uri
+    raise ConfigurationError(str(exc))
+pymongo.errors.ConfigurationError: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+[2022-12-14 03:52:05 +0100] [928] [ERROR] Application startup failed. Exiting.
+[2022-12-14 03:52:05 +0100] [923] [ERROR] Application startup failed. Exiting.
+[2022-12-14 03:52:05 +0100] [922] [ERROR] Application startup failed. Exiting.
+[2022-12-14 03:52:05 +0100] [926] [ERROR] Application startup failed. Exiting.
+[2022-12-14 03:52:05 +0100] [928] [INFO] Worker exiting (pid: 928)
+[2022-12-14 03:52:05 +0100] [923] [INFO] Worker exiting (pid: 923)
+[2022-12-14 03:52:05 +0100] [922] [INFO] Worker exiting (pid: 922)
+[2022-12-14 03:52:05 +0100] [926] [INFO] Worker exiting (pid: 926)
+[2022-12-14 03:52:05 +0100] [930] [ERROR] Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 89, in _resolve_uri
+    results = _resolve(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 43, in _resolve
+    return resolver.resolve(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1193, in resolve
+    return get_default_resolver().resolve(qname, rdtype, rdclass, tcp, source,
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 1063, in resolve
+    (nameserver, port, tcp, backoff) = resolution.next_nameserver()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/dns/resolver.py", line 646, in next_nameserver
+    raise NoNameservers(request=self.request, errors=self.errors)
+dns.resolver.NoNameservers: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 645, in lifespan
+    async with self.lifespan_context(app):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 540, in __aenter__
+    await self._router.startup()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 622, in startup
+    await handler()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/app.py", line 47, in app_init
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).credirectDB
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/motor/core.py", line 148, in __init__
+    delegate = self.__delegate_class__(*args, **kwargs)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/mongo_client.py", line 736, in __init__
+    res = uri_parser.parse_uri(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/uri_parser.py", line 542, in parse_uri
+    nodes = dns_resolver.get_hosts()
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 121, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 101, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/pymongo/srv_resolver.py", line 97, in _resolve_uri
+    raise ConfigurationError(str(exc))
+pymongo.errors.ConfigurationError: All nameservers failed to answer the query _mongodb._tcp.cluster0.cbxao41.mongodb.net. IN SRV: Server 127.0.0.53 UDP port 53 answered SERVFAIL
+
+[2022-12-14 03:52:05 +0100] [930] [ERROR] Application startup failed. Exiting.
+[2022-12-14 03:52:05 +0100] [930] [INFO] Worker exiting (pid: 930)
+[2022-12-14 03:52:05 +0100] [782] [WARNING] Worker with pid 922 was terminated due to signal 15
+[2022-12-14 09:29:20 +0100] [248810] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f031848fbe0>
+  on_reload: <function OnReload.on_reload at 0x7f031848fd00>
+  when_ready: <function WhenReady.when_ready at 0x7f031848fe20>
+  pre_fork: <function Prefork.pre_fork at 0x7f031848ff40>
+  post_fork: <function Postfork.post_fork at 0x7f03184b40d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f03184b41f0>
+  worker_int: <function WorkerInt.worker_int at 0x7f03184b4310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f03184b4430>
+  pre_exec: <function PreExec.pre_exec at 0x7f03184b4550>
+  pre_request: <function PreRequest.pre_request at 0x7f03184b4670>
+  post_request: <function PostRequest.post_request at 0x7f03184b4700>
+  child_exit: <function ChildExit.child_exit at 0x7f03184b4820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f03184b4940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f03184b4a60>
+  on_exit: <function OnExit.on_exit at 0x7f03184b4b80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-12-14 09:29:20 +0100] [248810] [INFO] Starting gunicorn 20.1.0
+[2022-12-14 09:29:20 +0100] [248810] [DEBUG] Arbiter booted
+[2022-12-14 09:29:20 +0100] [248810] [INFO] Listening at: http://0.0.0.0:8000 (248810)
+[2022-12-14 09:29:20 +0100] [248810] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-12-14 09:29:20 +0100] [248811] [INFO] Booting worker with pid: 248811
+[2022-12-14 09:29:20 +0100] [248812] [INFO] Booting worker with pid: 248812
+[2022-12-14 09:29:20 +0100] [248813] [INFO] Booting worker with pid: 248813
+[2022-12-14 09:29:20 +0100] [248814] [INFO] Booting worker with pid: 248814
+[2022-12-14 09:29:20 +0100] [248815] [INFO] Booting worker with pid: 248815
+[2022-12-14 09:29:20 +0100] [248810] [DEBUG] 5 workers
+[2022-12-14 09:29:21 +0100] [248813] [INFO] Started server process [248813]
+[2022-12-14 09:29:21 +0100] [248813] [INFO] Waiting for application startup.
+[2022-12-14 09:29:21 +0100] [248811] [INFO] Started server process [248811]
+[2022-12-14 09:29:21 +0100] [248811] [INFO] Waiting for application startup.
+[2022-12-14 09:29:21 +0100] [248812] [INFO] Started server process [248812]
+[2022-12-14 09:29:21 +0100] [248812] [INFO] Waiting for application startup.
+[2022-12-14 09:29:21 +0100] [248814] [INFO] Started server process [248814]
+[2022-12-14 09:29:21 +0100] [248814] [INFO] Waiting for application startup.
+[2022-12-14 09:29:21 +0100] [248815] [INFO] Started server process [248815]
+[2022-12-14 09:29:21 +0100] [248815] [INFO] Waiting for application startup.
+[2022-12-14 09:29:22 +0100] [248815] [INFO] Application startup complete.
+[2022-12-14 09:29:22 +0100] [248813] [INFO] Application startup complete.
+[2022-12-14 09:29:22 +0100] [248811] [INFO] Application startup complete.
+[2022-12-14 09:29:23 +0100] [248812] [INFO] Application startup complete.
+[2022-12-14 09:29:23 +0100] [248814] [INFO] Application startup complete.
+[2022-12-14 09:53:53 +0100] [248810] [INFO] Handling signal: term
+[2022-12-14 09:53:53 +0100] [248813] [INFO] Shutting down
+[2022-12-14 09:53:53 +0100] [248812] [INFO] Shutting down
+[2022-12-14 09:53:53 +0100] [248815] [INFO] Shutting down
+[2022-12-14 09:53:53 +0100] [248811] [INFO] Shutting down
+[2022-12-14 09:53:53 +0100] [248814] [INFO] Shutting down
+[2022-12-14 09:53:53 +0100] [248813] [INFO] Waiting for application shutdown.
+[2022-12-14 09:53:53 +0100] [248813] [INFO] Application shutdown complete.
+[2022-12-14 09:53:53 +0100] [248813] [INFO] Finished server process [248813]
+[2022-12-14 09:53:53 +0100] [248813] [INFO] Worker exiting (pid: 248813)
+[2022-12-14 09:53:53 +0100] [248812] [INFO] Waiting for application shutdown.
+[2022-12-14 09:53:53 +0100] [248812] [INFO] Application shutdown complete.
+[2022-12-14 09:53:53 +0100] [248812] [INFO] Finished server process [248812]
+[2022-12-14 09:53:53 +0100] [248812] [INFO] Worker exiting (pid: 248812)
+[2022-12-14 09:53:53 +0100] [248815] [INFO] Waiting for application shutdown.
+[2022-12-14 09:53:53 +0100] [248815] [INFO] Application shutdown complete.
+[2022-12-14 09:53:53 +0100] [248815] [INFO] Finished server process [248815]
+[2022-12-14 09:53:53 +0100] [248815] [INFO] Worker exiting (pid: 248815)
+[2022-12-14 09:53:53 +0100] [248811] [INFO] Waiting for application shutdown.
+[2022-12-14 09:53:53 +0100] [248811] [INFO] Application shutdown complete.
+[2022-12-14 09:53:53 +0100] [248811] [INFO] Finished server process [248811]
+[2022-12-14 09:53:53 +0100] [248811] [INFO] Worker exiting (pid: 248811)
+[2022-12-14 09:53:53 +0100] [248814] [INFO] Waiting for application shutdown.
+[2022-12-14 09:53:53 +0100] [248814] [INFO] Application shutdown complete.
+[2022-12-14 09:53:53 +0100] [248814] [INFO] Finished server process [248814]
+[2022-12-14 09:53:53 +0100] [248814] [INFO] Worker exiting (pid: 248814)
+[2022-12-14 09:53:53 +0100] [248810] [INFO] Shutting down: Master
+[2022-12-14 09:53:54 +0100] [250103] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7ff8537c7be0>
+  on_reload: <function OnReload.on_reload at 0x7ff8537c7d00>
+  when_ready: <function WhenReady.when_ready at 0x7ff8537c7e20>
+  pre_fork: <function Prefork.pre_fork at 0x7ff8537c7f40>
+  post_fork: <function Postfork.post_fork at 0x7ff8537ec0d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7ff8537ec1f0>
+  worker_int: <function WorkerInt.worker_int at 0x7ff8537ec310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7ff8537ec430>
+  pre_exec: <function PreExec.pre_exec at 0x7ff8537ec550>
+  pre_request: <function PreRequest.pre_request at 0x7ff8537ec670>
+  post_request: <function PostRequest.post_request at 0x7ff8537ec700>
+  child_exit: <function ChildExit.child_exit at 0x7ff8537ec820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7ff8537ec940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7ff8537eca60>
+  on_exit: <function OnExit.on_exit at 0x7ff8537ecb80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-12-14 09:53:54 +0100] [250103] [INFO] Starting gunicorn 20.1.0
+[2022-12-14 09:53:54 +0100] [250103] [DEBUG] Arbiter booted
+[2022-12-14 09:53:54 +0100] [250103] [INFO] Listening at: http://0.0.0.0:8000 (250103)
+[2022-12-14 09:53:54 +0100] [250103] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-12-14 09:53:54 +0100] [250105] [INFO] Booting worker with pid: 250105
+[2022-12-14 09:53:54 +0100] [250106] [INFO] Booting worker with pid: 250106
+[2022-12-14 09:53:54 +0100] [250107] [INFO] Booting worker with pid: 250107
+[2022-12-14 09:53:54 +0100] [250108] [INFO] Booting worker with pid: 250108
+[2022-12-14 09:53:54 +0100] [250110] [INFO] Booting worker with pid: 250110
+[2022-12-14 09:53:54 +0100] [250103] [DEBUG] 5 workers
+[2022-12-14 09:53:54 +0100] [250105] [INFO] Started server process [250105]
+[2022-12-14 09:53:54 +0100] [250105] [INFO] Waiting for application startup.
+[2022-12-14 09:53:54 +0100] [250107] [INFO] Started server process [250107]
+[2022-12-14 09:53:54 +0100] [250107] [INFO] Waiting for application startup.
+[2022-12-14 09:53:54 +0100] [250108] [INFO] Started server process [250108]
+[2022-12-14 09:53:54 +0100] [250108] [INFO] Waiting for application startup.
+[2022-12-14 09:53:54 +0100] [250106] [INFO] Started server process [250106]
+[2022-12-14 09:53:54 +0100] [250106] [INFO] Waiting for application startup.
+[2022-12-14 09:53:55 +0100] [250110] [INFO] Started server process [250110]
+[2022-12-14 09:53:55 +0100] [250110] [INFO] Waiting for application startup.
+[2022-12-14 09:53:56 +0100] [250110] [INFO] Application startup complete.
+[2022-12-14 09:53:56 +0100] [250106] [INFO] Application startup complete.
+[2022-12-14 09:53:56 +0100] [250107] [INFO] Application startup complete.
+[2022-12-14 09:53:56 +0100] [250108] [INFO] Application startup complete.
+[2022-12-14 09:53:56 +0100] [250105] [INFO] Application startup complete.
+[2022-12-14 09:55:53 +0100] [250105] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 16, in create_prospect
+    return await ProspectService.create_prospect(data)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 13, in create_prospect
+    prospect_in = Prospect(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+_id
+  Id must be of type PydanticObjectId (type=type_error)
+[2022-12-14 13:15:42 +0100] [250106] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 407, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/applications.py", line 270, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 92, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/cors.py", line 147, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 75, in __call__
+    raise exc
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 64, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 680, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 275, in handle
+    await self.app(scope, receive, send)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 235, in app
+    raw_response = await run_endpoint_function(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/fastapi/routing.py", line 161, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/api/api_v1/handlers/prospect.py", line 16, in create_prospect
+    except pymongo.errors.DuplicateKeyError:
+  File "/home/credirect/Documents/CredirectSoftware/Backend/app/services/prospect_service.py", line 13, in create_prospect
+    prospect_in = Prospect(
+  File "/home/credirect/Documents/CredirectSoftware/Backend/venv/lib/python3.10/site-packages/beanie/odm/documents.py", line 139, in __init__
+    super(Document, self).__init__(*args, **kwargs)
+  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for Prospect
+_id
+  Id must be of type PydanticObjectId (type=type_error)
+[2022-12-14 13:16:48 +0100] [250103] [INFO] Handling signal: term
+[2022-12-14 13:16:48 +0100] [250107] [INFO] Shutting down
+[2022-12-14 13:16:48 +0100] [250108] [INFO] Shutting down
+[2022-12-14 13:16:48 +0100] [250105] [INFO] Shutting down
+[2022-12-14 13:16:48 +0100] [250106] [INFO] Shutting down
+[2022-12-14 13:16:48 +0100] [250110] [INFO] Shutting down
+[2022-12-14 13:16:48 +0100] [250107] [INFO] Waiting for application shutdown.
+[2022-12-14 13:16:48 +0100] [250107] [INFO] Application shutdown complete.
+[2022-12-14 13:16:48 +0100] [250107] [INFO] Finished server process [250107]
+[2022-12-14 13:16:48 +0100] [250107] [INFO] Worker exiting (pid: 250107)
+[2022-12-14 13:16:48 +0100] [250108] [INFO] Waiting for application shutdown.
+[2022-12-14 13:16:48 +0100] [250108] [INFO] Application shutdown complete.
+[2022-12-14 13:16:48 +0100] [250108] [INFO] Finished server process [250108]
+[2022-12-14 13:16:48 +0100] [250108] [INFO] Worker exiting (pid: 250108)
+[2022-12-14 13:16:48 +0100] [250105] [INFO] Waiting for application shutdown.
+[2022-12-14 13:16:48 +0100] [250105] [INFO] Application shutdown complete.
+[2022-12-14 13:16:48 +0100] [250105] [INFO] Finished server process [250105]
+[2022-12-14 13:16:48 +0100] [250105] [INFO] Worker exiting (pid: 250105)
+[2022-12-14 13:16:48 +0100] [250106] [INFO] Waiting for application shutdown.
+[2022-12-14 13:16:48 +0100] [250106] [INFO] Application shutdown complete.
+[2022-12-14 13:16:48 +0100] [250106] [INFO] Finished server process [250106]
+[2022-12-14 13:16:48 +0100] [250106] [INFO] Worker exiting (pid: 250106)
+[2022-12-14 13:16:49 +0100] [250110] [INFO] Waiting for application shutdown.
+[2022-12-14 13:16:49 +0100] [250110] [INFO] Application shutdown complete.
+[2022-12-14 13:16:49 +0100] [250110] [INFO] Finished server process [250110]
+[2022-12-14 13:16:49 +0100] [250110] [INFO] Worker exiting (pid: 250110)
+[2022-12-14 13:16:49 +0100] [250103] [INFO] Shutting down: Master
+[2022-12-14 13:16:49 +0100] [254997] [DEBUG] Current configuration:
+  config: /home/credirect/Documents/CredirectSoftware/Backend/gunicorn_conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 5
+  worker_class: uvicorn.workers.UvicornWorker
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/credirect/Documents/CredirectSoftware/Backend
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: /home/credirect/Documents/CredirectSoftware/Backend/access_log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /home/credirect/Documents/CredirectSoftware/Backend/error_log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: app.app:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f27b599fbe0>
+  on_reload: <function OnReload.on_reload at 0x7f27b599fd00>
+  when_ready: <function WhenReady.when_ready at 0x7f27b599fe20>
+  pre_fork: <function Prefork.pre_fork at 0x7f27b599ff40>
+  post_fork: <function Postfork.post_fork at 0x7f27b59c40d0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f27b59c41f0>
+  worker_int: <function WorkerInt.worker_int at 0x7f27b59c4310>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f27b59c4430>
+  pre_exec: <function PreExec.pre_exec at 0x7f27b59c4550>
+  pre_request: <function PreRequest.pre_request at 0x7f27b59c4670>
+  post_request: <function PostRequest.post_request at 0x7f27b59c4700>
+  child_exit: <function ChildExit.child_exit at 0x7f27b59c4820>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f27b59c4940>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f27b59c4a60>
+  on_exit: <function OnExit.on_exit at 0x7f27b59c4b80>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-12-14 13:16:49 +0100] [254997] [INFO] Starting gunicorn 20.1.0
+[2022-12-14 13:16:49 +0100] [254997] [DEBUG] Arbiter booted
+[2022-12-14 13:16:49 +0100] [254997] [INFO] Listening at: http://0.0.0.0:8000 (254997)
+[2022-12-14 13:16:49 +0100] [254997] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-12-14 13:16:49 +0100] [254999] [INFO] Booting worker with pid: 254999
+[2022-12-14 13:16:49 +0100] [255000] [INFO] Booting worker with pid: 255000
+[2022-12-14 13:16:49 +0100] [255001] [INFO] Booting worker with pid: 255001
+[2022-12-14 13:16:49 +0100] [255002] [INFO] Booting worker with pid: 255002
+[2022-12-14 13:16:49 +0100] [255003] [INFO] Booting worker with pid: 255003
+[2022-12-14 13:16:49 +0100] [254997] [DEBUG] 5 workers
+[2022-12-14 13:16:50 +0100] [254999] [INFO] Started server process [254999]
+[2022-12-14 13:16:50 +0100] [254999] [INFO] Waiting for application startup.
+[2022-12-14 13:16:50 +0100] [255001] [INFO] Started server process [255001]
+[2022-12-14 13:16:50 +0100] [255001] [INFO] Waiting for application startup.
+[2022-12-14 13:16:50 +0100] [255000] [INFO] Started server process [255000]
+[2022-12-14 13:16:50 +0100] [255000] [INFO] Waiting for application startup.
+[2022-12-14 13:16:50 +0100] [255002] [INFO] Started server process [255002]
+[2022-12-14 13:16:50 +0100] [255002] [INFO] Waiting for application startup.
+[2022-12-14 13:16:50 +0100] [255003] [INFO] Started server process [255003]
+[2022-12-14 13:16:50 +0100] [255003] [INFO] Waiting for application startup.
+[2022-12-14 13:16:52 +0100] [255001] [INFO] Application startup complete.
+[2022-12-14 13:16:52 +0100] [255003] [INFO] Application startup complete.
+[2022-12-14 13:16:52 +0100] [255000] [INFO] Application startup complete.
+[2022-12-14 13:16:52 +0100] [254999] [INFO] Application startup complete.
+[2022-12-14 13:16:52 +0100] [255002] [INFO] Application startup complete.

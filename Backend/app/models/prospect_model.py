@@ -11,7 +11,7 @@ class Prospect(Document):
     prospect_id: UUID
     nom: str
     prenom: str
-    cin_sejour: str
+    cin_sejour: Indexed(str, unique=True)
     datenaissance: datetime
     lieunaissance: str
     nationalite: str
