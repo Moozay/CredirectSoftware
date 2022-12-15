@@ -74,7 +74,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               size="sm"
               name="nom"
               _placeholder={{ color: "gray.500" }}
-              defaultValue={donneesPersonelles[section]["nom"]}
+              value={donneesPersonelles[section]["nom"]}
               onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
               type="text"
             />

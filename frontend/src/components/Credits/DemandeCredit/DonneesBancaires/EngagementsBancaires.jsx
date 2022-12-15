@@ -46,7 +46,7 @@ const EngagementsBancaires = ({ handleEngChange }) => {
       newFormCredit.teg = calculateTeg(newFormCredit)
       setCredit(newFormCredit)
     }
-  };
+  }
 
 
   const addField = () => {

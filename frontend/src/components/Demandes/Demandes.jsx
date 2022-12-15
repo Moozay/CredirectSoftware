@@ -253,7 +253,7 @@ const Demandes = () => {
     <>
       <Demande isOpen={isOpen} onClose={onClose} demande={demande} />
       <HStack mx={2} justifyContent="space-between">
-        <Tag size={"lg"} key={"lg"} colorSchema="blue">
+        <Tag size={"lg"} key={"lg"} colorScheme="blue">
           <TagLeftIcon as={MdOutlineRuleFolder} />
           <TagLabel>Listes des Demandes</TagLabel>
         </Tag>

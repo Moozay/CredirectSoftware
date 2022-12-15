@@ -81,7 +81,7 @@ const Prospects = () => {
         prospect={prospect}
         />
     <HStack mx={2} justifyContent="space-between">
-        <Tag size={"lg"} key={"lg"}  colorSchema='blue' >
+        <Tag size={"lg"} key={"lg"}  colorScheme="blue" >
             <TagLeftIcon as={MdOutlineManageAccounts} />
             <TagLabel>Listes des Prospects</TagLabel>
         </Tag>

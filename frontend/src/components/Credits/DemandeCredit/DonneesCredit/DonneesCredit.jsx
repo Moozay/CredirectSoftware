@@ -19,7 +19,7 @@ import { m } from 'framer-motion';
 const DonneesCredit = (handlelick) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const {credit, setCredit} = useContext(CreditContext)
+  const {credit, setCredit, hasCoEmprunteur} = useContext(CreditContext)
   const {donneesPersonelles, changeStringToFloat, calculateTeg} = useContext(CreditContext)
   
   const handleAdresseChange = (event) =>{
@@ -42,20 +42,20 @@ const DonneesCredit = (handlelick) => {
         newFormCredit[fieldName] = fieldValue
         var qot = calculateQot(newFormCredit)
         newFormCredit.qot_financement = qot
-        newFormCredit = calculateMensualite(newFormCredit)
         setCredit(newFormCredit)
+        calculateMensualite(newFormCredit)
         break;
       case "taux":
         newFormCredit = { ...credit }
         newFormCredit[fieldName] = fieldValue
-        newFormCredit =calculateMensualite(newFormCredit)
         setCredit(newFormCredit)
+        calculateMensualite(newFormCredit)
         break;
       case "duree_credit":
         newFormCredit = { ...credit }
         newFormCredit[fieldName] = fieldValue
-        newFormCredit =calculateMensualite(newFormCredit)
         setCredit(newFormCredit)
+        calculateMensualite(newFormCredit)
         break;
       case "montant_acte":
         newFormCredit = { ...credit }
@@ -122,23 +122,26 @@ const DonneesCredit = (handlelick) => {
      console.log(numerator, denumerator);
      var mensualite = numerator / denumerator
      newFormCredit.mensualite = mensualite.toFixed(2)
-     var revenue = donneesPersonelles.emprunteur.revenue
+     var r1 = donneesPersonelles.emprunteur.revenue
+    var r2 = hasCoEmprunteur === "true"? donneesPersonelles.co_emprunteur.revenue:"0"
+    r1 = changeStringToFloat(r1)
+    r2 = changeStringToFloat(r2)
+    var revenue = r1 + r2
      var taux_endt = calculateTauxEndt(mensualite, revenue)
      var teg = calculateTeg(newFormCredit)
      newFormCredit.teg = teg
      newFormCredit.taux_endt = taux_endt 
-     if (isNaN(mensualite) || isNaN(duree)) {
+     if (isNaN(mensualite) || isNaN(duree) || duree < 1) {
       newFormCredit.mensualite = "0"
       newFormCredit.taux_endt = "0.00"
+      newFormCredit.teg = "0.00"
       console.log("invalid");
      }
     }
-    return (newFormCredit)    
+    setCredit(newFormCredit)    
   }
 
   const calculateTauxEndt = (mensualite, revenue) =>{
-    var mensualite = mensualite
-    var revenue = revenue
     var taux_endt = (mensualite/revenue)*100
     if (isNaN(taux_endt)) {
       taux_endt = 0

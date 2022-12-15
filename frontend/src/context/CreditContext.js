@@ -6,15 +6,18 @@ export const CreditContext = createContext([])
 export const CreditProvider = (props) => {
     /* eslint sort-keys: 0 */   
     const [demandeCredit, setDemandeCredit] = useState([])
-    
     const [donneesPersonelles, setDonneesPersonelles] = useState({
         "emprunteur":{
-            "hasCoEmprunteur":false,
+            "hasCoEmprunteur":"false",
+            "participation":"100"
 
         },
         "co_emprunteur":{
         }
     })
+
+    const [hasCoEmprunteur, setHasCoEmprunteur] = useState(donneesPersonelles["emprunteur"]["hasCoEmprunteur"])
+
     
     const [ donneesBancaires, setDonneesBancaires ] = useState({
         "engagements_bancaires":[{
@@ -49,8 +52,13 @@ export const CreditProvider = (props) => {
       }
     }
     sum = sum + changeStringToFloat(newFormCredit.mensualite)
-    var revenue = donneesPersonelles.emprunteur.revenue
+    var r1 = donneesPersonelles.emprunteur.revenue
+    var r2 = hasCoEmprunteur === "true"? donneesPersonelles.co_emprunteur.revenue:"0"
+    r1 = changeStringToFloat(r1)
+    r2 = changeStringToFloat(r2)
+    var revenue = r1 + r2
     var teg = (sum/revenue)*100
+    console.log(revenue);
     teg = teg.toFixed(2)
     return teg
     }
@@ -194,7 +202,9 @@ export const CreditProvider = (props) => {
             banqueList,
             organismes,
             changeStringToFloat,
-            calculateTeg
+            calculateTeg,
+            hasCoEmprunteur,
+            setHasCoEmprunteur
             }}>
             {props.children}
         </CreditContext.Provider>

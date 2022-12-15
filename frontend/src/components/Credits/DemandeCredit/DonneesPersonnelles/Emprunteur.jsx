@@ -72,7 +72,10 @@ const Emprunteur = ({
     newFormDonneesPersonelles[section]["hasCoEmprunteur"] = data;
     setDonneesPersonelles(newFormDonneesPersonelles);
     setHasCoEmprunteur(data);
-
+    setDonneesPersonelles({
+      ...donneesPersonelles,
+      "co_emprunteur":{}
+    })
     if (data == "true") {
       setTabIndex(1);
     } else {
@@ -294,7 +297,7 @@ const Emprunteur = ({
                 onChange={handleDateEmbauche}
                 name="datembauche"
                 showMonthDropdown
-                dateFormat="dd-MM-yy"
+                dateFormat="dd/MM/yy"
                 showYearDropdown
                 dropdownMode="select"
                 required
@@ -317,7 +320,7 @@ const Emprunteur = ({
             <Input
               size="sm"
               _placeholder={{ color: "gray.500" }}
-              type="text"
+              type="number"
               name="revenue"
               defaultValue={donneesPersonelles[section]["revenue"]}
               onChange={(e) => handleDonnesPersonnellesChange(e, section)}
@@ -339,6 +342,7 @@ const Emprunteur = ({
             </FormLabel>
             <InputGroup>
               <Input
+              isDisabled={hasCoEmprunteur}
                 size="sm"
                 _placeholder={{ color: "gray.500" }}
                 type="number"
