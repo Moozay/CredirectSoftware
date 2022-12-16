@@ -57,7 +57,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
   }, [donneesPersonelles]);
 
   return (
-    <Flex flexDir={"row"} justifyContent="space-between">
+    <HStack alignItems={"flex-start"} justifyItems={"center"} mb="5" >
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack w="100%" my={4}>
           <FormControl  variant="floating" my={3} isRequired={hasCoEmprunteur}>
@@ -275,6 +275,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
             </FormLabel>
             <InputGroup>
             <Input
+            isReadOnly
               size="sm"
               _placeholder={{ color: "gray.500" }}
               type="number"
@@ -398,7 +399,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
         </HStack>
         
       </VStack>
-    </Flex>
+    </HStack>
   )
 }
 

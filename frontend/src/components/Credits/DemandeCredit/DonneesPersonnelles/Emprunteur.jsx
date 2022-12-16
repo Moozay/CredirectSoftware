@@ -13,6 +13,7 @@ import {
   RadioGroup,
   Radio,
   Select,
+  Heading
 } from "@chakra-ui/react";
 import DatePicker from "react-datepicker";
 import Calendar from "react-calendar";
@@ -66,27 +67,33 @@ const Emprunteur = ({
 
     setDonneesPersonelles(newFormDonneesPersonelles);
   };
+  const handleParticipation = (data) =>{
+    if (data == "false") {
+      const newFormDonneesPersonelles = {...donneesPersonelles}
+      newFormDonneesPersonelles.emprunteur.participation = "100"
+      setDonneesPersonelles(newFormDonneesPersonelles)
+    }
+    else{
+      const newFormDonneesPersonelles = {...donneesPersonelles}
+      newFormDonneesPersonelles.emprunteur.participation = ""
+      setDonneesPersonelles(newFormDonneesPersonelles)
+    }
+  }
+
   const handleRadioChange = (data) => {
     const newFormDonneesPersonelles = { ...donneesPersonelles };
 
     newFormDonneesPersonelles[section]["hasCoEmprunteur"] = data;
+    handleParticipation(data)
     setDonneesPersonelles(newFormDonneesPersonelles);
     setHasCoEmprunteur(data);
-    setDonneesPersonelles({
-      ...donneesPersonelles,
-      "co_emprunteur":{}
-    })
-    if (data == "true") {
-      setTabIndex(1);
-    } else {
-      setTabIndex(0);
-    }
+    console.log(data);
   };
   useEffect(() => {
     console.log();
   }, [hasCoEmprunteur, tabIndex, donneesPersonelles]);
   return (
-    <Flex flexDir={"row"} justifyContent="space-between">
+    <HStack alignItems={"flex-start"} mb="5">
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack w="100%" my={4}>
           <FormControl isRequired={true} variant="floating" my={3}>
@@ -342,12 +349,12 @@ const Emprunteur = ({
             </FormLabel>
             <InputGroup>
               <Input
-              isDisabled={hasCoEmprunteur}
+              isDisabled={hasCoEmprunteur == "true"? false:true}
                 size="sm"
                 _placeholder={{ color: "gray.500" }}
                 type="number"
                 name="participation"
-                defaultValue={donneesPersonelles[section]["participation"]}
+                value={donneesPersonelles[section]["participation"]}
                 onChange={(e) => handleDonnesPersonnellesChange(e, section)}
               />
               <InputRightElement children="%" pb={2} />
@@ -507,7 +514,7 @@ const Emprunteur = ({
           </FormControl>
         </HStack>
       </VStack>
-    </Flex>
+    </HStack>
   );
 };
 
