@@ -30,7 +30,7 @@ class CoempUpdate(BaseModel):
     telephone: str 
     situation: str 
     profession: str 
-    telpro: str 
+    rs_employeur: str 
     datembauche: datetime
     revenue: str 
 
@@ -46,7 +46,7 @@ class CoempOut(BaseModel):
     telephone: str 
     situation: str 
     profession: str 
-    telpro: str 
+    rs_employeur: str 
     datembauche: datetime
     revenue: str 
     prospect_id: UUID

@@ -84,6 +84,9 @@ const Emprunteur = ({
     const newFormDonneesPersonelles = { ...donneesPersonelles };
 
     newFormDonneesPersonelles[section]["hasCoEmprunteur"] = data;
+    if (data === 'false') {
+      newFormDonneesPersonelles.co_emprunteur = {}
+    }
     handleParticipation(data)
     setDonneesPersonelles(newFormDonneesPersonelles);
     setHasCoEmprunteur(data);
@@ -354,6 +357,8 @@ const Emprunteur = ({
                 _placeholder={{ color: "gray.500" }}
                 type="number"
                 name="participation"
+                min="0"
+                max="100"
                 value={donneesPersonelles[section]["participation"]}
                 onChange={(e) => handleDonnesPersonnellesChange(e, section)}
               />

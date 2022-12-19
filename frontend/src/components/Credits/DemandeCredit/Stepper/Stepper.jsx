@@ -128,7 +128,7 @@ const Stepper = ({ steps, currentStep, handleClick, displayStep, handleSubmit })
 
   return (
     <>
-    <form onSubmit={validateFormData} noValidate>
+    <form onSubmit={validateFormData} >
     <Flex
         flexDir={"column"}
         borderRadius={"15px"}

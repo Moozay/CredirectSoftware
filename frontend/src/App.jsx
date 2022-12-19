@@ -28,7 +28,7 @@ import Clients from 'components/Clients/Clients'
 import Client from 'components/Clients/Client/Client'
 import Panel from 'components/Panel'
 import Demandes from 'components/Demandes/Demandes'
-import Demande from 'components/Demandes/Demande/Demande'
+import ViewDemande from 'components/Demandes/ViewDemande/ViewDemande'
 import AuthRoute from 'components/Auth/AuthRoute'
 
 const App = () => {
@@ -81,7 +81,7 @@ const App = () => {
                     <Route path="demandes" exact element={<Authenticated><Demandes/></Authenticated>}/>
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
-                    <Route path="demandes" exact element={<Authenticated><Demande/></Authenticated>}/>
+                    <Route path="viewDemande" exact element={<Authenticated><ViewDemande/></Authenticated>}/>
                   </Route>
                  
               </Route>

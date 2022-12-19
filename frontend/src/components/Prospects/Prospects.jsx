@@ -31,7 +31,7 @@ import Prospect  from './Prospect/Prospect'
 import axiosInstance from 'services/axios';
 import { ProspectContext } from 'context/ProspectsContext';
 import Confirmation from 'components/Modals/Confirmation';
-
+import { Link } from 'react-router-dom';
 const Prospects = () => {
   const { prospects, setProspects } = useContext(ProspectContext)
   const [prospect, setProspect] = useState([])
@@ -253,6 +253,7 @@ const Prospects = () => {
                           size="xs"
                           icon={<FaUserEdit />}
                         /> 
+                        <Link to={"/dashboard/viewDemande"} state={{'id' : prospect.prospect_id}}>
                         <IconButton
                           variant="outline"
                           color="blue.400"
@@ -262,8 +263,8 @@ const Prospects = () => {
                           size="xs"
                           
                           icon={<HiViewList />}
-                          onClick={()=>handleClick(prospect)}
                         /> 
+                        </Link>
                         <IconButton
                           variant="outline"
                           color="red.400"

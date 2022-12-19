@@ -16,7 +16,6 @@ const DonneesBanquaires = () => {
       
     var fieldName = event.target.getAttribute("name")
     var fieldValue = event.target.value
-    console.log(Number(fieldValue));
     const newFormDonnesBancaires = { ...donneesBancaires }
 
     newFormDonnesBancaires[section][fieldName] = fieldValue
