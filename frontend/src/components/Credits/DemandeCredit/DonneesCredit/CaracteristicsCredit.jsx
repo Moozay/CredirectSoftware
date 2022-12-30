@@ -213,7 +213,7 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
         </FormControl>
       </HStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
-        <FormControl isRequired mt={2}>
+        <FormControl mt={2}>
         <FormLabel
             fontSize={"sm"}
             fontWeight="normal">

@@ -70,7 +70,7 @@ const RenseignementsBancaires = ({handleRenChange}) => {
                     <FormLabel fontSize={"sm"}
             fontWeight="normal"
             transform={input.nom? "scale(0.85) translateY(-35px)" : ""}
->Nom</FormLabel>
+            >Nom</FormLabel>
                     <Input
                     value={input.nom}
                       size="sm"

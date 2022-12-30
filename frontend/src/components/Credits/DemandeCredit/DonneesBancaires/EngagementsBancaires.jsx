@@ -23,7 +23,14 @@ import CurrencyFormat from "react-currency-format";
 import { CreditContext } from "context/CreditContext";
 import Index from "components/Index";
 const EngagementsBancaires = ({ handleEngChange }) => {
-  const { donneesBancaires, organismes, calculateTeg, credit, setCredit } = useContext(CreditContext);
+  const {
+    donneesBancaires,
+    organismes,
+    calculateMensualite,
+    calculateTeg,
+    credit,
+    setCredit,
+  } = useContext(CreditContext);
   const [section, setSection] = useState("engagements_bancaires");
   const [inputField, setInputField] = useState([
     {
@@ -42,12 +49,11 @@ const EngagementsBancaires = ({ handleEngChange }) => {
     data[index][event.target.name] = event.target.value;
     handleEngChange(data);
     if (event.target.name == "echeance" || event.target.name == "rat") {
-      var newFormCredit = {...credit}
-      newFormCredit.teg = calculateTeg(newFormCredit)
-      setCredit(newFormCredit)
+      var newFormCredit = { ...credit };
+      newFormCredit.teg = calculateTeg(newFormCredit.mensualite, data);
+      setCredit(newFormCredit);
     }
-  }
-
+  };
 
   const addField = () => {
     let newField = {
@@ -58,7 +64,7 @@ const EngagementsBancaires = ({ handleEngChange }) => {
       echeance: "",
       encours: "",
       duree: "",
-      rat: ""
+      rat: "",
     };
     handleEngChange([...donneesBancaires.engagements_bancaires, newField]);
   };
@@ -67,6 +73,9 @@ const EngagementsBancaires = ({ handleEngChange }) => {
     let data = [...donneesBancaires.engagements_bancaires];
     data.splice(index, 1);
     handleEngChange(data);
+    var newFormCredit = { ...credit };
+    newFormCredit.teg = calculateTeg(newFormCredit.mensualite, data);
+    setCredit(newFormCredit);
     console.log("removed", index, data);
   };
   const { colorMode } = useColorMode();
@@ -191,7 +200,6 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 name="nature_credit"
                 value={input.nature_credit}
                 textAlign="center"
-
               >
                 <option value="immobilier">Immobilier</option>
                 <option value="hypothecaire">Hypothécaire</option>
@@ -199,7 +207,7 @@ const EngagementsBancaires = ({ handleEngChange }) => {
               </Select>
             </FormControl>
             <FormControl isRequired variant="floating">
-            <Select
+              <Select
                 placeholder="-Select-"
                 size="sm"
                 onChange={(e) => handleFormChange(index, e)}
@@ -207,9 +215,11 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 value={input.organisme}
                 textAlign="center"
               >
-                {organismes.map((organisme,index)=>
-                <option value={organisme} key={index}>{organisme}</option>
-                )}
+                {organismes.map((organisme, index) => (
+                  <option value={organisme} key={index}>
+                    {organisme}
+                  </option>
+                ))}
               </Select>
             </FormControl>
             <FormControl isRequired>
@@ -254,8 +264,8 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 type="text"
               />
             </FormControl>
-            <FormControl isRequired  my={3}>
-            <Select
+            <FormControl isRequired my={3}>
+              <Select
                 placeholder="-Select-"
                 size="sm"
                 onChange={(e) => handleFormChange(index, e)}

@@ -244,27 +244,27 @@ const Prospects = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
+                        <Link to={"/dashboard/viewProspect"} state={{'id' : prospect.prospect_id}}>
+                        <IconButton
+                          variant="outline"
+                          color="blue.400"
+                          aria-label="Call Sage"
+                          fontSize="15px"
+                          icon={<FaUserEdit />}
+                          size="xs"
+                          
+                        /> 
+                        </Link>
                           <IconButton
                           variant="outline"
                           color="green.400"
                           aria-label="Call Sage"
                           fontSize="15px"
                           m={2}
+                          onClick={()=>handleClick(prospect)}
                           size="xs"
-                          icon={<FaUserEdit />}
-                        /> 
-                        <Link to={"/dashboard/viewDemande"} state={{'id' : prospect.prospect_id}}>
-                        <IconButton
-                          variant="outline"
-                          color="blue.400"
-                          aria-label="Call Sage"
-                          fontSize="15px"
-                          
-                          size="xs"
-                          
                           icon={<HiViewList />}
                         /> 
-                        </Link>
                         <IconButton
                           variant="outline"
                           color="red.400"

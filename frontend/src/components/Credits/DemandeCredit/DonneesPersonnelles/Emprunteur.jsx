@@ -13,7 +13,7 @@ import {
   RadioGroup,
   Radio,
   Select,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 import DatePicker from "react-datepicker";
 import Calendar from "react-calendar";
@@ -32,7 +32,7 @@ const Emprunteur = ({
   setTabIndex,
   handleDonnesPersonnellesChange,
   handleAdresseChange,
-  error
+  error,
 }) => {
   const options = useMemo(() => countryList().getData(), []);
   const { donneesPersonelles, setDonneesPersonelles } =
@@ -45,7 +45,7 @@ const Emprunteur = ({
     const newDateNaissance = { ...datenaissance };
     newDateNaissance["emprunteur_date"] = date;
     setDateNaissance(newDateNaissance);
-
+    console.log(date);
     const newFormDonneesPersonelles = { ...donneesPersonelles };
 
     newFormDonneesPersonelles[section]["datenaissance"] = new Date(
@@ -67,27 +67,26 @@ const Emprunteur = ({
 
     setDonneesPersonelles(newFormDonneesPersonelles);
   };
-  const handleParticipation = (data) =>{
+  const handleParticipation = (data) => {
     if (data == "false") {
-      const newFormDonneesPersonelles = {...donneesPersonelles}
-      newFormDonneesPersonelles.emprunteur.participation = "100"
-      setDonneesPersonelles(newFormDonneesPersonelles)
+      const newFormDonneesPersonelles = { ...donneesPersonelles };
+      newFormDonneesPersonelles.emprunteur.participation = "100";
+      setDonneesPersonelles(newFormDonneesPersonelles);
+    } else {
+      const newFormDonneesPersonelles = { ...donneesPersonelles };
+      newFormDonneesPersonelles.emprunteur.participation = "";
+      setDonneesPersonelles(newFormDonneesPersonelles);
     }
-    else{
-      const newFormDonneesPersonelles = {...donneesPersonelles}
-      newFormDonneesPersonelles.emprunteur.participation = ""
-      setDonneesPersonelles(newFormDonneesPersonelles)
-    }
-  }
+  };
 
   const handleRadioChange = (data) => {
     const newFormDonneesPersonelles = { ...donneesPersonelles };
 
     newFormDonneesPersonelles[section]["hasCoEmprunteur"] = data;
-    if (data === 'false') {
-      newFormDonneesPersonelles.co_emprunteur = {}
+    if (data === "false") {
+      newFormDonneesPersonelles.co_emprunteur = {};
     }
-    handleParticipation(data)
+    handleParticipation(data);
     setDonneesPersonelles(newFormDonneesPersonelles);
     setHasCoEmprunteur(data);
     console.log(data);
@@ -288,6 +287,93 @@ const Emprunteur = ({
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
+          <FormControl my={3} variant="floating" isRequired>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["type_profession"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Type Profession
+            </FormLabel>
+            <Select
+              size="sm"
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              name="type_profession"
+              defaultValue={donneesPersonelles[section]["type_profession"]}
+            >
+              <option></option>
+              <option value="Salarié" key="Salairé">
+                Salarié
+              </option>
+              <option value="Fonctionnaire" key="Fonctionnaire">
+                Fonctionnaire
+              </option>
+              <option value="Profession Libérale" key="Profession Libérale">
+                Profession Libérale
+              </option>
+              <option value="Retraité" key="Retraité">
+                Retraité
+              </option>
+              <option value="Commerçant" key="Commerçant">
+                Commerçant
+              </option>
+              <option value="Gérant de Societé" key="Gérant de Societé">
+                Gérant de Societé
+              </option>
+            </Select>
+          </FormControl>
+          <FormControl
+            my={3}
+            variant="floating"
+            isDisabled={
+              donneesPersonelles.emprunteur.type_profession === "Retraité"
+                ? false
+                : true
+            }
+            isRequired={
+              donneesPersonelles.emprunteur.type_profession === "Retraité"
+                ? true
+                : false
+            }
+          >
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["caisse"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Caisse
+            </FormLabel>
+            <Select
+              size="sm"
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              name="caisse"
+              defaultValue={donneesPersonelles[section]["caisse"]}
+            >
+              <option></option>
+              <option value="CIMR" key="CIMR">
+              CIMR
+              </option>
+              <option value="CMR" key="CMR">
+              CMR
+              </option>
+              <option value="RCAR" key="RCAR">
+              RCAR
+              </option>
+              <option value="CNSS" key="CNSS">
+              CNSS
+              </option>
+            </Select>
+          </FormControl>
+        </HStack>
+        <HStack my={4} w="100%">
           <FormControl my={3} variant="floating">
             <FormLabel
               fontSize={"sm"}
@@ -337,7 +423,7 @@ const Emprunteur = ({
             />
           </FormControl>
         </HStack>
-        <HStack my={4} w="50%">
+        <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired>
             <FormLabel
               fontSize={"sm"}
@@ -352,20 +438,112 @@ const Emprunteur = ({
             </FormLabel>
             <InputGroup>
               <Input
-              isDisabled={hasCoEmprunteur == "true"? false:true}
+                isDisabled={hasCoEmprunteur == "true" ? false : true}
                 size="sm"
                 _placeholder={{ color: "gray.500" }}
                 type="number"
                 name="participation"
-                min="0"
-                max="100"
+                min={0}
+                max={100}
                 value={donneesPersonelles[section]["participation"]}
                 onChange={(e) => handleDonnesPersonnellesChange(e, section)}
               />
               <InputRightElement children="%" pb={2} />
             </InputGroup>
           </FormControl>
+          <FormControl my={3} variant="floating" isRequired>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles[section]["source"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Source
+            </FormLabel>
+            <Select
+              size="sm"
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              name="source"
+              defaultValue={donneesPersonelles[section]["source"]}
+            >
+              <option></option>
+              <option value="E-mail" key="E-mail">
+                E-mail
+              </option>
+              <option value="Contact Direct" key="Contact Direct">
+                Contact Direct
+              </option>
+              <option value="Réseaux" key="Réseaux">
+                Réseaux
+              </option>
+              <option value="Agent" key="Agent">
+                Agent
+              </option>
+              <option value="Parrainage" key="Parrainage">
+                Parrainage
+              </option>
+            </Select>
+          </FormControl>
         </HStack>
+        {donneesPersonelles.emprunteur.source === "Parrainage" && (
+          <HStack my={4} w="50%">
+            <FormControl my={3} variant="floating" isRequired>
+              <FormLabel
+                fontSize={"sm"}
+                fontWeight="normal"
+                transform={
+                  donneesPersonelles[section]["parrainage"]
+                    ? "scale(0.85) translateY(-35px)"
+                    : ""
+                }
+              >
+                Parrainage
+              </FormLabel>
+              <InputGroup>
+                <Input
+                  size="sm"
+                  _placeholder={{ color: "gray.500" }}
+                  type="text"
+                  name="parrainage"
+                  value={donneesPersonelles[section]["parrainage"]}
+                  onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+                />
+                <InputRightElement children="%" pb={2} />
+              </InputGroup>
+            </FormControl>
+          </HStack>
+        )}
+        {donneesPersonelles.emprunteur.source === "Agent" && (
+          <HStack my={4} w="50%">
+            <FormControl my={3} variant="floating" isRequired>
+              <FormLabel
+                fontSize={"sm"}
+                fontWeight="normal"
+                transform={
+                  donneesPersonelles[section]["agent"]
+                    ? "scale(0.85) translateY(-35px)"
+                    : ""
+                }
+              >
+                Agent
+              </FormLabel>
+              <InputGroup>
+                <Input
+                  size="sm"
+                  _placeholder={{ color: "gray.500" }}
+                  type="text"
+                  name="agent"
+                  value={donneesPersonelles[section]["agent"]}
+                  onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+                />
+                <InputRightElement children="%" pb={2} />
+              </InputGroup>
+            </FormControl>
+          </HStack>
+        )}
       </VStack>
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack my={4} w="100%">

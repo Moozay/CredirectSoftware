@@ -25,6 +25,7 @@ import {
 import { UserProvider } from 'context/UserContext';
 import { ProspectProvider } from 'context/ProspectsContext';
 import { DemandeProvider } from 'context/DemandeContext';
+import { UpdateProvider } from 'context/UpdateContext';
 const Dashboard = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,6 +37,7 @@ const Dashboard = () => {
     <UserProvider>
       <ProspectProvider>
         <DemandeProvider>
+        <UpdateProvider>
         <CreditProvider>
     <Flex 
           h="100vh" 
@@ -92,6 +94,7 @@ const Dashboard = () => {
              
           </Flex>
           </CreditProvider>
+        </UpdateProvider>
         </DemandeProvider>
           </ProspectProvider>
           </UserProvider>

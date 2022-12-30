@@ -7,38 +7,37 @@ import { BiAddToQueue } from "react-icons/bi";
 import EngagementsBancaires from "./EngagementsBancaires";
 import RenseignementsBancaires from "./RenseignementsBancaires";
 
-import { CreditContext } from 'context/CreditContext'
+import { CreditContext } from "context/CreditContext";
 
 const DonneesBanquaires = () => {
-  const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
-  const handleDonneesBancairesChange = (event,section) => {
-      event.preventDefault()
-      
-    var fieldName = event.target.getAttribute("name")
-    var fieldValue = event.target.value
-    const newFormDonnesBancaires = { ...donneesBancaires }
+  const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext);
+  const handleDonneesBancairesChange = (event, section) => {
+    event.preventDefault();
+    var fieldName = event.target.getAttribute("name");
+    var fieldValue = event.target.value;
+    const newFormDonnesBancaires = { ...donneesBancaires };
+    newFormDonnesBancaires[section][fieldName] = fieldValue;
 
-    newFormDonnesBancaires[section][fieldName] = fieldValue
+    setDonneesBancaires(newFormDonnesBancaires);
+    console.log(donneesBancaires);
+  };
 
-    setDonneesBancaires(newFormDonnesBancaires)
-    console.log(donneesBancaires)
-  }
+  const handleEngChange = (data) => {
+    let newFormDonnesBancaires = {
+      ...donneesBancaires,
+      engagements_bancaires: data,
+    };
+    setDonneesBancaires(newFormDonnesBancaires);
+    console.log(donneesBancaires);
+  };
 
-  const handleEngChange = (data) =>{
-    let newFormDonnesBancaires = {...donneesBancaires,
-      "engagements_bancaires":data,}
-    newFormDonnesBancaires = 
-    setDonneesBancaires(newFormDonnesBancaires)
-    console.log((donneesBancaires));
-  }
-
-  const handleRenChange = (data) =>{
+  const handleRenChange = (data) => {
     setDonneesBancaires({
       ...donneesBancaires,
-      "renseignements_bancaires":data,
-    })
+      renseignements_bancaires: data,
+    });
     console.log(donneesBancaires);
-  }
+  };
 
   return (
     <Flex
@@ -52,18 +51,14 @@ const DonneesBanquaires = () => {
         </Heading>
       </Flex>
 
-      <RenseignementsBancaires 
-        handleRenChange={handleRenChange}
-        />
+      <RenseignementsBancaires handleRenChange={handleRenChange} />
 
       <Flex justifyContent="space-between" alignItems={"center"}>
         <Heading as="h5" size="sm" my={3}>
           Engagements Bancaires
         </Heading>
       </Flex>
-      <EngagementsBancaires 
-        handleEngChange={handleEngChange}
-        />
+      <EngagementsBancaires handleEngChange={handleEngChange} />
     </Flex>
   );
 };

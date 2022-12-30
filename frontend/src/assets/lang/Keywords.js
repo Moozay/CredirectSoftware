@@ -54,5 +54,11 @@ export  const Keys = {
     "titre_foncier" : "Titre Foncier",
     "commentaires": "Commentaires",
     "rs_employeur" : "R.S. Employeur",
-    "participation" : "Part de participation"
+    "participation" : "Participation",
+    "promoteur_nom" : "Nom du promoteur",
+    "promoteur": "Promoteur",
+    "source":"Source",
+    "type_profession" : "Type de profession",
+    "caisse" : "Caisse",
+    "parrainage" : "Parrainage"
 }   
