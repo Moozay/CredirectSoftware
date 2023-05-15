@@ -18,6 +18,7 @@ class CoempCreate(BaseModel):
     datembauche: datetime
     revenue: str 
     prospect_id: UUID
+    participation: str
 
 class CoempUpdate(BaseModel):
     nom : str 
@@ -50,6 +51,7 @@ class CoempOut(BaseModel):
     datembauche: datetime
     revenue: str 
     prospect_id: UUID
+    participation: str
 
 
 

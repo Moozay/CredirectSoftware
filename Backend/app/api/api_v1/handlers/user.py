@@ -71,6 +71,11 @@ async def update_avatar(avatar: UploadFile = File(...), user:User = Depends(get_
 async def get_users(user:User = Depends(get_current_user)):
     return await UserService.get_users()
 
+
+@user_router.get('/agents', summary="get all agents", response_model=List[UserOut])
+async def get_users(user:User = Depends(get_current_user)):
+    return await UserService.get_agents()
+
 @user_router.delete('/{user_id}', summary="delete user by id")
 async def delete_user(user_id: UUID):
     return await UserService.delete_user(user_id)

@@ -50,6 +50,7 @@ const DonneesPersonnelles = ({tabIndex, setTabIndex}) => {
         }
       }
       const handleAdresseChange = (event, section) =>{
+        console.log(event);
         var fieldName = event.target.getAttribute("name")
         var fieldValue = event.target.value
         var adresse = donneesPersonelles[section]["adresse"]

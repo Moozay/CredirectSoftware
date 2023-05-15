@@ -1,4 +1,4 @@
-import { React, useState, useMemo } from "react";
+import { React, useState, useMemo, useEffect } from "react";
 import {
   Stack,
   VStack,
@@ -18,6 +18,7 @@ import DatePicker from "react-datepicker";
 import { AiOutlineCalendar, AiFillCaretDown } from "react-icons/ai";
 import countryList from "react-select-country-list";
 import { useContext } from "react";
+import { Country, State } from "country-state-city";
 import { UpdateContext } from "context/UpdateContext";
 
 const ViewEmprunteur = ({
@@ -25,10 +26,24 @@ const ViewEmprunteur = ({
   handleDonnesPersonnellesChange,
 }) => {
   const options = useMemo(() => countryList().getData(), []);
+  const [countryId, setCountryId] = useState("");
+  const countries = useMemo(() => Country.getAllCountries(), []);
+  const updatedCountries = countries.map((country) => ({
+    label: country.name,
+    value: { "name": country.name, "id": country.isoCode },
+    ...country,
+  }));
+
+  const updatedState = () =>
+    State.getStatesOfCountry(countryId).map((state) => ({
+      label: state.name,
+      value: { "name": state.name},
+      ...state,
+    }));
   const [section, setSection] = useState("emprunteur");
-  const { datenaissance, datembauche, setDateNaissance, setDatembauche } =
+  const { Pays,datenaissance, datembauche, setDateNaissance, setDatembauche } =
     useContext(UpdateContext);
-  const { donneesPersonnelles, setDonneesPersonnelles, isEditing, setDemande } =
+  const { donneesPersonnelles, setDonneesPersonnelles, isEditing, handleCreditDataChange } =
     useContext(UpdateContext);
 
   const handleRadioChange = (data) => {
@@ -67,7 +82,7 @@ const ViewEmprunteur = ({
     ).toISOString();
 
     setDonneesPersonnelles(newFormDonneesPersonelles);
-    console.log(donneesPersonnelles);
+    console.log(date);
   };
 
   const handleDateEmbauche = (date) => {
@@ -83,6 +98,14 @@ const ViewEmprunteur = ({
     setDonneesPersonnelles(newFormDonneesPersonelles);
   };
 
+  useEffect(() => {
+    for (let index = 0; index < countries.length; index++) {
+        if (Pays.emprunteur == countries[index].name) {
+            setCountryId(countries[index].isoCode)
+            console.log(countryId);
+        }        
+    }
+  }, [Pays]);
   return (
     <HStack alignItems={"flex-start"} mb={10}>
       <VStack alignItems={"flex-start"} w="100%" mx={3}>
@@ -156,62 +179,6 @@ const ViewEmprunteur = ({
               type={"text"}
             />
           </FormControl>
-          <FormControl isRequired>
-            <FormLabel fontSize={"sm"} fontWeight="normal">
-              R.S. Employeur
-            </FormLabel>
-            <Input
-              defaultValue={donneesPersonnelles.emprunteur?.rs_employeur}
-              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
-              readOnly={!isEditing}
-              size={"sm"}
-              name="rs_employeur"
-              type={"text"}
-            />
-          </FormControl>
-        </HStack>
-        <HStack w={"100%"} my={4}>
-          <FormControl isRequired>
-            <FormLabel fontSize={"sm"} fontWeight="normal">
-              Profession
-            </FormLabel>
-            <Input
-              defaultValue={donneesPersonnelles.emprunteur?.profession}
-              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
-              readOnly={!isEditing}
-              size={"sm"}
-              name="profession"
-              type={"text"}
-            />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel fontSize={"sm"} fontWeight="normal">
-              Situation Familiale
-            </FormLabel>
-            <Select
-              value={donneesPersonnelles.emprunteur?.situation}
-              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
-              name="situatiion"
-              pointerEvents={isEditing ? "" : "none"}
-              size="sm"
-            >
-              <option></option>
-              <option value="Célibataire" key="Célibataire">
-                Célibataire
-              </option>
-              <option value="Marié(e)" key="Marié(e)">
-                Marié(e)
-              </option>
-              <option value="Veuf(ve)" key="Veuf(ve)">
-                Veuf(e)
-              </option>
-              <option value=" Divorcé(e)" key="Divorcé(e)">
-                Divorcé(e)
-              </option>
-            </Select>
-          </FormControl>
-        </HStack>
-        <HStack my={4} w="100%">
           <FormControl my={3} isRequired>
             <FormLabel
               fontSize={"sm"}
@@ -248,81 +215,51 @@ const ViewEmprunteur = ({
               </option>
             </Select>
           </FormControl>
-          <FormControl
-            my={3}
-            
-            isDisabled={
-              donneesPersonnelles.emprunteur?.type_profession === "Retraité"
-                ? false
-                : true
-            }
-            isRequired={
-              donneesPersonnelles.emprunteur?.type_profession === "Retraité"
-                ? true
-                : false
-            }
-          >
-            <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
-              
-            >
-              Caisse
-            </FormLabel>
-            <Select
-              size="sm"
-              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
-              name="caisse"
-              value={donneesPersonnelles.emprunteur?.caisse}
-              pointerEvents={isEditing ? "" : "none"}
-            >
-              <option></option>
-              <option value="CIMR" key="CIMR">
-                CIMR
-              </option>
-              <option value="CMR" key="CMR">
-                CMR
-              </option>
-              <option value="RCAR" key="RCAR">
-                RCAR
-              </option>
-              <option value="CNSS" key="CNSS">
-                CNSS
-              </option>
-            </Select>
-          </FormControl>
         </HStack>
         <HStack w={"100%"} my={4}>
           <FormControl isRequired>
             <FormLabel fontSize={"sm"} fontWeight="normal">
-              Date d'embauche
+              Situation Familiale
             </FormLabel>
-            <InputGroup>
-              <DatePicker
-                selected={datembauche.emprunteur}
-                id="customDatePicker"
-                name="datenaissance"
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                required
-                onChange={handleDateEmbauche}
-                readOnly={!isEditing}
-              />
-              <InputRightElement children={<AiOutlineCalendar />} pb={2} />
-            </InputGroup>
+            <Select
+              value={donneesPersonnelles.emprunteur?.situation}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              name="situatiion"
+              pointerEvents={isEditing ? "" : "none"}
+              size="sm"
+            >
+              <option></option>
+              <option value="Célibataire" key="Célibataire">
+                Célibataire
+              </option>
+              <option value="Marié(e)" key="Marié(e)">
+                Marié(e)
+              </option>
+              <option value="Veuf(ve)" key="Veuf(ve)">
+                Veuf(e)
+              </option>
+              <option value=" Divorcé(e)" key="Divorcé(e)">
+                Divorcé(e)
+              </option>
+            </Select>
           </FormControl>
-          <FormControl isRequired>
+          <FormControl  
+        isDisabled={
+            donneesPersonnelles.emprunteur?.type_profession === "Retraité"
+              ? true
+              : false
+          }
+        >
             <FormLabel fontSize={"sm"} fontWeight="normal">
-              Revenue
+              Profession
             </FormLabel>
             <Input
-              defaultValue={donneesPersonnelles.emprunteur?.revenue}
+              value={donneesPersonnelles.emprunteur?.profession}
               onChange={(e) => handleDonnesPersonnellesChange(e, section)}
-              size={"sm"}
-              name="revenue"
-              type={"text"}
               readOnly={!isEditing}
+              size={"sm"}
+              name="profession"
+              type={"text"}
             />
           </FormControl>
         </HStack>
@@ -399,7 +336,6 @@ const ViewEmprunteur = ({
                   value={donneesPersonnelles.emprunteur?.parrainage}
                   onChange={(e) => handleDonnesPersonnellesChange(e, section)}
                 />
-                <InputRightElement children="%" pb={2} />
               </InputGroup>
             </FormControl>
           </HStack>
@@ -428,11 +364,25 @@ const ViewEmprunteur = ({
                   value={donneesPersonnelles.emprunteur?.agent}
                   onChange={(e) => handleDonnesPersonnellesChange(e, section)}
                 />
-                <InputRightElement children="%" pb={2} />
               </InputGroup>
             </FormControl>
           </HStack>
         )}
+        <HStack my={4}>
+          <FormControl my={3} isRequired isReadOnly={!isEditing}>
+            <FormLabel>Co-Emprunteur</FormLabel>
+            <RadioGroup
+              name="has_coemp"
+              value={donneesPersonnelles.emprunteur?.has_coemp}
+              onChange={handleRadioChange}
+            >
+              <Stack direction="column">
+                <Radio value="true">Oui</Radio>
+                <Radio value="false">Non</Radio>
+              </Stack>
+            </RadioGroup>
+          </FormControl>
+        </HStack>
       </VStack>
       <VStack alignItems={"flex-start"} w="100%" mx={3}>
         <HStack w={"100%"} my={4}>
@@ -455,7 +405,7 @@ const ViewEmprunteur = ({
             </FormLabel>
             <InputGroup>
               <DatePicker
-                selected={datenaissance.emprunteur}
+                selected={datenaissance?.emprunteur}
                 id="customDatePicker"
                 name="datenaissance"
                 showMonthDropdown
@@ -464,13 +414,76 @@ const ViewEmprunteur = ({
                 required
                 readOnly={!isEditing}
                 onChange={handleDateNaissanceChange}
+                portalId="root-portal"
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
           </FormControl>
         </HStack>
         <HStack w={"100%"} my={4}>
+        <FormControl isRequired>
+            <FormLabel fontSize={"sm"} fontWeight="normal">
+              Pays
+            </FormLabel>
+            <Select
+              size="sm"
+              name="pays"
+              value={donneesPersonnelles.emprunteur?.adresse.pays}
+              icon={<AiFillCaretDown />}
+              w="100%"
+              pointerEvents={isEditing ? "" : "none"}
+              onChange={(e) => {
+                var countryId = e.target.selectedOptions[0].id
+                console.log(e);
+                setCountryId(countryId)
+                handleAdresseChange(e, section);
+              }}
+            >
+              <option></option>
+              {updatedCountries.map((country) => {
+                return (
+                  <option
+                  id={country.value.id}
+                    key={country.label}
+                    value={country.label}
+                    css={{ width: "100%" }}
+                  >
+                    {country.label}
+                  </option>
+                );
+              })}
+            </Select>
+          </FormControl>
           <FormControl isRequired>
+            <FormLabel fontSize={"sm"} fontWeight="normal">
+              Ville
+            </FormLabel>
+            <Select
+              size="sm"
+              name="ville"
+              value={donneesPersonnelles.emprunteur?.adresse.ville}
+              icon={<AiFillCaretDown />}
+              w="100%"
+              pointerEvents={isEditing ? "" : "none"}
+              onChange={(e) => handleAdresseChange(e, section)}
+            >
+              <option></option>
+              {updatedState(countryId).map((state) => {
+                return (
+                  <option
+                    key={state.label}
+                    value={state.label}
+                    css={{ width: "100%" }}
+                  >
+                    {state.label}
+                  </option>
+                );
+              })}
+            </Select>
+          </FormControl>
+        </HStack>
+        <HStack my={4} w="100%">
+        <FormControl isRequired>
             <FormLabel fontSize={"sm"} fontWeight="normal">
               Adresse
             </FormLabel>
@@ -483,62 +496,104 @@ const ViewEmprunteur = ({
               type={"text"}
             />
           </FormControl>
-          <FormControl isRequired>
-            <FormLabel fontSize={"sm"} fontWeight="normal">
-              Ville de residence
-            </FormLabel>
-            <Input
-              defaultValue={donneesPersonnelles.emprunteur?.adresse.ville}
-              readOnly={!isEditing}
-              size={"sm"}
-              name="ville"
-              type={"text"}
-              onChange={(e) => handleAdresseChange(e, section)}
-            />
-          </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-          <FormControl isRequired>
+        <FormControl 
+          isRequired={
+            donneesPersonnelles.emprunteur?.type_profession !== "Retraité"
+              ? true
+              : false
+          }>
             <FormLabel fontSize={"sm"} fontWeight="normal">
-              Pays
+              R.S. Employeur
+            </FormLabel>
+            <Input
+              defaultValue={donneesPersonnelles.emprunteur?.rs_employeur}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              readOnly={!isEditing}
+              size={"sm"}
+              name="rs_employeur"
+              type={"text"}
+            />
+          </FormControl>
+       
+          <FormControl
+            my={3}
+            
+            isDisabled={
+              donneesPersonnelles.emprunteur?.type_profession === "Retraité"
+                ? false
+                : true
+            }
+            isRequired={
+              donneesPersonnelles.emprunteur?.type_profession === "Retraité"
+                ? true
+                : false
+            }
+          >
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              
+            >
+              Caisse
             </FormLabel>
             <Select
               size="sm"
-              name="pays"
-              value={donneesPersonnelles.emprunteur?.adresse.pays}
-              icon={<AiFillCaretDown />}
-              w="100%"
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              name="caisse"
+              value={donneesPersonnelles.emprunteur?.caisse}
               pointerEvents={isEditing ? "" : "none"}
-              onChange={(e) => handleAdresseChange(e, section)}
             >
               <option></option>
-              {options.map((country) => {
-                return (
-                  <option
-                    key={country.label}
-                    value={country.label}
-                    css={{ width: "100%" }}
-                  >
-                    {country.label}
-                  </option>
-                );
-              })}
+              <option value="CIMR" key="CIMR">
+                CIMR
+              </option>
+              <option value="CMR" key="CMR">
+                CMR
+              </option>
+              <option value="RCAR" key="RCAR">
+                RCAR
+              </option>
+              <option value="CNSS" key="CNSS">
+                CNSS
+              </option>
             </Select>
           </FormControl>
         </HStack>
-        <HStack my={4}>
-          <FormControl my={3} isRequired isReadOnly={!isEditing}>
-            <FormLabel>Co-Emprunteur</FormLabel>
-            <RadioGroup
-              name="has_coemp"
-              value={donneesPersonnelles.emprunteur?.has_coemp}
-              onChange={handleRadioChange}
-            >
-              <Stack direction="column">
-                <Radio value="true">Oui</Radio>
-                <Radio value="false">Non</Radio>
-              </Stack>
-            </RadioGroup>
+        <HStack w={"100%"} my={4}>
+          <FormControl isRequired>
+            <FormLabel fontSize={"sm"} fontWeight="normal">
+              Date d'embauche
+            </FormLabel>
+            <InputGroup>
+              <DatePicker
+                selected={datembauche["emprunteur"]}
+                id="customDatePicker"
+                name="datembauche"
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                required
+                onChange={handleDateEmbauche}
+                readOnly={!isEditing}
+                portalId="root-portal"
+              />
+              <InputRightElement children={<AiOutlineCalendar />} pb={2} />
+            </InputGroup>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel fontSize={"sm"} fontWeight="normal">
+              Revenue
+            </FormLabel>
+            <Input
+              value={donneesPersonnelles.credit?.prospect_revenue}
+              onChange={handleCreditDataChange}
+              size={"sm"}
+              name="prospect_revenue"
+              type={"text"}
+              readOnly={!isEditing}
+            />
           </FormControl>
         </HStack>
       </VStack>

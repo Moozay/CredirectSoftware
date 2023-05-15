@@ -8,7 +8,7 @@ import { LayoutContext, LayoutProvider } from 'context/LayoutContext';
 import { CreditContext, CreditProvider } from 'context/CreditContext';
 // Components
 import Sidebar from "components/Sidebar/Sidebar";
-import Panel from 'components/Panel';
+import Panel from 'components/Dashboard/Panel';
 
 import { useColorMode } from "@chakra-ui/color-mode";
 
@@ -26,16 +26,23 @@ import { UserProvider } from 'context/UserContext';
 import { ProspectProvider } from 'context/ProspectsContext';
 import { DemandeProvider } from 'context/DemandeContext';
 import { UpdateProvider } from 'context/UpdateContext';
+import { StatProvider } from 'context/StatContext';
 const Dashboard = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
   const location = useLocation()
+  var path = location.pathname.split("/").slice(1);
+  path = path[1].charAt(0).toUpperCase() + path[1].slice(1)
+  if (path === "Metrics") {
+    path = "Tableau de bord"
+  }
 
   
 
   return (
     <UserProvider>
       <ProspectProvider>
+        <StatProvider>
         <DemandeProvider>
         <UpdateProvider>
         <CreditProvider>
@@ -69,16 +76,13 @@ const Dashboard = () => {
               minH="100vh"
               
             >
-              <HStack my={2} justifyContent="space-between">
+              <HStack my={1} justifyContent="space-between">
                 <Breadcrumb fontWeight='medium' fontSize='sm'>
-                  {location.pathname.split("/").slice(1).map((path)=>{
-                    {path = path.charAt(0).toUpperCase() + path.slice(1)}
-                    return (
+                 
                       <BreadcrumbItem key={path}>
-                        <Text>{path}</Text>
+                        <Text>/{path}</Text>
                       </BreadcrumbItem>
-                    )
-                  })}
+
                 </Breadcrumb>
               </HStack>
               
@@ -96,6 +100,7 @@ const Dashboard = () => {
           </CreditProvider>
         </UpdateProvider>
         </DemandeProvider>
+        </StatProvider>
           </ProspectProvider>
           </UserProvider>
       

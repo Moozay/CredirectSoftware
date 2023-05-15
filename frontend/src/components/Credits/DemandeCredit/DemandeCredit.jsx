@@ -3,6 +3,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import Stepper from 'components/Credits/DemandeCredit/Stepper/Stepper'
 import DonneesPersonnelles from './DonneesPersonnelles/DonneesPersonnelles'
 import DonneesCredit from './DonneesCredit/DonneesCredit'
+import DonneesEnvoyer from './DonneesEnvoyer/DonneesEnvoyer'
 import DonneesBanquaires from './DonneesBancaires/DonneesBancaires'
 import Validation from './Validation'
 import { CreditContext } from 'context/CreditContext'
@@ -19,7 +20,8 @@ const DemandeCredit = () => {
   const { DemandeCredit, setDemandeCredit } = useContext(CreditContext)
   const { donneesPersonelles, setdonneesPersonelles } = useContext(CreditContext)
   const { donneesBancaires, setDonneesBancaires } = useContext(CreditContext)
-  const { credit, setCredit } = useContext(CreditContext)
+  const { credit, setCredit, banquEnvoye } = useContext(CreditContext)
+  const { existingRecord, setExistingRecord } = useContext(CreditContext)
   const { resetForm } = useContext(CreditContext)
   const { setReloadDemandes } = useContext(DemandeContext)
   const { setReloadProspects } = useContext(ProspectContext)
@@ -69,8 +71,86 @@ const DemandeCredit = () => {
     const response = await axiosInstance.post("credits/demandeCredit",data)
   }
 
+  const test = (event)=>{
+    const prospect = {...donneesPersonelles.emprunteur,...donneesBancaires}
+    console.log(prospect["revenue"]);
+
+  }
+  const addCredit = async(event) =>{
+    event.preventDefault()
+    const credit_id = uuidv4()
+    const coemp_id = donneesPersonelles.emprunteur["hasCoEmprunteur"] == "true" ? uuidv4() : null
+
+    //create coemp record
+    if(coemp_id != null){
+      const coemp_in = donneesPersonelles.co_emprunteur
+      coemp_in["coemp_id"] = coemp_id
+      coemp_in["prospect_id"] = existingRecord["prospect_id"]
+      axiosInstance.post("coemps/create",coemp_in)
+      .then((response)=>{
+        toast({
+          title: `Co_Emprunteur créée avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500
+        })
+      })
+      .catch((error)=>{
+        toast({
+          title: `Co_emprunteur not created`,
+          status: error,
+          isClosable: true,
+          duration: 1500
+        })
+      })
+    }
+    // Create Credit Record
+    const creditCreate = {...credit}
+    creditCreate["prospect_id"] = existingRecord["prospect_id"]
+    creditCreate["credit_id"] = credit_id
+    creditCreate["banque_envoye"] = banquEnvoye
+    creditCreate["coemp"] = coemp_id === null ? null:[coemp_id]
+    creditCreate["engagements_bancaires"] = donneesBancaires["engagements_bancaires"]
+
+    axiosInstance.post("credits/add_credit",creditCreate)
+      .then((response)=>{
+        toast({
+          title: `Demande créée avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500
+        })
+      })
+    .catch((error)=>{
+      toast({
+        title: "Credit not created",
+        status: "error",
+        isClosable: true,
+        duration: 1500
+      })
+    })
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (existingRecord["existing"] === true) {
+      addCredit(event)
+    }
+    else{
+      createCredit(event)
+    }
+    setReloadProspects(true)
+    setReloadDemandes(true)
+    setCurrentStep(1)
+    resetForm()
+  }
+
+
+  const createCredit = async (event) => {
+    event.preventDefault()
+    if (existingRecord["exisit"]) {
+      
+    }
     const prospect_id =  uuidv4();
     const credit_id = uuidv4()
     const agent_id = await getUserId() 
@@ -92,6 +172,11 @@ const DemandeCredit = () => {
     const creditCreate = {...credit}
     creditCreate["prospect_id"] = prospect_id
     creditCreate["credit_id"] = credit_id
+    creditCreate["banque_envoye"] = banquEnvoye
+    creditCreate["coemp"] = coemp_id === null ? null:[coemp_id]
+    creditCreate["engagements_bancaires"] = donneesBancaires["engagements_bancaires"]
+    console.log(prospect["revenue"]);
+
     
     //fill prospect records
     prospect["prospect_id"] = prospect_id
@@ -134,7 +219,7 @@ const DemandeCredit = () => {
         })
         .catch((error)=>{
           toast({
-            title: `Co_emprunteur créée avec succès`,
+            title: `Co_emprunteur not created`,
             status: error,
             isClosable: true,
             duration: 1500
@@ -160,14 +245,7 @@ const DemandeCredit = () => {
         duration: 1500
       })
     })
-   
-    //await handleCreateDemandeCredit(demandeCredit)
-    setReloadProspects(true)
-    setReloadDemandes(true)
-    setCurrentStep(1)
-    resetForm()
-    //navigate('/dashboard/demandeCredit', {replace: true, state: { from: location }})
-    //window.location.reload(false)
+
   }
 
   const steps = [
@@ -190,7 +268,14 @@ const DemandeCredit = () => {
       
     },
     {
-      label: "résumé",
+      label: "Traitement Dossier",
+      name: "Choix Banque",
+      content: <DonneesCredit/>,
+      validator: RenseignementsBancairesValidator,
+      
+    },
+    {
+      label: "Résumé",
       name: "Validation",
       content: <>Text </>
     }
@@ -216,6 +301,8 @@ const DemandeCredit = () => {
       case 3:
         return <DonneesCredit/>
       case 4:
+        return <DonneesEnvoyer/>
+      case 5:
         return <Validation/>
     }
   }
@@ -232,6 +319,7 @@ const DemandeCredit = () => {
             handleSubmit={handleSubmit}
             tabIndex={tabIndex} 
             setTabIndex={setTabIndex}
+            setCurrentStep={setCurrentStep}
           />
   )
 }

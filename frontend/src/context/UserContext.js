@@ -16,6 +16,7 @@ export const UserProvider = (props) => {
             console.log(user);
         }
         initialize()
+        console.log(user);
         isMounted.current = true
     },[])
 

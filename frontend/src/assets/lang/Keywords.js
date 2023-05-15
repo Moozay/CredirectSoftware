@@ -10,7 +10,7 @@ export  const Keys = {
     "profession":"Profession",
     "telpro":"Telephone Professionel",
     "datembauche":"Date D'embauche",
-    "revenue":"Revenue",
+    "prospect_revenue":"Revenue",
     "adresse1":"Adresse 1",
     "adresse2":"Adresse 2",
     "ville":"Ville",
@@ -40,7 +40,8 @@ export  const Keys = {
     "duree_credit": "Durée du Crédit",
     "frequence": "Fréquence",
     "mensualite": "Mensualité",
-    "taux":"Taux",
+    "taux":"Taux souhaité",
+    "taux_demande":"Taux demandé",
     "franchise":"Durée de Franchise",
     "taux_endt": "Taux d'endetement",
     "teg":"TEG",
@@ -60,5 +61,9 @@ export  const Keys = {
     "source":"Source",
     "type_profession" : "Type de profession",
     "caisse" : "Caisse",
-    "parrainage" : "Parrainage"
+    "parrainage" : "Parrainage",
+    "date_envoi" : "Date envoi",
+    "interlocuteur": "Interlocuteur",
+    "agence"  : "Agence",
+
 }   

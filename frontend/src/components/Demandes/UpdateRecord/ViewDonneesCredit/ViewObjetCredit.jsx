@@ -7,6 +7,9 @@ import {
   Input,
   FormControl,
   Code,
+  Stack,
+  CheckboxGroup,
+  Checkbox,
   InputGroup,
   InputRightAddon,
   Select,
@@ -17,14 +20,13 @@ import CurrencyFormat from "react-currency-format";
 import { UpdateContext } from "context/UpdateContext";
 import { useColorMode } from "@chakra-ui/color-mode";
 const ViewObjetCredit = ({
-  credit,
-  index,
   handleAdresseChange,
   handleCreditDataChange,
 }) => {
   const options = useMemo(() => countryList().getData(), []);
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isEditing } = useContext(UpdateContext);
+  const { isEditing, donneesPersonnelles, setDonneesPersonnelles } =
+    useContext(UpdateContext);
 
   const Garanties = [
     "Hypotheque en 1er rang sur le TF objet du credit",
@@ -34,24 +36,34 @@ const ViewObjetCredit = ({
     "Domiciliation de salaire",
     "Engagement de domiciliation des revenus",
   ];
+  const handleGarantiesChange = (e) => {
+    console.log(e);
+    const newRecord = { ...donneesPersonnelles };
+    const status = e.target.checked;
+    const value = e.target.value;
+    if (status) {
+      newRecord.credit["garanties"].push(value);
+      setDonneesPersonnelles(newRecord);
+    } else {
+      const position = newRecord.credit["garanties"].indexOf(value);
+      if (position > -1) {
+        newRecord.credit["garanties"].splice(position, 1);
+      }
+      setDonneesPersonnelles(newRecord);
+    }
+  };
   return (
     <>
       <HStack alignItems={"flex-start"} mb="8">
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["objet_credit"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Objet du Crédit
           </FormLabel>
           <Select
             name="objet_credit"
             pointerEvents={isEditing ? "" : "none"}
-            defaultValue={credit["objet_credit"]}
-            onChange={(e) => handleCreditDataChange(e, index)}
+            defaultValue={donneesPersonnelles["credit"]["objet_credit"]}
+            onChange={(e) => handleCreditDataChange(e)}
             size="sm"
           >
             <option></option>
@@ -83,21 +95,15 @@ const ViewObjetCredit = ({
             <option value="Ijar">Ijar</option>
           </Select>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["nature_bien"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Nature du Bien
           </FormLabel>
           <Select
             pointerEvents={isEditing ? "" : "none"}
             name="nature_bien"
-            onChange={(e) => handleCreditDataChange(e, index)}
-            defaultValue={credit["nature_bien"]}
+            onChange={(e) => handleCreditDataChange(e)}
+            defaultValue={donneesPersonnelles["credit"]["nature_bien"]}
             size="sm"
           >
             <option></option>
@@ -110,22 +116,16 @@ const ViewObjetCredit = ({
             <option value="Bangalow/Pavillion">Bangalow/Pavillion</option>
           </Select>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["etat_bien"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Etat du Bien
           </FormLabel>
           <Select
             name="etat_bien"
             pointerEvents={isEditing ? "" : "none"}
-            defaultValue={credit["etat_bien"]}
+            defaultValue={donneesPersonnelles["credit"]["etat_bien"]}
             placeholder=""
-            onChange={(e) => handleCreditDataChange(e, index)}
+            onChange={(e) => handleCreditDataChange(e)}
             size="sm"
           >
             <option></option>
@@ -133,21 +133,15 @@ const ViewObjetCredit = ({
             <option value="Ancien">Ancien</option>
           </Select>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["usage_bien"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Usage du Bien
           </FormLabel>
           <Select
             name="usage_bien"
             pointerEvents={isEditing ? "" : "none"}
-            defaultValue={credit["usage_bien"]}
-            onChange={(e) => handleCreditDataChange(e, index)}
+            defaultValue={donneesPersonnelles["credit"]["usage_bien"]}
+            onChange={(e) => handleCreditDataChange(e)}
             size="sm"
           >
             <option></option>
@@ -160,23 +154,17 @@ const ViewObjetCredit = ({
       </HStack>
 
       <HStack alignItems={"flex-start"} mb="5">
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["montant_travaux"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom">
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Montant Travaux
           </FormLabel>
 
           <InputGroup size="sm">
             <CurrencyFormat
               name="montant_travaux"
-              value={credit["montant_travaux"]? credit["montant_travaux"]:""}
+              value={donneesPersonnelles["credit"]["montant_travaux"] ? donneesPersonnelles["credit"]["montant_travaux"] : ""}
               customInput={Input}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
               decimalSeparator=","
               thousandSeparator=" "
               isReadOnly={!isEditing}
@@ -186,16 +174,8 @@ const ViewObjetCredit = ({
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit.adresse_bien?.adresse1
-                ? "scale(0.85) translateY(29px)"
-                : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Adresse
           </FormLabel>
           <Input
@@ -203,19 +183,13 @@ const ViewObjetCredit = ({
             size="sm"
             name="adresse1"
             _placeholder={{ color: "gray.500" }}
-            defaultValue={credit.adresse_bien?.adresse1}
+            defaultValue={donneesPersonnelles["credit"].adresse_bien?.adresse1}
             type="text"
-            onChange={(e) => handleAdresseChange(e, index)}
+            onChange={(e) => handleAdresseChange(e)}
           />
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit.adresse_bien?.ville ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Ville
           </FormLabel>
           <Input
@@ -223,19 +197,13 @@ const ViewObjetCredit = ({
             name="ville"
             isReadOnly={!isEditing}
             _placeholder={{ color: "gray.500" }}
-            defaultValue={credit.adresse_bien?.ville}
+            defaultValue={donneesPersonnelles["credit"].adresse_bien?.ville}
             type="text"
-            onChange={(e) => handleAdresseChange(e, index)}
+            onChange={(e) => handleAdresseChange(e)}
           />
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit.adresse_bien?.pays ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Pays
           </FormLabel>
           <Select
@@ -243,8 +211,8 @@ const ViewObjetCredit = ({
             name="pays"
             icon={<AiFillCaretDown />}
             w="100%"
-            onChange={(e) => handleAdresseChange(e, index)}
-            defaultValue={credit.adresse_bien?.pays}
+            onChange={(e) => handleAdresseChange(e)}
+            defaultValue={donneesPersonnelles["credit"].adresse_bien?.pays}
             pointerEvents={isEditing ? "" : "none"}
           >
             <option></option>
@@ -277,14 +245,8 @@ const ViewObjetCredit = ({
           children='Superficie' p={1} w="98.4%" borderRight={"4px"} borderRightColor="orange.200" textAlign={"left"} />
       </HStack> */}
       <HStack alignItems={"flex-start"} mb="8">
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["montant_acte"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Montant valeur à l'acte
           </FormLabel>
 
@@ -292,33 +254,27 @@ const ViewObjetCredit = ({
             <CurrencyFormat
               name="montant_acte"
               customInput={Input}
-              value={credit["montant_acte"]?credit["montant_acte"]:""}
+              value={donneesPersonnelles["credit"]["montant_acte"] ? donneesPersonnelles["credit"]["montant_acte"] : ""}
               decimalSeparator=","
               thousandSeparator=" "
               isReadOnly={!isEditing}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
               decimalScale={2}
               fixedDecimalScale={true}
             />
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["montant_venal"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Montant valeur vénale
           </FormLabel>
           <InputGroup size="sm">
             <CurrencyFormat
               name="montant_venal"
-              value={credit["montant_venal"]? credit["montant_venal"]:""}
+              value={donneesPersonnelles["credit"]["montant_venal"] ? donneesPersonnelles["credit"]["montant_venal"] : ""}
               customInput={Input}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
               decimalSeparator=","
               thousandSeparator=" "
               decimalScale={2}
@@ -328,92 +284,70 @@ const ViewObjetCredit = ({
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["superficie"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Superficie
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="superficie"
-              defaultValue={credit["superficie"]}
+              defaultValue={donneesPersonnelles["credit"]["superficie"]}
               isReadOnly={!isEditing}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="m²" />
           </InputGroup>
         </FormControl>
-        <FormControl id="Nom" isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["titre_foncier"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
+        <FormControl id="Nom" isRequired>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Titre Froncier
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="titre_foncier"
-              defaultValue={credit["titre_foncier"]}
+              defaultValue={donneesPersonnelles["credit"]["titre_foncier"]}
               isReadOnly={!isEditing}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
           </InputGroup>
         </FormControl>
       </HStack>
       <HStack alignItems={"flex-start"} mb="9">
-        <FormControl id="Nom" isRequired variant="floatingDown" w="25%">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["garanties"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
-            Garanties
+        <FormControl id="Nom" w="24.5%">
+          <FormLabel fontSize={"sm"} fontWeight="normal">
+            Garanties:
           </FormLabel>
-          <Select
-            name="garanties"
-            defaultValue={credit["garanties"]}
-            placeholder=""
-            size="sm"
-            onChange={(e) => handleCreditDataChange(e, index)}
-            pointerEvents={isEditing ? "" : "none"}
-          >
-            <option></option>
-            {Garanties.map((garanties, index) => (
-              <option value={garanties} key={index}>
-                {garanties}
-              </option>
-            ))}
-          </Select>
+          <CheckboxGroup colorScheme="orange" value={donneesPersonnelles["credit"]["garanties"]}>
+            <Stack spacing={[1, 1]} direction={"column"}>
+              {Garanties.map((garantie, position) => (
+                <Checkbox
+                  key={position}
+                  pointerEvents={isEditing ? "" : "none"}
+                  size={"sm"}
+                  onChange={(e) => {
+                    handleGarantiesChange(e);
+                  }}
+                  value={garantie}
+                >
+                  {garantie}
+                </Checkbox>
+              ))}
+            </Stack>
+          </CheckboxGroup>
         </FormControl>
-        {credit.type_credit === "immobilier" && (
+
+        {donneesPersonnelles["credit"].type_credit === "immobilier" && (
           <>
-            <FormControl id="Nom" isRequired variant="floatingDown" w="24.5%">
-              <FormLabel
-                fontSize={"sm"}
-                fontWeight="normal"
-                transform={
-                  credit["promoteur"] ? "scale(0.85) translateY(29px)" : ""
-                }
-              >
+            <FormControl id="Nom" isRequired w="24.5%">
+              <FormLabel fontSize={"sm"} fontWeight="normal">
                 Promoteur
               </FormLabel>
               <Select
                 name="promoteur"
-                onChange={(e) => handleCreditDataChange(e, index)}
-                value={credit["promoteur"]}
+                onChange={(e) => handleCreditDataChange(e)}
+                value={donneesPersonnelles["credit"]["promoteur"]}
                 size="sm"
                 pointerEvents={isEditing ? "" : "none"}
-
               >
                 <option></option>
                 <option value="Oui">Oui</option>
@@ -421,32 +355,26 @@ const ViewObjetCredit = ({
               </Select>
             </FormControl>
 
-            {credit["promoteur"] === "Oui" && <FormControl
-              id="Nom"
-              //isReadOnly={credit["promoteur"] === "Oui" ? false : true}
-              isRequired
-              variant="floatingDown"
-              w="24.5%"
-            >
-              <FormLabel
-                fontSize={"sm"}
-                fontWeight="normal"
-                transform={
-                  credit["promoteur_nom"] ? "scale(0.85) translateY(29px)" : ""
-                }
+            {donneesPersonnelles["credit"]["promoteur"] === "Oui" && (
+              <FormControl
+                id="Nom"
+                //isReadOnly={donneesPersonnelles["credit"]["promoteur"] === "Oui" ? false : true}
+                isRequired
+                w="24.5%"
               >
-                Promoteur Nom
-              </FormLabel>
-              <InputGroup size="sm">
-                <Input
-                  name="promoteur_nom"
-                  onChange={(e) => handleCreditDataChange(e, index)}
-                  defaultValue={credit["promoteur_nom"]}
-                  isReadOnly={!isEditing}
-
-                />
-              </InputGroup>
-            </FormControl>}
+                <FormLabel fontSize={"sm"} fontWeight="normal">
+                  Promoteur Nom
+                </FormLabel>
+                <InputGroup size="sm">
+                  <Input
+                    name="promoteur_nom"
+                    onChange={(e) => handleCreditDataChange(e)}
+                    defaultValue={donneesPersonnelles["credit"]["promoteur_nom"]}
+                    isReadOnly={!isEditing}
+                  />
+                </InputGroup>
+              </FormControl>
+            )}
           </>
         )}
       </HStack>

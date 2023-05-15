@@ -95,11 +95,11 @@
         </tr>
         <tr>
           <th>Resultat Net/Salaire</th>
-          <td>{{prospect.revenue}}</td>
+          <td>{{credit.prospect_revenue}}</td>
         </tr>
         <tr>
           <th>Part de Participation</th>
-          <td>100.00%</td>
+          <td>{{prospect.participation}}%</td>
         </tr>
       </table>
     </div>
@@ -163,7 +163,7 @@
         </tr>
         <tr>
           <th>Part de Participation</th>
-          <td>100.00%</td>
+          <td>{{co_emprunteur.participation}}%</td>
         </tr>
       </table>
     </div>
@@ -200,7 +200,7 @@
           <th>Duree</th>
           <th>RAT</th>
         </tr>
-      {% for eng_ban in prospect.engagements_bancaires %}
+      {% for eng_ban in credit.engagements_bancaires %}
         <tr>
           <td>{{eng_ban.nom}}  {{eng_ban.prenom}}</td>
           <td>{{eng_ban.nature_credit}}</td>
@@ -213,108 +213,121 @@
         {% endfor %}
       </table>
     </div>
-    <div class="odc">
-      <div class="table-head">OBJET DE CREDIT</div>
-      <div class="odc-table">
-        <table class="pos_fixed1" width="50%" border="1">
-          <tr>
-            <th>Objet de credit</th>
-            <td>{{credit.objet_credit}}</td>
-          </tr>
-          <tr>
-            <th>Nature du bien</th>
-            <td>{{credit.nature_bien}}</td>
-          </tr>
-          <tr>
-            <th>Usage du bien</th>
-            <td>{{credit.usage_bien}}</td>
-          </tr>
-          <tr>
-            <th>Etat du bien</th>
-            <td>{{credit.etat_bien}}</td>
-          </tr>
-          <tr>
-            <th>Superficie en m</th>
-            <td>{{credit.superficie}} m</td>
-          </tr>
-          <tr>
-            <th>Adr. du bien</th>
-            <td>
-              {{credit.adresse_bien.adresse1}}
-            </td>
-          </tr>
-        </table>
-        <table class="pos_fixed2" width="50%" border="1">
-          <tr>
-            <th>Ville</th>
-            <td>{{credit.adresse_bien.ville}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur venale</th>
-            <td>{{credit.montant_venal}}</td>
-          </tr>
-          <tr>
-            <th>Montant valeur a l'acte</th>
-            <td>{{credit.montant_acte}}</td>
-          </tr>
-          <tr>
-            <th>Titr foncier</th>
-            <td>{{credit.titre_foncier}}</td>
-          </tr>
-          <tr>
-            <th>Mnt Travaux</th>
-            <td>{{credit.montant_travaux}}</td>
-          </tr>
-          <tr>
-            <th>Garanties</th>
-            <td>{{credit.garanties}}</td>
-          </tr>
-         
-        </table>
-      </div>
+  <div class="odc">
+    <div class="table-head">OBJET DE CREDIT</div>
+    <div class="odc-table">
+     <div>
+      <table class="pos_fixed1" width="50%" border="1">
+      
+        <tr>
+          <th>Objet de credit</th>
+          <td>{{credit.objet_credit}}</td>
+        </tr>
+        <tr>
+          <th>Nature du bien</th>
+          <td>{{credit.nature_bien}}</td>
+        </tr>
+        <tr>
+          <th>Usage du bien</th>
+          <td>{{credit.usage_bien}}</td>
+        </tr>
+        <tr>
+          <th>Etat du bien</th>
+          <td>{{credit.etat_bien}}</td>
+        </tr>
+        <tr>
+          <th>Superficie en m</th>
+          <td>{{credit.superficie}} m</td>
+        </tr>
+       
+      </table>
+      <table class="pos_fixed2" width="50%" border="1">
+        <tr>
+          <th>Ville</th>
+          <td>{{credit.adresse_bien.ville}}</td>
+        </tr>
+        <tr>
+          <th>Montant valeur venale</th>
+          <td>{{credit.montant_venal}}</td>
+        </tr>
+        <tr>
+          <th>Montant valeur a l'acte</th>
+          <td>{{credit.montant_acte}}</td>
+        </tr>
+        <tr>
+          <th>Titr foncier</th>
+          <td>{{credit.titre_foncier}}</td>
+        </tr>
+        <tr>
+          <th>Mnt Travaux</th>
+          <td>{{credit.montant_travaux}}</td>
+        </tr>
+       
+      </table>
+      <table class="pos_fixed3"   width="100%" border="1">
+        <tr>
+          <th>Adresse du bien</th>
+          <td>
+            {{credit.adresse_bien.adresse1}}
+          </td>
+        </tr>
+      </table>
+     </div>
     </div>
-    <div class="cdc">
-      <div class="table-head">CARACTERISTIQUES DU CREDIT</div>
-      <table class="pos_fixed1" border="1">
+  </div>
+  <div class="cdc">
+    <div class="cdc-head">CARACTERISTIQUES DU CREDIT</div>
+    <table class="pos_fixed1" border="1">
+      <tr>
+        <th>Montant</th>
+        <td>{{credit.montant}}</td>
+      </tr>
+      <tr>
+        <th>Mens. TTC hors Assurance</th>
+        <td>{{credit.mensualite}}</td>
+      </tr>
+      <tr>
+        <th>Tx d'endet. projet</th>
+        <td>{{credit.taux_endt}}</td>
+      </tr>
+    </table>
+    <table class="pos_fixed2" border="1">
+      <tr>
+        <th>Durée</th>
+        <td>{{credit.duree_credit}}</td>
+      </tr>
+      <tr>
+        <th>Taux souhaité</th>
+        <td>{{credit.taux_demande}}</td>
+      </tr>
+      <tr>
+        <th>TEG</th>
+        <td>{{credit.teg}}</td>
+      </tr>
+    </table>
+    <table class="pos_fixed3" border="1">
+      <tr>
+        <th>Frèq.Remboursement</th>
+        <td>{{credit.frequence}}</td>
+      </tr>
+      <tr>
+        <th>Durée de franchise</th>
+        <td>{{credit.franchise}}</td>
+      </tr>
+      <tr>
+        <th>Quotitèfinacement</th>
+        <td>{{credit.qot_financement}} %</td>
+      </tr>
+    </table>
+  </div>
+ 
+    <div class="garanties">
+      <table >
         <tr>
-          <th>Montant</th>
-          <td>{{credit.montant}}</td>
+          <th>Garanties</th>
         </tr>
         <tr>
-          <th>Mens. TTC + Ass</th>
-          <td>{{credit.mensualite}}</td>
-        </tr>
-        <tr>
-          <th>Tx d'endet. projet</th>
-          <td>{{credit.taux_endt}}</td>
-        </tr>
-      </table>
-      <table class="pos_fixed2" border="1">
-        <tr>
-          <th>Durée</th>
-          <td>{{credit.duree_credit}}</td>
-        </tr>
-        <tr>
-          <th>Taux souhaité</th>
-          <td>{{credit.taux}}</td>
-        </tr>
-        <tr>
-          <th>TEG</th>
-          <td>{{credit.teg}}</td>
-        </tr>
-      </table>
-      <table class="pos_fixed3" border="1">
-        <tr>
-          <th>Frèq.Remboursement</th>
-          <td>{{credit.frequence}}</td>
-        </tr>
-        <tr>
-          <th>Durée de franchise</th>
-          <td>{{credit.franchise}}</td>
-        </tr>
-        <tr>
-          <th>Quotitèfinacement</th>
-          <td>{{credit.qot_financement}} %</td>
+          <td>{{credit.garanties}}</td>
         </tr>
       </table>
     </div>
@@ -324,7 +337,7 @@
           <th>Commentaires</th>
         </tr>
         <tr>
-          <td></td>
+          <td>{{credit.commentaires}}</td>
         </tr>
       </table>
       <table class="pos-right">

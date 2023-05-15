@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment, useContext } from 'react'
+import React, { useEffect, useState, useMemo, useContext } from 'react'
 import {
     Table,
     Thead,
@@ -17,13 +17,19 @@ import {
     Td,
     IconButton,
     useDisclosure,
-    Code
+    Code,
+    Flex,
+    Box,
+    Input,
+    InputGroup,
+    InputLeftElement,
+    Spacer
  
   } from "@chakra-ui/react";
-import { FaUserEdit } from 'react-icons/fa';
+import { FaFolderPlus, FaUserEdit, FaUserPlus } from 'react-icons/fa';
 
 import { AiOutlineUserAdd,AiOutlineDelete,AiOutlineFolderView } from 'react-icons/ai'
-import { MdOutlineManageAccounts } from 'react-icons/md'
+import { MdOutlineManageAccounts, MdSearch } from 'react-icons/md'
 import { HiViewList } from 'react-icons/hi'
 import EditableRow from 'components/Tables/EditableRowUsers';
 import ReadOnlyRow from 'components/Tables/ReadOnlyRowUsers';
@@ -32,11 +38,14 @@ import axiosInstance from 'services/axios';
 import { ProspectContext } from 'context/ProspectsContext';
 import Confirmation from 'components/Modals/Confirmation';
 import { Link } from 'react-router-dom';
+import { CreditContext } from 'context/CreditContext';
 const Prospects = () => {
   const { prospects, setProspects } = useContext(ProspectContext)
+  const { createNewRecord} = useContext(CreditContext)
   const [prospect, setProspect] = useState([])
   const { setReloadProspects } = useContext(ProspectContext)
   const [ showModal, setShowModal ] = useState(false)
+  const [searchParams, setSearchParams] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast()
 
@@ -55,6 +64,28 @@ const Prospects = () => {
       payLoad: prospect
     })
   }
+
+  const handleSearchChange = (event) => {
+    setSearchParams(event.target.value);
+  };
+  const filterName = (prospects) => {
+    if (searchParams == "") {
+      return prospects;
+    } else {
+      return prospects.filter((prospect) => 
+        prospect.nom.toLowerCase().startsWith(searchParams.toLowerCase()) 
+      );
+    }
+  };
+
+  const getFilteredList = () => {
+   var list = filterName(prospects);
+    return list;
+  };
+  const filteredList = useMemo(getFilteredList, [
+    prospects,
+    searchParams,
+  ]);
 
 
   const handleDelete = async (event, prospect) => {
@@ -86,6 +117,20 @@ const Prospects = () => {
             <TagLabel>Listes des Prospects</TagLabel>
         </Tag>
     </HStack>
+    <Flex m={3}>
+    <Box>
+          <InputGroup>
+            <InputLeftElement children={<MdSearch/>} />
+            <Input
+              size={"sm"}
+              placeholder="Chercher..."
+              value={searchParams}
+              onChange={handleSearchChange}
+            />
+          </InputGroup>
+        </Box>
+        <Spacer />
+    </Flex>
   <Confirmation
       header={`Supprimer prospect: ${showConfirmation.payLoad.nom} ${showConfirmation.payLoad.prenom}`} 
       content={"Voulez-vous effectuer cette opération ?"}
@@ -94,7 +139,7 @@ const Prospects = () => {
       payLoad={showConfirmation.payLoad}
       action={handleDelete}
       />
-    {prospects.length > 0 ? (
+    {filteredList.length > 0 ? (
     
     <TableContainer
           m={2}
@@ -148,6 +193,16 @@ const Prospects = () => {
                           whiteSpace: "pre-wrap",
                         }}
                     >
+                    CIN/SEJOUR
+                    </Th>
+                    <Th
+                        textAlign="center"
+                        style={{
+                          padding: 3,
+                          overflowWrap: "break-word",
+                          whiteSpace: "pre-wrap",
+                        }}
+                    >
                     Telephone
                     </Th>
                     <Th
@@ -183,7 +238,7 @@ const Prospects = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {prospects.map((prospect) => {
+                {filteredList.map((prospect) => {
                       return (
                          <Tr key={prospect.prospect_id} >
                           <Td
@@ -205,6 +260,16 @@ const Prospects = () => {
                             }}
                           >
                             {prospect["prenom"]}
+                          </Td>
+                          <Td
+                            textAlign="center"
+                            style={{
+                              padding: 1,
+                              overflowWrap: "break-word",
+                              whiteSpace: "pre-wrap",
+                            }}
+                          >
+                            {prospect["cin_sejour"]}
                           </Td>
                           <Td
                             textAlign="center"
@@ -244,7 +309,7 @@ const Prospects = () => {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                        <Link to={"/dashboard/viewProspect"} state={{'id' : prospect.prospect_id}}>
+                        {/* <Link to={"/dashboard/viewProspect"} state={{'id' : prospect.prospect_id,"return_link": "/dashboard/prospects"}}>
                         <IconButton
                           variant="outline"
                           color="blue.400"
@@ -252,9 +317,24 @@ const Prospects = () => {
                           fontSize="15px"
                           icon={<FaUserEdit />}
                           size="xs"
+                          mr={1}
+                          
+                        /> 
+                        </Link> */}
+                        <Link to={"/dashboard/demandeCredit"} onClick={()=>createNewRecord(prospect)}>
+                        <IconButton
+                          variant="outline"
+                          color="blue.400"
+                          aria-label="Call Sage"
+                          fontSize="15px"
+                          icon={<FaFolderPlus />}
+                          size="xs"
+                          mr={1}
                           
                         /> 
                         </Link>
+
+                  
                           <IconButton
                           variant="outline"
                           color="green.400"

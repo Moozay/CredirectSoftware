@@ -51,12 +51,16 @@ const ViewDonneesPersonnelles = ({}) => {
     newFormDonneesPersonelles[section][fieldName] = fieldValue;
     if (fieldName === "type_profession" && fieldValue != "Retraité") {
       newFormDonneesPersonelles.emprunteur.caisse = "";
+      newFormDonneesPersonelles.emprunteur.profession = null;
+    }
+    if (fieldName === "type_profession" && fieldValue === "Retraité") {
+      newFormDonneesPersonelles.emprunteur.profession = null;
     }
     if (fieldName === "source" && fieldValue != "Parrainage") {
-      newFormDonneesPersonelles.emprunteur.parrainage = null
+      newFormDonneesPersonelles.emprunteur.parrainage = null;
     }
     if (fieldName === "source" && fieldValue != "Agent") {
-      newFormDonneesPersonelles.emprunteur.agent = null
+      newFormDonneesPersonelles.emprunteur.agent = null;
     }
     setDonneesPersonnelles(newFormDonneesPersonelles);
     if (fieldName === "revenue") {

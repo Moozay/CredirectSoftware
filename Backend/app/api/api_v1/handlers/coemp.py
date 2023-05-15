@@ -26,6 +26,10 @@ async def update_coemp(coemp: CoempUpdate):
 async def get_coemp(coemp_id: UUID):
     pass
 
+@coemp_router.post("/record", summary="Update Record", response_model=CoempOut)
+async def update_record(payLoad: CoempOut):
+    return await CoempService.update_record(payLoad)
+
 @coemp_router.get('/all', summary="get all Coemps", response_model=List[CoempOut])
 async def get_coemps():
     pass

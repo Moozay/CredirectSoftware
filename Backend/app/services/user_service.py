@@ -61,6 +61,10 @@ class UserService:
     @staticmethod
     async def get_users() -> List[User]:
         return await User.find_all().to_list()
+        
+    @staticmethod
+    async def get_agents() -> List[User]:
+        return await User.find_many(User.role != "Admin").to_list()
 
 
     @staticmethod

@@ -58,7 +58,7 @@ const ViewRenseignements = ({handleRenChange}) => {
           w= "100%"
           disabled={!isEditing}
         >
-          Add New
+          Ajouter
         </Button>
       <HStack direction='row' justifyContent={"space-between"} my={2} mb={2}>
             <Code bgColor={colorMode=='light'?"#efefef":""} children='Bénéficiare' p={1} w="99%" textAlign={"center"} />

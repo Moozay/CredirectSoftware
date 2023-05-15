@@ -13,6 +13,7 @@ from app.models.credit_model import Credit
 from app.models.coemp_model import Coemp
 from app.models.demande_credit_model import DemandeCredit
 from app.models.client_model import Client
+from app.models.comission_model import Commission
 
 
 
@@ -54,7 +55,8 @@ async def app_init():
             Credit,
             Coemp,
             DemandeCredit,
-            Client
+            Client,
+            Commission
         ]
     )  
 

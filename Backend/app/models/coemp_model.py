@@ -3,7 +3,6 @@ from pydantic import Field
 from beanie import Document, Indexed
 from uuid import UUID, uuid4
 
-
 class Coemp(Document):
     coemp_id: UUID = Field(default_factory=uuid4)
     nom: str
@@ -20,6 +19,7 @@ class Coemp(Document):
     datembauche: datetime
     revenue: float
     prospect_id: UUID
+    participation: str
 
 class Config:  
     use_enum_values = True

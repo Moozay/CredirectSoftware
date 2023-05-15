@@ -12,60 +12,85 @@ import {
   InputGroup,
   RadioGroup,
   Radio,
-  Select
+  Select,
 } from "@chakra-ui/react";
-
+import { Country, State } from "country-state-city";
 import "../Stepper/stepper.css";
 import countryList from "react-select-country-list";
-import {AiFillCaretDown} from 'react-icons/ai'
-import { CreditContext } from 'context/CreditContext'
+import { AiFillCaretDown } from "react-icons/ai";
+import { CreditContext } from "context/CreditContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { AiOutlineCalendar } from "react-icons/ai";
 
-const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAdresseChange }) => {
-  const options = useMemo(() => countryList().getData(), [])
-  const {donneesPersonelles, setDonneesPersonelles} = useContext(CreditContext)
-  const {datenaissance, setDateNaissance} = useContext(CreditContext)
-  const {datembauche, setDatembauche} = useContext(CreditContext)
-  const [section, setSection] = useState("co_emprunteur")
+const CoEmprunteur = ({
+  handleDonnesPersonnellesChange,
+  hasCoEmprunteur,
+  handleAdresseChange,
+}) => {
+  const options = useMemo(() => countryList().getData(), []);
+  const [countryId, setCountryId] = useState("MA");
+  const countries = useMemo(() => Country.getAllCountries(), []);
+  const updatedCountries = countries.map((country) => ({
+    label: country.name,
+    value: { name: country.name, id: country.isoCode },
+    ...country,
+  }));
+
+  const updatedState = () =>
+    State.getStatesOfCountry(countryId).map((state) => ({
+      label: state.name,
+      value: { name: state.name },
+      ...state,
+    }));
+  const { donneesPersonelles, setDonneesPersonelles } =
+    useContext(CreditContext);
+  const { datenaissance, setDateNaissance } = useContext(CreditContext);
+  const { datembauche, setDatembauche } = useContext(CreditContext);
+  const [section, setSection] = useState("co_emprunteur");
 
   const handleDateNaissanceChange = (date) => {
-    const newDateNaissance = {...datenaissance}
-    newDateNaissance["co_emprunteur_date"] = date
-    setDateNaissance(newDateNaissance)
+    const newDateNaissance = { ...datenaissance };
+    newDateNaissance["co_emprunteur_date"] = date;
+    setDateNaissance(newDateNaissance);
 
-    const newFormDonneesPersonelles = { ...donneesPersonelles }
+    const newFormDonneesPersonelles = { ...donneesPersonelles };
 
-    newFormDonneesPersonelles[section]["datenaissance"] = new Date(date).toISOString()
+    newFormDonneesPersonelles[section]["datenaissance"] = new Date(
+      date
+    ).toISOString();
 
-    setDonneesPersonelles(newFormDonneesPersonelles)
+    setDonneesPersonelles(newFormDonneesPersonelles);
   };
   const handleDateEmbauche = (date) => {
-    const newDateEmbauche = {...datembauche}
-    newDateEmbauche["co_emprunteur_date"] = date
-    setDatembauche(newDateEmbauche)
-    const newFormDonneesPersonelles = { ...donneesPersonelles }
+    const newDateEmbauche = { ...datembauche };
+    newDateEmbauche["co_emprunteur_date"] = date;
+    setDatembauche(newDateEmbauche);
+    const newFormDonneesPersonelles = { ...donneesPersonelles };
 
-      newFormDonneesPersonelles[section]["datembauche"] = new Date(date).toISOString()
+    newFormDonneesPersonelles[section]["datembauche"] = new Date(
+      date
+    ).toISOString();
 
-      setDonneesPersonelles(newFormDonneesPersonelles)
-  }
+    setDonneesPersonelles(newFormDonneesPersonelles);
+  };
   useEffect(() => {
     console.log(hasCoEmprunteur);
   }, [donneesPersonelles]);
 
   return (
-    <HStack alignItems={"flex-start"} justifyItems={"center"} mb="5" >
+    <HStack alignItems={"flex-start"} justifyItems={"center"} mb="5">
       <VStack alignItems={"flex-start"} w="100%" mx="3">
         <HStack w="100%" my={4}>
-          <FormControl  variant="floating" my={3} isRequired={hasCoEmprunteur}>
+          <FormControl variant="floating" my={3} isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["nom"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["nom"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Nom
@@ -75,17 +100,18 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               name="nom"
               _placeholder={{ color: "gray.500" }}
               defaultValue={donneesPersonelles[section]["nom"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
               type="text"
             />
           </FormControl>
-          <FormControl my={3}  variant="floating" isRequired={hasCoEmprunteur}>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
-              
               transform={
-                donneesPersonelles[section]["prenom"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["prenom"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Prenom
@@ -96,13 +122,12 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               _placeholder={{ color: "gray.500" }}
               defaultValue={donneesPersonelles[section]["prenom"]}
               type="text"
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-         
-          <FormControl my={3}  variant="floating" isRequired={hasCoEmprunteur}>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
@@ -120,7 +145,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               _placeholder={{ color: "gray.500" }}
               type="text"
               defaultValue={donneesPersonelles[section]["lieunaissance"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
@@ -128,7 +153,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["nationalite"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["nationalite"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Nationalité
@@ -139,7 +166,7 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               _placeholder={{ color: "gray.500" }}
               type="text"
               defaultValue={donneesPersonelles[section]["nationalite"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
         </HStack>
@@ -149,7 +176,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["telephone"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["telephone"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Telephone
@@ -160,14 +189,17 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               defaultValue={donneesPersonelles[section]["telephone"]}
               _placeholder={{ color: "gray.500" }}
               type="text"
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
-          </FormControl>  <FormControl my={3} variant="floating"isRequired={hasCoEmprunteur} >
+          </FormControl>{" "}
+          <FormControl my={3} variant="floating">
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["rs_employeur"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["rs_employeur"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               R.S. Employeur
@@ -178,10 +210,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               defaultValue={donneesPersonelles[section]["rs_employeur"]}
               _placeholder={{ color: "gray.500" }}
               type="text"
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
-
         </HStack>
         <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
@@ -189,7 +220,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["profession"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["profession"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Profession
@@ -200,35 +233,53 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               defaultValue={donneesPersonelles[section]["profession"]}
               _placeholder={{ color: "gray.500" }}
               type="text"
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
-            <FormLabel fontSize={"sm"}fontWeight="normal"
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
               transform={
-                donneesPersonelles[section]["situation"] ? "scale(0.85) translateY(-35px)" : ""
-              }>Situation Familiale</FormLabel>
-            <Select 
-              size="sm" 
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+                donneesPersonelles[section]["situation"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Situation Familiale
+            </FormLabel>
+            <Select
+              size="sm"
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
               name="situation"
               defaultValue={donneesPersonelles[section]["situation"]}
-              >
-              <option ></option>
-              <option value="Célibataire" key="Célibataire">Célibataire</option>
-              <option value="Marié(e)" key="Marié(e)">Marié(e)</option>
-              <option value="Veuf(ve)" key="Veuf(ve)">Veuf(e)</option>
-              <option value=" Divorcé(e)" key="Divorcé(e)">Divorcé(e)</option>
+            >
+              <option></option>
+              <option value="Célibataire" key="Célibataire">
+                Célibataire
+              </option>
+              <option value="Marié(e)" key="Marié(e)">
+                Marié(e)
+              </option>
+              <option value="Veuf(ve)" key="Veuf(ve)">
+                Veuf(e)
+              </option>
+              <option value=" Divorcé(e)" key="Divorcé(e)">
+                Divorcé(e)
+              </option>
             </Select>
           </FormControl>
-        
         </HStack>
         <HStack my={4} w="100%">
           <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
-              transform={datembauche["co_emprunteur_date"] ? "scale(0.85) translateY(-35px)" : ""}
+              transform={
+                datembauche["co_emprunteur_date"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
             >
               Date D'embauche
             </FormLabel>
@@ -238,6 +289,8 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
                 selected={datembauche["co_emprunteur_date"]}
                 onChange={handleDateEmbauche}
                 name="datembauche"
+                required
+                portalId="root-portal"
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
@@ -247,7 +300,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["revenue"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["revenue"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Revenus Mensuel
@@ -258,32 +313,34 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               type="text"
               name="revenue"
               defaultValue={donneesPersonelles[section]["revenue"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
         </HStack>
         <HStack my={4} w="50%">
-        <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["participation"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["participation"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Part de participation
             </FormLabel>
             <InputGroup>
-            <Input
-            isReadOnly
-              size="sm"
-              _placeholder={{ color: "gray.500" }}
-              type="number"
-              name="participation"
-              defaultValue={donneesPersonelles[section]["participation"]}
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
-            />
-            <InputRightElement children="%" pb={2} />
+              <Input
+                isReadOnly
+                size="sm"
+                _placeholder={{ color: "gray.500" }}
+                type="number"
+                name="participation"
+                defaultValue={donneesPersonelles[section]["participation"]}
+                onChange={(e) => handleDonnesPersonnellesChange(e, section)}
+              />
+              <InputRightElement children="%" pb={2} />
             </InputGroup>
           </FormControl>
         </HStack>
@@ -295,7 +352,9 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles[section]["cin_sejour"] ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles[section]["cin_sejour"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               N. Cin/Sejour
@@ -306,14 +365,18 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               type="text"
               defaultValue={donneesPersonelles[section]["cin_sejour"]}
               name="cin_sejour"
-              onChange={(e)=>handleDonnesPersonnellesChange(e,section)}
+              onChange={(e) => handleDonnesPersonnellesChange(e, section)}
             />
           </FormControl>
-          <FormControl my={3}  variant="floating" isRequired={hasCoEmprunteur}>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
-              transform={datenaissance["co_emprunteur_date"] ? "scale(0.85) translateY(-35px)" : ""}
+              transform={
+                datenaissance["co_emprunteur_date"]
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
             >
               Date de naissance
             </FormLabel>
@@ -323,19 +386,99 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
                 selected={datenaissance["co_emprunteur_date"]}
                 onChange={handleDateNaissanceChange}
                 name="datenaissance"
+                required
                 dateFormat="dd/MM/yy"
+                portalId="root-portal"
               />
               <InputRightElement children={<AiOutlineCalendar />} pb={2} />
             </InputGroup>
           </FormControl>
         </HStack>
         <HStack my={4} w="100%">
-        <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
             <FormLabel
               fontSize={"sm"}
               fontWeight="normal"
               transform={
-                donneesPersonelles.co_emprunteur.adresse?.adresse1 ? "scale(0.85) translateY(-35px)" : ""
+                donneesPersonelles.co_emprunteur.adresse?.pays
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Pays
+            </FormLabel>
+            <Select
+              size="sm"
+              name="pays"
+              onChange={(e) => {
+                var countryId = e.target.selectedOptions[0].id
+                console.log(e);
+                setCountryId(countryId)
+                handleAdresseChange(e, section);
+              }}
+              icon={<AiFillCaretDown />}
+              w="100%"
+              value={donneesPersonelles.co_emprunteur.adresse?.pays}
+            >
+              <option></option>
+              {updatedCountries.map((country) => {
+                return (
+                  <option
+                    id={country.value.id}
+                    key={country.label}
+                    value={country.value.name}
+                    css={{ width: "100%" }}
+                  >
+                    {country.label}
+                  </option>
+                );
+              })}
+            </Select>
+          </FormControl>
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles.co_emprunteur.adresse?.ville
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
+              }
+            >
+              Ville
+            </FormLabel>
+            <Select
+              size="sm"
+              name="ville"
+              onChange={(e) => handleAdresseChange(e, section)}
+              icon={<AiFillCaretDown />}
+              w="100%"
+              value={donneesPersonelles.co_emprunteur.adresse?.ville}
+            >
+              <option></option>
+              {updatedState(countryId).map((state) => {
+                return (
+                  <option
+                    key={state.label}
+                    value={state.label}
+                    css={{ width: "100%" }}
+                  >
+                    {state.label}
+                  </option>
+                );
+              })}
+            </Select>
+          </FormControl>
+        </HStack>
+        <HStack my={4} w="100%">
+          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
+            <FormLabel
+              fontSize={"sm"}
+              fontWeight="normal"
+              transform={
+                donneesPersonelles.co_emprunteur.adresse?.adresse1
+                  ? "scale(0.85) translateY(-35px)"
+                  : ""
               }
             >
               Adresse
@@ -346,61 +489,13 @@ const CoEmprunteur = ({ handleDonnesPersonnellesChange, hasCoEmprunteur,handleAd
               type="text"
               name="adresse1"
               defaultValue={donneesPersonelles.co_emprunteur.adresse?.adresse1}
-              onChange={(e)=>handleAdresseChange(e,section)}
-            />
-          </FormControl>
-          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
-            <FormLabel
-              fontSize={"sm"}
-              fontWeight="normal"
-              transform={
-                donneesPersonelles.co_emprunteur.adresse?.ville ? "scale(0.85) translateY(-35px)" : ""
-              }
-            >
-              Ville de residence
-            </FormLabel>
-            <Input
-              size="sm"
-              _placeholder={{ color: "gray.500" }}
-              type="text"
-              name="ville"
-              defaultValue={donneesPersonelles.co_emprunteur.adresse?.ville}
-              onChange={(e)=>handleAdresseChange(e,section)}
+              onChange={(e) => handleAdresseChange(e, section)}
             />
           </FormControl>
         </HStack>
-        <HStack my={4} w="100%">
-          <FormControl my={3} variant="floating" isRequired={hasCoEmprunteur}>
-            <FormLabel fontSize={"sm"} fontWeight="normal"
-              transform={
-                donneesPersonelles.co_emprunteur.adresse?.pays ? "scale(0.85) translateY(-35px)" : ""
-              }>Pays</FormLabel>
-            <Select  
-            size='sm' 
-            name="pays"
-            onChange={(e)=>handleAdresseChange(e,section)}
-            icon={<AiFillCaretDown/>}
-            w="100%"
-            value={donneesPersonelles.co_emprunteur.adresse?.pays}
-            >
-                <option></option>
-                {
-                    options.map( country => {
-                        
-                    return  (
-                        
-                        <option key={country.label} value={country.label} css={{"width":"100%"}} >{country.label}</option>
-                     )
-                    })
-                }
-                            
-        </Select>
-          </FormControl>
-        </HStack>
-        
       </VStack>
     </HStack>
-  )
-}
+  );
+};
 
-export default CoEmprunteur
+export default CoEmprunteur;

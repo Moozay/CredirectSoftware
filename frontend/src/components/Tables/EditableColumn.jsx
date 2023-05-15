@@ -8,8 +8,10 @@ import {
   Select,
   InputGroup,
   InputLeftElement, 
-  Box
+  Box,
+  FormControl
 } from "@chakra-ui/react";
+import CurrencyFormat from 'react-currency-format';
 
 // React icons
 import { 
@@ -33,7 +35,7 @@ const EditableColumn = ({
   
   return (
     <>
-    <Td style={{ padding: 2 }} textAlign="center">
+    <Td  style={{ padding: 2 }} textAlign="center">
        <Select  
          size='sm' 
          defaultValue={editCreditForm.statusCredit} 
@@ -51,7 +53,58 @@ const EditableColumn = ({
        </Select>
        
      </Td>
-     <Td style={{ padding: 2 }} textAlign="center">
+     <Td
+     
+          textAlign="center"
+          style={{
+            padding: 1,
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          <FormControl isReadOnly={editCreditForm.statusCredit === 'Validation accord & contrat' ? false:true}>
+          <InputGroup size='sm'>
+              <CurrencyFormat 
+              is
+              customInput={Input}
+              decimalSeparator=","
+              thousandSeparator=" "
+              decimalScale={2}
+              fixedDecimalScale={true}
+              name="montant_valide"
+              value={editCreditForm.montant_valide}
+              onChange={handleEditCreditChange}
+              placeholder='# ### ###.##' />
+          </InputGroup>
+          </FormControl> 
+        </Td>
+        <Td
+        
+          textAlign="center"
+          style={{
+            padding: 1,
+            overflowWrap: "break-word",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          <FormControl isReadOnly={editCreditForm.statusCredit === 'Débloqué' ? false:true}>
+          <InputGroup size='sm'>
+              <CurrencyFormat 
+              is
+              customInput={Input}
+              decimalSeparator=","
+              thousandSeparator=" "
+              decimalScale={2}
+              fixedDecimalScale={true}
+              name="montant_debloque"
+              value={editCreditForm.montant_debloque}
+              onChange={handleEditCreditChange}
+              placeholder='# ### ###.##' />
+          </InputGroup>
+          </FormControl> 
+        </Td>
+    
+     <Td  style={{ padding: 2 }} textAlign="center">
        <Select  
          size='sm' 
         defaultValue={editCreditForm.banque} 
@@ -74,6 +127,7 @@ const EditableColumn = ({
      </Td>
      
      <Td
+     
        style={{ padding: 2 }} textAlign="center"
      >
        <IconButton
@@ -81,7 +135,7 @@ const EditableColumn = ({
          color="blue.400"
          aria-label="Call Sage"
          fontSize="15px"
-         m={2}
+         m={0.4}
          size="xs"
          icon={<BsCheck />}
          onClick={handleEditFormSubmit}
@@ -93,7 +147,7 @@ const EditableColumn = ({
          color="orange.400"
          aria-label="Call Sage"
          fontSize="15px"
-         m={2}
+         m={0.4}
          size="xs"
          icon={<MdOutlineCancel />}
          onClick={handleCancel}

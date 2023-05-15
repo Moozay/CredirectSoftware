@@ -16,7 +16,7 @@ export const DemandeProvider = (props) => {
         if( isMounted.current == true) return
         const initialize = async () => {
             const response = await axiosInstance.get("/credits/all")
-            setDemandes(response.data)
+            setDemandes(response.data.reverse())
             setReloadDemandes(false)
         }
         initialize()

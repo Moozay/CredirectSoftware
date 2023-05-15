@@ -26,8 +26,9 @@ import Prospect from 'components/Prospects/Prospect/Prospect'
 import DemandeCredit from 'components/Credits/DemandeCredit/DemandeCredit'
 import Clients from 'components/Clients/Clients'
 import Client from 'components/Clients/Client/Client'
-import Panel from 'components/Panel'
+import Panel from 'components/Dashboard/Panel'
 import Demandes from 'components/Demandes/Demandes'
+import Honnaires from 'components/Honnaires/Honnaires'
 import UpdateContext from 'components/Demandes/UpdateRecord/ViewProspect'
 import AuthRoute from 'components/Auth/AuthRoute'
 import ViewProspect from 'components/Demandes/UpdateRecord/ViewProspect'
@@ -80,6 +81,9 @@ const App = () => {
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
                     <Route path="demandes" exact element={<Authenticated><Demandes/></Authenticated>}/>
+                  </Route>
+                  <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
+                    <Route path="honnaires" exact element={<Authenticated><Honnaires/></Authenticated>}/>
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Manager","Admin"]}/>}>
                     <Route path="viewProspect" exact element={<Authenticated><ViewProspect/></Authenticated>}/>

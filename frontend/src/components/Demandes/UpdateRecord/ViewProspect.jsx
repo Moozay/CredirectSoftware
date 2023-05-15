@@ -15,15 +15,16 @@ import ViewDonneesPersonnelles from "./ViewDonneesPersonnelles/ViewDonneesPerson
 import ViewDonneesCredit from "./ViewDonneesCredit/ViewDonneesCredit";
 import ViewDonneesBancaires from "./ViewDonneesBancaires/ViewDonneesBancaires";
 import axiosInstance from "services/axios";
-import {v4 as uuidv4} from 'uuid';
-import { useToast } from '@chakra-ui/react'
+import { v4 as uuidv4 } from "uuid";
+import { useToast } from "@chakra-ui/react";
 import { UpdateContext } from "context/UpdateContext";
+import ViewDonneesEnvoyer from "./ViewDonneesEnvoyer/ViewDonneesEnvoyer";
 import { ProspectContext } from "context/ProspectsContext";
 
 const ViewProspect = () => {
-  const toast = useToast()
-  const { setReloadProspects } = useContext(ProspectContext)
-  const [tabIndex, setTabIndex] = useState(0)
+  const toast = useToast();
+  const { setReloadProspects } = useContext(ProspectContext);
+  const [tabIndex, setTabIndex] = useState(0);
   const {
     isEditing,
     setIsEditing,
@@ -31,127 +32,154 @@ const ViewProspect = () => {
     setDonneesPersonnelles,
     setDonneesBancaires,
   } = useContext(UpdateContext);
-  const { datembauche, datenaissance, setDateNaissance, setDatembauche } =
+  const {
+    record,
+    setRecord,
+    date_envoi,
+    setDatenvoi,
+    recordDatenaissance,
+    recordDatEmbauche,
+    setRecordDatenaissance,
+    setRecordDatEmbauche,
+  } = useContext(UpdateContext);
+  const { Pays, setPays, setDateNaissance, setDatembauche } =
     useContext(UpdateContext);
   const location = useLocation();
   const id = location.state.id;
-
+  const return_link = location.state.return_link;
   const handleEdit = (status) => {
     setIsEditing(status);
   };
-
-  const submit = () =>{
-    const emp_in = {...donneesPersonnelles.emprunteur}
-    const credits_in = donneesPersonnelles.credits
-    delete emp_in.has_coemp
-    if (donneesPersonnelles.emprunteur.has_coemp === "true" && donneesPersonnelles.emprunteur.coemp_id === null) {
-      const coemp_id = uuidv4()
-      const coemp_in = donneesPersonnelles.co_emprunteur
-      coemp_in.coemp_id = coemp_id
-      emp_in.coemp_id = coemp_id
-      coemp_in.prospect_id = donneesPersonnelles.emprunteur.prospect_id
+  const submit = () => {
+    const emp_in = { ...donneesPersonnelles.emprunteur };
+    const credit = donneesPersonnelles.credit;
+    delete emp_in.has_coemp;
+    if (
+      donneesPersonnelles.emprunteur.has_coemp === "true" &&
+      donneesPersonnelles.emprunteur.coemp_id === null
+    ) {
+      const coemp_id = uuidv4();
+      const coemp_in = donneesPersonnelles.co_emprunteur;
+      coemp_in.coemp_id = coemp_id;
+      emp_in.coemp_id = coemp_id;
+      coemp_in.prospect_id = donneesPersonnelles.emprunteur.prospect_id;
       console.log("creating new coemp", coemp_in);
-      axiosInstance.post("coemps/create",coemp_in)
-        .then((response)=>{
+      axiosInstance
+        .post("coemps/create", coemp_in)
+        .then((response) => {
           toast({
             title: `Co_Emprunteur créée avec succès`,
             status: "success",
             isClosable: true,
-            duration: 1500
-          })
+            duration: 1500,
+          });
         })
-        .catch((error)=>{
+        .catch((error) => {
           toast({
             title: `Co_emprunteur créée avec succès`,
             status: error,
             isClosable: true,
-            duration: 1500
-          })
-        })
+            duration: 1500,
+          });
+        });
     }
-    if (donneesPersonnelles.emprunteur.has_coemp === "true" && donneesPersonnelles.emprunteur.coemp_id != null) {
-      const coemp_in = donneesPersonnelles.co_emprunteur
+    if (
+      donneesPersonnelles.emprunteur.has_coemp === "true" &&
+      donneesPersonnelles.emprunteur.coemp_id != null
+    ) {
+      const coemp_in = donneesPersonnelles.co_emprunteur;
       console.log("updating coemp", coemp_in);
-      axiosInstance.post("coemps/record",coemp_in)
-        .then((response)=>{
+      axiosInstance
+        .post("coemps/record", coemp_in)
+        .then((response) => {
           toast({
             title: `Co_Emprunteur mis a jour avec succès`,
             status: "success",
             isClosable: true,
-            duration: 1500
-          })
+            duration: 1500,
+          });
         })
-        .catch((error)=>{
+        .catch((error) => {
           toast({
             title: `Co_emprunteur non mis à jours`,
             status: error,
             isClosable: true,
-            duration: 1500
-          })
-        })
+            duration: 1500,
+          });
+        });
     }
-    const payLoad = {"prospect":emp_in, "credits":credits_in}
-    axiosInstance.post("credits/record",payLoad)
-        .then((response)=>{
-          toast({
-            title: `Enregistrement mis à jour avec succès`,
-            status: "success",
-            isClosable: true,
-            duration: 1500
-          })
-        })
-        .catch((error)=>{
-          toast({
-            title: `Enregistrement non mis à jours`,
-            status: error,
-            isClosable: true,
-            duration: 1500
-          })
-        })
-        setIsEditing(false)
-  }
+    const payLoad = { prospect: emp_in, credit: credit };
+    axiosInstance
+      .post("credits/record", payLoad)
+      .then((response) => {
+        toast({
+          title: `Enregistrement mis à jour avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500,
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: `Enregistrement non mis à jours`,
+          status: error,
+          isClosable: true,
+          duration: 1500,
+        });
+      });
+    setIsEditing(false);
+  };
 
-
-  const handleSubmit=()=>{
-    const form = document.getElementsByTagName("form")
+  const handleSubmit = () => {
+    const form = document.getElementsByTagName("form");
     if (form[0].checkValidity() == true) {
-      submit()
-    }else{
-      const item = form[0].querySelector(':invalid')
-      item.focus({focusVisible: true})
+      submit();
+    } else {
+      const item = form[0].querySelector(":invalid");
+      item.focus({ focusVisible: true });
     }
-  }
+  };
 
-  const handleCancel = () =>{
-    const form = document.getElementsByTagName("form")
-    if (form[0].checkValidity() == true) {
-      setIsEditing(false)
-    }else{
-      const item = form[0].querySelector(':invalid')
-      item.focus({focusVisible: true})
-    }
-  }
+  const handleCancel = () => {
+    console.log("cancelled");
+    setDonneesPersonnelles(structuredClone(record));
+    setDatembauche(structuredClone(recordDatEmbauche));
+    setDateNaissance(structuredClone(recordDatenaissance));
+    setIsEditing(false);
+    console.log(donneesPersonnelles);
+  };
 
-  const switchTabs = (index) =>{
-    const form = document.getElementsByTagName("form")
+  const handleChangeDateFormat = (credit) => {
+    console.log(credit);
+      const NewDate_envoi = [];
+      credit["banque_envoye"].map((value, index) => {
+        NewDate_envoi.push((new Date(value["date_envoi"])));
+        
+      });
+      console.log(NewDate_envoi);
+    setDatenvoi(NewDate_envoi);
+  };
+
+  const switchTabs = (index) => {
+    const form = document.getElementsByTagName("form");
     if (form[0].checkValidity() == true) {
-      setTabIndex(index)
-    }else{
-      const item = form[0].querySelector(':invalid')
-      item.focus({focusVisible: true})
+      setTabIndex(index);
+    } else {
+      const item = form[0].querySelector(":invalid");
+      item.focus({ focusVisible: true });
     }
-    
-  }
+  };
   const handleClose = (status) => {
     setIsEditing(status);
-    setReloadProspects(true)
+    setReloadProspects(true);
+    setPays({});
     setDonneesPersonnelles({});
   };
 
   const validate = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log("valid");
-  }
+  };
 
   useEffect(() => {
     const initialize = async () => {
@@ -159,7 +187,7 @@ const ViewProspect = () => {
         const newDonneesPersonnelles = {
           emprunteur: response.data.prospect,
           co_emprunteur: response.data.co_emp,
-          credits: response.data.credits,
+          credit: response.data.credit,
         };
         newDonneesPersonnelles.emprunteur.has_coemp = "false";
         const newDateNaissance = {};
@@ -171,6 +199,10 @@ const ViewProspect = () => {
           newDonneesPersonnelles.emprunteur.datembauche
         );
         if (newDonneesPersonnelles.co_emprunteur != null) {
+          setPays({
+            ...Pays,
+            co_emprunteur: newDonneesPersonnelles.co_emprunteur.adresse.pays,
+          });
           newDonneesPersonnelles.emprunteur.has_coemp = "true";
           newDateNaissance["co_emprunteur"] = new Date(
             newDonneesPersonnelles.co_emprunteur.datenaissance
@@ -178,18 +210,27 @@ const ViewProspect = () => {
           newDateEmbauche["co_emprunteur"] = new Date(
             newDonneesPersonnelles.co_emprunteur.datembauche
           );
+          
         }
         const donneesBancaires = {
           renseignements_bancaires:
             response.data.prospect.renseignement_bancaires,
           engagements_bancaires:
-            newDonneesPersonnelles.emprunteur.engagement_bancaires,
+            newDonneesPersonnelles.credit.engagement_bancaires,
         };
-        console.log(newDonneesPersonnelles);
-        setDatembauche(newDateEmbauche);
-        setDateNaissance(newDateNaissance);
-        setDonneesPersonnelles(newDonneesPersonnelles);
-        setDonneesBancaires(donneesBancaires);
+        setPays({
+          ...Pays,
+          emprunteur: newDonneesPersonnelles.emprunteur.adresse.pays,
+          co_emprunteur: newDonneesPersonnelles.co_emprunteur?.adresse.pays,
+        });
+        console.log(newDonneesPersonnelles["credit"]);
+        setDatembauche({ ...newDateEmbauche });
+        setDateNaissance({ ...newDateNaissance });
+        handleChangeDateFormat(newDonneesPersonnelles["credit"]);
+        setDonneesPersonnelles({ ...newDonneesPersonnelles });
+        setRecord(structuredClone(newDonneesPersonnelles));
+        setRecordDatEmbauche(structuredClone(newDateEmbauche));
+        setRecordDatenaissance(structuredClone(newDateNaissance));
       });
     };
     initialize();
@@ -226,10 +267,7 @@ const ViewProspect = () => {
               >
                 Modifier
               </Button>
-              <Link
-                onClick={() => handleClose(false)}
-                to="/dashboard/prospects"
-              >
+              <Link onClick={() => handleClose(false)} to={return_link}>
                 <Button colorScheme="red" variant="outline">
                   Fermer
                 </Button>
@@ -238,28 +276,39 @@ const ViewProspect = () => {
           )}
         </Stack>
       </Flex>
-      <Tabs isFitted isLazy index={tabIndex} onChange={(index)=>{
-        switchTabs(index)
-      }}>
+      <Tabs
+        isFitted
+        isLazy
+        index={tabIndex}
+        onChange={(index) => {
+          switchTabs(index);
+        }}
+      >
         <TabList mb="1em">
           <Tab>Donnees Personnelles</Tab>
           <Tab>Donnees Bancaires</Tab>
           <Tab>Donnees Credit</Tab>
+          <Tab>Choix Banque</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
             <form id="0" onSubmit={validate}>
-            <ViewDonneesPersonnelles />
+              <ViewDonneesPersonnelles />
             </form>
           </TabPanel>
           <TabPanel>
             <form id="1" onSubmit={validate}>
-            <ViewDonneesBancaires />
+              <ViewDonneesBancaires />
             </form>
           </TabPanel>
           <TabPanel>
             <form id="2" onSubmit={validate}>
-            <ViewDonneesCredit />
+              <ViewDonneesCredit />
+            </form>
+          </TabPanel>
+          <TabPanel>
+            <form id="3" onSubmit={validate}>
+              <ViewDonneesEnvoyer />
             </form>
           </TabPanel>
         </TabPanels>

@@ -30,6 +30,7 @@ const EngagementsBancaires = ({ handleEngChange }) => {
     calculateTeg,
     credit,
     setCredit,
+    changeStringToFloat
   } = useContext(CreditContext);
   const [section, setSection] = useState("engagements_bancaires");
   const [inputField, setInputField] = useState([
@@ -89,7 +90,7 @@ const EngagementsBancaires = ({ handleEngChange }) => {
         border={"none"}
         onClick={addField}
       >
-        Add New
+        Ajouter
       </Button>
       <HStack direction="row" justifyContent={"space-between"} my={2}>
         <Code
@@ -204,6 +205,10 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                 <option value="immobilier">Immobilier</option>
                 <option value="hypothecaire">Hypothécaire</option>
                 <option value="consommation">Consommation</option>
+                <option value="crédit automobile">Crédit automobile</option>
+                <option value="crédit leasing">Crédit leasing</option>
+                <option value="crédit investissement">Crédit investissement</option>
+
               </Select>
             </FormControl>
             <FormControl isRequired variant="floating">
@@ -234,11 +239,12 @@ const EngagementsBancaires = ({ handleEngChange }) => {
                   name="echeance"
                   value={input.echeance}
                   placeholder="# ### ###.##"
+
                 />
                 <InputRightAddon children="د.م" />
               </InputGroup>
             </FormControl>
-            <FormControl isRequired>
+            <FormControl >
               <InputGroup size="sm">
                 <CurrencyFormat
                   customInput={Input}

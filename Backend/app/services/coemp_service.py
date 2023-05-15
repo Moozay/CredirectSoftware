@@ -23,7 +23,8 @@ class CoempService:
             rs_employeur = coemp.rs_employeur,
             datembauche = coemp.datembauche,
             revenue = coemp.revenue,
-            prospect_id = coemp.prospect_id
+            prospect_id = coemp.prospect_id,
+            participation = coemp.participation
         )
         await coemp_in.save()
         return coemp_in
@@ -40,6 +41,11 @@ class CoempService:
     async def get_coemps() -> List[Coemp]:
         pass
 
+    @staticmethod
+    async def update_record(payLoad: CoempOut):
+        await Coemp.find_one(Coemp.coemp_id == payLoad.coemp_id).update({'$set':payLoad})
+        return payLoad
+    
     @staticmethod
     async def get_coemp_by_id(id: UUID) -> Optional[CoempOut]:
         coemp = await Coemp.find_one(Coemp.coemp_id == id)

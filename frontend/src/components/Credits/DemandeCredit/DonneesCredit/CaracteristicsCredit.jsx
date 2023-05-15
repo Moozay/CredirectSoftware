@@ -8,14 +8,35 @@ import {
   InputGroup,
   InputRightAddon,
   Input,
+  Stack,
+  CheckboxGroup,
+  Checkbox,
   Select,
   Textarea,
 } from "@chakra-ui/react";
 import { CreditContext } from "context/CreditContext";
 import CurrencyFormat from "react-currency-format";
 import { useContext } from "react";
+
 const CaracteristicsCredit = ({ handleCreditDataChange }) => {
-  const { credit, setCredit } = useContext(CreditContext);
+  const { credit, setCredit,banquEnvoye, setBanquEnvoye } = useContext(CreditContext);
+  const handleBanqueEnvoyeChange = (e) => {
+    const newBanquEnvoye = banquEnvoye
+    const status = e.target.checked
+    const value = e.target.value
+    if (status) {
+      newBanquEnvoye.push(value)
+      setBanquEnvoye(newBanquEnvoye)
+    }
+    else{
+      const index = newBanquEnvoye.indexOf(value)
+      if (index>-1){
+        newBanquEnvoye.splice(index,1)
+      }
+      setBanquEnvoye(newBanquEnvoye)
+    }
+    console.log(banquEnvoye);
+  };
   return (
     <VStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
@@ -90,9 +111,26 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
+            transform={credit["taux_demande"] ? "scale(0.85) translateY(29px)" : ""}
+          >
+            Taux demandé
+          </FormLabel>
+          <InputGroup size="sm">
+            <Input
+              name="taux_demande"
+              onChange={handleCreditDataChange}
+              value={credit["taux_demande"]}
+            />
+            <InputRightAddon children="%" />
+          </InputGroup>
+        </FormControl>
+        <FormControl isRequired variant="floatingDown" mt={2}>
+          <FormLabel
+            fontSize={"sm"}
+            fontWeight="normal"
             transform={credit["taux"] ? "scale(0.85) translateY(29px)" : ""}
           >
-            Taux souhaité
+            Taux appliqué
           </FormLabel>
           <InputGroup size="sm">
             <Input
@@ -132,25 +170,7 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
         </FormControl>
        
 
-        <FormControl isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["franchise"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
-            Durée de Franchise
-          </FormLabel>
-          <InputGroup size="sm">
-            <Input
-              name="franchise"
-              onChange={handleCreditDataChange}
-              value={credit["franchise"]}
-            />
-            <InputRightAddon children="mois" />
-          </InputGroup>
-        </FormControl>
+        
       </HStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
         <FormControl isRequired variant="floatingDown">
@@ -191,7 +211,29 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl  variant="floatingDown">
+          <FormLabel
+            fontSize={"sm"}
+            fontWeight="normal"
+            transform={
+              credit["franchise"] ? "scale(0.85) translateY(29px)" : ""
+            }
+          >
+            Durée de Franchise
+          </FormLabel>
+          <InputGroup size="sm">
+            <Input
+              name="franchise"
+              onChange={handleCreditDataChange}
+              value={credit["franchise"]}
+            />
+            <InputRightAddon children="mois" />
+          </InputGroup>
+        </FormControl>
+       
+      </HStack>
+      <HStack w="100%" pt={4}>
+      <FormControl w={"33%"} isRequired variant="floatingDown" mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
@@ -212,18 +254,18 @@ const CaracteristicsCredit = ({ handleCreditDataChange }) => {
           </InputGroup>
         </FormControl>
       </HStack>
-      <HStack justifyContent={"space-between"} w="100%" pt={4}>
-        <FormControl mt={2}>
+      <HStack justifyContent={"space-around"} w="100%" pt={4}>
+        <FormControl >
         <FormLabel
             fontSize={"sm"}
             fontWeight="normal">
             Commentaires
           </FormLabel>
-          <Textarea w="33%" h="10%" name="commentaires" value={credit.commentaires} onChange={handleCreditDataChange}>
-
-          </Textarea>
+          <Textarea rows={7} w={"33%"} name="commentaires" value={credit.commentaires} onChange={handleCreditDataChange}/>
         </FormControl>
       </HStack>
+      
+      
     </VStack>
   );
 };

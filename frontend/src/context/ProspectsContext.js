@@ -17,7 +17,7 @@ export const ProspectProvider = (props) => {
         if( isMounted.current == true) return
         const initialize = async () => {
             const response = await axiosInstance.get("/prospects/all")
-            setProspects(response.data)
+            setProspects(response.data.reverse())
             setReloadProspects(false)
         }
         initialize()

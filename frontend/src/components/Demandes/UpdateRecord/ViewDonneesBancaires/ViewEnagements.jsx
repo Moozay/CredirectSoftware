@@ -42,35 +42,31 @@ const ViewEngagements  = ({ handleEngChange, isEditing }) => {
       duree: "",
       rat: ""
     };
-    const data = [...donneesPersonnelles.emprunteur.engagements_bancaires, newField]
+    const data = [...donneesPersonnelles.credit.engagements_bancaires, newField]
     handleEngChange(data)
   };
 
   const handleFormChange = (index, event) => {
-    let data = [...donneesPersonnelles.emprunteur.engagements_bancaires];
+    let data = [...donneesPersonnelles.credit.engagements_bancaires];
     data[index][event.target.name] = event.target.value;
     handleEngChange(data);
     if (event.target.name == "echeance" || event.target.name == "rat") {
-      const newRecord  = [...donneesPersonnelles.credits]
-      for (let index = 0; index < newRecord.length; index++) {
-        newRecord[index].teg = calculateTeg(newRecord[index].mensualite,data)
-      }
+      const newRecord  = {...donneesPersonnelles.credit}
+        newRecord.teg = calculateTeg(newRecord.mensualite,data)
       setDonneesPersonnelles({
         ...donneesPersonnelles,
-        "credits" :newRecord
+        "credit" :newRecord
       })
     }
   }
 
   const removeField = (index) => {
-    let data = [...donneesPersonnelles.emprunteur.engagements_bancaires];
+    let data = [...donneesPersonnelles.credit.engagements_bancaires];
     data.splice(index, 1);
     handleEngChange(data);
-    var credits = [...donneesPersonnelles.credits]
-    for (let index = 0; index < credits.length; index++) {
-      credits[index].teg = calculateTeg(credits[index].mensualite,data)
-    }
-    console.log("removed", index, data);
+    var credit = {...donneesPersonnelles.credit}
+    credit.teg = calculateTeg(credit.mensualite,data)
+    console.log("removed",data);
   };
   const { colorMode } = useColorMode();
   return (
@@ -86,7 +82,7 @@ const ViewEngagements  = ({ handleEngChange, isEditing }) => {
         w="100%"
         disabled={!isEditing}
       >
-        Add New
+        Ajouter
       </Button>
       <HStack direction="row" justifyContent={"space-between"} my={2}>
         <Code
@@ -146,7 +142,7 @@ const ViewEngagements  = ({ handleEngChange, isEditing }) => {
           textAlign={"center"}
         />
       </HStack>
-      {donneesPersonnelles.emprunteur.engagements_bancaires.map((input, index) => {
+      {donneesPersonnelles.credit.engagements_bancaires.map((input, index) => {
         return (
           <HStack
             alignItems={"flex-start"}
@@ -205,6 +201,10 @@ const ViewEngagements  = ({ handleEngChange, isEditing }) => {
                 <option value="immobilier">Immobilier</option>
                 <option value="hypothecaire">Hypothécaire</option>
                 <option value="consommation">Consommation</option>
+                <option value="crédit automobile">Crédit automobile</option>
+                <option value="crédit leasing">Crédit leasing</option>
+                <option value="crédit investissement">Crédit investissement</option>
+
               </Select>
             </FormControl>
             <FormControl isRequired variant="floating">

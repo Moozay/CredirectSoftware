@@ -11,8 +11,8 @@ const ViewDonneesBancaires= () =>{
     const handleEngChange = (data) =>{
         setDonneesPersonnelles({
             ...donneesPersonnelles,
-            "emprunteur":{
-              ...donneesPersonnelles.emprunteur,
+            "credit":{
+              ...donneesPersonnelles.credit,
               "engagements_bancaires": data
             }
           })

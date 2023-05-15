@@ -9,6 +9,9 @@ import {
   InputGroup,
   InputRightAddon,
   Select,
+  CheckboxGroup,
+  Checkbox,
+  Stack,
 } from "@chakra-ui/react";
 import { AiFillCaretDown } from "react-icons/ai";
 import countryList from "react-select-country-list";
@@ -28,6 +31,23 @@ const ObjetCredit = ({ handleCreditDataChange, handleAdresseChange }) => {
     "Domiciliation de salaire",
     "Engagement de domiciliation des revenus",
   ];
+  const handleGarantiesChange = (e) => {
+    const newCredit = credit
+    const status = e.target.checked
+    const value = e.target.value
+    if (status) {
+      newCredit.garanties.push(value)
+      setCredit(newCredit)
+    }
+    else{
+      const index = newCredit.garanties.indexOf(value)
+      if (index>-1){
+        newCredit.garanties.splice(index,1)
+      }
+      setCredit(newCredit)
+    }
+    console.log(credit);
+  };
   return (
     <>
       {/* <HStack direction='row' justifyContent={"space-between"}>
@@ -156,7 +176,7 @@ const ObjetCredit = ({ handleCreditDataChange, handleAdresseChange }) => {
       </HStack>
 
       <HStack alignItems={"flex-start"} mb="5">
-        <FormControl id="Nom" isRequired variant="floatingDown">
+        <FormControl id="Nom" variant="floatingDown">
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
@@ -356,31 +376,20 @@ const ObjetCredit = ({ handleCreditDataChange, handleAdresseChange }) => {
           </InputGroup>
         </FormControl>
       </HStack>
-      <HStack alignItems={"flex-start"} mb="5">
-        <FormControl id="Nom" isRequired variant="floatingDown" w="24.5%">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["garanties"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
-            Garanties
+      <HStack alignItems={"flex-start"} mb="5" >
+        <FormControl id="Nom" w="24.5%">
+          <FormLabel fontSize={"sm"} fontWeight="normal">
+            Garanties:
           </FormLabel>
-          <Select
-            name="garanties"
-            onChange={handleCreditDataChange}
-            defaultValue={credit["garanties"]}
-            placeholder=""
-            size="sm"
-          >
-            <option></option>
-            {Garanties.map((garanties, index) => (
-              <option value={garanties} key={index}>
-                {garanties}
-              </option>
-            ))}
-          </Select>
+          <CheckboxGroup colorScheme="orange" defaultValue={credit["garanties"]}>
+            <Stack spacing={[1, 1]} direction={"column"}>
+              {Garanties.map((garanties, index) => (
+                <Checkbox size={"sm"} onChange={handleGarantiesChange} value={garanties}>
+                  {garanties}
+                </Checkbox>
+              ))}
+            </Stack>
+          </CheckboxGroup>
         </FormControl>
         {credit.type_credit === "immobilier" && (
           <>

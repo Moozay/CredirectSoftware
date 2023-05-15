@@ -95,7 +95,7 @@
         </tr>
         <tr>
           <th>Resultat Net/Salaire</th>
-          <td>{{prospect.revenue}}</td>
+          <td>{{credit.prospect_revenue}}</td>
         </tr>
         <tr>
           <th>Part de Participation</th>
@@ -200,7 +200,7 @@
           <th>Duree</th>
           <th>RAT</th>
         </tr>
-      {% for eng_ban in prospect.engagements_bancaires %}
+      {% for eng_ban in credit.engagements_bancaires %}
         <tr>
           <td>{{eng_ban.nom}}  {{eng_ban.prenom}}</td>
           <td>{{eng_ban.nature_credit}}</td>
@@ -221,7 +221,7 @@
           <td>{{credit.montant}}</td>
         </tr>
         <tr>
-          <th>Mens. TTC + Ass</th>
+          <th>Mens. TTC hors Assurance</th>
           <td>{{credit.mensualite}}</td>
         </tr>
         <tr>
@@ -264,7 +264,7 @@
           <th>Commentaires</th>
         </tr>
         <tr>
-          <td></td>
+          <td>{{credit.commentaires}}</td>
         </tr>
       </table>
       <table class="pos-right">

@@ -20,10 +20,9 @@ const DonneesCredit = (handlelick) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const { credit, setCredit, hasCoEmprunteur } = useContext(CreditContext);
-  const { donneesPersonelles, changeStringToFloat, calculateTeg } =
-    useContext(CreditContext);
-  
-  const {calculateMensualite, calculateQot} = useContext(CreditContext)
+  const { handleCreditDataChange } = useContext(CreditContext);
+
+  const { calculateMensualite, calculateQot } = useContext(CreditContext);
 
   const handleAdresseChange = (event) => {
     var fieldName = event.target.getAttribute("name");
@@ -35,67 +34,6 @@ const DonneesCredit = (handlelick) => {
     setCredit(newFormCredit);
   };
 
-  const handleCreditDataChange = (event) => {
-    var fieldName = event.target.getAttribute("name");
-    var fieldValue = event.target.value;
-    var newFormCredit = { ...credit }
-    switch (fieldName) {
-      case "montant":
-        newFormCredit[fieldName] = fieldValue;
-        var qot = calculateQot(newFormCredit);
-        newFormCredit.qot_financement = qot;
-        setCredit(newFormCredit);
-        if (fieldValue !== "") {
-          calculateMensualite(newFormCredit);
-        }
-        break;
-      case "taux":
-        newFormCredit[fieldName] = fieldValue;
-        setCredit(newFormCredit);
-        if (fieldValue !== "") {
-          calculateMensualite(newFormCredit);
-        }
-        break;
-      case "duree_credit":
-        newFormCredit[fieldName] = fieldValue;
-        setCredit(newFormCredit);
-        if (fieldValue !== "") {
-          calculateMensualite(newFormCredit);
-        }
-        break;
-      case "montant_acte":
-        newFormCredit[fieldName] = fieldValue;
-        var qot = calculateQot(newFormCredit);
-        newFormCredit.qot_financement = qot;
-        setCredit(newFormCredit);
-        console.log(credit);
-        break;
-      default:
-        newFormCredit[fieldName] = fieldValue;
-        setCredit(newFormCredit);
-        console.log(credit);
-        break;
-    }
-    if (fieldValue == "consommation") {
-      newFormCredit = {
-        montant: credit.montant,
-        duree_credit: credit.duree_credit,
-        frequence: credit.frequence,
-        taux: credit.taux,
-        mensualite: credit.mensualite,
-        franchise: credit.franchise,
-        taux_endt: credit.taux_endt,
-        teg: credit.teg,
-        commentaires: credit.commentaires,
-      };
-      newFormCredit.qot_financement = "0.00";
-      newFormCredit[fieldName] = fieldValue;
-      setCredit(newFormCredit);
-      console.log(credit);
-    }
-  };
-
- 
   useEffect(() => {
     console.log(credit);
   }, [credit]);
@@ -107,6 +45,11 @@ const DonneesCredit = (handlelick) => {
       alignContent={"space-between"}
     >
       <HStack alignItems="center" m={2}>
+        <Flex justifyContent="space-between" alignItems={"center"}>
+          <Heading as="h5" size="md" my={3}>
+            Credit :
+          </Heading>
+        </Flex>
         <FormLabel w="15%">Type de Crédit</FormLabel>
         <FormControl id="Prenom" isRequired w="20%">
           <Select
@@ -119,6 +62,8 @@ const DonneesCredit = (handlelick) => {
             <option value="immobilier">Immobilier</option>
             <option value="hypothecaire">Hypothécaire</option>
             <option value="consommation">Consommation</option>
+            <option value="leasing">Leasing</option>
+            <option value="participatif">Participatif</option>
           </Select>
         </FormControl>
       </HStack>
@@ -136,7 +81,7 @@ const DonneesCredit = (handlelick) => {
             <Heading as="h5" size="sm">
               Objet du Crédit
             </Heading>
-            <Button
+            {/* <Button
               leftIcon={<BiAddToQueue />}
               color={"#ff7659"}
               variant="outline"
@@ -144,7 +89,7 @@ const DonneesCredit = (handlelick) => {
               border={"none"}
             >
               Add New
-            </Button>
+            </Button> */}
           </Flex>
           <ObjetCredit
             handleCreditDataChange={handleCreditDataChange}

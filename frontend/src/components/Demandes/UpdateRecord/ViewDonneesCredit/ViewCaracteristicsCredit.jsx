@@ -3,6 +3,7 @@ import {
   HStack,
   VStack,
   Text,
+  Stack,
   FormControl,
   FormLabel,
   InputGroup,
@@ -10,62 +11,76 @@ import {
   Input,
   Select,
   Textarea,
+  Checkbox,
+  CheckboxGroup
 } from "@chakra-ui/react";
-import { CreditContext } from "context/CreditContext";
+import { UpdateContext } from "context/UpdateContext";
 import CurrencyFormat from "react-currency-format";
 import { useContext } from "react";
-const  ViewCaracteristicsCredit = ({handleCreditDataChange,credit, index}) => {
+const ViewCaracteristicsCredit = ({
+  handleCreditDataChange,
+
+}) => {
+  const {isEditing,donneesPersonnelles ,setDonneesPersonnelles} = useContext(UpdateContext)
+
+  const banques = [
+    "SGMB",
+    "BP",
+    "CDM",
+    "BMCI",
+    "SOFAC",
+    "EQDOM",
+    "WAFASALAF",
+  ]
+
   return (
     <VStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
-        <FormControl isRequired variant="floatingDown">
+        <FormControl isRequired >
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={credit["montant"] ? "scale(0.85) translateY(29px)" : ""}
           >
             Montant
           </FormLabel>
           <InputGroup size="sm">
             <CurrencyFormat
               name="montant"
-              value={credit["montant"]}
+              value={donneesPersonnelles["credit"]["montant"]}
               customInput={Input}
               decimalSeparator=","
               thousandSeparator=" "
               decimalScale={2}
+              isReadOnly={!isEditing}
               fixedDecimalScale={true}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl isRequired  mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={
-              credit["duree_credit"] ? "scale(0.85) translateY(29px)" : ""
-            }
+            
           >
             Durée
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="duree_credit"
-              value={credit["duree_credit"]}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              readOnly={!isEditing}
+              value={donneesPersonnelles["credit"]["duree_credit"]}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="mois" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl isRequired  mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={
-              credit["frequence"] ? "scale(0.85) translateY(29px)" : ""
-            }
+            
           >
             Fréquence de remboursement
           </FormLabel>
@@ -73,8 +88,9 @@ const  ViewCaracteristicsCredit = ({handleCreditDataChange,credit, index}) => {
             placeholder=""
             size="sm"
             name="frequence"
-            value={credit["frequence"]}
-            onChange={(e) => handleCreditDataChange(e, index)}
+            value={donneesPersonnelles["credit"]["frequence"]}
+            pointerEvents={isEditing? "":"none"}
+            onChange={(e) => handleCreditDataChange(e)}
           >
             <option></option>
             <option value="mensuelle">Mensuelle</option>
@@ -85,37 +101,52 @@ const  ViewCaracteristicsCredit = ({handleCreditDataChange,credit, index}) => {
         </FormControl>
       </HStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
-      <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl isRequired  mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={credit["taux"] ? "scale(0.85) translateY(29px)" : ""}
           >
-            Taux souhaité
+            Taux demandé
           </FormLabel>
           <InputGroup size="sm">
             <Input
-              name="taux"
-              value={credit["taux"]}
-              onChange={(e) => handleCreditDataChange(e, index)}
+              name="taux_demande"
+              readOnly={!isEditing}
+              value={donneesPersonnelles["credit"]["taux_demande"]}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown">
+        <FormControl isRequired  mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={
-              credit["mensualite"] ? "scale(0.85) translateY(29px)" : ""
-            }
+          >
+            Taux appliqué
+          </FormLabel>
+          <InputGroup size="sm">
+            <Input
+              name="taux"
+              readOnly={!isEditing}
+              value={donneesPersonnelles["credit"]["taux"]}
+              onChange={(e) => handleCreditDataChange(e)}
+            />
+            <InputRightAddon children="%" />
+          </InputGroup>
+        </FormControl>
+        <FormControl isRequired >
+          <FormLabel
+            fontSize={"sm"}
+            fontWeight="normal"
+           
           >
             Mensualité TTC
           </FormLabel>
           <InputGroup size="sm">
             <CurrencyFormat
               name="mensualite"
-              value={credit["mensualite"]}
+              value={donneesPersonnelles["credit"]["mensualite"]}
               customInput={Input}
               decimalSeparator=","
               thousandSeparator=" "
@@ -124,109 +155,107 @@ const  ViewCaracteristicsCredit = ({handleCreditDataChange,credit, index}) => {
               displayType="input"
               isDisabled
               isNumericString
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="د.م" />
           </InputGroup>
         </FormControl>
-       
 
-        <FormControl isRequired variant="floatingDown">
-          <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal"
-            transform={
-              credit["franchise"] ? "scale(0.85) translateY(29px)" : ""
-            }
-          >
-            Durée de Franchise
-          </FormLabel>
-          <InputGroup size="sm">
-            <Input
-              name="franchise"
-              value={credit["franchise"]}
-              onChange={(e) => handleCreditDataChange(e, index)}
-            />
-            <InputRightAddon children="mois" />
-          </InputGroup>
-        </FormControl>
+       
       </HStack>
       <HStack justifyContent={"space-between"} w="100%" pt={4}>
-        <FormControl isRequired variant="floatingDown">
+        <FormControl isRequired >
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={
-              credit["taux_endt"] ? "scale(0.85) translateY(29px)" : ""
-            }
+            
           >
             Taux D'endet. projet
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="taux_endt"
-              value={credit["taux_endt"]}
+              value={donneesPersonnelles["credit"]["taux_endt"]}
               isDisabled
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl isRequired  mt={2}>
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={credit["teg"] ? "scale(0.85) translateY(29px)" : ""}
           >
             TEG
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="teg"
-              onChange={(e) => handleCreditDataChange(e, index)}
-              value={credit["teg"]}
+              onChange={(e) => handleCreditDataChange(e)}
+              value={donneesPersonnelles["credit"]["teg"]}
               isDisabled
             />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
-        <FormControl isRequired variant="floatingDown" mt={2}>
+        <FormControl >
           <FormLabel
             fontSize={"sm"}
             fontWeight="normal"
-            transform={
-              credit["qot_financement"] ? "scale(0.85) translateY(29px)" : ""
-            }
+            
+          >
+            Durée de Franchise
+          </FormLabel>
+          <InputGroup size="sm">
+            <Input
+              name="franchise"
+              readOnly={!isEditing}
+              value={donneesPersonnelles["credit"]["franchise"]}
+              onChange={(e) => handleCreditDataChange(e)}
+            />
+            <InputRightAddon children="mois" />
+          </InputGroup>
+        </FormControl>
+      </HStack>
+      <HStack justifyContent={"space-between"} w="100%" pt={4}>
+      <FormControl isRequired w={"33%"}  mt={2}>
+          <FormLabel
+            fontSize={"sm"}
+            fontWeight="normal"
+            
           >
             Quotité financement
           </FormLabel>
           <InputGroup size="sm">
             <Input
               name="qot_financement"
-              value={credit["qot_financement"]}
+              readOnly={!isEditing}
+              value={donneesPersonnelles["credit"]["qot_financement"]}
               isDisabled
-              onChange={(e) => handleCreditDataChange(e, index)}
+              onChange={(e) => handleCreditDataChange(e)}
             />
             <InputRightAddon children="%" />
           </InputGroup>
         </FormControl>
       </HStack>
-      <HStack justifyContent={"space-between"} w="100%" pt={4}>
-        <FormControl isRequired mt={2}>
-        <FormLabel
-            fontSize={"sm"}
-            fontWeight="normal">
+      <HStack justifyContent={"space-between"} w="100%" pt={4} mt={2}>
+        <FormControl mt={2}>
+          <FormLabel fontSize={"sm"} fontWeight="normal">
             Commentaires
           </FormLabel>
-          <Textarea w="33%" h="10%" name="commentaires" 
-          onChange={(e) => handleCreditDataChange(e, index)}
-          value={credit.commentaires}>
-
-          </Textarea>
+          <Textarea
+            w="33%"
+            rows={7}
+            name="commentaires"
+            readOnly={!isEditing}
+            onChange={(e) => handleCreditDataChange(e)}
+            value={donneesPersonnelles["credit"].commentaires}
+          ></Textarea>
         </FormControl>
       </HStack>
     </VStack>
   );
 };
 
-export default  ViewCaracteristicsCredit;
+export default ViewCaracteristicsCredit;
