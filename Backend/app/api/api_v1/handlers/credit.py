@@ -87,7 +87,14 @@ async def get_dc(request: Request,credit_id: UUID):
 
 @credit_router.get('/download/facture/', summary="Get dc form credit by id", response_class=HTMLResponse)
 async def get_facture(start, end, bank):
-    return await CreditService.download_facture(start, end, bank)
+    try:
+        return await CreditService.download_facture(start, end, bank)
+    except pymongo.errors.WriteError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Aucun enregistrement trouvé"
+        )
+    
 
 @credit_router.get('/download/mandat/{type_credit}/{credit_id}', summary="Get mandat form credit by id", response_class=HTMLResponse)
 async def get_mandat(request: Request,credit_id: UUID,type_credit: str):
@@ -101,9 +108,13 @@ async def get_credits(user: User = Depends(get_current_user)):
 async def last_credit(prospect_id: UUID):
     return await CreditService.prospect_credits(prospect_id)
 
-@credit_router.get('/bulkupdate', summary="get all credits", response_model=List[CreditOut])
-async def get_credits_bulk_update(user: User = Depends(get_current_user)):
-    return await CreditService.get_credits_bulk_update(user)
+@credit_router.post('/bulkupdate/{prospect_id}/{agent_id}', summary="get all credits")
+async def get_credits_bulk_update(prospect_id:UUID, agent_id:UUID):
+    return await CreditService.get_credits_bulk_update(prospect_id, agent_id)
+
+@credit_router.post('/agentupdate/{credit_id}/{agent_id}', summary="update credit's agent")
+async def get_credits_bulk_update(credit_id:UUID, agent_id:UUID):
+    return await CreditService.update_agent_update(credit_id, agent_id)
 
 @credit_router.post('/bulk', summary="get all credits")
 async def bulk_update():

@@ -17,7 +17,7 @@ commission_router = APIRouter()
 async def create_commission(data: CommissionCreate):
     return await CommissionService.create_comission(data)
 
-@commission_router.post('/update', summary="Update Prospect by id")
+@commission_router.post('/update', summary="Update commission by id")
 async def update_commission(data: CommissionUpdate):
     return await CommissionService.update_comission(data)
 

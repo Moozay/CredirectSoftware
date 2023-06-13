@@ -51,7 +51,7 @@ class UserService:
     @staticmethod
     async def authenticate(email: str, password: str) -> Optional[User]:
         user = await UserService.get_user_by_email(email=email)
-        if not user:
+        if not user or user.status == False:
             return None
         if not verify_password(password=password, hashed_pass=user.hashed_password):
             return None
@@ -61,6 +61,11 @@ class UserService:
     @staticmethod
     async def get_users() -> List[User]:
         return await User.find_all().to_list()
+    
+
+    @staticmethod
+    async def get_active_users() -> List[User]:
+        return await User.find_many(User.status != False).to_list()
         
     @staticmethod
     async def get_agents() -> List[User]:

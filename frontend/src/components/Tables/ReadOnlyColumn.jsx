@@ -12,11 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaUserEdit } from "react-icons/fa";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineUserSwitch } from "react-icons/ai";
 import { FaRegEdit, FaFileSignature } from "react-icons/fa";
 import { HiViewList } from "react-icons/hi";
 import { IoDownloadSharp } from "react-icons/io5";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { UserContext } from "context/UserContext";
+import Confirmation from "components/Modals/Confirmation";
 
 const ReadOnlyColumn = ({
   status,
@@ -25,12 +27,29 @@ const ReadOnlyColumn = ({
   handleDownloadDc,
   handleDownloadMandat,
   handleClick,
-  handleDeleteClick,
+  handleDelete,
 }) => {
+  const { user, setUser } = useContext(UserContext);
+  const [showConfirmation, setShowConfirmation] = useState(false)
+  const handleClose = () => {
+    setShowConfirmation(false)
+  }
+  const handleDeleteClick = (demande) => {
+    setShowConfirmation(true)
+  };
   return (
+    
     <>
+    <Confirmation
+        header={`Supprimer demande: ${demande.type_credit}`}
+        content={"Voulez-vous effectuer cette opération ?"}
+        setShowConfirmation={setShowConfirmation}
+        showConfirmation={showConfirmation}
+        payLoad={demande}
+        action={handleDelete}
+        handleClose={handleClose}
+      />
       <Td
-      
         textAlign="center"
         style={{
           padding: 1,
@@ -41,7 +60,6 @@ const ReadOnlyColumn = ({
         {demande.statusCredit}
       </Td>
       <Td
-      
         textAlign="center"
         style={{
           padding: 1,
@@ -52,7 +70,6 @@ const ReadOnlyColumn = ({
         {demande.montant_valide}
       </Td>
       <Td
-      
         textAlign="center"
         style={{
           padding: 1,
@@ -63,7 +80,6 @@ const ReadOnlyColumn = ({
         {demande.montant_debloque}
       </Td>
       <Td
-      
         textAlign="center"
         style={{
           padding: 1,
@@ -75,7 +91,6 @@ const ReadOnlyColumn = ({
       </Td>
 
       <Td
-      
         textAlign="center"
         style={{
           padding: 2,
@@ -83,7 +98,7 @@ const ReadOnlyColumn = ({
           whiteSpace: "pre-wrap",
         }}
       >
-        <Menu isLazy>
+        <Menu>
           <MenuButton
             as={IconButton}
             aria-label="Options"
@@ -109,15 +124,17 @@ const ReadOnlyColumn = ({
               Demande
             </MenuItem>
             {(demande["statusCredit"] === status[8] ||
-                demande["statusCredit"] === status[0]) && (<MenuItem
-                  height={4}
-                  fontSize={"sm"}
-                  icon={<FaFileSignature />}
-                  onClick={(event) => handleDownloadMandat(event, demande)}
-                >
-                  Mandat
-                </MenuItem>)}
-           
+              demande["statusCredit"] === status[0]) && (
+              <MenuItem
+                height={4}
+                fontSize={"sm"}
+                icon={<FaFileSignature />}
+                onClick={(event) => handleDownloadMandat(event, demande)}
+              >
+                Mandat
+              </MenuItem>
+            )}
+
             <Link
               to={"/dashboard/viewProspect"}
               state={{
@@ -126,7 +143,7 @@ const ReadOnlyColumn = ({
               }}
             >
               <MenuItem height={4} fontSize={"sm"} icon={<FaUserEdit />}>
-              Modifier
+                Modifier
               </MenuItem>
             </Link>
             <MenuItem

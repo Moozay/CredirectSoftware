@@ -9,6 +9,9 @@ import {
   Text,
   Heading,
   Box,
+  useToast,
+  Radio,
+  RadioGroup, 
   HStack,
   VStack,
   Button,
@@ -18,15 +21,72 @@ import { UpdateContext } from "context/UpdateContext";
 import { Keys } from "assets/lang/Keywords";
 import { DemandeContext } from "context/DemandeContext";
 import { useContext } from "react";
+import { UserContext } from "context/UserContext";
 import CurrencyFormat from "react-currency-format";
 
 const Demande = ({ isOpen, onClose, demande, status }) => {
   const { demandes, setDemandes } = useContext(DemandeContext);
   const isMounted = useRef(false);
   const { changeStringToFloat } = useContext(UpdateContext);
- 
+
+  const [users, setUsers] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [creditAgent, setCreditAgent] = useState({});
+  const { user, setUser } = useContext(UserContext);
+  const toast = useToast();
+  const handleModify = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleChange = (e) => {
+    setCreditAgent(e);
+    console.log(e);
+  };
+
+  const handleSubmit = () => {
+    console.log(creditAgent);
+    const updateCreditAgent = {
+      credit_id: demande["credit_id"],
+      agent_id: creditAgent,
+    };
+    axiosInstance
+      .post(
+        `credits/agentupdate/${updateCreditAgent.credit_id}/${updateCreditAgent.agent_id}`
+      )
+      .then((response) => {
+        toast({
+          title: `Enregistrement mis à jour avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500,
+        });
+        console.log(response);
+      })
+      .catch((error) => {
+        toast({
+          title: `Enregistrement non mis à jours`,
+          status: error,
+          isClosable: true,
+          duration: 1500,
+        });
+      });
+    setIsEditing(false);
+    console.log(updateCreditAgent);
+  };
+
   useEffect(() => {
-    console.log(demande);
+    const initialize = async () => {
+      if (user["role"] !== "Agent") {
+        const response = await axiosInstance.get("/users/agents");
+        const filteredAgents = response.data.filter((agent)=>
+        agent["status"] === true
+      )
+      setUsers(filteredAgents);
+      }
+    };
+    initialize();
+    setCreditAgent(demande["agent_id"]);
+    console.log(users);
   }, [demande]);
 
   return (
@@ -268,7 +328,49 @@ const Demande = ({ isOpen, onClose, demande, status }) => {
                   </Flex>
                 )}
               </HStack>
-         </VStack>
+              {user["role"] !== "Agent" && (
+                <>
+                  {" "}
+                  <VStack>
+                    <Heading fontSize={"xl"}>Agent chargé</Heading>
+                    <RadioGroup
+                      value={creditAgent}
+                      onChange={handleChange}
+                      isDisabled={!isEditing}
+                    >
+                      <VStack direction="row" align={"flex-start"}>
+                        {users.map((user, index) => (
+                          <Radio
+                            size={"sm"}
+                            value={user["user_id"]}
+                            key={user["user_name"]}
+                          >
+                            {user["user_name"]}
+                          </Radio>
+                        ))}
+                      </VStack>
+                    </RadioGroup>
+                  </VStack>
+                  {!isEditing ? (
+                    <Button
+                      colorScheme={"orange"}
+                      size={"xs"}
+                      onClick={handleModify}
+                    >
+                      Modifier
+                    </Button>
+                  ) : (
+                    <Button
+                      colorScheme={"orange"}
+                      size={"xs"}
+                      onClick={handleSubmit}
+                    >
+                      Soumettre
+                    </Button>
+                  )}
+                </>
+              )}
+            </VStack>
           ) : (
             <>
               <Text>Empty data</Text>

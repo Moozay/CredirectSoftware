@@ -4,6 +4,7 @@ from app.services.coemp_service import CoempService
 from app.schemas.prospect_schema import ProspectCreate , ProspectUpdate, ProspectOut
 from uuid import UUID
 from typing import List, Optional
+from app.services.user_service import UserService
 from app.models.prospect_model import Prospect 
 import pymongo
 
@@ -59,9 +60,14 @@ class ProspectService:
         if not Prospect:
             raise pymongo.errors.OperationFailure("Prospect not found")
         return record
-
-        
-
+    
+    @staticmethod
+    async def update_agent_update(prospect_id, agent_id):
+        prospect = await Prospect.find_one(Prospect.prospect_id == prospect_id)
+        user = await UserService.get_user_by_id(agent_id)
+        await prospect.update({"$set": {"agent_id": user.user_id}})
+        return prospect
+    
     @staticmethod
     async def delete_prospect(id: UUID):
         prospect = await Prospect.find_one(Prospect.prospect_id == id)

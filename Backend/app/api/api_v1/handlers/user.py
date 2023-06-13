@@ -72,6 +72,11 @@ async def get_users(user:User = Depends(get_current_user)):
     return await UserService.get_users()
 
 
+@user_router.get('/all_active', summary="get all active users", response_model=List[UserOut])
+async def get_users(user:User = Depends(get_current_user)):
+    return await UserService.get_active_users()
+
+
 @user_router.get('/agents', summary="get all agents", response_model=List[UserOut])
 async def get_users(user:User = Depends(get_current_user)):
     return await UserService.get_agents()

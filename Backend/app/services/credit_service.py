@@ -12,6 +12,7 @@ from typing import List, Optional
 from beanie.operators import In
 from fastapi import Request
 from fastapi.responses import FileResponse
+from fastapi import HTTPException
 from app.models.credit_model import Credit
 from fastapi.templating import Jinja2Templates
 from app.models.demande_credit_model import DemandeCredit
@@ -67,7 +68,8 @@ class CreditService:
             },
             coemp=credit.coemp,
             prospect_revenue=credit.prospect_revenue,
-            engagements_bancaires=credit.engagements_bancaires
+            engagements_bancaires=credit.engagements_bancaires,
+            agent_id=credit.agent_id
         )
         await credit_in.save()
         return credit_in
@@ -88,8 +90,7 @@ class CreditService:
         credit = await Credit.find_one(Credit.credit_id == id)
         if not Credit:
             raise pymongo.errors.OperationFailure("Credit not found")
-
-        if data.statusCredit == "Débloqué":
+        if data.statusCredit == "Débloqué" and credit.statusCredit != "Débloqué":
             data.date_debloque = datetime.utcnow()
         await credit.update({"$set": data.dict(exclude_unset=True)})
         return credit
@@ -203,6 +204,8 @@ class CreditService:
 
     @staticmethod
     async def change_string_float(montant: str):
+        if montant == '':
+            return 0
         montant = montant.replace(" ", "")
         montant = montant.replace(",", ".")
         montant = float(montant)
@@ -224,6 +227,15 @@ class CreditService:
         elif bank == "CDM":
             await CreditService.generate_cdm_facture(start, end, bank)
             fileLocation = "app/temp/facture_cdm.xlsx"
+        elif bank == "BMCI":
+            await CreditService.generate_bmci_facture(start, end, bank)
+            fileLocation = "app/temp/facture_bmci.xlsx"
+        elif bank == "SGMB":
+            await CreditService.generate_sgmb_facture(start, end, bank)
+            fileLocation = "app/temp/facture_sgmb.xlsx"
+        elif bank == "BP":
+            await CreditService.generate_bp_facture(start, end, bank)
+            fileLocation = "app/temp/facture_bp.xlsx"
         headers = {'Content-Disposition': 'attachment; filename="Book.xlsx"'}
         return FileResponse(fileLocation, headers=headers, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
@@ -236,6 +248,8 @@ class CreditService:
             "$gte": datetime.strptime(start, '%d/%m/%Y'),
             "$lte": datetime.strptime(end, '%d/%m/%Y'),
         }}).to_list()
+        if demandes.__len__() == 0 :
+            raise HTTPException(status_code=404, detail="Aucun enregistrement trouvé")
         today_date = datetime.now().strftime("%m/%d/%Y")
         ws.cell(row=10, column=5).value = today_date
         locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
@@ -295,8 +309,8 @@ class CreditService:
             ws.cell(row=row, column=3).value = prospect.cin_sejour
             ws.cell(row=row, column=5).value = prospect.profession
             ws.cell(row=row, column=6).value = demande.prospect_revenue
-            ws.cell(row=row, column=7).value = await CreditService.change_string_float(demande.montant_debloque)
-            ws.cell(row=row, column=8).value = demande.date_debloque.strftime("%B").capitalize()
+            ws.cell(row=row, column=8).value = await CreditService.change_string_float(demande.montant_debloque)
+            ws.cell(row=row, column=7).value = demande.date_debloque.strftime("%B").capitalize()
             ws.cell(row=row, column=9).value = await CreditService.change_string_float(demande.hb)
 
             ws.cell(row=row, column=2).border = thin_border
@@ -310,6 +324,153 @@ class CreditService:
 
         wb.save("app/temp/facture_cdm.xlsx")
 
+    @staticmethod
+    async def generate_bmci_facture(start, end, bank):
+        wb = openpyxl.load_workbook("app/static/facture_bmci.xlsx")
+        ws = wb["Sheet1"]
+        start_row = 14
+        demandes = await Credit.find_many({"banque": "BMCI", "statusCredit": "Débloqué", "status_honnaires.hb": False, "date_debloque": {
+            "$gte": datetime.strptime(start, '%d/%m/%Y'),
+            "$lte": datetime.strptime(end, '%d/%m/%Y'),
+        }}).to_list()
+        if demandes.__len__() == 0 :
+            raise HTTPException(status_code=404, detail="Aucun enregistrement trouvé")
+        today_date = datetime.now().strftime("%m/%d/%Y")
+        ws.cell(row=10, column=6).value = today_date
+        locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+        selected_month = datetime.strptime(start, '%d/%m/%Y').strftime("%B").capitalize()
+        selected_year = datetime.strptime(start, '%d/%m/%Y').strftime("%Y")
+        sub_heading = "Commissions dues par votre organisme au titre des crédits débloqués pendant le mois de" + \
+            " "+selected_month+" , " + selected_year
+        ws.cell(row=12, column=2).value = sub_heading
+        thin_border = Border(left=Side(style='thin'),
+                             right=Side(style='thin'),
+                             top=Side(style='thin'),
+                             bottom=Side(style='thin'))
+        ws.insert_rows(start_row, amount=demandes.__len__())
+        for i, demande in enumerate(demandes):
+            prospect = await Prospect.find_one(Prospect.prospect_id == demande.prospect_id)
+            row = start_row + i
+            
+            ws.cell(row=row, column=2).value = prospect.nom + \
+                " " + prospect.prenom
+            ws.cell(row=row, column=3).value = prospect.cin_sejour
+            bank = [b for b in demande.banque_envoye if b["banque"] == "BMCI"]
+            agency = bank[0]['agence']
+            if agency is None :
+                 agency = ""
+            ws.cell(row=row, column=4).value = bank[0]['agence']
+            ws.cell(row=row, column=5).value = await CreditService.change_string_float(demande.montant)
+            ws.cell(row=row, column=6).value = await CreditService.change_string_float(demande.hb)
+
+            ws.cell(row=row, column=2).border = thin_border
+            ws.cell(row=row, column=3).border = thin_border
+            ws.cell(row=row, column=4).border = thin_border
+            ws.cell(row=row, column=5).border = thin_border
+            ws.cell(row=row, column=6).border = thin_border
+           
+        wb.save("app/temp/facture_bmci.xlsx")
+
+    @staticmethod
+    async def generate_sgmb_facture(start, end, bank):
+        wb = openpyxl.load_workbook("app/static/facture_sgmb.xlsx")
+        ws = wb["Sheet1"]
+        start_row = 14
+        demandes = await Credit.find_many({"banque": "SGMB", "statusCredit": "Débloqué", "status_honnaires.hb": False, "date_debloque": {
+            "$gte": datetime.strptime(start, '%d/%m/%Y'),
+            "$lte": datetime.strptime(end, '%d/%m/%Y'),
+        }}).to_list()
+        if demandes.__len__() == 0 :
+            raise HTTPException(status_code=404, detail="Aucun enregistrement trouvé")
+        today_date = datetime.now().strftime("%m/%d/%Y")
+        ws.cell(row=10, column=7).value = today_date
+        locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+        selected_month = datetime.strptime(start, '%d/%m/%Y').strftime("%B").capitalize()
+        selected_year = datetime.strptime(start, '%d/%m/%Y').strftime("%Y")
+        sub_heading = "Commissions dues par votre organisme au titre des crédits débloqués pendant le mois de" + \
+            " "+selected_month+" , " + selected_year
+        ws.cell(row=12, column=2).value = sub_heading
+        thin_border = Border(left=Side(style='thin'),
+                             right=Side(style='thin'),
+                             top=Side(style='thin'),
+                             bottom=Side(style='thin'))
+        ws.insert_rows(start_row, amount=demandes.__len__())
+        for i, demande in enumerate(demandes):
+            prospect = await Prospect.find_one(Prospect.prospect_id == demande.prospect_id)
+            row = start_row + i
+            
+            ws.cell(row=row, column=2).value = prospect.nom + " " + prospect.prenom
+            ws.cell(row=row, column=3).value = prospect.cin_sejour
+            bank = [b for b in demande.banque_envoye if b["banque"] == "SGMB"]
+            agency = bank[0]['agence']
+            if agency is None :
+                 agency = ""
+            ws.cell(row=row, column=4).value = bank[0]['agence']
+            ws.cell(row=row, column=5).value = await CreditService.change_string_float(demande.montant_valide)
+            ws.cell(row=row, column=6).value = await CreditService.change_string_float(demande.montant_debloque)
+            ws.cell(row=row, column=7).value = await CreditService.change_string_float(demande.hb)
+
+            ws.cell(row=row, column=2).border = thin_border
+            ws.cell(row=row, column=3).border = thin_border
+            ws.cell(row=row, column=4).border = thin_border
+            ws.cell(row=row, column=5).border = thin_border
+            ws.cell(row=row, column=6).border = thin_border
+            ws.cell(row=row, column=7).border = thin_border
+            
+           
+        wb.save("app/temp/facture_sgmb.xlsx")
+
+
+    @staticmethod
+    async def generate_bp_facture(start, end, bank):
+        wb = openpyxl.load_workbook("app/static/facture_bp.xlsx")
+        ws = wb["Sheet1"]
+        start_row = 14
+        demandes = await Credit.find_many({"banque": "BP", "statusCredit": "Débloqué", "status_honnaires.hb": False, "date_debloque": {
+            "$gte": datetime.strptime(start, '%d/%m/%Y'),
+            "$lte": datetime.strptime(end, '%d/%m/%Y'),
+        }}).to_list()
+        if demandes.__len__() == 0 :
+            raise HTTPException(status_code=404, detail="Aucun enregistrement trouvé")
+        today_date = datetime.now().strftime("%m/%d/%Y")
+        ws.cell(row=10, column=7).value = today_date
+        locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
+        selected_month = datetime.strptime(start, '%d/%m/%Y').strftime("%B").capitalize()
+        selected_year = datetime.strptime(start, '%d/%m/%Y').strftime("%Y")
+        sub_heading = "Commissions dues par votre organisme au titre des crédits débloqués pendant le mois de" + \
+            " "+selected_month+" , " + selected_year
+        ws.cell(row=12, column=2).value = sub_heading
+        thin_border = Border(left=Side(style='thin'),
+                             right=Side(style='thin'),
+                             top=Side(style='thin'),
+                             bottom=Side(style='thin'))
+        ws.insert_rows(start_row, amount=demandes.__len__())
+        for i, demande in enumerate(demandes):
+            prospect = await Prospect.find_one(Prospect.prospect_id == demande.prospect_id)
+            row = start_row + i
+            
+            ws.cell(row=row, column=2).value = prospect.nom + " " + prospect.prenom
+            ws.cell(row=row, column=3).value = prospect.cin_sejour
+            bank = [b for b in demande.banque_envoye if b["banque"] == "BP"]
+            agency = bank[0]['agence']
+            if agency is None :
+                 agency = ""
+            ws.cell(row=row, column=4).value = bank[0]['agence']
+            ws.cell(row=row, column=5).value = await CreditService.change_string_float(demande.montant_valide)
+            ws.cell(row=row, column=6).value = await CreditService.change_string_float(demande.montant_debloque)
+            ws.cell(row=row, column=7).value = await CreditService.change_string_float(demande.hb)
+
+            ws.cell(row=row, column=2).border = thin_border
+            ws.cell(row=row, column=3).border = thin_border
+            ws.cell(row=row, column=4).border = thin_border
+            ws.cell(row=row, column=5).border = thin_border
+            ws.cell(row=row, column=6).border = thin_border
+            ws.cell(row=row, column=7).border = thin_border
+            
+           
+        wb.save("app/temp/facture_bp.xlsx")
+
+    
     @staticmethod
     async def create_consommation_mandat(credit_id: UUID):
         doc = DocxTemplate("app/static/mandat_conso.docx")
@@ -435,10 +596,11 @@ class CreditService:
 
     @staticmethod
     async def bulk_update():
-        credits = await Credit.find_many({"date_debloque": {"$type": 'string'}}).to_list()
+        credits = await Credit.find_all().to_list()
         for credit in credits:
-            date_debloque = datetime.fromisoformat(str(credit.date_debloque))
-            await credit.update({"$set": {"date_debloque": date_debloque}})
+            prospect = await Prospect.find_one(Prospect.prospect_id == credit.prospect_id)
+            credit.agent_id = prospect.agent_id
+            await credit.save()
         return credits
 
     @staticmethod
@@ -450,7 +612,14 @@ class CreditService:
                 "pipeline": [
                     {"$match": {
                         "$expr": {"$eq": ["$$prospect_id", "$prospect_id"]}}},
-                    {"$lookup": {
+                ],
+                "as": "prospectInfo"
+            }
+        },
+            {
+            "$unwind": "$prospectInfo"
+        },
+         {"$lookup": {
 
                         "from": "users",
                         "localField": "agent_id",
@@ -460,29 +629,20 @@ class CreditService:
                     {
                         "$unwind": "$agentInfo"
                     },
-                ],
-                "as": "prospectInfo"
-            }
-        },
-            {
-            "$unwind": "$prospectInfo"
-        },
             {
             "$project": {
                 "prospectInfo": {
                     "nom": 1,
                     "prenom": 1,
                     "cin_sejour": 1,
-                    "agentInfo": {
-                        "user_name": 1,
-                        "email": 1,
-                    },
                     "type_profession": 1,
                     "caisse": 1,
                     "renseignements_bancaires": 1,
-
-
                 },
+                "agentInfo": {
+                        "user_name": 1,
+                        "email": 1,
+                    },
                 "adresse_bien": 1,
                 "banque": 1,
                 "commentaires": 1,
@@ -523,6 +683,7 @@ class CreditService:
                 "prospect_revenue": 1,
                 "banque_envoye": 1,
                 "date_debloque": 1,
+                "agent_id": 1,
 
             }
         }]).to_list()
@@ -530,7 +691,7 @@ class CreditService:
         if user.role == 'Agent':
             newList = []
             for record in credits_obj:
-                if record["prospectInfo"]["agentInfo"]["email"] == user.email:
+                if record["agentInfo"]["email"] == user.email:
                     newList.append(record)
             credits_obj = newList
 
@@ -542,9 +703,18 @@ class CreditService:
         return credit
 
     @staticmethod
-    async def get_credits_bulk_update(id: UUID) -> List[CreditOut]:
-        credits = await Credit.find_all().to_list()
-        return credits
+    async def get_credits_bulk_update(prospect_id, agent_id):
+        credit = await Credit.find_one(Credit.credit_id == prospect_id)
+        user = await UserService.get_user_by_id(agent_id)
+        await credit.update({"$set": {"agent_id": user.user_id}})
+        return credit
+    
+    @staticmethod
+    async def update_agent_update(credit_id, agent_id):
+        credit = await Credit.find_one(Credit.credit_id == credit_id)
+        user = await UserService.get_user_by_id(agent_id)
+        await credit.update({"$set": {"agent_id": user.user_id}})
+        return credit
 
     @staticmethod
     async def get_prospect_record(id: UUID):

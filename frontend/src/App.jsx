@@ -19,7 +19,7 @@ import { Flex, Spinner } from '@chakra-ui/react'
 import PublicRoute from 'components/Auth/PublicRoute'
 import Authenticated from 'components/Auth/Authenticated'
 import Users from 'components/Admin/Users/Users'
-import Prospects from 'components/Prospects/Prospects'
+import ViewProspects from 'components/Prospects/ViewProspects'
 import Prospect from 'components/Prospects/Prospect/Prospect'
 
 
@@ -71,7 +71,7 @@ const App = () => {
                     <Route path="client" exact element={<Authenticated><Client/></Authenticated>}/>
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Admin","Manager"]}/>}>
-                  < Route path="prospects" exact element={<Authenticated><Prospects/></Authenticated>}/>
+                  < Route path="prospects" exact element={<Authenticated><ViewProspects/></Authenticated>}/>
                   </Route>
                   <Route element={<AuthRoute allowedRoles={["Agent","Admin","Manager"]}/>}>
                   <Route path="prospect" exact element={<Authenticated><Prospect/></Authenticated>}/>
@@ -89,7 +89,7 @@ const App = () => {
                     <Route path="viewProspect" exact element={<Authenticated><ViewProspect/></Authenticated>}/>
                   </Route>
                  
-              </Route>
+              </Route>......
 
               <Route path="auth" element={<Auth />}>
                 <Route path="login" element={<PublicRoute><Login/></PublicRoute>} />

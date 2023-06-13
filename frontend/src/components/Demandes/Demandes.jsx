@@ -570,14 +570,7 @@ const Demandes = () => {
           </Select>
         </Box>
       </Flex>
-      <Confirmation
-        header={`Supprimer demande: ${showConfirmation.payLoad.type_credit}`}
-        content={"Voulez-vous effectuer cette opération ?"}
-        setShowConfirmation={setShowConfirmation}
-        showConfirmation={showConfirmation.show}
-        payLoad={showConfirmation.payLoad}
-        action={handleDelete}
-      />
+     
 
       {filteredList.length > 0 ? (
         <TableContainer
@@ -771,7 +764,7 @@ const Demandes = () => {
                           whiteSpace: "pre-wrap",
                         }}
                       >
-                        {demande.prospectInfo.agentInfo.user_name}
+                        {demande.agentInfo.user_name}
                       </Td>
                       <Td
                         textAlign="center"
@@ -799,6 +792,7 @@ const Demandes = () => {
                           handleEditClick={handleEditClick}
                           handleDeleteClick={handleDeleteClick}
                           handleClick={handleClick}
+                          handleDelete={handleDelete}
                           handleDownloadDc={handleDownloadDc}
                           handleDownloadMandat={handleDownloadMandat}
                         />

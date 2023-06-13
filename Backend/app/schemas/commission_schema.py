@@ -31,3 +31,4 @@ class CommissionUpdate(BaseModel):
     objectif_honoraire : str
     objectif_deblocage : str
     taux_objectif : str
+    date_modified: datetime

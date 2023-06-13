@@ -35,6 +35,10 @@ async def get_prospect(prospect_id: UUID):
 async def get_prospect(prospect_id: UUID):
     return await ProspectService.get_prospect_record(prospect_id)
 
+@prospect_router.post('/agentupdate/{prospect_id}/{agent_id}', summary="update prospect's agent")
+async def get_credits_bulk_update(prospect_id:UUID, agent_id:UUID):
+    return await ProspectService.update_agent_update(prospect_id, agent_id)
+
 @prospect_router.get('/all', summary="get all prospects", response_model=List[ProspectOut])
 async def get_prospects(user: User = Depends(get_current_user)):
     return await ProspectService.get_prospects(user)

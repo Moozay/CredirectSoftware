@@ -94,6 +94,7 @@ class CreditCreate(BaseModel):
     prospect_revenue: Optional[str]
     coemp: Optional[list[UUID]]
     date_debloque : Optional[datetime]
+    agent_id: Optional[UUID]
 
 
 
@@ -182,6 +183,7 @@ class CreditOut(BaseModel):
     prospect_revenue: Optional[str]
     coemp: Optional[list[UUID]]
     date_debloque : Optional[datetime]
+    agent_id: Optional[UUID]
 
 
 
@@ -222,11 +224,13 @@ class CreditDisplay(BaseModel):
     promoteur : Optional[str]
     date : Optional[datetime]
     prospectInfo: dict
+    agentInfo: dict
     status_honnaires: Optional[dict]
     engagements_bancaires:Optional[list]
     prospect_revenue: Optional[str]
     coemp: Optional[list[UUID]]
     date_debloque : Optional[datetime]
+    agent_id: Optional[UUID]
    
 class Credit_date(BaseModel):
     credit_id: UUID

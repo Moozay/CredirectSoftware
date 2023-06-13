@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { 
   Input,
   Tr,
@@ -23,6 +23,7 @@ import {
 import {VscSymbolNamespace} from "react-icons/vsc"
 import {BsCheck} from 'react-icons/bs'
 import {AiOutlinePhone} from 'react-icons/ai'
+import { UserContext } from "context/UserContext";
 
 const EditableColumn = ({
   editCreditForm,
@@ -32,7 +33,7 @@ const EditableColumn = ({
   status,
   banques
 }) => {
-  
+  const { user, setUser } = useContext(UserContext);
   return (
     <>
     <Td  style={{ padding: 2 }} textAlign="center">
@@ -42,6 +43,7 @@ const EditableColumn = ({
          name="statusCredit"
          onChange={handleEditCreditChange}
          icon={<MdAdminPanelSettings/>}
+         pointerEvents={editCreditForm.statusCredit === "Débloqué" && user["role"] === "Agent"? "none" : ""}
          >
          {
          status.map( status => {

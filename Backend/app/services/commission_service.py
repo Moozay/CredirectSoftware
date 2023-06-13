@@ -22,6 +22,7 @@ class CommissionService:
 
     @staticmethod
     async def update_comission(data: CommissionUpdate) -> Commission:
+        data.date_modified = datetime.utcnow()
         await Commission.find_one(Commission.comission_id == data.comission_id).update({'$set': data})
 
     @staticmethod

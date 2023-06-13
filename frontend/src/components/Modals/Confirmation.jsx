@@ -8,18 +8,21 @@ import {
     ModalCloseButton,
     ModalBody,
     ModalFooter,
-    ModalContent
+    ModalContent,
+      AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
   } from '@chakra-ui/react'
 
 const confirmation = ({showConfirmation, setShowConfirmation, header, content, action,payLoad}) => {
     
     
     const handleClose = () => {
-      setShowConfirmation({
-        ...showConfirmation,
-        show: false,
-        payLoad: {}
-      })
+      setShowConfirmation(false)
     }
 
     const handleSubmit = (event,payLoad) => {
@@ -31,11 +34,11 @@ const confirmation = ({showConfirmation, setShowConfirmation, header, content, a
     return (
         <> 
         
-          <Modal closeOnEsc size="3xl" isCentered isOpen={showConfirmation} onClose={handleClose}>
+          <Modal closeOnEsc size="2xl" isCentered isOpen={showConfirmation} onClose={()=>setShowConfirmation(false)} motionPreset="none" trapFocus={false}>
             <ModalOverlay bg='none'
                 backdropFilter='auto'
-                backdropInvert='20%'
-                backdropBlur='8px'/>
+                backdropInvert='10%'
+                backdropBlur='1px'/>
 
                     <ModalContent>
                     

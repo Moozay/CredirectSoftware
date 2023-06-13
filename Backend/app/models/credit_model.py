@@ -67,6 +67,7 @@ class Credit(Document):
     prospect_revenue: Optional[str]
     coemp: Optional[list[UUID]]
     date_debloque : Optional[datetime]
+    agent_id: Optional[UUID]
 
     class Config:  
         use_enum_values = True

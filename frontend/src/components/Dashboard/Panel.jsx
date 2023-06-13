@@ -219,6 +219,7 @@ const Panel = () => {
     newDate["end"] = date;
     setSelectedDate(newDate);
     getStat(demandes);
+    console.log(date);
   };
   const handleCreditChange = (e) => {
     const newSelectedCredit = selectedCredit;
@@ -264,7 +265,7 @@ const Panel = () => {
       demandes.map((demande) => {
         if (
           selectedAgent.includes(
-            demande["prospectInfo"]["agentInfo"]["user_name"]
+            demande["agentInfo"]["user_name"]
           )
         ) {
           filteredList.push(demande);
@@ -350,9 +351,10 @@ const Panel = () => {
       return [...demandes];
     } else if (selectedDate["start"] !== null && selectedDate["end"] !== null) {
       demandes.map((demande) => {
-        if (demande["date_debloque"] !== null) {
-          const demandeDate = new Date(demande["date_debloque"]);
-          if (demandeDate >= start && demandeDate <= end) {
+        if (demande["date_debloque"] !== null && demande["statusCredit"] === "Débloqué") {
+          const debloqueDate = new Date(demande["date_debloque"]);
+          console.log();
+          if (debloqueDate >= start && debloqueDate <= end) {
             filteredList.push(demande);
           }
         }
@@ -441,6 +443,16 @@ const Panel = () => {
       const blob = new Blob([response.data],{type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
       const fileName = "facture_"+selectedBanque[0]+"_"+dates.start+"-"+dates.end+".xlsx"
       FileSaver.saveAs(blob, fileName)
+     })
+     .catch(err=>{
+      console.log(err);
+        toast({
+          title: "Aucun enregistrement trouvé",
+          status: "error",
+          isClosable: true,
+          duration: 1500,
+        });
+        return
      })
     
   };
@@ -630,6 +642,26 @@ const Panel = () => {
 
   const updateCommissionData = () => {
     console.log("submitting commission data");
+    const payLoad = commissionData
+    payLoad["date_modified"] = new Date().toISOString()
+    axiosInstance
+      .post("commissions/update", payLoad)
+      .then((response) => {
+        toast({
+          title: `Enregistrement  avec succès`,
+          status: "success",
+          isClosable: true,
+          duration: 1500,
+        });
+      })
+      .catch((error) => {
+        toast({
+          title: `Enregistrement non mis à jours`,
+          status: error,
+          isClosable: true,
+          duration: 1500,
+        });
+      });
     console.log(commissionData);
   };
 
@@ -821,7 +853,7 @@ const Panel = () => {
                     size="xs"
                     name="objectif_honoraire"
                     _placeholder={""}
-                    value={commissionData.objectif_honoraire}
+                    value={commissionData?.objectif_honoraire}
                     type="text"
                     disabled={user.role === "Agent"}
                     onChange={handleCommissionDataChange}
@@ -836,7 +868,7 @@ const Panel = () => {
                     size="xs"
                     variant={"flushed"}
                     _placeholder={{ color: "gray.500" }}
-                    value={commissionData.objectif_deblocage}
+                    value={commissionData?.objectif_deblocage}
                     type="text"
                     disabled={user.role === "Agent"}
                     onChange={handleCommissionDataChange}
@@ -851,7 +883,7 @@ const Panel = () => {
                     size="xs"
                     variant={"flushed"}
                     _placeholder={{ color: "gray.500" }}
-                    value={commissionData.taux_objectif}
+                    value={commissionData?.taux_objectif}
                     type="text"
                     disabled={user.role === "Agent"}
                     onChange={handleCommissionDataChange}
@@ -1322,7 +1354,7 @@ const Panel = () => {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {filteredList.map((demande, index) => {
+                    {factureList.map((demande, index) => {
                       return (
                         <Tr key={demande.credit_id}>
                           <Td

@@ -175,6 +175,7 @@ const DemandeCredit = () => {
     creditCreate["banque_envoye"] = banquEnvoye
     creditCreate["coemp"] = coemp_id === null ? null:[coemp_id]
     creditCreate["engagements_bancaires"] = donneesBancaires["engagements_bancaires"]
+    creditCreate['agent_id'] = agent_id
     console.log(prospect["revenue"]);
 
     

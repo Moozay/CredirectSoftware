@@ -193,7 +193,7 @@ export const CreditProvider = (props) => {
       nom: prospect["nom"],
       prenom: prospect["prenom"],
       nature_credit: data["type_credit"],
-      echeance: data["mensualite"],
+      echeance: data["mensualite"].replace(".", ","),
       organisme: data["banque"],
       duree: data["duree_credit"],
       rat: "Non",

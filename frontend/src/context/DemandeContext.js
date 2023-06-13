@@ -8,17 +8,17 @@ export const DemandeProvider = (props) => {
     const [ demandes, setDemandes ] = useState([])
     const [ reloadDemandes, setReloadDemandes ] = useState(true)
     const isMounted = useRef(false)
-
+    const initialize = async () => {
+        const response = await axiosInstance.get("/credits/all")
+        setDemandes(response.data.reverse())
+        setReloadDemandes(false)
+    }
     useEffect(() => {
         if(reloadDemandes){
             isMounted.current = false
         }
         if( isMounted.current == true) return
-        const initialize = async () => {
-            const response = await axiosInstance.get("/credits/all")
-            setDemandes(response.data.reverse())
-            setReloadDemandes(false)
-        }
+       
         initialize()
         isMounted.current = true
     },[demandes, reloadDemandes])

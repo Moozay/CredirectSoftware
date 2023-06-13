@@ -13,7 +13,7 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://192.168.11.200:3000",
         "http://192.168.11.200:3100",
-        'http://localhost:4000'
+        "http://197.230.72.125:3000",
     ]
     PROJECT_NAME: str = "CREDIRECT PROJECT"
     VERSION: str = "1.1"
