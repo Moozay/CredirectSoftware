@@ -79,8 +79,8 @@ const DemandeCredit = () => {
   const addCredit = async(event) =>{
     event.preventDefault()
     const credit_id = uuidv4()
+    const agent_id = await getUserId() 
     const coemp_id = donneesPersonelles.emprunteur["hasCoEmprunteur"] == "true" ? uuidv4() : null
-
     //create coemp record
     if(coemp_id != null){
       const coemp_in = donneesPersonelles.co_emprunteur
@@ -111,6 +111,7 @@ const DemandeCredit = () => {
     creditCreate["banque_envoye"] = banquEnvoye
     creditCreate["coemp"] = coemp_id === null ? null:[coemp_id]
     creditCreate["engagements_bancaires"] = donneesBancaires["engagements_bancaires"]
+    creditCreate['agent_id'] = agent_id
 
     axiosInstance.post("credits/add_credit",creditCreate)
       .then((response)=>{

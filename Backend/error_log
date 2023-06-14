@@ -2457,3 +2457,8 @@ pymongo.errors.ServerSelectionTimeoutError: ac-175djqt-shard-00-01.cbxao41.mongo
 [2023-06-13 14:46:09 +0100] [2013421] [INFO] Application startup complete.
 [2023-06-13 14:46:09 +0100] [2013419] [INFO] Application startup complete.
 [2023-06-13 14:46:09 +0100] [2013418] [INFO] Application startup complete.
+[2023-06-13 18:12:36 +0100] [2013421] [WARNING] Invalid HTTP request received.
+[2023-06-13 23:03:12 +0100] [2013418] [WARNING] Invalid HTTP request received.
+[2023-06-13 23:03:12 +0100] [2013418] [WARNING] Invalid HTTP request received.
+[2023-06-13 23:03:12 +0100] [2013419] [WARNING] Invalid HTTP request received.
+[2023-06-14 05:00:20 +0100] [2013420] [WARNING] Invalid HTTP request received.
